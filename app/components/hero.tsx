@@ -1,24 +1,73 @@
+"use client";
+import { Road_Rage } from "next/font/google";
+
+const roadRage = Road_Rage({
+  variable: "--font-road-rage",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export default function HeroSection() {
   return (
     <section
       className="text-center py-16 px-6 rounded-xl m-6"
       style={{
-        backgroundImage: "url('/HeroBG.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "#cbb89d",
+      backgroundImage: "url('/HeroBG.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundColor: "#cbb89d",
+      position: "relative",
+      overflow: "hidden",
       }}
     >
-      <h1 className="text-3xl md:text-6xl font-bold text-[#3a220f]">
+      {/* Blur overlay */}
+      <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(2px)",
+        zIndex: 0,
+      }}
+      />
+      <div style={{ position: "relative", zIndex: 1 }}>
+      <h1
+        className={`pt-[70px] font-bold ${roadRage.variable}`}
+        style={{
+        color: "#000",
+        textAlign: "center",
+        fontFamily: "var(--font-road-rage), 'Road Rage', cursive",
+        fontSize: "120px",
+        fontStyle: "normal",
+        fontWeight: 400,
+        lineHeight: "102px",
+        }}
+      >
         Learn Computer Science & Engineering<br />the Open Way.
       </h1>
-      <p className="mt-4 text-4xl text-gray-800">
+      <p
+        className="mt-6 text-5xl text-black"
+        style={{
+        fontFamily: "'Rockwell', 'Serif', serif",
+        }}
+      >
         Free, open, and beginner-friendly documentation<br /> for all CSE subjects.
       </p>
-      <button className="mt-18 px-6 py-3 bg-[#3a220f] text-white rounded-full font-semibold">
+      <button
+        onClick={() => {
+          const el = document.getElementById("subjects");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="mt-18 mb-10 px-18 py-6 rounded-full text-5xl hover:bg-[#5a3411] transition-all duration-300 text-white hover:scale-105 cursor-pointer"
+        style={{
+          fontFamily: "'Rockwell', 'Serif', serif",
+          background: "linear-gradient(90deg, #3a220f 0%, #5a3411 100%)",
+        }}
+      >
         Explore Subjects
       </button>
+      </div>
     </section>
   );
 }

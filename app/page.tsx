@@ -7,7 +7,13 @@ import SubjectsSection from "./components/subjects";
 
 export default function Home() {
   return (
-    <div>
+    <div
+      style={{
+      scrollbarColor: "yellow transparent",
+      scrollbarWidth: "thin",
+      }}
+      className="scrollbar-yellow"
+    >
       <Navbar />
       <HeroSection />
       <hr className="mx-6 mb-6 mt-12 border-t" />
