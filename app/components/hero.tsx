@@ -59,10 +59,10 @@ export default function HeroSection() {
             const el = document.getElementById("subjects");
             if (el) el.scrollIntoView({ behavior: "smooth" });
           }}
-          className="mt-18 mb-10 px-18 py-6 rounded-full text-5xl hover:bg-[#5a3411] transition-all duration-300 text-white hover:scale-105 cursor-pointer"
+          className="mt-18 mb-10 px-18 py-6 rounded-full text-5xl hover:bg-[#38220b] transition-all duration-300 text-white hover:scale-105 cursor-pointer"
           style={{
             fontFamily: "'Rockwell', 'Serif', serif",
-            background: "linear-gradient(90deg, #3a220f 0%, #5a3411 100%)",
+            background: "#38220b",
           }}
         >
           Explore Subjects

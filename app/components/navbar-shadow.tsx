@@ -9,17 +9,17 @@ const roadRage = Road_Rage({
   weight: "400",
 });
 
-export default function Navbar() {
+export default function NavbarShadow() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
+    <nav className="w-full z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-[#1B0D00]">
       <div className="flex items-center gap-1">
-        <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" />
+        {/* <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" /> */}
         {/* <img src="/logo.png" alt="openCSE" className="w-38 h-17" /> */}
         <span
           className={`${roadRage.className} text-3xl font-bold`}
-          style={{ color: "white", fontSize: "30px" }}
+          style={{ color: "#1B0D00", fontSize: "35px" }}
         >
           openCSE
         </span>
@@ -28,7 +28,7 @@ export default function Navbar() {
       <ul
         className="hidden md:flex gap-6 font-bold"
         style={{
-          color: "white",
+          color: "#1B0D00",
           textAlign: "right",
           fontFamily: '"Road Rage", sans-serif',
           fontSize: "28px",
@@ -57,17 +57,17 @@ export default function Navbar() {
         onClick={() => setMenuOpen((open) => !open)}
       >
         <span
-          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${
+          className={`block w-8 h-1 bg-[#1B0D00] mb-1 transition-all duration-300 ${
             menuOpen ? "rotate-45 translate-y-2" : ""
           }`}
         />
         <span
-          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${
+          className={`block w-8 h-1 bg-[#1B0D00] mb-1 transition-all duration-300 ${
             menuOpen ? "opacity-0" : ""
           }`}
         />
         <span
-          className={`block w-8 h-1 bg-white transition-all duration-300 ${
+          className={`block w-8 h-1 bg-[#1B0D00] transition-all duration-300 ${
             menuOpen ? "-rotate-45 -translate-y-2" : ""
           }`}
         />
@@ -78,7 +78,7 @@ export default function Navbar() {
           <ul
             className="flex flex-col items-center gap-4 py-4 font-bold"
             style={{
-              color: "white",
+              color: "#1B0D00",
               fontFamily: '"Road Rage", sans-serif',
               fontSize: "28px",
               fontStyle: "normal",
