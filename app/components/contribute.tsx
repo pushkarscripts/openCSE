@@ -8,7 +8,7 @@ export default function ContributionsSection() {
         openCSE is community-driven. Want to add or improve docs? Contribute on GitHub.
       </p>
       <div className="mt-6 px-6 flex flex-col md:flex-row gap-8">
-        <img src="/contribute.png" alt="GitHub Issues" className="w-[40vw] shadow-md" />
+        <img src="/Contribute.png" alt="GitHub Issues" className="w-[40vw] shadow-md" />
         <div className="text-left max-w-[60vw]">
           <h3 className="font-semibold text-5xl mb-4" style={{ fontFamily: "'Rockwell', 'Serif', serif" }}>Browse and Tackle Issues</h3>
           <p className="mt-2 text-2xl" style={{ fontFamily: "'Rockwell', 'Serif', serif" }}>

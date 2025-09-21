@@ -22,7 +22,7 @@ export default function Home() {
       <ContributionsSection />
       <hr className="mx-70 mb-6 mt-10 border-t-4" />
       <SponsorSection />
-      <hr className="mx-70 mb-6 mt-18 border-t-4" />
+      {/* <hr className="mx-70 mb-6 mt-18 border-t-4" /> */}
       {/* <Footer /> */}
     </div>
   );

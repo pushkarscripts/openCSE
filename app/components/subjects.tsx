@@ -40,7 +40,7 @@ export default function SubjectsSection() {
               {list.map((subj) => (
                 <div
                   key={subj}
-                  className="bg-[#d2b48c] text-[#2b1b0e] flex items-center justify-center font-medium py-4 px-6 shadow-md"
+                  className="bg-[#d2b48c] text-[#2b1b0e] flex items-center justify-center font-medium py-4 px-6 shadow-md hover:scale-[98%]"
                 >
                   {subj}
                 </div>
