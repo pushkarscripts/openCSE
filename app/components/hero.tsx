@@ -10,7 +10,7 @@ const roadRage = Road_Rage({
 export default function HeroSection() {
   return (
     <section
-      className="text-center py-14 px-6 rounded-3xl mt-28 mx-15 mb-6"
+      className="text-center py-14 px-6 rounded-3xl mt-19 mx-15 mb-6"
       style={{
         backgroundImage: "url('/HeroBG.png')",
         backgroundSize: "cover",

@@ -18,9 +18,9 @@ export default function Home() {
       <HeroSection />
       <hr className="mx-70 mb-6 mt-18 border-t-4" />
       <SubjectsSection />
-      <hr className="mx-70 mb-6 mt-18 border-t-4" />
+      <hr className="mx-70 mb-6 mt-10 border-t-4" />
       <ContributionsSection />
-      <hr className="mx-70 mb-6 mt-18 border-t-4" />
+      <hr className="mx-70 mb-6 mt-10 border-t-4" />
       <SponsorSection />
       <hr className="mx-70 mb-6 mt-18 border-t-4" />
       {/* <Footer /> */}
