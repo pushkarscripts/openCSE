@@ -1,12 +1,12 @@
 // app/layout.tsx
-import Navbar from "../components/navbar";
-import NavbarShadow from "../components/navbar-shadow";
-import "../globals.css";
+import Navbar from "../../components/navbar";
+import NavbarShadow from "../../components/navbar-shadow";
+import "../../globals.css";
 import Sidebar from "./components/sidebar";
 
 export const metadata = {
-  title: "Docs Site",
-  description: "Chapters tutorial example",
+  title: "Engineering Physics | openCSE",
+  description: "Free and Open Documentations for Engineering Physics",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

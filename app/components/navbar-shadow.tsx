@@ -15,13 +15,19 @@ export default function NavbarShadow() {
   return (
     <nav className="w-full z-50 flex justify-center items-center pr-6 pl-4 py-1 bg-[#000000] text-[#000000]">
       <div className="flex items-center justify-center gap-1">
-        {/* <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" /> */}
-        {/* <img src="/logo.png" alt="openCSE" className="w-38 h-17" /> */}
+        {/* Desktop/Laptop */}
         <span
-          className={`${roadRage.className} text-3xl flex justify-center font-bold`}
+          className={`${roadRage.className} text-3xl flex justify-center font-bold hidden sm:flex`}
           style={{ color: "white", fontSize: "35px" }}
         >
           You scrolled too far… and bumped into the navigation bar. Ouch.
+        </span>
+        {/* Mobile/Small screens */}
+        <span
+          className={`${roadRage.className} text-2xl flex justify-center font-bold sm:hidden`}
+          style={{ color: "white", fontSize: "24px" }}
+        >
+          You&apos;re on top!
         </span>
       </div>
     </nav>
