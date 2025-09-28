@@ -13,7 +13,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
+    <nav className="sticky h-14 top-0 left-0 w-full z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
       <Link href="/"><div className="flex items-center gap-1">
         <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" />
         {/* <img src="/logo.png" alt="openCSE" className="w-38 h-17" /> */}

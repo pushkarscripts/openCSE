@@ -1,6 +1,5 @@
 // app/layout.tsx
 import Navbar from "../../components/navbar";
-import NavbarShadow from "../../components/navbar-shadow";
 import "../../globals.css";
 import Sidebar from "./components/sidebar";
 
@@ -16,7 +15,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
         {/* Navigation Bar */}
         <Navbar />
-        <NavbarShadow />
 
         <div className="flex flex-1">
           {/* Sidebar */}
