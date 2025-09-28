@@ -1,15 +1,18 @@
 export const Ch0Content = () => {
   return (
-    <div className="space-y-6" style={{ fontFamily: 'Rockwell, serif' }}>
+    <div className="course-content">
 
-      <p className="text-2xl font-normal mb-8">
-        Welcome to <span className="font-semibold">Engineering Physics for Computer Science</span>!<br /> This course focuses on the physics that really matters for computing and communication, covering semiconductors, superconductivity, electromagnetism, and networks while skipping unnecessary details.
+      <p className="p-text">
+        Welcome to <span className="font-semibold">Engineering Physics for Computer Science</span>!<br />
+        This course focuses on the physics that really matters for computing and communication, covering semiconductors, superconductivity, electromagnetism, and networks while skipping unnecessary details.
       </p>
 
       {/* Module I */}
       <section>
-        <h3 className="text-3xl font-bold">Module I: <span className="italic font-semibold">Vector Algebra & Fields</span></h3>
-        <ul className="list-disc text-2xl pt-1 pl-8 font-normal">
+        <h3 className="section-heading">
+          Module I: <span className="section-subheading">Vector Algebra & Fields</span>
+        </h3>
+        <ul className="section-list">
           <li>Gradient, Divergence, Curl & their significance</li>
           <li>Gauss’ & Stokes’ Theorems with applications</li>
         </ul>
@@ -17,8 +20,10 @@ export const Ch0Content = () => {
 
       {/* Module II */}
       <section>
-        <h3 className="text-3xl font-bold">Module II: <span className="italic font-semibold">Electrostatics & Magnetostatics</span></h3>
-        <ul className="list-disc text-2xl pt-1 pl-8 font-normal">
+        <h3 className="section-heading">
+          Module II: <span className="section-subheading">Electrostatics & Magnetostatics</span>
+        </h3>
+        <ul className="section-list">
           <li>Coulomb’s Law & Electric Fields</li>
           <li>Electrostatic Potential, Energy of Charges</li>
           <li>Gauss’ Law & Applications</li>
@@ -29,8 +34,10 @@ export const Ch0Content = () => {
 
       {/* Module III */}
       <section>
-        <h3 className="text-3xl font-bold">Module III: <span className="italic font-semibold">Electrodynamics & Maxwell’s Equations</span></h3>
-        <ul className="list-disc text-2xl pt-1 pl-8 font-normal">
+        <h3 className="section-heading">
+          Module III: <span className="section-subheading">Electrodynamics & Maxwell’s Equations</span>
+        </h3>
+        <ul className="section-list">
           <li>Faraday’s Laws of Electromagnetic Induction</li>
           <li>Displacement Current & Generalized Ampere’s Law</li>
           <li>Maxwell’s Equations (Integral & Differential)</li>
@@ -40,8 +47,10 @@ export const Ch0Content = () => {
 
       {/* Module IV */}
       <section>
-        <h3 className="text-3xl font-bold">Module IV: <span className="italic font-semibold">Semiconductors & Superconductivity</span></h3>
-        <ul className="list-disc text-2xl pt-1 pl-8 font-normal">
+        <h3 className="section-heading">
+          Module IV: <span className="section-subheading">Semiconductors & Superconductivity</span>
+        </h3>
+        <ul className="section-list">
           <li>Semiconductor Basics (PN Junctions, Diodes, Transistors)</li>
           <li>Superconductivity Phenomena & Properties</li>
           <li>Meissner Effect & Critical Parameters</li>
@@ -51,8 +60,10 @@ export const Ch0Content = () => {
 
       {/* Module V */}
       <section>
-        <h3 className="text-3xl font-bold">Module V: <span className="italic font-semibold">LASERs & Optical Fiber</span></h3>
-        <ul className="list-disc text-2xl pt-1 pl-8 font-normal">
+        <h3 className="section-heading">
+          Module V: <span className="section-subheading">LASERs & Optical Fiber</span>
+        </h3>
+        <ul className="section-list">
           <li>LASER Basics, Electronic Transitions</li>
           <li>Population Inversion & Properties</li>
           <li>Ruby & He-Ne LASER Systems</li>
@@ -61,10 +72,10 @@ export const Ch0Content = () => {
         </ul>
       </section>
 
-      <p className="text-2xl font-normal mb-8">
+      <p className="p-text">
         By the end of this course, you’ll have a solid grasp of the physics that drives computers, communication systems, and digital technology.
       </p>
-      
+
     </div>
   );
 };

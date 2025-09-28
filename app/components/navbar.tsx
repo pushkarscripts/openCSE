@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
-      <div className="flex items-center gap-1">
+      <Link href="/"><div className="flex items-center gap-1">
         <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" />
         {/* <img src="/logo.png" alt="openCSE" className="w-38 h-17" /> */}
         <span
@@ -23,7 +23,7 @@ export default function Navbar() {
         >
           openCSE
         </span>
-      </div>
+      </div></Link>
       {/* Desktop Menu */}
       <ul
         className="hidden md:flex gap-6 font-bold"

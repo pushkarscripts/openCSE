@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Global font family */
+body {
+  font-family: Rockwell, serif;
+}
+/* Wrapper for course content */
+.course-content {
+  @apply space-y-6;
+}
+
+/* Paragraph text */
+.p-text {
+  /* Mobile = base, Tablet = lg, Desktop = 2xl */
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl font-normal mb-6 sm:mb-8;
+}
+
+/* Section heading */
+.section-heading {
+  /* Mobile = lg, Tablet = xl, Desktop = 3xl */
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold;
+}
+
+/* Subheading (italic inside headings) */
+.section-subheading {
+  @apply italic font-semibold;
+}
+
+/* List items */
+.section-list {
+  /* Mobile = base, Tablet = lg, Desktop = 2xl */
+  @apply list-disc text-base sm:text-lg md:text-xl lg:text-2xl pt-1 pl-5 sm:pl-6 md:pl-8 font-normal;
+}
