@@ -31,13 +31,6 @@ export const Ch2Content = () => {
           <li><strong>Link:</strong> `gcc program.o -o program` produces executable.</li>
           <li><strong>Run:</strong> `./program` on Unix-like systems.</li>
         </ul>
-        <Image
-  src="/c-program-phases.png"
-  alt="c-program-phases"
-  className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-  width={900}
-  height={350}
-/>
 
       </section>
 
