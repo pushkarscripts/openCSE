@@ -3,8 +3,8 @@ import Navbar from "../../components/navbar";
 import Sidebar from "./components/sidebar";
 
 export const metadata = {
-  title: "EP | openCSE",
-  description: "Engineering Practices or relevant subject for openCSE",
+  title: "OOPs | openCSE",
+  description: "Object-Oriented Programming or relevant subject for openCSE",
 };
 
 export default function Sem1EpLayout({ children }: { children: React.ReactNode }) {

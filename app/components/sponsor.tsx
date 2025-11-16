@@ -9,10 +9,10 @@ export default function SponsorSection() {
         <a href="https://buymeacoffee.com/pushkarsinghh" className="rounded-md font-bold flex items-center gap-2 hover:scale-105">
           <img src="/BuyMeACoffee.png" alt="Buy Me a Coffee" className="h-22" />
         </a>
-        <a href="https://github.com/pushkarsinghh/openCSE" className="rounded-md font-bold flex items-center gap-2 hover:scale-105">
+        <a href="https://github.com/pushkarscripts/openCSE" className="rounded-md font-bold flex items-center gap-2 hover:scale-105">
           <img src="/StarOnGitHub.png" alt="Star on GitHub" className="h-22" />
         </a>
-        <a href="https://github.com/sponsors/pushkarsinghh" className="rounded-md font-bold flex items-center gap-2 hover:scale-105">
+        <a href="https://github.com/sponsors/pushkarscripts" className="rounded-md font-bold flex items-center gap-2 hover:scale-105">
           <img src="/GitHubSponsor.png" alt="Sponsor us on GitHub" className="h-22" />
         </a>
       </div>

@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar";
 import Sidebar from "./components/sidebar";
 
 export const metadata = {
-  title: "EP | openCSE",
+  title: "EM-1 | openCSE",
   description: "Engineering Practices or relevant subject for openCSE",
 };
 

@@ -38,7 +38,7 @@ const subjectCodes: Record<string, string> = {
   "English Communication": "ec",
 
   "Digital Electronics & Logic Circuits": "delc",
-  "OOPs with Java": "java",
+  "OOPs with Java": "oops",
   "Engineering Mathematics-2": "em2",
   "Data Structures using C": "dsc",
   "Modern Biology": "mb",
@@ -53,7 +53,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep"]; // only Engineering Physics is live now
+const available = ["ep", "c", "em1", "em2", "oops"]; // only Engineering Physics and C Language are live now
 
 export default function SubjectsSection() {
   return (

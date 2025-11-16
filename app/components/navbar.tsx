@@ -41,13 +41,13 @@ export default function Navbar() {
           <Link href="/">HOME</Link>
         </li>
         <li>
-          <Link href="#subjects">SUBJECTS</Link>
+          <Link href="/#subjects">SUBJECTS</Link>
         </li>
         <li>
-          <Link href="#contribute">CONTRIBUTE</Link>
+          <Link href="/#contribute">CONTRIBUTE</Link>
         </li>
         <li>
-          <Link href="#sponsor">SPONSOR</Link>
+          <Link href="/#sponsor">SPONSOR</Link>
         </li>
       </ul>
       {/* Mobile Hamburger */}
