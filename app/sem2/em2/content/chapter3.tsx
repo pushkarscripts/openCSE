@@ -5,7 +5,7 @@ export const Ch3Content = () => {
       <p className="p-text">
         <span className="font-semibold">Module III: Complex Variables</span>.
         This chapter introduces analytic functions, Cauchy Riemann equations,
-        complex line integrals, Cauchy's theorems, series representations and
+        complex line integrals, Cauchy&apos;s theorems, series representations and
         the residue theorem. These ideas form the foundation of complex analysis
         and are widely used in signal processing, electrical engineering and
         mathematical modelling.
@@ -117,7 +117,7 @@ export const Ch3Content = () => {
 
       {/* CAUCHY THEOREM */}
       <section>
-        <h3 className="section-heading">4. Cauchy's Integral Theorem</h3>
+        <h3 className="section-heading">4. Cauchy&apos;s Integral Theorem</h3>
 
         <p className="p-text">
           A landmark result:  
@@ -131,7 +131,7 @@ export const Ch3Content = () => {
 
         <ul className="section-list mt-3">
           <li>Independence of path.</li>
-          <li>Exists a primitive F such that F'(z) = f(z).</li>
+          <li>Exists a primitive F such that F&apos;(z) = f(z).</li>
         </ul>
 
         <div className="example-box bg-[#f3e7c2] p-4 rounded-lg border border-[#c7a669] mt-2">
@@ -149,7 +149,7 @@ export const Ch3Content = () => {
 
       {/* CAUCHY INTEGRAL FORMULA */}
       <section>
-        <h3 className="section-heading">5. Cauchy's Integral Formula</h3>
+        <h3 className="section-heading">5. Cauchy&apos;s Integral Formula</h3>
 
         <p className="p-text">
           Provides the value of an analytic function inside a curve using boundary values:

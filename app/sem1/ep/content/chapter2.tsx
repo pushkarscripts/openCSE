@@ -17,7 +17,7 @@ export const Ch2Content = () => {
 
         <ul className="section-list">
           <li>
-            <strong>Coulomb's Law</strong> gives force between two point charges.  
+            <strong>Coulomb&apos;s Law</strong> gives force between two point charges.  
             <code className="inline-code">{`F = (1/(4πε0)) * q1*q2 / r^2 * r̂`}</code>.
           </li>
 
@@ -70,7 +70,7 @@ export const Ch2Content = () => {
 
       {/* Flux + Gauss Law */}
       <section>
-        <h3 className="section-heading">Electric Flux, Displacement Vector and Gauss' Law</h3>
+        <h3 className="section-heading">Electric Flux, Displacement Vector and Gauss&apos; Law</h3>
 
         <ul className="section-list">
           <li>
@@ -85,17 +85,17 @@ export const Ch2Content = () => {
           </li>
 
           <li>
-            <strong>Gauss' Law in integral form</strong>:  
+            <strong>Gauss&apos; Law in integral form</strong>:  
             <code className="inline-code">{`∮ E·dS = Q_enclosed / ε0`}</code>.
           </li>
 
           <li>
-            <strong>Gauss' Law in differential form</strong>:  
+            <strong>Gauss&apos; Law in differential form</strong>:  
             <code className="inline-code">{`∇·E = ρ / ε0`}</code>.
           </li>
 
           <li>
-            <strong>Derivation of Coulomb's Law from Gauss' Law</strong> uses spherical symmetry
+            <strong>Derivation of Coulomb&apos;s Law from Gauss&apos; Law</strong> uses spherical symmetry
             around a point charge to obtain the inverse square relationship.
           </li>
         </ul>
@@ -155,7 +155,7 @@ export const Ch2Content = () => {
 
       {/* Ampere */}
       <section>
-        <h3 className="section-heading">Ampere's Circuital Law</h3>
+        <h3 className="section-heading">Ampere&apos;s Circuital Law</h3>
 
         <ul className="section-list">
           <li>
@@ -180,7 +180,7 @@ export const Ch2Content = () => {
 
       {/* Gauss for magnetism */}
       <section>
-        <h3 className="section-heading">Gauss' Law for Magnetism</h3>
+        <h3 className="section-heading">Gauss&apos; Law for Magnetism</h3>
 
         <ul className="section-list">
           <li>
@@ -221,7 +221,7 @@ export const Ch2Content = () => {
       <hr className="my-6 border-[#c7a669] opacity-40" />
 
       <p className="p-text">
-        This unit forms the foundation for studying electromagnetic waves and Maxwell's equations.
+        This unit forms the foundation for studying electromagnetic waves and Maxwell&apos;s equations.
         If you want a compact revision sheet, ask for the Unit II cheat sheet.
       </p>
     </div>

@@ -17,8 +17,8 @@ export const Ch0Content = () => {
           Module I: <span className="section-subheading">Differential Calculus (One Variable)</span>
         </h3>
         <ul className="section-list">
-          <li>Rolle's theorem and Cauchy's mean value theorem</li>
-          <li>Taylor's and Maclaurin's theorems with remainders</li>
+          <li>Rolle&apos;s theorem and Cauchy&apos;s mean value theorem</li>
+          <li>Taylor&apos;s and Maclaurin&apos;s theorems with remainders</li>
           <li>Indeterminate forms</li>
           <li>Concavity, convexity, and points of inflexion</li>
           <li>Asymptotes and curvature</li>

@@ -13,25 +13,25 @@ export const Ch1Content = () => {
 
       {/* Rolle’s and Mean Value Theorem */}
       <section>
-        <h3 className="section-heading">Rolle's Theorem and Mean Value Theorems</h3>
+        <h3 className="section-heading">Rolle&apos;s Theorem and Mean Value Theorems</h3>
 
         <ul className="section-list">
           <li>Applicable to functions continuous on [a, b] and differentiable on (a, b).</li>
 
           <li>
-            <strong>Rolle's Theorem</strong>  
+            <strong>Rolle&apos;s Theorem</strong>  
             If f(a) = f(b), then there exists c in (a, b) such that  
             <code className="inline-code">{`f'(c) = 0`}</code>.
           </li>
 
           <li>
-            <strong>Cauchy's Mean Value Theorem</strong>  
+            <strong>Cauchy&apos;s Mean Value Theorem</strong>  
             For functions f and g:  
             <code className="inline-code">{`(f'(c))/ (g'(c)) = (f(b)-f(a))/(g(b)-g(a))`}</code>.
           </li>
 
           <li>
-            <strong>Lagrange's Mean Value Theorem</strong> (special case):  
+            <strong>Lagrange&apos;s Mean Value Theorem</strong> (special case):  
             <code className="inline-code">{`f'(c) = (f(b)-f(a))/(b-a)`}</code>.
           </li>
         </ul>
@@ -94,9 +94,9 @@ export const Ch1Content = () => {
         <h3 className="section-heading">Concavity, Convexity and Points of Inflexion</h3>
 
         <ul className="section-list">
-          <li>If f''(x) &rt; 0 the curve is convex. If f''(x) &lt; 0 the curve is concave.</li>
+          <li>If f&apos;&apos;(x) &rt; 0 the curve is convex. If f&apos;&apos;(x) &lt; 0 the curve is concave.</li>
           <li>
-            Point of inflexion occurs where f''(x) = 0 and concavity changes.
+            Point of inflexion occurs where f&apos;&apos;(x) = 0 and concavity changes.
           </li>
           <li>Used to classify graph behaviour and optimization.</li>
         </ul>

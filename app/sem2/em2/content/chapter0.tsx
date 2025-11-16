@@ -36,7 +36,7 @@ export const Ch0Content = () => {
           <li>Root finding: Bisection, Newton Raphson, Regula Falsi</li>
           <li>Finite differences</li>
           <li>Interpolation: Lagrange, Newton forward, backward and central</li>
-          <li>Numerical integration: Trapezoidal and Simpson's 13 rules</li>
+          <li>Numerical integration: Trapezoidal and Simpson&apos;s 13 rules</li>
           <li>Euler and Runge Kutta methods (first order IVPs)</li>
         </ul>
       </section>
@@ -50,8 +50,8 @@ export const Ch0Content = () => {
         <ul className="section-list">
           <li>Limits, continuity and analyticity</li>
           <li>Cauchy Riemann equations</li>
-          <li>Line integrals and Cauchy's theorem</li>
-          <li>Cauchy's integral formula</li>
+          <li>Line integrals and Cauchy&apos;s theorem</li>
+          <li>Cauchy&apos;s integral formula</li>
           <li>Taylor and Laurent series</li>
           <li>Zeros and singularities</li>
           <li>Residue theorem and real integral evaluation</li>

@@ -106,7 +106,7 @@ for (int i = 0; i < marks.length; i++) {
         <h3 className="section-heading">Strings</h3>
 
         <p className="p-text">
-          Strings are immutable objects. Java stores them in a special "String pool"
+          Strings are immutable objects. Java stores them in a special &quot;String pool&quot;
           for memory optimization.
         </p>
 

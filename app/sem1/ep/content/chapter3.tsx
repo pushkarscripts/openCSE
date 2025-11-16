@@ -4,8 +4,8 @@ export const Ch3Content = () => {
 
       <p className="p-text">
         <span className="font-semibold">Unit III: Introduction to Electrodynamics</span>.
-        This unit explains the behaviour of time varying electromagnetic fields, Faraday's law,
-        displacement current, the generalized Ampere law and the complete set of Maxwell's equations.
+        This unit explains the behaviour of time varying electromagnetic fields, Faraday&apos;s law,
+        displacement current, the generalized Ampere law and the complete set of Maxwell&apos;s equations.
         It concludes with electromagnetic wave formation and propagation in free space.
       </p>
 
@@ -37,7 +37,7 @@ export const Ch3Content = () => {
 
       {/* Faraday’s Laws */}
       <section>
-        <h3 className="section-heading">Faraday's Laws of Electromagnetic Induction</h3>
+        <h3 className="section-heading">Faraday&apos;s Laws of Electromagnetic Induction</h3>
 
         <ul className="section-list">
 
@@ -75,7 +75,7 @@ export const Ch3Content = () => {
 
         <ul className="section-list">
           <li>
-            Proposed by Maxwell to maintain continuity in Ampere's law for time varying fields.
+            Proposed by Maxwell to maintain continuity in Ampere&apos;s law for time varying fields.
           </li>
           <li>
             Defined as  
@@ -129,7 +129,7 @@ export const Ch3Content = () => {
 
       {/* Maxwell’s Equations */}
       <section>
-        <h3 className="section-heading">Maxwell's Equations</h3>
+        <h3 className="section-heading">Maxwell&apos;s Equations</h3>
 
         <ul className="section-list">
 
@@ -144,7 +144,7 @@ export const Ch3Content = () => {
           </li>
 
           <li>
-            <strong>Faraday's Law</strong>:  
+            <strong>Faraday&apos;s Law</strong>:  
             <code className="inline-code">{`∇ × E = - ∂B/∂t`}</code>.
           </li>
 

@@ -27,7 +27,7 @@ export const Ch5Content = () => {
         </ul>
 
         <p className="p-text">
-          The main advantage of Java's exception system is **separation of error-handling code from normal logic**.
+          The main advantage of Java&apos;s exception system is **separation of error-handling code from normal logic**.
         </p>
 
         <p className="p-text mt-2">Diagram: <strong>exception-hierarchy.png</strong></p>

@@ -29,7 +29,7 @@ export const Ch8Content = () => {
 
         <div className="example-box bg-[#f3e7c2] border border-[#c7a669] p-4 rounded-lg mt-4">
           <pre className="code-block">
-            {`String s = "Hello";
+{`String s = "Hello";
 String s2 = s.replace("H", "Y"); // new object
 
 StringBuffer sb = new StringBuffer("Java");
@@ -65,7 +65,7 @@ sb2.append(" Builder");`}
 
         <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg mt-4">
           <pre className="code-block">
-            {`double r = Math.sqrt(49);        // 7.0
+{`double r = Math.sqrt(49);        // 7.0
 int m = Math.max(5, 12);          // 12
 char c = Character.toUpperCase('a');`}
           </pre>
@@ -96,7 +96,7 @@ char c = Character.toUpperCase('a');`}
 
         <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg mt-3">
           <pre className="code-block">
-            {`ArrayList<String> names = new ArrayList<>();
+{`ArrayList<String> names = new ArrayList<>();
 names.add("Alice");
 names.add("Bob");
 
@@ -132,7 +132,7 @@ marks.put("Physics", 88);`}
         <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg mt-4">
           <div className="font-semibold text-[#3a2a14]">Simple Swing Program</div>
           <pre className="code-block mt-3">
-            {`import javax.swing.*;
+{`import javax.swing.*;
 
 public class FirstGUI {
   public static void main(String[] args) {
@@ -170,7 +170,7 @@ public class FirstGUI {
         <div className="example-box bg-[#f3e7c2] border border-[#c7a669] rounded-lg p-4 mt-4">
           <div className="font-semibold text-[#3a2a14]">Menu Example</div>
           <pre className="code-block mt-3">
-            {`JFrame f = new JFrame();
+{`JFrame f = new JFrame();
 JMenuBar mb = new JMenuBar();
 JMenu file = new JMenu("File");
 JMenuItem exit = new JMenuItem("Exit");
@@ -199,12 +199,10 @@ f.setJMenuBar(mb);`}
           for building desktop applications and Core Java utilities.
         </p>
 
-        <img
-          src={`/images/diagram-name.png`}
-          alt="diagram-name"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-        />
-
+        <p className="p-text mt-4">
+          Add diagrams: <strong>awt-vs-swing.png</strong>,
+          <strong>swing-event-flow.png</strong>
+        </p>
       </section>
 
     </div>

@@ -36,7 +36,7 @@ export const Ch2Content = () => {
           <div className="font-semibold text-[#3a2a14]">Example</div>
           <p>Find the root of f(x) = x³ - x - 2 in [1, 2] using one iteration.</p>
           <p>Midpoint <code>m = (1 + 2) / 2 = 1.5</code>.</p>
-          <p>Since f(1) &lt; 0 and f(1.5) &rt; 0, new interval is [1, 1.5].</p>
+          <p>Since f(1) &lt; 0 and f(1.5) &gt; 0, new interval is [1, 1.5].</p>
         </div>
 
         <p className="p-text mt-3">Diagram: <strong>bisection-method.png</strong></p>
@@ -79,7 +79,7 @@ export const Ch2Content = () => {
           <p>Find root of f(x) = x² − 2 with x₀ = 1.5.</p>
           <p>
             <code>f(x) = x² - 2</code>,
-            <code>f'(x) = 2x</code>.
+            <code>f&apos;(x) = 2x</code>.
           </p>
           <p>
             <code>x₁ = 1.5 - (1.5² - 2)/(3) = 1.4167</code>.
@@ -187,7 +187,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <h4 className="text-xl font-semibold mt-4">4.2 Simpson's One Third Rule</h4>
+        <h4 className="text-xl font-semibold mt-4">4.2 Simpson&apos;s One Third Rule</h4>
         <ul className="section-list">
           <li>
             Uses parabolic arcs to approximate the curve.
@@ -218,7 +218,7 @@ export const Ch2Content = () => {
           and Runge Kutta.
         </p>
 
-        <h4 className="text-xl font-semibold mt-4">5.1 Euler's Method</h4>
+        <h4 className="text-xl font-semibold mt-4">5.1 Euler&apos;s Method</h4>
         <ul className="section-list">
           <li>Simplest numerical method.</li>
           <li>

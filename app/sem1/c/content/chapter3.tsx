@@ -143,7 +143,7 @@ export const Ch3Content = () => {
         <ul className="section-list">
           <li><strong>Standard I/O:</strong> <code className="inline-code">printf()</code>, <code className="inline-code">scanf()</code>, <code className="inline-code">puts()</code>.</li>
           <li>Format specifiers: <code className="inline-code">%d</code> int, <code className="inline-code">%f</code> float, <code className="inline-code">%c</code> char, <code className="inline-code">%s</code> string.</li>
-          <li>Always pass address with <code className="inline-code">scanf()</code> for non-array variables: <code className="inline-code">scanf("%d", &amp;x)</code>.</li>
+          <li>Always pass address with <code className="inline-code">scanf()</code> for non-array variables: <code className="inline-code">scanf(&quot;%d&quot;, &amp;x)</code>.</li>
         </ul>
 
         <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
@@ -245,7 +245,7 @@ do {
         <h3 className="section-heading">Overflow</h3>
 
         <ul className="section-list">
-          <li>Overflow occurs when a calculation produces a value outside a type's range.</li>
+          <li>Overflow occurs when a calculation produces a value outside a type&apos;s range.</li>
           <li>Signed integer overflow is undefined behaviour in C and must be avoided.</li>
           <li>Unsigned overflow wraps modulo 2^n; prefer larger types or checks when needed.</li>
         </ul>
