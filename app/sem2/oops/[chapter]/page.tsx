@@ -64,7 +64,7 @@ export default function ChapterPage({ params }: ChapterProps) {
         <div className="flex justify-between mt-3">
           {prevChapter ? (
             <Link
-              href={`/sem2/oop/${prevChapter.id}`}
+              href={`/sem2/oops/${prevChapter.id}`}
               className="px-4 py-1 text-2xl flex items-center justify-center bg-[#e2d1c1] text-[#1b0d00] rounded hover:bg-[#ac9e91] transition"
               style={{ fontFamily: "Rockwell, Serif, serif" }}
             >
@@ -76,7 +76,7 @@ export default function ChapterPage({ params }: ChapterProps) {
 
           {nextChapter ? (
             <Link
-              href={`/sem2/oop/${nextChapter.id}`}
+              href={`/sem2/oops/${nextChapter.id}`}
               className="px-4 py-1 text-2xl flex items-center justify-center bg-[#e2d1c1] text-[#1b0d00] rounded hover:bg-[#ac9e91] transition"
               style={{ fontFamily: "Rockwell, Serif, serif" }}
             >
@@ -95,7 +95,7 @@ export default function ChapterPage({ params }: ChapterProps) {
       <div className="flex justify-between my-8">
         {prevChapter ? (
           <Link
-            href={`/sem2/oop/${prevChapter.id}`}
+            href={`/sem2/oops/${prevChapter.id}`}
             className="px-4 py-2 bg-[#e2d1c1] text-xl flex items-center justify-center text-[#1b0d00] rounded hover:bg-[#ac9e91] transition"
             style={{ fontFamily: "Rockwell, Serif, serif" }}
           >
@@ -107,7 +107,7 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         {nextChapter ? (
           <Link
-            href={`/sem2/oop/${nextChapter.id}`}
+            href={`/sem2/oops/${nextChapter.id}`}
             className="px-4 py-2 bg-[#e2d1c1] text-xl flex items-center justify-center text-[#1b0d00] rounded hover:bg-[#ac9e91] transition"
             style={{ fontFamily: "Rockwell, Serif, serif" }}
           >
