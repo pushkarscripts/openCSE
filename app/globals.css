@@ -3,6 +3,10 @@
 :root {
   --background: #FAE8D7;
   --foreground: #1B0D00;
+  --primary: #38220b;
+  --accent: #cbb89d;
+  --glass-bg: rgba(27, 13, 0, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -16,19 +20,47 @@
   :root {
     --background: #1B0D00;
     --foreground: #FAE8D7;
+    --glass-bg: rgba(250, 232, 215, 0.05);
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Rockwell, serif;
+  overflow-x: hidden;
 }
 
-/* Global font family */
-body {
-  font-family: Rockwell, serif;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a1809;
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
 /* Wrapper for course content */
 .course-content {
   @apply space-y-6;
@@ -36,13 +68,11 @@ body {
 
 /* Paragraph text */
 .p-text {
-  /* Mobile = base, Tablet = lg, Desktop = 2xl */
   @apply text-base sm:text-lg md:text-xl lg:text-2xl font-normal mb-6 sm:mb-8;
 }
 
 /* Section heading */
 .section-heading {
-  /* Mobile = lg, Tablet = xl, Desktop = 3xl */
   @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold;
 }
 
@@ -53,26 +83,26 @@ body {
 
 /* List items */
 .section-list {
-  /* Mobile = base, Tablet = lg, Desktop = 2xl */
   @apply list-disc text-base sm:text-lg md:text-xl lg:text-2xl pt-1 pl-5 sm:pl-6 md:pl-8 font-normal;
 }
 
-/* ============================
-   openCSE — Extra Enhancements
-   (Keep theme exactly same)
-   ============================ */
-
-/* Example Box (used for explanations + code container) */
+/* Example Box */
 .example-box {
-  background: #F0DDB6; /* soft yellow-beige */
+  background: #F0DDB6;
   border: 1px solid #C7A669;
   border-radius: 10px;
   padding: 1rem;
   color: #3A2A14;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Cards used for lists or grouped info */
+.example-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+/* Cards */
 .card {
   background: #F7E7BF;
   border: 1px solid #C7A669;
@@ -96,99 +126,33 @@ body {
 .code-block,
 pre code,
 pre {
-  background: #1A2130 !important; /* dark navy */
+  background: #1A2130 !important;
   color: #B0FFB4 !important;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 12px;
   font-size: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.6;
   overflow-x: auto;
   border: 1px solid rgba(255,255,255,0.07);
-  margin-top: 0.75rem;
-  max-height: 40vh; /* prevents giant empty beige panels */
+  margin-top: 1rem;
+  max-height: 40vh;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
-
-/* Error-themed code blocks */
-.code-block.error {
-  color: #FFB0B0 !important;
-}
-
-/* Inline code */
-code {
-  background: rgba(0,0,0,0.07);
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-size: 0.95em;
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  color: #3A2A14;
-}
-
-/* Make large panels look tighter */
-.example-box pre,
-.card pre {
-  margin: 0;
-}
-
-/* Slightly tighter headings */
-.section-heading {
-  margin-bottom: 0.4rem;
-}
-
-/* Better spacing inside content areas */
-.course-content > section {
-  padding-bottom: 0.5rem;
-}
-/* -------- code styling additions (append to globals.css) -------- */
 
 /* Inline code pill */
 .inline-code,
 code.inline-code {
-  background: #e4d2a5;          /* muted beige */
-  padding: 2px 7px;
+  background: #e4d2a5;
+  padding: 2px 8px;
   border-radius: 6px;
-  font-size: 0.95em;
+  font-size: 0.9em;
   color: #3A2A14;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.1);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
 }
 
-/* Code block (pre) style */
-pre,
-.code-block {
-  background: #1A2130 !important;   /* dark navy */
-  color: #B0FFB4 !important;        /* light green */
-  padding: 1rem;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  overflow: auto;
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  max-height: 48vh;                /* prevents huge empty panels */
-}
-
-/* Error style inside code blocks */
-.code-block.error,
-pre.error {
-  color: #FFB0B0 !important;
-}
-
-/* Ensure code inside example boxes gets the dark background */
-.example-box pre,
-.example-box .code-block {
-  background: #1A2130 !important;
-  color: #B0FFB4 !important;
-  border-radius: 10px;
-}
-
-/* Keep inline code for small headings slightly smaller */
-.section-heading .inline-code {
-  font-size: 0.85em;
-}
-
-/* tighten spacing inside example/card pre tags */
-.example-box pre,
-.card pre {
-  margin: 0;
-  padding: 0.9rem;
+/* Animations classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
 }

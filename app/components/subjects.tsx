@@ -1,5 +1,11 @@
 "use client";
 import Link from "next/link";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const subjects = {
   "Semester-1": [
@@ -56,20 +62,64 @@ const subjectCodes: Record<string, string> = {
 const available = ["ep", "c", "em1", "em2", "oops"]; // only Engineering Physics and C Language are live now
 
 export default function SubjectsSection() {
+  const sectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".section-header", {
+        scrollTrigger: {
+          trigger: ".section-header",
+          start: "top 80%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".semester-block", {
+        scrollTrigger: {
+          trigger: ".semester-block",
+          start: "top 80%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.from(".subject-card", {
+        scrollTrigger: {
+          trigger: ".subject-card",
+          start: "top 90%",
+        },
+        scale: 0.9,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: "back.out(1.7)",
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section id="subjects" className="px-6 py-12 text-center">
-      <h2
-        className="text-8xl flex px-6 mb-0"
-        style={{ fontFamily: '"Road Rage", sans-serif' }}
-      >
-        Browse Subjects
-      </h2>
-      <p
-        className="mb-8 text-2xl flex px-6"
-        style={{ fontFamily: "'Rockwell', 'Serif', serif" }}
-      >
-        Explore Subjects divided Semester-wise for your convenience.
-      </p>
+    <section ref={sectionRef} id="subjects" className="px-6 py-12 text-center">
+      <div className="section-header">
+        <h2
+          className="text-8xl flex px-6 mb-0"
+          style={{ fontFamily: '"Road Rage", sans-serif' }}
+        >
+          Browse Subjects
+        </h2>
+        <p
+          className="mb-8 text-2xl flex px-6"
+          style={{ fontFamily: "'Rockwell', 'Serif', serif" }}
+        >
+          Explore Subjects divided Semester-wise for your convenience.
+        </p>
+      </div>
       <div
         className="space-y-10 px-6 py-6 text-3xl flex flex-col"
         style={{ fontFamily: "'Rockwell', 'Serif', serif" }}
@@ -77,7 +127,7 @@ export default function SubjectsSection() {
         {Object.entries(subjects).map(([semester, list]) => {
           const semCode = semester.toLowerCase().replace("semester-", "sem");
           return (
-            <div key={semester}>
+            <div key={semester} className="semester-block">
               <h3 className="text-3xl flex mb-4">{semester}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {list.map((subj) => {
@@ -86,13 +136,13 @@ export default function SubjectsSection() {
                   const isAvailable = available.includes(code);
 
                   const baseClass =
-                    "relative bg-[#d2b48c] text-[#2b1b0e] flex items-center justify-center font-medium py-4 px-6 shadow-md";
+                    "subject-card relative bg-[#d2b48c] text-[#2b1b0e] flex items-center justify-center font-medium py-4 px-6 shadow-md transition-transform duration-200";
 
                   return isAvailable ? (
                     <Link
                       key={subj}
                       href={href}
-                      className={`${baseClass} hover:scale-[98%]`}
+                      className={`${baseClass} hover:scale-105 active:scale-95`}
                     >
                       {subj}
                     </Link>
