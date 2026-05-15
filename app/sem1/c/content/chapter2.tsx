@@ -1,159 +1,189 @@
 import Image from "next/image";
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch2Content = () => {
   return (
     <div className="course-content">
 
-      <p className="p-text">Concise notes covering the language, program development phases, importance,
-        program structure, a minimal sample program, compilation and execution commands,
-        key concepts, programming style, and a short debugging example.
+      <h2 className="page-title text-2xl font-bold mb-4">Introduction to C — Chapter 2</h2>
+
+      <p className="p-text">
+        Concise notes covering the language, program development phases,
+        importance, program structure, sample programs, compilation,
+        execution, key concepts, programming style, and debugging.
       </p>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Language of C */}
       <section>
         <h3 className="section-heading">The Language of C</h3>
+
         <ul className="section-list">
           <li>C is a structured, procedural, compiled language created by Dennis Ritchie.</li>
-          <li>Main properties relevant for exams: portability, efficiency, manual memory control via pointers.</li>
+          <li>Known for portability, speed, and low-level memory access.</li>
+          <li>Widely used in operating systems, embedded systems, and compilers.</li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Phases */}
       <section>
         <h3 className="section-heading">Phases of Developing a C Program</h3>
+
         <ul className="section-list">
-          <li><strong>Edit:</strong> write source file `program.c`.</li>
-          <li><strong>Compile:</strong> `gcc -Wall -c program.c` produces `program.o` and shows compile errors/warnings.</li>
-          <li><strong>Link:</strong> `gcc program.o -o program` produces executable.</li>
-          <li><strong>Run:</strong> `./program` on Unix-like systems.</li>
+          <li><strong>Edit:</strong> write source code in <code className="inline-code">program.c</code></li>
+          <li><strong>Compile:</strong> convert source code into object code</li>
+          <li><strong>Link:</strong> combine libraries and object files</li>
+          <li><strong>Run:</strong> execute the final program</li>
         </ul>
 
+        <CodeBlock
+          title="Compilation Commands"
+          language="bash"
+          code={`gcc -Wall -c program.c
+gcc program.o -o program
+./program`}
+        />
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Importance */}
       <section>
         <h3 className="section-heading">Importance of C</h3>
+
         <ul className="section-list">
-          <li>Foundation for system software and many languages.</li>
-          <li>Used for OS, compilers, embedded systems because of speed and low-level access.</li>
+          <li>Foundation for many modern programming languages.</li>
+          <li>Provides direct hardware interaction.</li>
+          <li>Used in system programming and embedded development.</li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Basic Structure */}
       <section>
         <h3 className="section-heading">Basic Structure of a C Program</h3>
+
         <ul className="section-list">
-          <li>Preprocessor directives: `#include`, `#define`.</li>
-          <li>Function definitions with `main()` as entry point.</li>
-          <li>Variable declarations and statements.</li>
-          <li>Return from `main` typically `return 0;` to signal success.</li>
+          <li>Preprocessor directives such as <code className="inline-code">#include</code></li>
+          <li><code className="inline-code">main()</code> function acts as entry point</li>
+          <li>Variable declarations and executable statements</li>
+          <li><code className="inline-code">return 0;</code> indicates successful execution</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
-          <div className="font-semibold text-[#3a2a14]">Minimal example</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-3 p-4 rounded-md text-sm overflow-auto">
-{`#include <stdio.h>
+        <CodeBlock
+          title="Minimal C Program"
+          language="c"
+          code={`#include <stdio.h>
 
 int main(void) {
     int a = 10;
-    printf("Value of a = %d\n", a);
+
+    printf("Value of a = %d\\n", a);
+
     return 0;
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Executing */}
       <section>
         <h3 className="section-heading">Compiling and Executing</h3>
-        <ul className="section-list">
-          <li>Compile and link in one step: <code>gcc program.c -o program</code>.</li>
-          <li>Enable warnings: <code>gcc -Wall program.c -o program</code>.</li>
-          <li>Run executable: <code>./program</code>.</li>
-          <li>Typical compile-time errors: syntax error, undeclared identifier, type mismatch.</li>
-        </ul>
-        <Image
-  src="/compile-run-flow.png"
-  alt="compile-run-flow"
-  className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-  width={900}
-  height={380}
-/>
 
+        <ul className="section-list">
+          <li><code className="inline-code">gcc program.c -o program</code> compiles and links</li>
+          <li><code className="inline-code">gcc -Wall program.c</code> enables warnings</li>
+          <li><code className="inline-code">./program</code> runs executable on Linux/macOS</li>
+          <li>Common errors: syntax error, undeclared variable, type mismatch</li>
+        </ul>
+
+        <div className="image-wrapper">
+          <Image
+            src="/compile-run-flow.png"
+            alt="compile-run-flow"
+            width={900}
+            height={380}
+            className="content-image"
+          />
+        </div>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Key Concepts */}
       <section>
         <h3 className="section-heading">Key Concepts</h3>
+
         <ul className="section-list">
-          <li>Data types and range: `int`, `float`, `double`, `char`.</li>
-          <li>Operators: arithmetic, relational, logical, bitwise.</li>
-          <li>Control flow: `if`, `if-else`, `switch`, loops (`for`, `while`, `do-while`).</li>
-          <li>Functions: declaration, definition, call, parameter passing (by value).</li>
-          <li>Arrays and strings: contiguous memory, null-terminated char arrays.</li>
-          <li>Pointers: address-of `&`, dereference `*`, pointer arithmetic basics.</li>
+          <li>Data types: <code className="inline-code">int</code>, <code className="inline-code">float</code>, <code className="inline-code">double</code>, <code className="inline-code">char</code></li>
+          <li>Operators: arithmetic, relational, logical and bitwise</li>
+          <li>Control flow: <code className="inline-code">if</code>, <code className="inline-code">switch</code>, loops</li>
+          <li>Functions and parameter passing</li>
+          <li>Arrays, strings, and pointers</li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Programming Style */}
+      {/* Style */}
       <section>
-        <h3 className="section-heading">Programming Style (exam checklist)</h3>
+        <h3 className="section-heading">Programming Style</h3>
+
         <ul className="section-list">
-          <li>Indent consistently and use meaningful names for variables and functions.</li>
-          <li>Comment nontrivial logic; avoid redundant comments for obvious code.</li>
-          <li>Check return values for I/O functions when necessary.</li>
-          <li>Use compiler warnings to find potential bugs.</li>
+          <li>Use meaningful variable and function names</li>
+          <li>Indent code consistently</li>
+          <li>Write comments for complex logic</li>
+          <li>Always compile with warnings enabled</li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Debugging */}
       <section>
         <h3 className="section-heading">Common Debugging Points</h3>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
-          <div className="font-semibold text-[#3a2a14]">Typical mistakes to spot</div>
-          <ul className="mt-2 list-disc pl-6 text-[#2b1d0f]">
-            <li>Missing ampersand in `scanf` call: use <code>scanf(&quot;%d&quot;, &x)</code>.</li>
-            <li>Forgotten semicolon after statements.</li>
-            <li>Using uninitialized variables.</li>
-            <li>Buffer overflow with strings; always ensure space for null terminator.</li>
-          </ul>
+        <div className="note-box">
+          <div className="note-title">Typical Mistakes</div>
 
-          <div className="mt-3 text-[#3a2a14] font-semibold">Faulty snippet</div>
-          <pre className="bg-[#1a2130] text-[#ffb0b0] mt-2 p-4 rounded-md text-sm overflow-auto">
-{`#include <stdio.h>
+          <ul className="section-list mt-3">
+            <li>Missing ampersand in <code className="inline-code">scanf()</code></li>
+            <li>Missing semicolon</li>
+            <li>Using uninitialized variables</li>
+            <li>Buffer overflow in strings</li>
+          </ul>
+        </div>
+
+        <CodeBlock
+          title="Faulty Program"
+          language="c"
+          code={`#include <stdio.h>
 
 int main() {
     int a;
+
     printf("Enter number: ");
-    scanf("%d", a);   // wrong: should be &a
-    printf("Value is: %d", a)  // wrong: missing semicolon
+
+    scanf("%d", a);   // wrong: missing &
+
+    printf("Value is: %d", a) // wrong: missing semicolon
+
     return 0;
 }`}
-          </pre>
+        />
 
-          <div className="mt-2 text-[#3a2a14] font-semibold">Corrected</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-2 p-4 rounded-md text-sm overflow-auto">
-{`scanf("%d", &a);
+        <CodeBlock
+          title="Corrected Program"
+          language="c"
+          code={`scanf("%d", &a);
+
 printf("Value is: %d", a);`}
-          </pre>
-        </div>
+        />
       </section>
 
     </div>

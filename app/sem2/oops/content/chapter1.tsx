@@ -1,3 +1,5 @@
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch1Content = () => {
   return (
     <div className="course-content">
@@ -33,13 +35,16 @@ export const Ch1Content = () => {
         </ul>
 
         <div className="example-box p-4 rounded-lg mt-4 bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14] mb-1">Code Example</div>
-          <pre className="code-block">
-{`int age = 19;
+          <div className="font-semibold text-[#3a2a14] mb-1">
+            Code Example
+          </div>
+
+          <CodeBlock
+            code={`int age = 19;
 double gpa = 8.6;
 char grade = 'A';
 boolean isValid = true;`}
-          </pre>
+          />
         </div>
 
         <p className="p-text mt-3">
@@ -51,7 +56,9 @@ boolean isValid = true;`}
 
       {/* Variables & Type Casting */}
       <section>
-        <h3 className="section-heading">Variables, Type Conversion and Casting</h3>
+        <h3 className="section-heading">
+          Variables, Type Conversion and Casting
+        </h3>
 
         <p className="p-text">
           Java automatically performs widening conversions (small to large type),
@@ -59,18 +66,22 @@ boolean isValid = true;`}
         </p>
 
         <ul className="section-list">
-          <li><strong>Widening</strong>: int to long, float to double (automatic)</li>
-          <li><strong>Narrowing</strong>: double to int, long to short (explicit cast)</li>
+          <li>
+            <strong>Widening</strong>: int to long, float to double (automatic)
+          </li>
+          <li>
+            <strong>Narrowing</strong>: double to int, long to short (explicit cast)
+          </li>
         </ul>
 
         <div className="example-box p-4 mt-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <pre className="code-block">
-{`int a = 10;
+          <CodeBlock
+            code={`int a = 10;
 double b = a;        // widening
 
 double x = 9.76;
 int y = (int) x;     // narrowing, y = 9`}
-          </pre>
+          />
         </div>
       </section>
 
@@ -86,12 +97,13 @@ int y = (int) x;     // narrowing, y = 9`}
         </p>
 
         <div className="example-box p-4 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <pre className="code-block">
-{`int[] marks = {85, 90, 75};
+          <CodeBlock
+            code={`int[] marks = {85, 90, 75};
+
 for (int i = 0; i < marks.length; i++) {
   System.out.println(marks[i]);
 }`}
-          </pre>
+          />
         </div>
 
         <p className="p-text mt-3">
@@ -106,16 +118,17 @@ for (int i = 0; i < marks.length; i++) {
         <h3 className="section-heading">Strings</h3>
 
         <p className="p-text">
-          Strings are immutable objects. Java stores them in a special &quot;String pool&quot;
-          for memory optimization.
+          Strings are immutable objects. Java stores them in a special
+          &quot;String pool&quot; for memory optimization.
         </p>
 
         <div className="example-box p-4 bg-[#f3e7c2] rounded-lg border border-[#c7a669]">
-          <pre className="code-block">
-{`String s = "openCSE";
+          <CodeBlock
+            code={`String s = "openCSE";
+
 System.out.println(s.length());
 System.out.println(s.toUpperCase());`}
-          </pre>
+          />
         </div>
       </section>
 
@@ -131,15 +144,17 @@ System.out.println(s.toUpperCase());`}
         </p>
 
         <div className="example-box p-3 bg-[#f0ddb6] rounded-lg border border-[#c7a669]">
-          <pre className="code-block">
-{`int a = 2 + 3 * 4;     // 14
+          <CodeBlock
+            code={`int a = 2 + 3 * 4;     // 14
 int b = (2 + 3) * 4;   // 20
 
 boolean result = (a < b) && (b < 50);`}
-          </pre>
+          />
         </div>
 
-        <p className="p-text">Diagram: <strong>operator-precedence-java.png</strong></p>
+        <p className="p-text">
+          Diagram: <strong>operator-precedence-java.png</strong>
+        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -160,8 +175,8 @@ boolean result = (a < b) && (b < 50);`}
         </ul>
 
         <div className="example-box p-4 mt-4 bg-[#f3e7c2] rounded-lg border border-[#c7a669]">
-          <pre className="code-block">
-{`int n = 7;
+          <CodeBlock
+            code={`int n = 7;
 
 // if-else
 if (n > 0) System.out.println("positive");
@@ -177,10 +192,12 @@ for (int i = 0; i < 5; i++) {
   if (i == 3) continue;
   System.out.println(i);
 }`}
-          </pre>
+          />
         </div>
 
-        <p className="p-text">Diagram: <strong>loop-flowcharts.png</strong></p>
+        <p className="p-text">
+          Diagram: <strong>loop-flowcharts.png</strong>
+        </p>
       </section>
 
     </div>
