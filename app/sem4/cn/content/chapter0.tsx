@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Ch0Content = () => {
   return (
     <div className="course-content">
@@ -15,15 +17,36 @@ export const Ch0Content = () => {
         <h3 className="section-heading">
           Module I: <span className="section-subheading">Foundations & Reference Models</span>
         </h3>
+        
+        <Image
+          src="/cn-topologies.png"
+          alt="Network Topologies"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full mx-auto"
+          width={800}
+          height={450}
+        />
+
         <ul className="section-list">
           <li>Introduction to computer networks and their importance</li>
           <li>Network topologies: Star, Mesh, Bus, Ring, and Hybrid</li>
+        </ul>
+
+        <Image
+          src="/cn-network-types.png"
+          alt="Classification of Networks"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full mx-auto"
+          width={800}
+          height={400}
+        />
+
+        <ul className="section-list">
           <li>Classification of networks: LAN, MAN, WAN, PAN</li>
           <li>Detailed study of the OSI Reference Model (7 Layers)</li>
           <li>Introduction to the TCP/IP Protocol Suite</li>
           <li>Comparison between OSI and TCP/IP models</li>
         </ul>
       </section>
+
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
 
