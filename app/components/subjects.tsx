@@ -123,7 +123,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops"]; // only Engineering Physics and C Language are live now
+const available = ["ep", "c", "em1", "em2", "oops", "cn"]; // only Engineering Physics and C Language are live now
 
 export default function SubjectsSection() {
   return (
