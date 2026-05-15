@@ -35,7 +35,7 @@ export default function ChapterPage({ params }: ChapterProps) {
   const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
 
   return (
-    <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
+    <div className="flex flex-col min-h-full p-4 text-[#e2d1c1]">
       {/* Content */}
       <div className="flex-1">
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>

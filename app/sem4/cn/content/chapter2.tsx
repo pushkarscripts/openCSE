@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Ch2Content = () => {
   return (
     <div className="course-content">
@@ -12,6 +14,13 @@ export const Ch2Content = () => {
       {/* Hub */}
       <section>
         <h3 className="section-heading">1. Hub</h3>
+        <Image
+          src="/cn-hub.png"
+          alt="Network Hub Diagram"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full mx-auto"
+          width={800}
+          height={450}
+        />
         <ul className="section-list">
           <li><strong>Layer:</strong> Physical Layer (Layer 1).</li>
           <li><strong>Function:</strong> A non-intelligent device that broadcasts data to all ports.</li>
@@ -24,6 +33,13 @@ export const Ch2Content = () => {
       {/* Switch */}
       <section>
         <h3 className="section-heading">2. Switch</h3>
+        <Image
+          src="/cn-switch.png"
+          alt="Network Switch Diagram"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full mx-auto"
+          width={800}
+          height={450}
+        />
         <ul className="section-list">
           <li><strong>Layer:</strong> Data Link Layer (Layer 2).</li>
           <li><strong>Function:</strong> An intelligent device that uses MAC addresses to send data only to the intended recipient.</li>
@@ -34,6 +50,7 @@ export const Ch2Content = () => {
           <strong>Pro Tip:</strong> Switches maintain a "MAC Address Table" to remember which device is connected to which port.
         </div>
       </section>
+
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
 

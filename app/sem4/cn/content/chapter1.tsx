@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Ch1Content = () => {
   return (
     <div className="course-content">
@@ -17,6 +19,14 @@ export const Ch1Content = () => {
           Developed by the ISO, the Open Systems Interconnection (OSI) model consists of 7 layers. 
           Each layer provides a specific service to the layer above it.
         </p>
+
+        <Image
+          src="/cn-osi.png"
+          alt="OSI Model Layers"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full mx-auto"
+          width={800}
+          height={500}
+        />
         
         <div className="overflow-x-auto my-6">
           <table className="min-w-full border-collapse border border-[#c7a669]">
@@ -81,6 +91,15 @@ export const Ch1Content = () => {
           The TCP/IP model is the practical implementation used in the real world (the Internet). 
           It has 4 main layers:
         </p>
+
+        <Image
+          src="/cn-tcp-ip.png"
+          alt="TCP/IP Model Layers"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full mx-auto"
+          width={800}
+          height={400}
+        />
+
         <ul className="section-list">
           <li><strong>Application Layer:</strong> Combines OSI's top three layers (Session, Presentation, Application).</li>
           <li><strong>Transport Layer:</strong> Responsible for host-to-host communication.</li>
@@ -99,17 +118,7 @@ export const Ch1Content = () => {
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
 
-      {/* Interview Questions */}
-      <section>
-        <h3 className="section-heading">Key Interview Questions</h3>
-        <ul className="section-list">
-          <li>What is the difference between TCP and UDP?</li>
-          <li>At which layer does a Router operate? (Answer: Network Layer)</li>
-          <li>What is the purpose of the 3-way handshake in TCP?</li>
-          <li>Which layer is responsible for encryption? (Answer: Presentation Layer)</li>
-        </ul>
-      </section>
-
     </div>
   );
 };
+
