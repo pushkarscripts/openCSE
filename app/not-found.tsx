@@ -44,7 +44,7 @@ export default function NotFound() {
           className="p-text max-w-lg mx-auto"
           style={{ color: '#F0DDB6', marginBottom: '2.5rem', opacity: 0.9 }}
         >
-          Looks like you've wandered off the syllabus. The notes you are looking for don't exist or have been moved.
+          Looks like you&apos;ve wandered off the syllabus. The notes you are looking for don&apos;t exist or have been moved.
         </p>
         
         <Link 
