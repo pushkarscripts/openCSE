@@ -17,7 +17,7 @@ export default function Sidebar() {
   const chapters = [
     { id: "ch0", title: "Course Outline" },
     { id: "ch1", title: "Introduction to Operating Systems" },
-    // { id: "ch2", title: "Process Management" },
+    { id: "ch2", title: "Process Management" },
     // { id: "ch3", title: "CPU Scheduling" },
     // { id: "ch4", title: "Process Synchronization" },
     // { id: "ch5", title: "Deadlocks" },

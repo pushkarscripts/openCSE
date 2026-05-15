@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Ch0Content } from "../content/chapter0";
 import { Ch1Content } from "../content/chapter1";
-// import { Ch2Content } from "../content/chapter2";
+import { Ch2Content } from "../content/chapter2";
 // import { Ch3Content } from "../content/chapter3";
 // import { Ch4Content } from "../content/chapter4";
 // import { Ch5Content } from "../content/chapter5";
@@ -28,11 +28,11 @@ const chapters = [
     component: Ch1Content,
   },
 
-  // {
-  //   id: "ch2",
-  //   title: "Process Management",
-  //   component: Ch2Content,
-  // },
+  {
+    id: "ch2",
+    title: "Process Management",
+    component: Ch2Content,
+  },
 
   // {
   //   id: "ch3",
