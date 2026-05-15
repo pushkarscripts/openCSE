@@ -72,7 +72,6 @@ export default function Sidebar() {
           })}
         </ul>
 
-        {/* Quiz section — pinned at bottom */}
         <div className="border-t-4 border-[#1B0D00]">
           <h2
             className="flex items-center text-2xl font-normal pt-3 pl-3 mb-2 bg-[#cebb9c] text-[#1B0D00] pb-2"
@@ -86,7 +85,6 @@ export default function Sidebar() {
               quizActive ? "bg-[#fccc7e]" : "hover:bg-[#ffdda7af]"
             } ${righteous.className}`}
           >
-            {/* small pencil icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5 shrink-0"

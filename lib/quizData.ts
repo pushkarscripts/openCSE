@@ -20,7 +20,7 @@ export const quizzes: Quiz[] = [
   {
     subject: "Programming in C",
     slug: "c-programming",
-    description: "Test your knowledge of C fundamentals — from data types and pointers to file I/O and dynamic memory.",
+    description: "Test your knowledge of C fundamentals: from data types and pointers to file I/O and dynamic memory.",
     questions: [
       {
         id: 1,
@@ -169,7 +169,7 @@ export const quizzes: Quiz[] = [
           "The trace value",
         ],
         answer: 1,
-        explanation: "Rank is the dimension of the row space or column space — the number of independent rows/columns.",
+        explanation: "Rank is the dimension of the row space or column space: the number of independent rows/columns.",
       },
       {
         id: 7,

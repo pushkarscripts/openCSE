@@ -23,8 +23,6 @@ export default function Sidebar() {
     { id: "ch5", title: "LASERs & Optical Fiber" },
   ];
 
-    // Map your subject path prefix → quiz slug
-    // Adjust the key to match whatever segment identifies the subject in the URL
     const quizSlugMap: Record<string, string> = {
       c: "c-programming",
       em1: "em1",
@@ -33,7 +31,6 @@ export default function Sidebar() {
       oops: "oops",
     };
 
-    // Derive subject from pathname, e.g. /sem1/c/ch2 → "c"
     const subjectKey = pathname.split("/")[2] ?? "";
     const quizSlug = quizSlugMap[subjectKey];
     const quizHref = quizSlug ? `/quiz/${quizSlug}` : "/quiz";
@@ -41,7 +38,6 @@ export default function Sidebar() {
 
   return (
     <div className="flex relative">
-      {/* Sidebar */}
       <aside
         className={`h-[100vh] sticky top-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 ${
           open ? "w-64" : "w-0 overflow-hidden"
@@ -71,7 +67,6 @@ export default function Sidebar() {
           })}
         </ul>
 
-        {/* Quiz section — pinned at bottom */}
         <div className="border-t-4 border-[#1B0D00]">
           <h2
             className="flex items-center text-2xl font-normal pt-3 pl-3 mb-2 bg-[#cebb9c] text-[#1B0D00] pb-2"
@@ -85,7 +80,6 @@ export default function Sidebar() {
               quizActive ? "bg-[#fccc7e]" : "hover:bg-[#ffdda7af]"
             } ${righteous.className}`}
           >
-            {/* small pencil icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5 shrink-0"
@@ -104,7 +98,6 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      {/* Toggle Button (always visible) */}
       <button
         onClick={() => setOpen(!open)}
         className="toggle-sidebar sticky top-[10%] left-full bg-[#ffdda7d0] h-[85vh] w-[50px] text-[#1B0D00] text-center font-semibold text-2xl border-l-4 rounded-r-2xl border-[#1B0D00] flex items-center justify-center transition-all duration-300"
