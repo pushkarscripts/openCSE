@@ -1,21 +1,15 @@
-// app/sem4/os/layout.tsx
-
+// app/sem6/ml/layout.tsx
 import Navbar from "../../components/navbar";
 import Sidebar from "./components/sidebar";
 
 export const metadata = {
-  title: "Operating System | openCSE",
-  description:
-    "Free and Open Documentations for Operating Systems",
+  title: "Machine Learning | openCSE",
+  description: "Free and Open Documentations for Machine Learning",
 };
 
-export default function OperatingSystemLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MLLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="operating-system-root min-h-screen flex flex-col pt-14">
+    <div className="sem6-ml-root min-h-screen flex flex-col pt-14">
       {/* Navigation Bar */}
       <Navbar />
 

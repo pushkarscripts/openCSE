@@ -110,7 +110,7 @@ export const Ch0Content = () => {
           <li>Necessary conditions for deadlock</li>
           <li>Resource allocation graph</li>
           <li>Deadlock prevention techniques</li>
-          <li>Deadlock avoidance and Banker's Algorithm</li>
+          <li>Deadlock avoidance and Banker&apos;s Algorithm</li>
           <li>Deadlock detection and recovery</li>
         </ul>
       </section>

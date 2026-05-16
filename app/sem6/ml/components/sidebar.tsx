@@ -1,9 +1,9 @@
 "use client";
-
 import { Righteous } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { chapters } from "../constants";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -21,26 +21,14 @@ export default function Sidebar() {
     }
   }, []);
 
-  const chapters = [
-    { id: "ch0", title: "Course Outline" },
-    { id: "ch1", title: "Sequences and Series" },
-    { id: "ch2", title: "Numerical Analysis" },
-    { id: "ch3", title: "Complex Variables" },
-    { id: "ch4", title: "Integral Calculus" },
-  ];
+  const quizSlugMap: Record<string, string> = {
+    ml: "ml",
+  };
 
-    const quizSlugMap: Record<string, string> = {
-      c: "c-programming",
-      em1: "em1",
-      ep: "ep",
-      em2: "em2",
-      oops: "oops",
-    };
-
-    const subjectKey = pathname.split("/")[2] ?? "";
-    const quizSlug = quizSlugMap[subjectKey];
-    const quizHref = quizSlug ? `/quiz/${quizSlug}` : "/quiz";
-    const quizActive = pathname.startsWith("/quiz");
+  const subjectKey = pathname.split("/")[2] ?? "";
+  const quizSlug = quizSlugMap[subjectKey];
+  const quizHref = quizSlug ? `/quiz/${quizSlug}` : "/quiz";
+  const quizActive = pathname.startsWith("/quiz");
 
   return (
     <>
@@ -51,27 +39,26 @@ export default function Sidebar() {
       />
       
       <div className="flex sticky top-14 z-40 h-[calc(100vh-3.5rem)] w-[50px] md:w-auto pointer-events-none md:pointer-events-auto">
-
-      <aside
-        className={`h-full shrink-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 pointer-events-auto border-r-0 ${
-          open ? "w-64 border-r-2 md:border-r-0" : "w-0 overflow-hidden"
-        }`}
-      >
+        {/* Sidebar */}
+        <aside
+          className={`h-full shrink-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 pointer-events-auto border-r-0 ${
+            open ? "w-64 border-r-2 md:border-r-0" : "w-0 overflow-hidden"
+          }`}
+        >
         <h2
           className="flex items-center text-2xl font-normal pt-3 pl-3 mb-2 bg-[#cebb9c] text-[#1B0D00] pb-2 border-b-4 border-[#1B0D00]"
           style={{ fontFamily: "Rockwell, Serif, serif" }}
         >
           Chapters
         </h2>
-
         <ul className="flex-1 overflow-y-auto space-y-0">
           {chapters.map((ch) => {
-            const active = pathname === `/sem2/em2/${ch.id}`;
+            const active = pathname === `/sem6/ml/${ch.id}`;
             return (
               <li key={ch.id}>
                 <Link
-                  href={`/sem2/em2/${ch.id}`}
-                  className={`block px-3 py-2 text-xl transition-all ${
+                  href={`/sem6/ml/${ch.id}`}
+                  className={`block px-3 py-2 text-xl transition ${
                     active ? "bg-[#fccc7e]" : "hover:bg-[#ffdda7af]"
                   } ${righteous.className}`}
                 >
@@ -113,7 +100,6 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      {/* Sidebar Toggle */}
       <button
         onClick={() => setOpen(!open)}
         className="toggle-sidebar shrink-0 pointer-events-auto bg-[#ffdda7] h-full w-[50px] text-[#1B0D00] text-center font-semibold text-2xl border-l-4 rounded-r-2xl border-[#1B0D00] flex items-center justify-center transition-all duration-300 md:shadow-none"
