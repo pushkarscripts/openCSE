@@ -1,296 +1,381 @@
-import Image from 'next/image';
+import Image from "next/image";
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch3Content = () => {
   return (
     <div className="course-content">
 
       <p className="p-text">
-        This chapter highlights definitions, sizes, operator precedence, control
-        constructs, common pitfalls, and a short debugging example.
+        This chapter explains C data concepts, data types, storage classes,
+        operators, statements, control flow, loops, overflow handling,
+        and debugging basics.
       </p>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Data concepts */}
       <section>
         <h3 className="section-heading">Data Concepts in C</h3>
+
         <ul className="section-list">
           <li>
-            <strong>Constants</strong> are fixed values that do not change during execution (literal or defined via{" "}
-            <code className="inline-code">#define</code>).
+            <strong>Constants</strong> are fixed values that do not change during execution.
           </li>
+
           <li>
-            <strong>Variables</strong> are named storage locations declared with a data type before use.
+            <strong>Variables</strong> are named memory locations used to store data.
           </li>
+
           <li>
-            Declaration example: <code className="inline-code">int count;</code> or{" "}
-            <code className="inline-code">float avg = 0.0f;</code>.
+            Example declarations:
+            <code className="inline-code ml-2">int count;</code>
+            <code className="inline-code ml-2">float avg = 0.0f;</code>
           </li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Data types and sizes */}
+      {/* Data types */}
       <section>
         <h3 className="section-heading">Data Types, Size and Values</h3>
 
-        <p className="p-text">Standard fundamental types commonly used in exams are listed below.</p>
+        <p className="p-text">
+          Standard C data types and their typical sizes are listed below.
+        </p>
 
-        <div className="example-box p-4 my-4 rounded-lg shadow-sm border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Common C types (typical 32-bit system)</div>
-          <div className="mt-2 text-[#2b1d0f]">
-            <ul className="section-list">
-              <li>
-                <code className="inline-code">char</code> — 1 byte, stores a character, range:
-                typically -128 to 127 (signed) or 0 to 255 (unsigned).
-              </li>
-              <li>
-                <code className="inline-code">int</code> — 4 bytes, range implementation-defined; commonly
-                -2,147,483,648 to 2,147,483,647.
-              </li>
-              <li>
-                <code className="inline-code">short</code> — 2 bytes; <code className="inline-code">long</code> — 4 or 8 bytes depending on platform.
-              </li>
-              <li>
-                <code className="inline-code">float</code> — 4 bytes (single precision); <code className="inline-code">double</code> — 8 bytes (double precision).
-              </li>
-            </ul>
-          </div>
+        <div className="note-box">
+          <div className="note-title">Common C Types</div>
+
+          <ul className="section-list mt-3">
+            <li>
+              <code className="inline-code">char</code> → 1 byte
+            </li>
+
+            <li>
+              <code className="inline-code">int</code> → 4 bytes
+            </li>
+
+            <li>
+              <code className="inline-code">short</code> → 2 bytes
+            </li>
+
+            <li>
+              <code className="inline-code">long</code> → 4 or 8 bytes
+            </li>
+
+            <li>
+              <code className="inline-code">float</code> → 4 bytes
+            </li>
+
+            <li>
+              <code className="inline-code">double</code> → 8 bytes
+            </li>
+          </ul>
         </div>
 
-        <Image
-          src="/c-data-sizes.png"
-          alt="c-data-sizes"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-          width={600}
-          height={300}
-        />
-
+        <div className="image-wrapper">
+          <Image
+            src="/c-data-sizes.png"
+            alt="c-data-sizes"
+            width={600}
+            height={300}
+            className="content-image"
+          />
+        </div>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Storage classes */}
       <section>
         <h3 className="section-heading">Storage Classes</h3>
 
         <ul className="section-list">
-          <li><strong>auto</strong> — default for local variables (automatic storage duration).</li>
-          <li><strong>static</strong> — retains value between calls; internal linkage if file-scope.</li>
-          <li><strong>extern</strong> — declares a global variable defined elsewhere.</li>
-          <li><strong>register</strong> — hint to keep variable in CPU register (often ignored by modern compilers).</li>
+          <li><strong>auto</strong> → default local variables</li>
+
+          <li><strong>static</strong> → retains value between calls</li>
+
+          <li><strong>extern</strong> → refers to global variables declared elsewhere</li>
+
+          <li><strong>register</strong> → suggests storing variable in CPU register</li>
         </ul>
 
-        <p className="p-text">Remember exam questions often ask for scope and lifetime of each storage class.</p>
+        <p className="p-text">
+          Questions about scope and lifetime are common in exams.
+        </p>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Operators & precedence */}
+      {/* Operators */}
       <section>
         <h3 className="section-heading">Operators and Precedence</h3>
 
         <ul className="section-list">
-          <li>Operator categories: arithmetic, relational, logical, bitwise, assignment, and ternary.</li>
-          <li>Precedence determines evaluation order. Higher precedence operators evaluate first.</li>
+          <li>Arithmetic, relational, logical, bitwise, and assignment operators are widely used.</li>
+
+          <li>Operator precedence controls evaluation order.</li>
         </ul>
 
-        <div className="card my-4 p-4">
-          <div className="font-semibold text-[#3a2a14]">Important precedence (high → low)</div>
-          <ul className="mt-2 section-list text-[#2b1d0f]">
-            <li>Unary: <code className="inline-code">++</code> <code className="inline-code">--</code> <code className="inline-code">+</code> <code className="inline-code">-</code> <code className="inline-code">!</code></li>
-            <li>Multiplicative: <code className="inline-code">*</code> <code className="inline-code">/</code> <code className="inline-code">%</code></li>
-            <li>Additive: <code className="inline-code">+</code> <code className="inline-code">-</code></li>
-            <li>Relational: <code className="inline-code">&lt;</code> <code className="inline-code">&gt;</code> <code className="inline-code">&lt;=</code> <code className="inline-code">&gt;=</code></li>
-            <li>Equality: <code className="inline-code">==</code> <code className="inline-code">!=</code></li>
-            <li>Logical: <code className="inline-code">&amp;&amp;</code> then <code className="inline-code">||</code></li>
-            <li>Assignment: <code className="inline-code">=</code> and compound assignments</li>
+        <div className="note-box">
+          <div className="note-title">Important Precedence Order</div>
+
+          <ul className="section-list mt-3">
+            <li>Unary → <code className="inline-code">++ -- !</code></li>
+
+            <li>Multiplicative → <code className="inline-code">* / %</code></li>
+
+            <li>Additive → <code className="inline-code">+ -</code></li>
+
+            <li>Relational → <code className="inline-code">&lt; &gt; &lt;= &gt;=</code></li>
+
+            <li>Equality → <code className="inline-code">== !=</code></li>
+
+            <li>Logical → <code className="inline-code">&amp;&amp; ||</code></li>
+
+            <li>Assignment → <code className="inline-code">= += -=</code></li>
           </ul>
-          <div className="mt-3 text-sm text-[#f3e7c2]">
-            Note: use parentheses to enforce evaluation order when needed.
-          </div>
         </div>
-        <Image
-          src="/operator-precedence.png"
-          alt="operator-precedence"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-          width={600}
-          height={300}
-        />
-        <p className="p-text">Operator associativity is usually left-to-right; assignment and some unary operators associate right-to-left.</p>
+
+        <div className="image-wrapper">
+          <Image
+            src="/operator-precedence.png"
+            alt="operator-precedence"
+            width={600}
+            height={300}
+            className="content-image"
+          />
+        </div>
+
+        <p className="p-text">
+          Use parentheses whenever evaluation order may be unclear.
+        </p>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Statements and expressions */}
+      {/* Statements */}
       <section>
         <h3 className="section-heading">Statements and Expressions</h3>
 
         <ul className="section-list">
-          <li><strong>Declaration statements:</strong> introduce variables and optionally initialize them.</li>
-          <li><strong>Expression statements:</strong> evaluate expressions and may produce side effects (<code className="inline-code">a = b + c;</code>).</li>
-          <li><strong>Compound statements (blocks):</strong> groups of statements enclosed in <code className="inline-code">{'{'}</code> and <code className="inline-code">{'}'}</code> defining scope.</li>
+          <li>Declaration statements introduce variables.</li>
+
+          <li>Expression statements perform computations.</li>
+
+          <li>
+            Compound statements use
+            <code className="inline-code ml-2">{`{ }`}</code>
+            to create blocks and scope.
+          </li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Input-Output */}
+      {/* Input output */}
       <section>
         <h3 className="section-heading">Input-Output Statements</h3>
 
         <ul className="section-list">
-          <li><strong>Standard I/O:</strong> <code className="inline-code">printf()</code>, <code className="inline-code">scanf()</code>, <code className="inline-code">puts()</code>.</li>
-          <li>Format specifiers: <code className="inline-code">%d</code> int, <code className="inline-code">%f</code> float, <code className="inline-code">%c</code> char, <code className="inline-code">%s</code> string.</li>
-          <li>Always pass address with <code className="inline-code">scanf()</code> for non-array variables: <code className="inline-code">scanf(&quot;%d&quot;, &amp;x)</code>.</li>
+          <li>
+            Standard functions:
+            <code className="inline-code ml-2">printf()</code>,
+            <code className="inline-code ml-2">scanf()</code>,
+            <code className="inline-code ml-2">puts()</code>
+          </li>
+
+          <li>
+            Format specifiers:
+            <code className="inline-code ml-2">%d</code>,
+            <code className="inline-code ml-2">%f</code>,
+            <code className="inline-code ml-2">%c</code>,
+            <code className="inline-code ml-2">%s</code>
+          </li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">I/O Example</div>
-          <pre className="code-block mt-3" aria-label="I O example">
-            {`int x;
+        <CodeBlock
+          title="Input Output Example"
+          language="c"
+          code={`int x;
+
 printf("Enter a number: ");
+
 scanf("%d", &x);
-printf("You entered %d\n", x);`}
-          </pre>
-        </div>
+
+printf("You entered %d\\n", x);`}
+        />
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Selection statements */}
+      {/* Selection */}
       <section>
         <h3 className="section-heading">Selection Statements</h3>
 
         <ul className="section-list">
-          <li><strong>if</strong> executes a block when condition is true.</li>
-          <li><strong>if-else</strong> selects between two branches.</li>
-          <li><strong>switch</strong> selects cases based on integer/enum; use <code className="inline-code">break</code> to prevent fall-through.</li>
-          <li><strong>goto</strong> exists but is discouraged; used rarely for error handling in legacy code.</li>
+          <li><strong>if</strong> executes code when condition is true.</li>
+
+          <li><strong>if-else</strong> selects between two alternatives.</li>
+
+          <li><strong>switch</strong> selects execution using cases.</li>
+
+          <li><strong>goto</strong> exists but is generally discouraged.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">if-else example</div>
-          <pre className="code-block mt-3">
-            {`if (a > b) {
-  printf("a is greater\n");
+        <CodeBlock
+          title="if-else Example"
+          language="c"
+          code={`if (a > b) {
+    printf("a is greater\\n");
 } else {
-  printf("b is greater or equal\n");
+    printf("b is greater or equal\\n");
 }`}
-          </pre>
-        </div>
+        />
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">switch example</div>
-          <pre className="code-block mt-3">
-            {`switch (ch) {
-  case 'a': doA(); break;
-  case 'b': doB(); break;
-  default: doDefault();
+        <CodeBlock
+          title="switch Example"
+          language="c"
+          code={`switch (ch) {
+    case 'a':
+        doA();
+        break;
+
+    case 'b':
+        doB();
+        break;
+
+    default:
+        doDefault();
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Loop constructs */}
+      {/* Loops */}
       <section>
         <h3 className="section-heading">Loop Constructs</h3>
 
         <ul className="section-list">
-          <li><strong>for</strong> — initialization; condition; update. Use when count known.</li>
-          <li><strong>while</strong> — condition-checked before each iteration.</li>
-          <li><strong>do-while</strong> — body executes first, condition checked afterwards.</li>
-          <li><strong>Jumps</strong> — <code className="inline-code">break</code>, <code className="inline-code">continue</code> (skip), and <code className="inline-code">goto</code> (discouraged).</li>
+          <li><strong>for</strong> loop → best when iterations are known</li>
+
+          <li><strong>while</strong> loop → condition checked before execution</li>
+
+          <li><strong>do-while</strong> loop → executes at least once</li>
+
+          <li>
+            Jump statements:
+            <code className="inline-code ml-2">break</code>,
+            <code className="inline-code ml-2">continue</code>
+          </li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Loop examples</div>
-          <pre className="code-block mt-3">
-            {`// for loop
+        <CodeBlock
+          title="Loop Examples"
+          language="c"
+          code={`// for loop
 for (int i = 0; i < n; i++) {
-  sum += i;
+    sum += i;
 }
 
 // while loop
 int i = 0;
+
 while (i < n) {
-  sum += i;
-  i++;
+    sum += i;
+    i++;
 }
 
-// do-while
-int i = 0;
+// do-while loop
+int j = 0;
+
 do {
-  sum += i;
-  i++;
-} while (i < n);`}
-          </pre>
-        </div>
-        <Image
-          src="/loop-flowcharts.png"
-          alt="loop-flowcharts"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-          width={600}
-          height={300}
+    sum += j;
+    j++;
+} while (j < n);`}
         />
+
+        <div className="image-wrapper">
+          <Image
+            src="/loop-flowcharts.png"
+            alt="loop-flowcharts"
+            width={600}
+            height={300}
+            className="content-image"
+          />
+        </div>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
       {/* Overflow */}
       <section>
         <h3 className="section-heading">Overflow</h3>
 
         <ul className="section-list">
-          <li>Overflow occurs when a calculation produces a value outside a type&apos;s range.</li>
-          <li>Signed integer overflow is undefined behaviour in C and must be avoided.</li>
-          <li>Unsigned overflow wraps modulo 2^n; prefer larger types or checks when needed.</li>
+          <li>Overflow occurs when values exceed type range.</li>
+
+          <li>Signed overflow causes undefined behavior.</li>
+
+          <li>Unsigned overflow wraps around modulo 2ⁿ.</li>
         </ul>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Debugging exercise */}
+      {/* Debugging */}
       <section>
         <h3 className="section-heading">Debugging Exercise</h3>
 
-        <div className="card p-4 my-4">
-          <div className="font-semibold">Find and fix the errors</div>
-          <pre className="code-block error mt-3" aria-label="debug example">
-            {`#include <stdio.h>
+        <CodeBlock
+          title="Faulty Program"
+          language="c"
+          code={`#include <stdio.h>
 
 int main() {
-  char s[5];
-  printf("Enter string: ");
-  scanf("%s", s);   // possible overflow if user types >4 chars
-  printf("You entered: %s\n", s)
-  return 0;
-}`}
-          </pre>
+    char s[5];
 
-          <div className="mt-3 text-[#b0ffb4] font-semibold">Correct points</div>
-          <ul className="section-list mt-2">
-            <li>Ensure buffer size and use width specifier: <code className="inline-code">scanf(&quot;%4s&quot;, s);</code></li>
-            <li>Add missing semicolon after <code className="inline-code">printf</code>.</li>
-            <li>Prefer <code className="inline-code">fgets</code> for safer input.</li>
+    printf("Enter string: ");
+
+    scanf("%s", s);   // possible overflow
+
+    printf("You entered: %s\\n", s)
+
+    return 0;
+}`}
+        />
+
+        <div className="note-box">
+          <div className="note-title">Corrections</div>
+
+          <ul className="section-list mt-3">
+            <li>
+              Use width specifier:
+              <code className="inline-code ml-2">scanf("%4s", s);</code>
+            </li>
+
+            <li>Add missing semicolon after printf.</li>
+
+            <li>Prefer <code className="inline-code">fgets()</code> for safer input.</li>
           </ul>
         </div>
       </section>
 
-      <hr className="my-6 border-[#c7a669] opacity-40" />
+      <hr className="divider" />
 
-      {/* Programming exercise placeholder (short) */}
+      {/* Exercises */}
       <section>
         <h3 className="section-heading">Programming Exercise</h3>
 
         <ul className="section-list">
-          <li>Implement a program that reads n integers and finds their sum and average, using loops and appropriate types.</li>
-          <li>Implement factorial using iterative loop and check for overflow for large n.</li>
+          <li>Write a program to calculate sum and average of n integers.</li>
+
+          <li>Write a factorial program using loops and check overflow.</li>
         </ul>
       </section>
+
     </div>
   );
 };
