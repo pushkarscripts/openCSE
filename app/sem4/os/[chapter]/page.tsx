@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Ch0Content } from "../content/chapter0";
-// import { Ch1Content } from "../content/chapter1";
-// import { Ch2Content } from "../content/chapter2";
-// import { Ch3Content } from "../content/chapter3";
-// import { Ch4Content } from "../content/chapter4";
-// import { Ch5Content } from "../content/chapter5";
-// import { Ch6Content } from "../content/chapter6";
-// import { Ch7Content } from "../content/chapter7";
-// import { Ch8Content } from "../content/chapter8";
+import { Ch1Content } from "../content/chapter1";
+import { Ch2Content } from "../content/chapter2";
+import { Ch3Content } from "../content/chapter3";
+import { Ch4Content } from "../content/chapter4";
+import { Ch5Content } from "../content/chapter5";
+import { Ch6Content } from "../content/chapter6";
+import { Ch7Content } from "../content/chapter7";
+import { Ch8Content } from "../content/chapter8";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
@@ -22,53 +22,53 @@ const righteous = Righteous({
 const chapters = [
   { id: "ch0", title: "Course Outline", component: Ch0Content },
 
-  // {
-  //   id: "ch1",
-  //   title: "Introduction to Operating Systems",
-  //   component: Ch1Content,
-  // },
+  {
+    id: "ch1",
+    title: "Introduction to Operating Systems",
+    component: Ch1Content,
+  },
 
-  // {
-  //   id: "ch2",
-  //   title: "Process Management",
-  //   component: Ch2Content,
-  // },
+  {
+    id: "ch2",
+    title: "Process Management",
+    component: Ch2Content,
+  },
 
-  // {
-  //   id: "ch3",
-  //   title: "CPU Scheduling",
-  //   component: Ch3Content,
-  // },
+  {
+    id: "ch3",
+    title: "CPU Scheduling",
+    component: Ch3Content,
+  },
 
-  // {
-  //   id: "ch4",
-  //   title: "Process Synchronization",
-  //   component: Ch4Content,
-  // },
+  {
+    id: "ch4",
+    title: "Process Synchronization",
+    component: Ch4Content,
+  },
 
-  // {
-  //   id: "ch5",
-  //   title: "Deadlocks",
-  //   component: Ch5Content,
-  // },
+  {
+    id: "ch5",
+    title: "Deadlocks",
+    component: Ch5Content,
+  },
 
-  // {
-  //   id: "ch6",
-  //   title: "Memory Management",
-  //   component: Ch6Content,
-  // },
+  {
+    id: "ch6",
+    title: "Memory Management",
+    component: Ch6Content,
+  },
 
-  // {
-  //   id: "ch7",
-  //   title: "Paging and Segmentation",
-  //   component: Ch7Content,
-  // },
+  {
+    id: "ch7",
+    title: "Paging and Segmentation",
+    component: Ch7Content,
+  },
 
-  // {
-  //   id: "ch8",
-  //   title: "File Systems and I/O Management",
-  //   component: Ch8Content,
-  // },
+  {
+    id: "ch8",
+    title: "File Systems and I/O Management",
+    component: Ch8Content,
+  },
 ];
 
 type ChapterProps = {

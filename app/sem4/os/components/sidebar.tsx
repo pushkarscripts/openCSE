@@ -22,14 +22,14 @@ export default function Sidebar() {
 
   const chapters = [
     { id: "ch0", title: "Course Outline" },
-    // { id: "ch1", title: "Introduction to Operating Systems" },
-    // { id: "ch2", title: "Process Management" },
-    // { id: "ch3", title: "CPU Scheduling" },
-    // { id: "ch4", title: "Process Synchronization" },
-    // { id: "ch5", title: "Deadlocks" },
-    // { id: "ch6", title: "Memory Management" },
-    // { id: "ch7", title: "Paging and Segmentation" },
-    // { id: "ch8", title: "File Systems and I/O Management" },
+    { id: "ch1", title: "Introduction to Operating Systems" },
+    { id: "ch2", title: "Process Management" },
+    { id: "ch3", title: "CPU Scheduling" },
+    { id: "ch4", title: "Process Synchronization" },
+    { id: "ch5", title: "Deadlocks" },
+    { id: "ch6", title: "Memory Management" },
+    { id: "ch7", title: "Paging and Segmentation" },
+    { id: "ch8", title: "File Systems and I/O Management" },
   ];
 
   const quizSlugMap: Record<string, string> = {
@@ -80,7 +80,7 @@ export default function Sidebar() {
           })}
         </ul>
 
-        <div className="border-t-4 border-[#1B0D00]">
+        {/* <div className="border-t-4 border-[#1B0D00]">
           <h2
             className="flex items-center text-2xl font-normal pt-3 pl-3 mb-2 bg-[#cebb9c] text-[#1B0D00] pb-2"
             style={{ fontFamily: "Rockwell, Serif, serif" }}
@@ -108,7 +108,7 @@ export default function Sidebar() {
             </svg>
             Take the Quiz
           </Link>
-        </div>
+        </div> */}
       </aside>
 
       <button
@@ -126,4 +126,4 @@ export default function Sidebar() {
     </div>
     </>
   );
-}
+}
