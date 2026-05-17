@@ -447,6 +447,129 @@ export const quizzes: Quiz[] = [
       },
     ],
   },
+  {
+  subject: "DevOps & Linux Administration",
+  slug: "dops",
+  description:
+    "Test your knowledge of Linux, shell scripting, Git, DevOps, Docker, CI/CD, and cloud computing fundamentals.",
+
+  questions: [
+    {
+      id: 1,
+      question: "Which component acts as the core of the Linux operating system?",
+      options: ["Shell", "Kernel", "Terminal", "Package Manager"],
+      answer: 1,
+      explanation:
+        "The kernel is the core part of Linux that directly manages hardware and system resources.",
+    },
+
+    {
+      id: 2,
+      question: "Which command is used to list files and directories in Linux?",
+      options: ["pwd", "mkdir", "ls", "cd"],
+      answer: 2,
+      explanation:
+        "`ls` displays files and directories present in the current location.",
+    },
+
+    {
+      id: 3,
+      question: "Which Linux command is used to change file permissions?",
+      options: ["chmod", "grep", "touch", "nano"],
+      answer: 0,
+      explanation:
+        "`chmod` is used to modify read, write, and execute permissions of files and directories.",
+    },
+
+    {
+      id: 4,
+      question: "What does the `pwd` command do?",
+      options: [
+        "Shows current directory path",
+        "Deletes files",
+        "Creates a folder",
+        "Lists users",
+      ],
+      answer: 0,
+      explanation:
+        "`pwd` stands for Present Working Directory and displays the current directory path.",
+    },
+
+    {
+      id: 5,
+      question: "Which symbol is commonly used to declare variables in shell scripting?",
+      options: ["$", "@", "#", "&"],
+      answer: 0,
+      explanation:
+        "Variables in shell scripts are accessed using the `$` symbol.",
+    },
+
+    {
+      id: 6,
+      question: "What is the primary purpose of Git?",
+      options: [
+        "Cloud Hosting",
+        "Version Control",
+        "Operating System Management",
+        "Containerization",
+      ],
+      answer: 1,
+      explanation:
+        "Git is a distributed version control system used to track code changes.",
+    },
+
+    {
+      id: 7,
+      question: "Which Git command uploads local commits to GitHub?",
+      options: ["git init", "git push", "git clone", "git pull"],
+      answer: 1,
+      explanation:
+        "`git push` sends committed changes from the local repository to the remote repository.",
+    },
+
+    {
+      id: 8,
+      question: "What is the main goal of DevOps?",
+      options: [
+        "Replace developers",
+        "Improve collaboration between development and operations teams",
+        "Create operating systems",
+        "Only automate testing",
+      ],
+      answer: 1,
+      explanation:
+        "DevOps focuses on collaboration, automation, continuous integration, and faster software delivery.",
+    },
+
+    {
+      id: 9,
+      question: "What is Docker mainly used for?",
+      options: [
+        "Database Design",
+        "Containerization",
+        "Web Browsing",
+        "Programming Language Compilation",
+      ],
+      answer: 1,
+      explanation:
+        "Docker is used for containerization, allowing applications to run consistently across environments.",
+    },
+
+    {
+      id: 10,
+      question: "What does CI/CD stand for?",
+      options: [
+        "Code Integration / Code Deployment",
+        "Continuous Integration / Continuous Deployment",
+        "Central Integration / Central Delivery",
+        "Continuous Installation / Continuous Debugging",
+      ],
+      answer: 1,
+      explanation:
+        "CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.",
+    },
+  ],
+},
 ];
 
 export function getQuizBySlug(slug: string): Quiz | undefined {

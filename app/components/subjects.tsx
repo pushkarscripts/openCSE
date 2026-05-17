@@ -33,6 +33,7 @@ const subjects = {
     "Database Management Systems",
     "Operating Systems",
     "Web Technologies",
+    "DevOps & Linux Administration",
     "Organizational Behavior",
   ],
   "Semester-5": [
@@ -94,6 +95,7 @@ const subjectCodes: Record<string, string> = {
   "Database Management Systems": "dbms",
   "Operating Systems": "os",
   "Web Technologies": "wt",
+  "DevOps & Linux Administration": "dops",
   "Organizational Behavior": "ob",
   "Discrete Mathematics": "dm",
 
@@ -123,7 +125,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops", "dsc", "os", "ml"];
+const available = ["ep", "c", "em1", "em2", "oops", "dsc", "os", "ml", "dops"];
 
 export default function SubjectsSection() {
   return (
