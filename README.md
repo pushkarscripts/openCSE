@@ -4,7 +4,10 @@
 [![Open Source](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
+**[Explore openCSE](https://opencse.vercel.app)**
+
 openCSE is a clean and structured collection of Computer Science and Engineering notes. It provides semester roadmaps, subject explanations and revision-friendly content created specifically for college students.
+
 
 
 ## 🔍 About
