@@ -1,9 +1,8 @@
 "use client";
-
 import { Righteous } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -13,20 +12,11 @@ const righteous = Righteous({
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      setOpen(true);
-    }
-  }, []);
+  const [open, setOpen] = useState(true);
 
   const chapters = [
     { id: "ch0", title: "Course Outline" },
-    { id: "ch1", title: "Sequences and Series" },
-    { id: "ch2", title: "Numerical Analysis" },
-    { id: "ch3", title: "Complex Variables" },
-    { id: "ch4", title: "Integral Calculus" },
+    { id: "ch1", title: "Arrays" },
   ];
 
     const quizSlugMap: Record<string, string> = {
@@ -43,18 +33,12 @@ export default function Sidebar() {
     const quizActive = pathname.startsWith("/quiz");
 
   return (
-    <>
-      {/* Backdrop overlay - only on mobile when open */}
-      <div 
-        className={`fixed inset-0 md:hidden bg-black/50 z-30 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-        onClick={() => setOpen(false)}
-      />
-      
-      <div className="flex sticky top-14 z-40 h-[calc(100vh-3.5rem)] w-[50px] md:w-auto pointer-events-none md:pointer-events-auto">
+    <div className="flex relative">
 
+      {/* Sidebar */}
       <aside
-        className={`h-full shrink-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 pointer-events-auto border-r-0 ${
-          open ? "w-64 border-r-2 md:border-r-0" : "w-0 overflow-hidden"
+        className={`h-[100vh] sticky top-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 ${
+          open ? "w-64" : "w-0 overflow-hidden"
         }`}
       >
         <h2
@@ -66,12 +50,12 @@ export default function Sidebar() {
 
         <ul className="flex-1 overflow-y-auto space-y-0">
           {chapters.map((ch) => {
-            const active = pathname === `/sem2/em2/${ch.id}`;
+            const active = pathname === `/sem2/dsc/${ch.id}`;
             return (
               <li key={ch.id}>
                 <Link
-                  href={`/sem2/em2/${ch.id}`}
-                  className={`block px-3 py-2 text-xl transition-all ${
+                  href={`/sem2/dsc/${ch.id}`}
+                  className={`block px-3 py-2 text-xl transition ${
                     active ? "bg-[#fccc7e]" : "hover:bg-[#ffdda7af]"
                   } ${righteous.className}`}
                 >
@@ -113,20 +97,16 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      {/* Sidebar Toggle */}
       <button
         onClick={() => setOpen(!open)}
-        className="toggle-sidebar shrink-0 pointer-events-auto bg-[#ffdda7] h-full w-[50px] text-[#1B0D00] text-center font-semibold text-2xl border-l-4 rounded-r-2xl border-[#1B0D00] flex items-center justify-center transition-all duration-300 md:shadow-none"
-        style={{
-          fontFamily: "Rockwell, Serif, serif",
-          boxShadow: open ? "4px 0 15px rgba(0,0,0,0.1)" : "none"
-        }}
+        className="toggle-sidebar sticky top-[10%] left-full bg-[#ffdda7d0] h-[85vh] w-[50px] text-[#1B0D00] text-center font-semibold text-2xl border-l-4 rounded-r-2xl border-[#1B0D00] flex items-center justify-center transition-all duration-300"
+        style={{ fontFamily: "Rockwell, Serif, serif" }}
       >
         <p className="leading-5">
           C<br />H<br />A<br />P<br />T<br />E<br />R<br />S
         </p>
       </button>
+
     </div>
-    </>
   );
 }

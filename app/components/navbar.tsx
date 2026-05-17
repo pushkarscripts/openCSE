@@ -13,7 +13,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky h-14 top-0 left-0 w-full z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
+    <nav className="fixed h-14 top-0 inset-x-0 z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
       <Link href="/"><div className="flex items-center gap-1">
         <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" />
         {/* <img src="/logo.png" alt="openCSE" className="w-38 h-17" /> */}
@@ -38,7 +38,9 @@ export default function Navbar() {
         }}
       >
         <li>
-          <Link href="/">HOME</Link>
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            HOME
+          </Link>
         </li>
         <li>
           <Link href="/#subjects">SUBJECTS</Link>
@@ -76,47 +78,51 @@ export default function Navbar() {
         />
       </button>
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg">
-          <ul
-            className="flex flex-col items-center gap-4 py-4 font-bold"
-            style={{
-              color: "white",
-              fontFamily: '"Road Rage", sans-serif',
-              fontSize: "28px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "normal",
-            }}
-          >
-            <li>
-              <Link href="/" onClick={() => setMenuOpen(false)}>
-          HOME
-              </Link>
-            </li>
-            <li>
-              <Link href="#subjects" onClick={() => setMenuOpen(false)}>
-          SUBJECTS
-              </Link>
-            </li>
-            <li>
-              <Link href="#contribute" onClick={() => setMenuOpen(false)}>
-          CONTRIBUTE
-              </Link>
-            </li>
-            <li>
-              <Link href="#sponsor" onClick={() => setMenuOpen(false)}>
-          SPONSOR
-              </Link>
-            </li>
-            <li>
+      <div 
+        className={`md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg transition-all duration-300 origin-top ${
+          menuOpen 
+            ? "opacity-100 scale-y-100" 
+            : "opacity-0 scale-y-0 pointer-events-none"
+        }`}
+      >
+        <ul
+          className="flex flex-col items-center gap-4 py-4 font-bold"
+          style={{
+            color: "white",
+            fontFamily: '"Road Rage", sans-serif',
+            fontSize: "28px",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "normal",
+          }}
+        >
+          <li>
+            <Link href="/" onClick={() => setMenuOpen(false)} className="hover:opacity-80 transition-opacity">
+        HOME
+            </Link>
+          </li>
+          <li>
+            <Link href="/#subjects" onClick={() => setMenuOpen(false)}>
+        SUBJECTS
+            </Link>
+          </li>
+          <li>
+            <Link href="/#contribute" onClick={() => setMenuOpen(false)}>
+        CONTRIBUTE
+            </Link>
+          </li>
+          <li>
+            <Link href="/#sponsor" onClick={() => setMenuOpen(false)}>
+        SPONSOR
+            </Link>
+          </li>
+          <li>
               <Link href="/quiz" onClick={() => setMenuOpen(false)}>
           QUIZ
               </Link>
             </li>
-          </ul>
-        </div>
-      )}
+        </ul>
+      </div>
     </nav>
   );
 }

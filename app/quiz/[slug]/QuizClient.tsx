@@ -84,7 +84,7 @@ export default function QuizClient({ quiz }: Props) {
 
   if (state === "idle") {
     return (
-      <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1]">
+      <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1] pt-14">
         <Navbar />
 
         <section
@@ -150,7 +150,7 @@ export default function QuizClient({ quiz }: Props) {
     const grade = pct >= 80 ? "Excellent!" : pct >= 60 ? "Good work!" : "Keep studying!";
 
     return (
-      <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1]">
+      <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1] pt-14">
         <Navbar />
         
         <section
@@ -254,7 +254,7 @@ export default function QuizClient({ quiz }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1]">
+    <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1] pt-14">
       <Navbar />
       <section
         className="relative overflow-hidden w-full py-16 sm:py-24 px-4 sm:px-6 md:px-10 lg:px-16 text-center shadow-lg"

@@ -3,7 +3,7 @@
 import { Righteous } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -13,7 +13,13 @@ const righteous = Righteous({
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) {
+      setOpen(true);
+    }
+  }, []);
 
   const chapters = [
     { id: "ch0", title: "Course Outline" },
@@ -40,11 +46,18 @@ export default function Sidebar() {
     const quizActive = pathname.startsWith("/quiz");
 
   return (
-    <div className="flex relative">
+    <>
+      {/* Backdrop overlay - only on mobile when open */}
+      <div 
+        className={`fixed inset-0 md:hidden bg-black/50 z-30 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        onClick={() => setOpen(false)}
+      />
+      
+      <div className="flex sticky top-14 z-40 h-[calc(100vh-3.5rem)] w-[50px] md:w-auto pointer-events-none md:pointer-events-auto">
       {/* Sidebar */}
       <aside
-        className={`h-[100vh] sticky top-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 ${
-          open ? "w-64" : "w-0 overflow-hidden"
+        className={`h-full shrink-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 pointer-events-auto border-r-0 ${
+          open ? "w-64 border-r-2 md:border-r-0" : "w-0 overflow-hidden"
         }`}
       >
         <h2
@@ -106,13 +119,17 @@ export default function Sidebar() {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="toggle-sidebar sticky top-[10%] left-full bg-[#ffdda7d0] h-[85vh] w-[50px] text-[#1B0D00] text-center font-semibold text-2xl border-l-4 rounded-r-2xl border-[#1B0D00] flex items-center justify-center transition-all duration-300"
-        style={{ fontFamily: "Rockwell, Serif, serif" }}
+        className="toggle-sidebar shrink-0 pointer-events-auto bg-[#ffdda7] h-full w-[50px] text-[#1B0D00] text-center font-semibold text-2xl border-l-4 rounded-r-2xl border-[#1B0D00] flex items-center justify-center transition-all duration-300 md:shadow-none"
+        style={{
+          fontFamily: "Rockwell, Serif, serif",
+          boxShadow: open ? "4px 0 15px rgba(0,0,0,0.1)" : "none"
+        }}
       >
         <p className="leading-5">
           C<br />H<br />A<br />P<br />T<br />E<br />R<br />S
         </p>
       </button>
     </div>
+    </>
   );
 }

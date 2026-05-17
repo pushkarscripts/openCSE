@@ -10,7 +10,7 @@ export default function Home() {
       scrollbarColor: "yellow transparent",
       scrollbarWidth: "thin",
       }}
-      className="scrollbar-yellow"
+      className="scrollbar-yellow pt-14"
     >
       <Navbar />
       <HeroSection />
