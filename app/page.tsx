@@ -3,6 +3,7 @@ import HeroSection from "./components/hero";
 import Navbar from "./components/navbar";
 import SponsorSection from "./components/sponsor";
 import SubjectsSection from "./components/subjects";
+import RequestCourse from "./components/request-course";
 export default function Home() {
   return (
     <div
@@ -20,6 +21,8 @@ export default function Home() {
       <ContributionsSection />
       <hr className="mx-70 mb-6 mt-10 border-t-4" />
       <SponsorSection />
+      <hr className="mx-70 mb-6 mt-10 border-t-4" />
+      <RequestCourse />
     </div>
   );
 }
