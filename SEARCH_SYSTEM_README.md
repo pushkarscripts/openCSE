@@ -8,7 +8,7 @@ A lightweight, client-side search system that enables users to quickly find subj
 
 - **Instant Search** - Results appear as you type (minimum 2 characters)
 - **Grouped Results** - Subjects and topics displayed separately
-- **Keyboard Shortcuts** - `Cmd/Ctrl + K` to focus search, `Escape` to close
+- **Keyboard Shortcuts** - `/` to focus search, `Escape` to close
 - **Mobile Optimized** - Responsive design with touch-friendly interface
 - **Theme Consistent** - Matches existing brown/cream color palette
 - **Zero Dependencies** - No external search libraries required
@@ -177,7 +177,7 @@ Matches existing openCSE theme:
 
 1. **Open Search**:
    - Click search bar in navbar
-   - Or press `Cmd/Ctrl + K`
+   - Or press `/`
 
 2. **Type Query**:
    - Minimum 2 characters
@@ -283,7 +283,7 @@ Edit component files in `app/components/search/`:
 - [ ] No results message displays
 
 **Keyboard**:
-- [ ] Cmd/Ctrl + K focuses search
+- [ ] / focuses search
 - [ ] Escape closes dropdown
 - [ ] Typing updates results instantly
 
