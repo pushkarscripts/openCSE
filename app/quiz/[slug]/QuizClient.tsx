@@ -5,7 +5,31 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/app/components/navbar";
 import { Righteous, Road_Rage } from "next/font/google";
-import type { Quiz } from "@/lib/quizData";
+import type { Quiz, Question } from "@/lib/quizData";
+
+function shuffleArray<T>(items: T[]) {
+  const array = [...items];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+type QuizQuestion = Question & {
+  options: string[];
+  answer: number;
+};
+
+function buildQuizQuestions(quiz: Quiz, limit = 10): QuizQuestion[] {
+  const chosen = shuffleArray(quiz.questions).slice(0, Math.min(limit, quiz.questions.length));
+  return chosen.map((question) => {
+    const indexes = shuffleArray(question.options.map((_, idx) => idx));
+    const options = indexes.map((idx) => question.options[idx]);
+    const answer = indexes.findIndex((idx) => idx === question.answer);
+    return { ...question, options, answer };
+  });
+}
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -34,11 +58,14 @@ export default function QuizClient({ quiz }: Props) {
   const [results, setResults] = useState<
     { question: string; chosen: number; correct: number }[]
   >([]);
+  const [questionSet, setQuestionSet] = useState<QuizQuestion[]>([]);
 
-  const q = quiz.questions[current];
-  const total = quiz.questions.length;
+  const q = questionSet[current]!;
+  const total = Math.min(10, quiz.questions.length);
 
   function startQuiz() {
+    const questions = buildQuizQuestions(quiz, total);
+    setQuestionSet(questions);
     setCurrent(0);
     setSelected(null);
     setAnswered(false);
@@ -48,7 +75,7 @@ export default function QuizClient({ quiz }: Props) {
   }
 
   function handleOptionClick(idx: number) {
-    if (answered) return;
+    if (answered || !q) return;
     setSelected(idx);
     setAnswered(true);
     if (idx === q.answer) setScore((s) => s + 1);
@@ -61,11 +88,12 @@ export default function QuizClient({ quiz }: Props) {
   function handleNext() {
     if (current + 1 >= total) {
       setState("finished");
-    } else {
-      setCurrent((c) => c + 1);
-      setSelected(null);
-      setAnswered(false);
+      return;
     }
+
+    setSelected(null);
+    setAnswered(false);
+    setCurrent((c) => c + 1);
   }
 
   function getOptionClass(idx: number): string {
@@ -73,6 +101,7 @@ export default function QuizClient({ quiz }: Props) {
       "w-full text-left px-6 py-4 rounded-lg text-lg font-medium transition-all shadow-md flex items-center";
     if (!answered)
       return `${base} bg-[#d2b48c] text-[#2b1b0e] opacity-50 hover:opacity-100 hover:scale-[98%] cursor-pointer`;
+    if (!q) return `${base} bg-[#d2b48c] text-[#2b1b0e] opacity-30 cursor-default`;
     if (idx === q.answer)
       return `${base} bg-[#C8E6C9] text-[#1B5E20] opacity-100 scale-[98%] cursor-default`;
     if (idx === selected && idx !== q.answer)
@@ -215,7 +244,7 @@ export default function QuizClient({ quiz }: Props) {
             <h3 className="section-heading">Review your answers</h3>
             <div className="flex flex-col gap-4 mt-4">
               {results.map((r, i) => {
-                const qData = quiz.questions[i];
+                const qData = questionSet[i];
                 const correct = r.chosen === r.correct;
                 return (
                   <div
@@ -271,7 +300,7 @@ export default function QuizClient({ quiz }: Props) {
           style={{ WebkitBackdropFilter: "blur(2px)", zIndex: 0 }}
         />
         
-        <div className="relative z-10 max-w-5xl mx-auto">
+        <div key={`${current}-${q.question}`} className="relative z-10 max-w-5xl mx-auto">
           <div className="flex justify-between text-base sm:text-xl text-black font-bold mb-6" style={{ fontFamily: "Rockwell, serif" }}>
             <span>Question {current + 1} of {total}</span>
             <span>Score: {score}</span>
@@ -289,10 +318,10 @@ export default function QuizClient({ quiz }: Props) {
       <div className="w-full px-4 py-8">
         <div className="max-w-3xl mx-auto">
 
-          <div className="flex flex-col gap-5">
+          <div key={`options-${current}`} className="flex flex-col gap-5">
             {q.options.map((opt, idx) => (
               <button
-                key={idx}
+                key={`${current}-${idx}`}
                 onClick={() => handleOptionClick(idx)}
                 className={getOptionClass(idx)}
                 style={{ fontFamily: "'Rockwell', 'Serif', serif" }}
