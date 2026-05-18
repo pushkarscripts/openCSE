@@ -14,6 +14,21 @@ export interface Quiz {
   slug: string;
   description: string;
   questions: Question[];
+  moduleTitle?: string;
+  moduleSlug?: string;
+  courseSlug?: string;
+}
+
+export interface ModuleQuizCard {
+  quizSlug: string;
+  subject: string;
+  subjectSlug: string;
+  moduleSlug: string;
+  moduleTitle: string;
+  cardTitle: string;
+  description: string;
+  buttonLabel: string;
+  relatedTopics?: string[];
 }
 
 export const quizzes: Quiz[] = [
@@ -1356,8 +1371,472 @@ export const quizzes: Quiz[] = [
       },
     ],
   },
+
+];
+
+
+
+export const moduleQuizzes: Quiz[] = [
+  {
+    subject: "Data Structures using C",
+    slug: "dsc-arrays",
+    courseSlug: "dsc",
+    moduleTitle: "Module I: Arrays",
+    moduleSlug: "arrays",
+    description: "A short module quiz for Arrays after Module I, covering indexing, declaration, and array operations in C.",
+    questions: [
+      {
+        id: 1,
+        question: "What is the first index of a C array?",
+        options: ["-1", "0", "1", "Depends on the compiler"],
+        answer: 1,
+        explanation: "C arrays are zero-indexed, so the first element is at index 0.",
+      },
+      {
+        id: 2,
+        question: "How do you declare an integer array of size 5 in C?",
+        options: ["int arr[5];", "int arr;", "array<int,5> arr;", "int[] arr = new int[5];"],
+        answer: 0,
+        explanation: "C arrays use the syntax `int arr[5];` for a fixed-size integer array.",
+      },
+      {
+        id: 3,
+        question: "Which expression accesses the third element of `int a[10]`?",
+        options: ["a[2]", "a[3]", "*(a+3)", "*(a+2)"],
+        answer: 0,
+        explanation: "The third element is `a[2]` because indexing starts at 0.",
+      },
+      {
+        id: 4,
+        question: "What does `sizeof(arr)` return for `int arr[10];` on a typical 32-bit system?",
+        options: ["10", "40", "4", "Depends on runtime"],
+        answer: 1,
+        explanation: "`sizeof(arr)` returns the number of bytes for the whole array, typically 40 bytes for 10 ints.",
+      },
+      {
+        id: 5,
+        question: "Which is the correct way to initialize an array with values?",
+        options: ["int a[3] = {1, 2, 3};", "int a = {1, 2, 3};", "int a[3] == {1, 2, 3};", "int a[] = (1, 2, 3);"],
+        answer: 0,
+        explanation: "Array initialization uses braces with a comma-separated list of values.",
+      },
+      {
+        id: 6,
+        question: "What happens when you access `a[10]` for `int a[10];`?",
+        options: ["Returns 0", "Undefined behavior", "Compiler error", "Wraps around"],
+        answer: 1,
+        explanation: "Accessing an out-of-bounds index causes undefined behavior in C.",
+      },
+      {
+        id: 7,
+        question: "Which of these describes pointer arithmetic for arrays?",
+        options: ["a + 1 moves one byte", "a + 1 moves one element", "a + 1 moves one bit", "a + 1 is invalid"],
+        answer: 1,
+        explanation: "Pointer arithmetic on an array moves by the size of one element.",
+      },
+      {
+        id: 8,
+        question: "How is a string literal stored in C when assigned to a char array?",
+        options: ["As a null-terminated sequence", "Without a null terminator", "In reverse order", "As individual integers"],
+        answer: 0,
+        explanation: "String literals in C are stored as a null-terminated sequence of characters.",
+      },
+      {
+        id: 9,
+        question: "Which array operation is O(1) in C?",
+        options: ["Searching", "Insertion at arbitrary index", "Access by index", "Sorting"],
+        answer: 2,
+        explanation: "Accessing an element by index in an array is constant time.",
+      },
+      {
+        id: 10,
+        question: "What does `int a[5] = {0};` initialize?",
+        options: ["All elements to 0", "Only first element to 0", "Random values", "Compiler error"],
+        answer: 0,
+        explanation: "A partial initializer with zero sets all remaining elements to 0.",
+      },
+    ],
+  },
+  {
+    subject: "OOPs",
+    slug: "oops-basics",
+    courseSlug: "oops",
+    moduleTitle: "Classes & Objects",
+    moduleSlug: "classes-objects",
+    description: "A module quiz for core OOP concepts after learning classes, objects, and encapsulation.",
+    questions: [
+      {
+        id: 1,
+        question: "Which OOP principle hides internal data behind methods?",
+        options: ["Inheritance", "Polymorphism", "Encapsulation", "Abstraction"],
+        answer: 2,
+        explanation: "Encapsulation hides data and exposes behavior through methods.",
+      },
+      {
+        id: 2,
+        question: "What is a class in object-oriented programming?",
+        options: ["A function", "A data type definition", "A variable", "A library"],
+        answer: 1,
+        explanation: "A class defines a blueprint for creating objects and their behavior.",
+      },
+      {
+        id: 3,
+        question: "Which keyword creates a new object instance in Java?",
+        options: ["class", "new", "create", "instance"],
+        answer: 1,
+        explanation: "The `new` keyword allocates memory and constructs a new object.",
+      },
+      {
+        id: 4,
+        question: "Which term refers to a specific object created from a class?",
+        options: ["Method", "Instance", "Interface", "Package"],
+        answer: 1,
+        explanation: "An instance is a concrete object created from a class.",
+      },
+      {
+        id: 5,
+        question: "What does the `this` keyword refer to?",
+        options: ["Current class name", "Current object instance", "Parent object", "Static context"],
+        answer: 1,
+        explanation: "`this` refers to the current instance of the class.",
+      },
+      {
+        id: 6,
+        question: "Which access modifier makes a member available only within the same class?",
+        options: ["public", "protected", "private", "final"],
+        answer: 2,
+        explanation: "`private` members are only accessible within the defining class.",
+      },
+      {
+        id: 7,
+        question: "Which OOP feature allows different classes to implement the same method name?",
+        options: ["Encapsulation", "Abstraction", "Polymorphism", "Inheritance"],
+        answer: 2,
+        explanation: "Polymorphism allows multiple classes to implement methods with the same name.",
+      },
+      {
+        id: 8,
+        question: "What is the purpose of a constructor?",
+        options: ["Destroy an object", "Initialize a new object", "Overload a method", "Define a variable"],
+        answer: 1,
+        explanation: "A constructor initializes a new object when it is created.",
+      },
+      {
+        id: 9,
+        question: "Which keyword is used to inherit from a parent class in Java?",
+        options: ["extends", "implements", "inherits", "uses"],
+        answer: 0,
+        explanation: "Java uses `extends` to inherit from a parent class.",
+      },
+      {
+        id: 10,
+        question: "Which member is shared by all instances of a class?",
+        options: ["Instance variable", "Static variable", "Constructor", "Local variable"],
+        answer: 1,
+        explanation: "Static variables are shared across all instances of a class.",
+      },
+    ],
+  },
+  {
+    subject: "Operating Systems",
+    slug: "os-processes",
+    courseSlug: "os",
+    moduleTitle: "Processes & Scheduling",
+    moduleSlug: "processes-scheduling",
+    description: "A short quiz for process concepts and CPU scheduling after the Processes section.",
+    questions: [
+      {
+        id: 1,
+        question: "What is a process?",
+        options: ["A file on disk", "A running program instance", "A hardware component", "A network packet"],
+        answer: 1,
+        explanation: "A process is an instance of a program in execution.",
+      },
+      {
+        id: 2,
+        question: "Which scheduler selects the next process to run?",
+        options: ["Long-term scheduler", "Medium-term scheduler", "Short-term scheduler", "I/O scheduler"],
+        answer: 2,
+        explanation: "The short-term scheduler picks the next process for the CPU.",
+      },
+      {
+        id: 3,
+        question: "Which scheduling algorithm uses a fixed time slice for each process?",
+        options: ["FIFO", "Round robin", "Shortest job first", "Priority scheduling"],
+        answer: 1,
+        explanation: "Round robin scheduling assigns a time quantum to each process.",
+      },
+      {
+        id: 4,
+        question: "What is a page fault?",
+        options: ["Disk failure", "Missing page in memory", "CPU exception", "I/O error"],
+        answer: 1,
+        explanation: "A page fault occurs when a referenced page is not in main memory.",
+      },
+      {
+        id: 5,
+        question: "Which condition is not necessary for deadlock?",
+        options: ["Mutual exclusion", "Hold and wait", "No preemption", "Priority inversion"],
+        answer: 3,
+        explanation: "Priority inversion is not one of the four necessary deadlock conditions.",
+      },
+      {
+        id: 6,
+        question: "What does the term 'quantum' refer to in CPU scheduling?",
+        options: ["Process priority", "Time slice length", "Memory size", "Disk access time"],
+        answer: 1,
+        explanation: "Quantum is the fixed time slice for each process in round-robin scheduling.",
+      },
+      {
+        id: 7,
+        question: "Which structure represents a process's dynamic state?",
+        options: ["Page table", "PCB", "I/O buffer", "File descriptor"],
+        answer: 1,
+        explanation: "A process control block (PCB) stores process state and metadata.",
+      },
+      {
+        id: 8,
+        question: "Which scheduling method always runs the process with the shortest next CPU burst?",
+        options: ["Round robin", "Priority scheduling", "Shortest job first", "First-come, first-served"],
+        answer: 2,
+        explanation: "Shortest job first selects the next process with the shortest expected burst.",
+      },
+      {
+        id: 9,
+        question: "Which type of process switch involves saving and restoring registers and memory maps?",
+        options: ["Context switch", "Interrupt", "System call", "Exception"],
+        answer: 0,
+        explanation: "A context switch saves the current process state and restores another's.",
+      },
+      {
+        id: 10,
+        question: "What is the main advantage of preemptive scheduling?",
+        options: ["Simpler OS design", "Better response time", "Less overhead", "No context switches"],
+        answer: 1,
+        explanation: "Preemptive scheduling improves responsiveness by allowing the OS to switch tasks.",
+      },
+    ],
+  },
+  {
+    subject: "Machine Learning",
+    slug: "ml-supervised",
+    courseSlug: "ml",
+    moduleTitle: "Supervised Learning: Regression",
+    moduleSlug: "supervised-regression",
+    description: "A focused module quiz for regression and evaluation concepts in supervised learning.",
+    questions: [
+      {
+        id: 1,
+        question: "Which type of learning uses labeled examples?",
+        options: ["Unsupervised", "Supervised", "Reinforcement", "Self-supervised"],
+        answer: 1,
+        explanation: "Supervised learning uses labeled training data.",
+      },
+      {
+        id: 2,
+        question: "What does regression predict?",
+        options: ["Categories", "Continuous values", "Clusters", "Similarity scores"],
+        answer: 1,
+        explanation: "Regression predicts continuous numeric outcomes.",
+      },
+      {
+        id: 3,
+        question: "Which metric is common for regression error?",
+        options: ["Accuracy", "Mean squared error", "F1 score", "ROC AUC"],
+        answer: 1,
+        explanation: "Mean squared error measures average squared differences between predictions and true values.",
+      },
+      {
+        id: 4,
+        question: "What is the purpose of feature scaling before regression?",
+        options: ["Reduce overfitting", "Bring features to similar scales", "Increase model capacity", "Remove outliers"],
+        answer: 1,
+        explanation: "Feature scaling ensures feature magnitudes are comparable for many algorithms.",
+      },
+      {
+        id: 5,
+        question: "Which algorithm fits a linear relationship between inputs and output?",
+        options: ["Logistic regression", "Linear regression", "K-means", "Decision tree"],
+        answer: 1,
+        explanation: "Linear regression models a straight-line relationship between input and output.",
+      },
+      {
+        id: 6,
+        question: "Which term describes overfitting?",
+        options: ["Good generalization", "Fitting noise in training data", "Insufficient training", "Perfect test accuracy"],
+        answer: 1,
+        explanation: "Overfitting occurs when the model learns noise and fails to generalize.",
+      },
+      {
+        id: 7,
+        question: "What does R² measure?",
+        options: ["Training time", "Variance explained", "Classification accuracy", "Model size"],
+        answer: 1,
+        explanation: "R² indicates how much variance in the target is explained by the model.",
+      },
+      {
+        id: 8,
+        question: "Which technique can reduce dimensionality for regression?",
+        options: ["PCA", "K-means", "Naive Bayes", "A* search"],
+        answer: 0,
+        explanation: "PCA projects data into fewer dimensions for easier modeling.",
+      },
+      {
+        id: 9,
+        question: "What does a train/test split help prevent?",
+        options: ["Faster inference", "Overfitting", "Data leakage", "More features"],
+        answer: 2,
+        explanation: "A train/test split prevents data leakage by keeping evaluation data separate.",
+      },
+      {
+        id: 10,
+        question: "Which loss is squared and averaged over examples?",
+        options: ["Cross-entropy", "Mean squared error", "Hinge loss", "Absolute error"],
+        answer: 1,
+        explanation: "Mean squared error squares and averages prediction errors.",
+      },
+    ],
+  },
+  {
+    subject: "Programming in C",
+    slug: "c-intro",
+    courseSlug: "c",
+    moduleTitle: "Chapter I: Introduction to Computing",
+    moduleSlug: "intro-computing",
+    description: "A short module quiz for Chapter 1 covering computing fundamentals, algorithms, flowcharts, memory, and programs.",
+    questions: [
+      {
+        id: 1,
+        question: "What is the main purpose of computing?",
+        options: ["To store data only", "To automate tasks and solve problems", "To make hardware more expensive", "To replace humans entirely"],
+        answer: 1,
+        explanation: "Computing is used to automate tasks, solve problems, and process information.",
+      },
+      {
+        id: 2,
+        question: "Which flowchart symbol represents a decision?",
+        options: ["Rectangle", "Oval", "Diamond", "Parallelogram"],
+        answer: 2,
+        explanation: "A diamond shape represents a decision point in a flowchart.",
+      },
+      {
+        id: 3,
+        question: "What does pseudo-code describe?",
+        options: ["A programming language", "Hardware components", "Steps of an algorithm in plain language", "A data structure"],
+        answer: 2,
+        explanation: "Pseudo-code expresses algorithm steps in simple, human-readable statements.",
+      },
+      {
+        id: 4,
+        question: "Which device is an example of an input device?",
+        options: ["Monitor", "Printer", "Keyboard", "Speaker"],
+        answer: 2,
+        explanation: "A keyboard is used to input data into a computer.",
+      },
+      {
+        id: 5,
+        question: "Which part of the CPU carries out arithmetic and logic operations?",
+        options: ["CU", "ALU", "RAM", "ROM"],
+        answer: 1,
+        explanation: "The ALU performs arithmetic and logic operations inside the CPU.",
+      },
+      {
+        id: 6,
+        question: "What is a characteristic of a well-defined algorithm?",
+        options: ["No end state", "Finiteness", "Ambiguous instructions", "Infinite loop"],
+        answer: 1,
+        explanation: "A well-defined algorithm must be finite with clear steps and a defined end state.",
+      },
+      {
+        id: 7,
+        question: "What is stored in primary memory?",
+        options: ["Programs only", "Instructions and data", "Electrical wiring", "Keyboard commands"],
+        answer: 1,
+        explanation: "Primary memory stores both instructions and data while a program runs.",
+      },
+      {
+        id: 8,
+        question: "Which of these is a secondary memory device?",
+        options: ["RAM", "ROM", "SSD", "CPU"],
+        answer: 2,
+        explanation: "An SSD is a secondary storage device used for long-term data storage.",
+      },
+      {
+        id: 9,
+        question: "What is the first step of the instruction cycle?",
+        options: ["Execute", "Fetch", "Decode", "Store"],
+        answer: 1,
+        explanation: "The instruction cycle begins by fetching the next instruction from memory.",
+      },
+      {
+        id: 10,
+        question: "Which of these is an example of a program?",
+        options: ["A sequence of instructions to solve a task", "A computer chip", "A type of memory", "A flowchart symbol"],
+        answer: 0,
+        explanation: "A program is a sequence of instructions designed to perform a task.",
+      },
+    ],
+  },
+];
+
+export const moduleQuizCards: ModuleQuizCard[] = [
+  {
+    quizSlug: "dsc-arrays",
+    subject: "Data Structures using C",
+    subjectSlug: "dsc",
+    moduleSlug: "arrays",
+    moduleTitle: "Module I: Arrays",
+    cardTitle: "Arrays module quiz",
+    description: "Reinforce learning after the Arrays module with a targeted 10-question quiz.",
+    buttonLabel: "Take Arrays Quiz",
+    relatedTopics: ["array declaration", "indexing", "pointer arithmetic", "string literals"],
+  },
+  {
+    quizSlug: "oops-basics",
+    subject: "OOPs",
+    subjectSlug: "oops",
+    moduleSlug: "classes-objects",
+    moduleTitle: "Classes & Objects",
+    cardTitle: "Classes & Objects quiz",
+    description: "Test your understanding of core OOP principles after the Classes & Objects section.",
+    buttonLabel: "Take OOPs Quiz",
+    relatedTopics: ["encapsulation", "objects", "constructors", "inheritance"],
+  },
+  {
+    quizSlug: "os-processes",
+    subject: "Operating Systems",
+    subjectSlug: "os",
+    moduleSlug: "processes-scheduling",
+    moduleTitle: "Processes & Scheduling",
+    cardTitle: "Processes & Scheduling quiz",
+    description: "Quick module quiz for process fundamentals and CPU scheduling concepts.",
+    buttonLabel: "Take OS Quiz",
+    relatedTopics: ["processes", "scheduling", "deadlock", "context switch"],
+  },
+  {
+    quizSlug: "ml-supervised",
+    subject: "Machine Learning",
+    subjectSlug: "ml",
+    moduleSlug: "supervised-regression",
+    moduleTitle: "Supervised Learning: Regression",
+    cardTitle: "Regression module quiz",
+    description: "A focused quiz for regression concepts and evaluation metrics in supervised learning.",
+    buttonLabel: "Take ML Quiz",
+    relatedTopics: ["regression", "feature scaling", "MSE", "R²"],
+  },
+  {
+    quizSlug: "c-intro",
+    subject: "Programming in C",
+    subjectSlug: "c",
+    moduleSlug: "intro-computing",
+    moduleTitle: "Chapter I: Introduction to Computing",
+    cardTitle: "Chapter 1 Module Quiz",
+    description: "Test your understanding of Chapter 1 topics like algorithms, flowcharts, memory, and programs.",
+    buttonLabel: "Take Chapter 1 Quiz",
+    relatedTopics: ["algorithms", "flowcharts", "memory", "computing basics"],
+  },
 ];
 
 export function getQuizBySlug(slug: string): Quiz | undefined {
-  return quizzes.find((q) => q.slug === slug);
+  return quizzes.find((q) => q.slug === slug) || moduleQuizzes.find((q) => q.slug === slug);
 }
