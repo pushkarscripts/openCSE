@@ -27,10 +27,11 @@ export default function SearchBar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Keyboard shortcut: Cmd/Ctrl + K
+  // Keyboard shortcut: / (forward slash)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+      // Forward slash to focus search (like GitHub, Reddit)
+      if (event.key === "/" && !["INPUT", "TEXTAREA"].includes((event.target as HTMLElement).tagName)) {
         event.preventDefault();
         const input = searchRef.current?.querySelector("input");
         input?.focus();
