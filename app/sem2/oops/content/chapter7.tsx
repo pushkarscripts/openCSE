@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch7Content = () => {
   return (
     <div className="course-content">
@@ -22,20 +26,28 @@ export const Ch7Content = () => {
         </p>
 
         <ul className="section-list">
-          <li>Eliminates unsafe type casting</li>
-          <li>Enables strong type-checking</li>
-          <li>Allows reusable, flexible classes and methods</li>
+          <li>Eliminates unsafe explicit type casting</li>
+          <li>Enables strong compile-time type-checking</li>
+          <li>Allows highly reusable, flexible classes and methods</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <pre className="code-block">
-{`ArrayList<String> list = new ArrayList<>();
+        <CodeBlock 
+          title="COMPILE-TIME TYPE PROTECTION"
+          code={`ArrayList<String> list = new ArrayList<>();
 list.add("hello");
-// list.add(10);   // compile-time error`}
+// list.add(10);   // Compile-Time Error: strong type safety prevents mixing types`}
+        />
+
+        {/* ✅ FIXED: Replaced broken generic-type-parameter.png reference with ASCII diagram */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Generic Type Parameter Anatomy ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`   ArrayList < String >  list  =  new  ArrayList <> ();
+     │          │                                 │
+Class Type   Type Argument                Diamond Operator
+(Container)  (Enforces Type)             (Infers Type automatically)`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">Diagram: <strong>generic-type-parameter.png</strong></p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -45,30 +57,31 @@ list.add("hello");
         <h3 className="section-heading">Generic Class</h3>
 
         <p className="p-text">
-          A generic class defines one or more type parameters to be used in the class.
+          A generic class defines one or more type parameters to be used throughout its properties and signatures.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg">
-          <div className="font-semibold">Example: A Simple Generic Box</div>
-          <pre className="code-block mt-3">
-{`class Box<T> {
-  T value;
+        <CodeBlock 
+          title="GENERIC CLASS TYPE CONTAINER"
+          code={`class Box<T> {
+  private T value;
 
-  Box(T value) {
+  public Box(T value) {
     this.value = value;
   }
 
-  T get() { return value; }
+  public T get() { 
+    return value; 
+  }
 }
 
+// Usage with Integer wrappers
 Box<Integer> b = new Box<>(100);
 System.out.println(b.get());`}
-          </pre>
-        </div>
+        />
 
         <ul className="section-list mt-3">
-          <li><code className="inline-code">T</code>, <code className="inline-code">E</code>, <code className="inline-code">K</code>, <code className="inline-code">V</code> are common type parameter names</li>
-          <li>You can define multiple type parameters, e.g. <code className="inline-code">Box&lt;T, U&gt;</code></li>
+          <li><code className="inline-code">T</code> (Type), <code className="inline-code">E</code> (Element), <code className="inline-code">K</code> (Key), <code className="inline-code">V</code> (Value) are standard naming conventions.</li>
+          <li>You can define multiple type parameters inside a single diamond schema, e.g., <code className="inline-code">Box&lt;T, U&gt;</code>.</li>
         </ul>
       </section>
 
@@ -78,25 +91,27 @@ System.out.println(b.get());`}
       <section>
         <h3 className="section-heading">Generic Class with Two Type Parameters</h3>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block">
-{`class Pair<K, V> {
-  K key;
-  V value;
+        <p className="p-text">
+          Useful for multi-value architectural data storage like mappings and tuple containers.
+        </p>
 
-  Pair(K key, V value) {
+        <CodeBlock 
+          title="MULTI-TYPE SCHEMA PARAMETERS"
+          code={`class Pair<K, V> {
+  private K key;
+  private V value;
+
+  public Pair(K key, V value) {
     this.key = key;
     this.value = value;
   }
+
+  public K getKey() { return key; }
+  public V getValue() { return value; }
 }
 
 Pair<String, Integer> p = new Pair<>("age", 20);`}
-          </pre>
-        </div>
-
-        <p className="p-text">
-          Useful in maps, key-value data storage, and utility methods.
-        </p>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -106,25 +121,32 @@ Pair<String, Integer> p = new Pair<>("age", 20);`}
         <h3 className="section-heading">Generic Methods</h3>
 
         <p className="p-text">
-          A method can declare its own type parameter independent of the class.
+          A method can declare its own independent type parameters, scope-locked inside its own signature regardless of whether the enclosing class is generic or not.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg mt-3">
-          <pre className="code-block">
-{`class Utils {
-  static <T> void print(T value) {
+        <CodeBlock 
+          title="STANDALONE GENERIC METHOD DISPATCHER"
+          code={`class Utils {
+  // Type parameter declared right before the return type
+  public static <T> void print(T value) {
     System.out.println(value);
   }
 }
 
+// Runtime automated inference
 Utils.print("hello");
 Utils.print(123);`}
+        />
+
+        {/* ✅ FIXED: Replaced broken generic-method-flow.png with clean signature map */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Generic Method Signature Analysis ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`public static   <T>   void   print (  T value  )
+                 │              │       │
+          Type Parameter    Return Type  Parameter Type Scope`}
           </pre>
         </div>
-
-        <p className="p-text">
-          Diagram: <strong>generic-method-flow.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -134,24 +156,22 @@ Utils.print(123);`}
         <h3 className="section-heading">Bounded Type Parameters</h3>
 
         <p className="p-text">
-          Bounds restrict the types that can be passed to generics.
+          Bounds place upper limits on type parameters, restricting the family of classes that can be supplied to a generic argument.
         </p>
 
-        <div className="example-box bg-[#f3e7c2] border border-[#c7a669] rounded-lg p-4">
-          <pre className="code-block">
-{`class Numbers<T extends Number> {   // only Number subclasses allowed
-  T num;
-  Numbers(T num) { this.num = num; }
+        <CodeBlock 
+          title="UPPER BOUND RESTRICTIONS"
+          code={`class Numbers<T extends Number> {   // restricts types to Number or its subclasses
+  private T num;
+  
+  public Numbers(T num) { 
+    this.num = num; 
+  }
 }
 
-Numbers<Integer> n1 = new Numbers<>(10);
-Numbers<String> n2 = new Numbers<>("hi"); // error`}
-          </pre>
-        </div>
-
-        <p className="p-text">
-          Bounded generics are widely used in sorting, comparisons, and collections.
-        </p>
+Numbers<Integer> n1 = new Numbers<>(10);       // Compiles fine
+// Numbers<String> n2 = new Numbers<>("hi"); // Compile-Time Error: String does not extend Number`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -161,25 +181,42 @@ Numbers<String> n2 = new Numbers<>("hi"); // error`}
         <h3 className="section-heading">Wildcards</h3>
 
         <p className="p-text">
-          Wildcards allow flexibility when working with unknown or partially known types.
+          Wildcards represented by the question mark symbol (<code>?</code>) offer polymorphic argument compatibility when dealing with unknown or collections of partially known families.
         </p>
 
         <ul className="section-list">
-          <li><strong>?</strong> – unknown type</li>
-          <li><strong>? extends T</strong> – upper bounded</li>
-          <li><strong>? super T</strong> – lower bounded</li>
+          <li><strong><code>List&lt;?&gt;</code></strong> – Unbounded wildcard. Accepts list collections of any arbitrary element type.</li>
+          <li><strong><code>List&lt;? extends T&gt;</code></strong> – Upper bounded wildcard. Restricts to families extending type <code>T</code> (Safe for reading operations).</li>
+          <li><strong><code>List&lt;? super T&gt;</code></strong> – Lower bounded wildcard. Restricts to superclasses above type <code>T</code> (Safe for writing operations).</li>
         </ul>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block mt-3">
-{`void show(List<?> list) { }           // accepts any type
-void showNum(List<? extends Number> l) // only Number or its subclasses`}
+        <CodeBlock 
+          title="WILDCARD METHOD PARSING ROUTINES"
+          code={`import java.util.List;
+
+class WildcardDemo {
+  // Unbounded: Accepts any type list configuration
+  void show(List<?> list) { }           
+
+  // Upper Bounded: Accepts lists of Number, Integer, Double, etc.
+  void showNum(List<? extends Number> l) { } 
+}`}
+        />
+
+        {/* ✅ FIXED: Replaced broken wildcards-hierarchy.png with bounded tree chart */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Wildcard Bounds Structural Hierarchy ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`         [ Object ]
+             ▲
+             │  (? super Number) ── Lower bound limit includes ancestors
+        [ Number ]
+             ▲
+             │  (? extends Number) ── Upper bound limit includes descendants
+    ┌────────┴────────┐
+[ Integer ]       [ Double ]`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">
-          Diagram: <strong>wildcards-hierarchy.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -189,23 +226,23 @@ void showNum(List<? extends Number> l) // only Number or its subclasses`}
         <h3 className="section-heading">Type Erasure</h3>
 
         <p className="p-text">
-          Java implements generics using <strong>type erasure</strong>. After compilation,
-          all generic type information is removed and replaced with raw types.
+          Java implements generics strictly at compile time through a compiler technique called <strong>type erasure</strong>. 
+          To ensure backward compatibility with older legacy codebases, all generic tokens are completely stripped off and replaced with raw types (usually <code>Object</code> or the bound limit) during execution compilation.
         </p>
 
         <ul className="section-list">
-          <li>Generic type parameters exist only at compile time</li>
-          <li>Ensures backward compatibility with older Java versions</li>
-          <li>Restrictions: no primitive generics, no runtime type-checking of generic types</li>
+          <li>Generic parameters exist exclusively for compile-time structural validation checks.</li>
+          <li><strong>Restrictions:</strong> You cannot instantiate generics with primitives (e.g., <code>List&lt;int&gt;</code> is invalid) or carry out runtime type evaluations like <code>instanceof T</code>.</li>
         </ul>
 
-        <pre className="code-block bg-[#f3e7c2] border border-[#c7a669] p-3 rounded-lg mt-3">
-{`ArrayList<Integer> a1 = new ArrayList<>();
+        <CodeBlock 
+          title="RUNTIME ERASURE TRACE COMPARISON"
+          code={`ArrayList<Integer> a1 = new ArrayList<>();
 ArrayList<String> a2 = new ArrayList<>();
 
-// at runtime:
-a1.getClass() == a2.getClass();   // true`}
-        </pre>
+// Both instances evaluate to the identical underlying raw class at runtime
+System.out.println(a1.getClass() == a2.getClass());   // Outputs: true`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -215,13 +252,8 @@ a1.getClass() == a2.getClass();   // true`}
         <h3 className="section-heading">Summary</h3>
 
         <p className="p-text">
-          Generics help ensure type-safety and reusable code. Understanding generic
-          classes, methods, wildcards, and type erasure prepares you for Java Collections,
-          frameworks, and industry-level application development.
-        </p>
-
-        <p className="p-text mt-4">
-          Diagrams to insert: <strong>generic-class-diagram.png</strong>, <strong>wildcard-usage.png</strong>
+          Generics eliminate unsafe casting errors and enforce robust static types over decoupled abstract code structures. 
+          Grasping generic class configurations, bounds, wildcards, and compiler type erasure patterns forms the foundation for writing high-performance frameworks and managing the Java Collections API effectively.
         </p>
       </section>
 

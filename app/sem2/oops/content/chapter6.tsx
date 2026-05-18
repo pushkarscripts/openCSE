@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch6Content = () => {
   return (
     <div className="course-content">
@@ -21,14 +25,27 @@ export const Ch6Content = () => {
         </p>
 
         <ul className="section-list">
-          <li><strong>Thread</strong> – a lightweight process</li>
-          <li><strong>Multithreading</strong> – executing multiple threads</li>
-          <li><strong>Context switching</strong> – CPU switching between threads</li>
+          <li><strong>Thread</strong> – a lightweight process with its own call stack</li>
+          <li><strong>Multithreading</strong> – executing multiple tasks concurrently within the same program space</li>
+          <li><strong>Context switching</strong> – the CPU scheduling mechanism shifting between active threads</li>
         </ul>
 
-        <p className="p-text mt-2">
-          Diagram: <strong>thread-life-cycle.png</strong>
-        </p>
+        {/* ✅ FIXED: Replaced broken thread-life-cycle.png with ASCII State Machine */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Java Thread Life Cycle States ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`  [ New ] ─── start() ───► [ Runnable ] ◄───(Scheduled)───► [ Running ]
+                               ▲                                 │
+                               │                                 ▼
+                        Object.notify()                   Object.wait() / sleep()
+                               │                                 │
+                               └─────────── [ Blocked ] ◄────────┘
+                                                │
+                                         (Task Completes)
+                                                ▼
+                                          [ Terminated ]`}
+          </pre>
+        </div>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -38,20 +55,19 @@ export const Ch6Content = () => {
         <h3 className="section-heading">The Main Thread</h3>
 
         <p className="p-text">
-          Every Java program starts with one thread: the <strong>main thread</strong>.
+          Every Java program starts with one default execution point: the <strong>main thread</strong>, spawned automatically by the JVM.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg">
-          <pre className="code-block">
-{`public class MainThreadDemo {
+        <CodeBlock 
+          title="INSPECTING THE IMPLICIT MAIN THREAD"
+          code={`public class MainThreadDemo {
   public static void main(String[] args) {
     Thread t = Thread.currentThread();
-    System.out.println(t.getName());      // main
-    System.out.println(t.getPriority());  // default = 5
+    System.out.println("Thread Name: " + t.getName());      // Outputs: main
+    System.out.println("Default Priority: " + t.getPriority());  // Outputs: 5
   }
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -61,44 +77,44 @@ export const Ch6Content = () => {
         <h3 className="section-heading">Creating Threads</h3>
 
         <p className="p-text">
-          Java supports two ways to create threads:
+          Java supports two distinct structural implementations to instantiate a custom execution path:
         </p>
 
         <ul className="section-list">
-          <li>Extending the <strong>Thread</strong> class</li>
-          <li>Implementing the <strong>Runnable</strong> interface</li>
+          <li>Extending the foundational <strong>Thread</strong> class directly</li>
+          <li>Implementing the functional <strong>Runnable</strong> interface wrapper</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <div className="font-semibold">Method 1: Extending Thread</div>
-          <pre className="code-block mt-3">
-{`class MyThread extends Thread {
+        <CodeBlock 
+          title="METHOD 1: EXTENDING THE THREAD CLASS CONTAINER"
+          code={`class MyThread extends Thread {
+  @Override
   public void run() {
-    System.out.println("Thread running");
+    System.out.println("Execution logic running inside sub-thread routine.");
   }
 }
 
+// Spawning execution route
 MyThread t = new MyThread();
-t.start();`}
-          </pre>
-        </div>
+t.start(); // Allocates machine registers and schedules the run() method`}
+        />
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <div className="font-semibold">Method 2: Implementing Runnable</div>
-          <pre className="code-block mt-3">
-{`class MyTask implements Runnable {
+        <CodeBlock 
+          title="METHOD 2: IMPLEMENTING THE RUNNABLE INTERFACE CONTRACT"
+          code={`class MyTask implements Runnable {
+  @Override
   public void run() {
-    System.out.println("Runnable running");
+    System.out.println("Execution code running from decoupled Runnable task implementation.");
   }
 }
 
+// Coupling interface instance inside a standalone Thread worker pipeline
 Thread t = new Thread(new MyTask());
 t.start();`}
-          </pre>
-        </div>
+        />
 
         <p className="p-text mt-3">
-          Runnable is preferred when a class must extend another class.
+          <strong>Design Note:</strong> Implementing <code>Runnable</code> is highly preferred in enterprise systems because it saves your single class inheritance slot from being locked down.
         </p>
       </section>
 
@@ -108,19 +124,18 @@ t.start();`}
       <section>
         <h3 className="section-heading">Creating Multiple Threads</h3>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block">
-{`for (int i = 1; i <= 3; i++) {
+        <CodeBlock 
+          title="PARALLEL RUNTIME LAMBDA DISPATCHERS"
+          code={`for (int i = 1; i <= 3; i++) {
   Thread t = new Thread(() -> {
-    System.out.println("Running: " + Thread.currentThread().getName());
+    System.out.println("Active Target Workspace: " + Thread.currentThread().getName());
   });
   t.start();
 }`}
-          </pre>
-        </div>
+        />
 
         <p className="p-text">
-          Each thread runs independently. Order of execution is not guaranteed.
+          Each thread spins up as an isolated execution trace. The exact processing order is entirely governed by the underlying OS thread scheduler.
         </p>
       </section>
 
@@ -131,14 +146,15 @@ t.start();`}
         <h3 className="section-heading">Thread Priorities</h3>
 
         <p className="p-text">
-          Every thread has a priority (1 to 10). Higher priority increases the chance
-          of being scheduled first.
+          Threads carry scheduling weights ranking from 1 up to 10. Higher ranks inform the system to favor allocating CPU slices to these nodes whenever possible.
         </p>
 
-        <pre className="code-block bg-[#f0ddb6] p-3 border border-[#c7a669] rounded-lg mt-3">
-{`Thread t = new Thread(new MyTask());
-t.setPriority(Thread.MAX_PRIORITY);  // 10`}
-        </pre>
+        <CodeBlock 
+          title="ADJUSTING SCHEDULING WEIGHT METRICS"
+          code={`Thread t = new Thread(() -> System.out.println("High priority stream task."));
+t.setPriority(Thread.MAX_PRIORITY);  // Assigns maximum weight threshold = 10
+t.start();`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -148,25 +164,34 @@ t.setPriority(Thread.MAX_PRIORITY);  // 10`}
         <h3 className="section-heading">Synchronization</h3>
 
         <p className="p-text">
-          When multiple threads access shared data, race conditions may occur.
-          Synchronization ensures only one thread accesses critical code at a time.
+          When overlapping threads mutating shared variables cause race conditions, the <code>synchronized</code> keyword serializes access to critical segments.
         </p>
 
-        <pre className="code-block bg-[#f3e7c2] p-3 border border-[#c7a669] rounded-lg mt-3">
-{`class Counter {
+        <CodeBlock 
+          title="THREAD SAFE RESOURCE LOCKING ROUTINES"
+          code={`class Counter {
   private int count = 0;
 
-  synchronized void increment() { count++; }
+  // Acquires an implicit object monitor lock before allowing entry
+  public synchronized void increment() { 
+    count++; 
+  }
+  
+  public int getCount() { 
+    return count; 
+  }
 }`}
-        </pre>
+        />
 
-        <p className="p-text">
-          Only one thread can execute a synchronized method or block on an object at once.
-        </p>
-
-        <p className="p-text mt-2">
-          Diagram: <strong>synchronization-lock.png</strong>
-        </p>
+        {/* ✅ FIXED: Replaced broken synchronization-lock.png with an ASCII monitor map */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Intrinsic Object Monitor Lock Mechanics ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`Thread A ───(Acquires Lock)───► [ Critical Method Scope ] ───(Releases Lock)───► Complete
+                                          ▲
+Thread B ───(Lock Occupied)───────► [ Blocked Queue ] (Waits till object monitor drops)`}
+          </pre>
+        </div>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -176,18 +201,21 @@ t.setPriority(Thread.MAX_PRIORITY);  // 10`}
         <h3 className="section-heading">Interthread Communication</h3>
 
         <p className="p-text">
-          Java provides <strong>wait()</strong>, <strong>notify()</strong>, and <strong>notifyAll()</strong>
-          for threads to communicate inside synchronized blocks.
+          Java facilitates cross-thread signaling loops using <code>wait()</code>, <code>notify()</code>, and <code>notifyAll()</code> inside monitor scopes.
         </p>
 
-        <pre className="code-block bg-[#f0ddb6] p-3 border border-[#c7a669] rounded-lg mt-3">
-{`synchronized(obj) {
-  obj.wait();       // thread waits
-  obj.notify();     // wakes one thread
+        <CodeBlock 
+          title="PRODUCER-CONSUMER GATEWAY SIGNALS"
+          code={`synchronized(obj) {
+  // Yields current processor control and goes into an idle wait pool state
+  obj.wait();       
+  
+  // Wakes up a single thread currently pending inside the target monitor pool
+  obj.notify();     
 }`}
-        </pre>
+        />
 
-        <p className="p-text">Used in producer-consumer problems and buffering.</p>
+        <p className="p-text">These routines provide low-level synchronization blocks for Producer-Consumer algorithms and concurrent ring buffers.</p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -197,10 +225,9 @@ t.setPriority(Thread.MAX_PRIORITY);  // 10`}
         <h3 className="section-heading">Using Multithreading</h3>
 
         <ul className="section-list">
-          <li>Parallel computation</li>
-          <li>Animations and background tasks</li>
-          <li>Real-time systems</li>
-          <li>Servers handling multiple clients</li>
+          <li>Asynchronous parallel matrix and batch algorithms</li>
+          <li>Preventing frame rate drops by isolating UI render threads from heavy disk I/O operations</li>
+          <li>Distributed server systems spinning up separate request handlers for independent remote sockets</li>
         </ul>
       </section>
 
@@ -211,14 +238,8 @@ t.setPriority(Thread.MAX_PRIORITY);  // 10`}
         <h3 className="section-heading">Summary</h3>
 
         <p className="p-text">
-          Threads enable concurrent execution in Java. Learning how to create threads,
-          synchronize them, and manage communication is essential for advanced Java
-          programming and real-world applications such as GUI programming, networking,
-          and server-side processing.
-        </p>
-
-        <p className="p-text mt-4">
-          Add diagrams: <strong>thread-cycle.png</strong>, <strong>synchronization-flow.png</strong>
+          Threads form the backbone of highly performant, responsive systems in Java. 
+          Mastering lifecycle transitions, implementing concurrent task structures, and resolving resource race conditions are vital steps for enterprise framework engineering.
         </p>
       </section>
 

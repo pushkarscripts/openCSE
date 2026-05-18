@@ -21,34 +21,37 @@ const righteous = Righteous({
   variable: "--font-righteous",
 });
 
+// Syncing meta titles with the absolute C++ Object-Oriented content blocks created inside /content
 const chapters = [
   { id: "ch0", title: "Course Outline", component: Ch0Content },
-  { id: "ch1", title: "Introduction to Java", component: Ch1Content },
-  { id: "ch2", title: "Classes and Objects", component: Ch2Content },
-  { id: "ch3", title: "Inheritance & Polymorphism", component: Ch3Content },
-  { id: "ch4", title: "Packages & Interfaces", component: Ch4Content },
-  { id: "ch5", title: "Exception Handling", component: Ch5Content },
-  { id: "ch6", title: "Threads", component: Ch6Content },
-  { id: "ch7", title: "Generics", component: Ch7Content },
-  { id: "ch8", title: "Java Library & Swing GUI", component: Ch8Content },
+  { id: "ch1", title: "Paradigm Shift: POP vs. OOP", component: Ch1Content },
+  { id: "ch2", title: "Classes, Objects, and Access Specifiers", component: Ch2Content },
+  { id: "ch3", title: "Constructors and Destructors", component: Ch3Content },
+  { id: "ch4", title: "Data Hiding and Encapsulation", component: Ch4Content },
+  { id: "ch5", title: "Inheritance Paradigms", component: Ch5Content },
+  { id: "ch6", title: "Polymorphism and Virtual Interfaces", component: Ch6Content },
+  { id: "ch7", title: "Exception Handling Mechanisms", component: Ch7Content },
+  { id: "ch8", title: "Generic Programming & SOLID Principles", component: Ch8Content },
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }> | { chapter: string };
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: ChapterProps) {
+  // NEXT.JS 15 COMPLIANCE: Awaiting unified async evaluation for incoming segment route parameters
+  const resolvedParams = await params;
+  
+  const currentIndex = chapters.findIndex((c) => c.id === resolvedParams.chapter);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
-    return <h1 className="text-2xl font-bold">Chapter not found</h1>;
+    return <h1 className="text-2xl font-bold p-6">Chapter not found</h1>;
   }
 
   const ChapterComponent = chapter.component;
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
-  const nextChapter =
-    currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+  const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
 
   const chapterQuizSlugMap: Record<string, string> = {
     ch1: "oops-intro-java",
@@ -64,17 +67,16 @@ export default function ChapterPage({ params }: ChapterProps) {
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
-
       <div className="flex-1">
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
-          Object-Oriented Programming in Java
+          Object-Oriented Programming
         </h1>
 
         <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
           {chapter.title}
         </p>
 
-        {/* Navigation */}
+        {/* Top Navigation */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (
             <Link
@@ -101,7 +103,7 @@ export default function ChapterPage({ params }: ChapterProps) {
           )}
         </div>
 
-        <hr className="my-6 border-t-3" />
+        <hr className="my-6 border-t-3 border-[#c7a669] opacity-50" />
         <ChapterComponent />
 
         {chapterQuiz ? (

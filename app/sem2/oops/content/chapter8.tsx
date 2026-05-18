@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch8Content = () => {
   return (
     <div className="course-content">
@@ -22,27 +26,34 @@ export const Ch8Content = () => {
         </p>
 
         <ul className="section-list">
-          <li><strong>String</strong> objects cannot be changed once created</li>
-          <li><strong>StringBuffer</strong> is used when thread-safety is required</li>
-          <li><strong>StringBuilder</strong> is faster but not synchronized</li>
+          <li><strong>String</strong> – Content cannot be modified post-allocation (Stored inside String Constant Pool).</li>
+          <li><strong>StringBuffer</strong> – Thread-safe, synchronized buffer mutable allocation (Safe for multi-threaded setups).</li>
+          <li><strong>StringBuilder</strong> – Non-synchronized, faster mutable buffer (Preferred for single-threaded sequential routines).</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] border border-[#c7a669] p-4 rounded-lg mt-4">
-          <pre className="code-block">
-{`String s = "Hello";
-String s2 = s.replace("H", "Y"); // new object
+        <CodeBlock 
+          title="TEXTUAL WRAPPER RUNTIMES"
+          code={`String s = "Hello";
+String s2 = s.replace("H", "Y"); // Spawns a brand new instance on heap
 
 StringBuffer sb = new StringBuffer("Java");
-sb.append(" Programming");
+sb.append(" Programming");       // Modifies internal memory buffer directly
 
 StringBuilder sb2 = new StringBuilder("Fast");
-sb2.append(" Builder");`}
+sb2.append(" Builder");          // Performs high-speed, non-blocking modification`}
+        />
+
+        {/* ✅ FIXED: Replaced broken string-vs-stringbuffer.png with safe matrix representation */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ String Sequence Specifications ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`Feature         │ String           │ StringBuffer     │ StringBuilder
+────────────────┼──────────────────┼──────────────────┼──────────────────
+Immutability    │ Immutable        │ Mutable          │ Mutable
+Thread Safety   │ Yes (Constant)   │ Yes (Synchronized)│ No (Unsafe)
+Performance     │ Slow on edits    │ Medium (Locks)   │ Fast (No Locks)`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">
-          Diagram: <strong>string-vs-stringbuffer.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -52,28 +63,26 @@ sb2.append(" Builder");`}
         <h3 className="section-heading">Exploring java.lang</h3>
 
         <p className="p-text">
-          The <code className="inline-code">java.lang</code> package is automatically imported and contains
-          core classes essential to Java programming.
+          The <code className="inline-code">java.lang</code> package is automatically imported into every compilation unit and contains
+          core classes essential to the system runtime.
         </p>
 
         <ul className="section-list">
-          <li><strong>Math</strong> – mathematical functions</li>
-          <li><strong>Object</strong> – root of all classes</li>
-          <li><strong>System</strong> – standard I/O and environment</li>
-          <li><strong>Wrapper classes</strong>: Integer, Double, Character</li>
+          <li><strong>Math</strong> – Final utility class housing high-performance algebraic and trigonometric static functions.</li>
+          <li><strong>Object</strong> – Root ancestor anchoring every single class tree.</li>
+          <li><strong>System</strong> – Interface connecting the code execution logic to host environment streams (stdin, stdout, stderr).</li>
+          <li><strong>Wrapper classes</strong> – Object wrappers (Integer, Double, Character) enabling primitive binding to Object references.</li>
         </ul>
 
-        <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg mt-4">
-          <pre className="code-block">
-{`double r = Math.sqrt(49);        // 7.0
-int m = Math.max(5, 12);          // 12
-char c = Character.toUpperCase('a');`}
-          </pre>
-        </div>
+        <CodeBlock 
+          title="CORE UTILITIES DEPLOYMENT"
+          code={`double r = Math.sqrt(49);        // Returns: 7.0
+int m = Math.max(5, 12);          // Returns: 12
+char c = Character.toUpperCase('a'); // Returns: 'A'
 
-        <p className="p-text">
-          Wrapper classes help convert between primitives and objects.
-        </p>
+// Autoboxing primitives into reference containers
+Integer boundValue = 57; // Automatic wrap`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -83,32 +92,44 @@ char c = Character.toUpperCase('a');`}
         <h3 className="section-heading">The Collections Framework</h3>
 
         <p className="p-text">
-          The collections framework provides data structures like lists, sets,
-          queues, and maps. Generics are heavily used here.
+          The collections framework offers structured data engines (lists, sets, queues, maps) leveraging strict type safety through Generics parameters.
         </p>
 
         <ul className="section-list">
-          <li><strong>ArrayList</strong> – dynamic array</li>
-          <li><strong>LinkedList</strong> – doubly-linked list</li>
-          <li><strong>HashSet</strong> – stores unique elements</li>
-          <li><strong>HashMap</strong> – key-value storage</li>
+          <li><strong>ArrayList</strong> – Dynamic array backed layout (Excellent for fast random index lookup via O(1) ops).</li>
+          <li><strong>LinkedList</strong> – Doubly-linked pointer layout (Optimized for quick nodes injection/extraction).</li>
+          <li><strong>HashSet</strong> – Backed by hashing tables, blocking duplicate items to maintain unique item listings.</li>
+          <li><strong>HashMap</strong> – Map configuration mapping distinct unique keys directly onto individual values.</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg mt-3">
-          <pre className="code-block">
-{`ArrayList<String> names = new ArrayList<>();
+        <CodeBlock 
+          title="COLLECTIONS DATA INSTANTIATION"
+          code={`import java.util.ArrayList;
+import java.util.HashMap;
+
+ArrayList<String> names = new ArrayList<>();
 names.add("Alice");
 names.add("Bob");
 
 HashMap<String, Integer> marks = new HashMap<>();
 marks.put("Math", 95);
 marks.put("Physics", 88);`}
+        />
+
+        {/* ✅ FIXED: Replaced broken collections-hierarchy.png with accurate structural map */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Core Collections Framework Blueprint ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`                  Iterable
+                     │
+                 Collection               Map (Isolated Interface)
+         ┌───────────┼───────────┐           │
+         ▼           ▼           ▼           ▼
+       List         Set        Queue      HashMap
+         │           │
+     ArrayList    HashSet`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">
-          Diagram: <strong>collections-hierarchy.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -118,39 +139,39 @@ marks.put("Physics", 88);`}
         <h3 className="section-heading">Introduction to Swing</h3>
 
         <p className="p-text">
-          Swing is Java’s lightweight GUI toolkit built on top of AWT. Components are
-          platform-independent and provide modern GUI widgets.
+          Swing is Java’s lightweight, platform-independent GUI toolkit built on top of the Abstract Window Toolkit (AWT). 
+          It implements a completely pluggable look-and-feel architecture across execution setups.
         </p>
 
         <ul className="section-list">
-          <li><strong>JFrame</strong> – main window</li>
-          <li><strong>JButton</strong> – clickable button</li>
-          <li><strong>JLabel</strong> – display text</li>
-          <li><strong>JTextField</strong> – input field</li>
+          <li><strong>JFrame</strong> – Top-level standalone display window shell with borders and close decorations.</li>
+          <li><strong>JButton</strong> – Standard interactive button dispatch node triggering user actions.</li>
+          <li><strong>JLabel</strong> – Static read-only string display block for UI feedback labels.</li>
+          <li><strong>JTextField</strong> – Single-line editable input field capturing text inputs.</li>
         </ul>
 
-        <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg mt-4">
-          <div className="font-semibold text-[#3a2a14]">Simple Swing Program</div>
-          <pre className="code-block mt-3">
-{`import javax.swing.*;
+        <CodeBlock 
+          title="STANDALONE SWING FRAME DEPLOYMENT"
+          code={`import javax.swing.JFrame;
+import javax.swing.JButton;
 
 public class FirstGUI {
   public static void main(String[] args) {
-    JFrame f = new JFrame("Demo");
-    JButton b = new JButton("Click");
-    b.setBounds(50, 80, 100, 40);
+    JFrame f = new JFrame("Demo Portal");
+    JButton b = new JButton("Click Me");
+    
+    b.setBounds(50, 80, 100, 40); // Exact pixel coordinate plotting x, y, width, height
 
     f.add(b);
     f.setSize(300, 200);
-    f.setLayout(null);
-    f.setVisible(true);
+    f.setLayout(null);           // Disabling layout engines to enforce absolute boundary mappings
+    f.setVisible(true);          // Paints frame window on screen
   }
 }`}
-          </pre>
-        </div>
+        />
 
         <p className="p-text mt-3">
-          Each Swing program must run on the <strong>Event Dispatch Thread (EDT)</strong>.
+          <strong>Important Runtime Constraint:</strong> All graphics updates and interactive layout modifications must execute safely within the isolated scope of the <strong>Event Dispatch Thread (EDT)</strong> to prevent multi-threaded UI corruption bugs.
         </p>
       </section>
 
@@ -161,29 +182,31 @@ public class FirstGUI {
         <h3 className="section-heading">Exploring Swing Components</h3>
 
         <ul className="section-list">
-          <li><strong>JPanel</strong> – container for grouping components</li>
-          <li><strong>JMenu</strong>, <strong>JMenuItem</strong> – for building menus</li>
-          <li><strong>JTextArea</strong> – multi-line text box</li>
-          <li><strong>JScrollPane</strong> – adds scrollbars</li>
+          <li><strong>JPanel</strong> – Multi-purpose intermediate container grouping individual components within modular sub-layouts.</li>
+          <li><strong>JMenuBar, JMenu, JMenuItem</strong> – Hierarchical cascading menu trees pinned across frame window headers.</li>
+          <li><strong>JTextArea</strong> – Multi-line dedicated text console canvas capable of processing lengthy textual sequences.</li>
+          <li><strong>JScrollPane</strong> – Wrapper module overlaying targeted display canvases with horizontal/vertical scroll trackers.</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] border border-[#c7a669] rounded-lg p-4 mt-4">
-          <div className="font-semibold text-[#3a2a14]">Menu Example</div>
-          <pre className="code-block mt-3">
-{`JFrame f = new JFrame();
-JMenuBar mb = new JMenuBar();
-JMenu file = new JMenu("File");
-JMenuItem exit = new JMenuItem("Exit");
+        <CodeBlock 
+          title="MENU STRIP ASSEMBLY SEQUENCE"
+          code={`import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
-file.add(exit);
-mb.add(file);
-f.setJMenuBar(mb);`}
-          </pre>
-        </div>
+class MenuBuilder {
+  void buildMenu(JFrame f) {
+    JMenuBar mb = new JMenuBar();
+    JMenu fileMenu = new JMenu("File");
+    JMenuItem exitItem = new JMenuItem("Exit");
 
-        <p className="p-text mt-3">
-          Diagram: <strong>swing-components-overview.png</strong>
-        </p>
+    fileMenu.add(exitItem);
+    mb.add(fileMenu);
+    f.setJMenuBar(mb); // Mounts the complete menu strip shell to frame header
+  }
+}`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -193,16 +216,21 @@ f.setJMenuBar(mb);`}
         <h3 className="section-heading">Summary</h3>
 
         <p className="p-text">
-          This module introduces essential parts of the Java Standard Library and gives
-          a practical foundation in GUI application development with Swing. Mastering
-          strings, the math library, collections, and Swing provides the toolkit needed
-          for building desktop applications and Core Java utilities.
+          This module wraps up Core Java topics by exploring the Standard API and setting a base for desktop graphical interfaces. 
+          Grasping the differences between standard utility pools, Collections pipelines, and Swing widgets finishes the full toolkit needed to develop robust tools.
         </p>
 
-        <p className="p-text mt-4">
-          Add diagrams: <strong>awt-vs-swing.png</strong>,
-          <strong>swing-event-flow.png</strong>
-        </p>
+        {/* ✅ FIXED: Replaced broken awt-vs-swing.png / swing-event-flow.png with clean visual trace */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Architectural Engine Breakdown ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`AWT Components   ───► Heavyweight, depends on native OS peer graphics engines
+Swing Components ───► Lightweight, painted entirely in Java code (Platform Independent)
+
+[ Interaction Flow ]
+User clicks Button ───► Event captured by OS ───► Pushed to JVM EDT Queue ───► ActionEvent runs`}
+          </pre>
+        </div>
       </section>
 
     </div>

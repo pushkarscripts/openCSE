@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+// NEXT.JS 15 FIX: Named import for pixel-perfect integrated component blocks
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch4Content = () => {
   return (
@@ -22,16 +26,19 @@ export const Ch4Content = () => {
           <li><strong>Dynamic allocation:</strong> use <code className="inline-code">{`malloc`}</code> and <code className="inline-code">{`free`}</code> for runtime sizes.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Static vs dynamic</div>
-          <pre className="code-block mt-3">{`// static
+        {/* ✅ UPGRADED: Replaced primitive markup with CodeBlock */}
+        <CodeBlock 
+          title="STATIC VS DYNAMIC MEMORY ALLOCATION"
+          code={`// 1. Static array setup
 int a[5] = {0};
 
-// dynamic
+// 2. Dynamic heap allocation
 int *b = malloc(n * sizeof(int));
-if (b == NULL) { /* handle error */ }
-free(b);`}</pre>
-        </div>
+if (b == NULL) { 
+    /* handle dynamic allocation error */ 
+}
+free(b);`}
+        />
 
         <Image
           src="/array-memory-layout.png"
@@ -40,7 +47,6 @@ free(b);`}</pre>
           width={750}
           height={350}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -57,21 +63,24 @@ free(b);`}</pre>
           <li><strong>Safety:</strong> always ensure space for the terminating <code className="inline-code">{`'\\0'`}</code> and prefer bounded input.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">String example</div>
-          <pre className="code-block mt-3">{`char s[6] = "Hello";
-printf("%s\n", s);
-if (strcmp(s, "Hello") == 0) { /* equal */ }`}</pre>
-        </div>
+        {/* ✅ UPGRADED: Replaced text node with CodeBlock */}
+        <CodeBlock 
+          title="C STRING HANDLING IMPLEMENTATION"
+          code={`char s[6] = "Hello";
+printf("%s\\n", s);
+
+if (strcmp(s, "Hello") == 0) { 
+    /* Strings evaluation matching evaluation block */ 
+}`}
+        />
 
         <Image
-  src="/string-functions-table.png"
-  alt="string-functions-table"
-  className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-  width={850}
-  height={500}
-/>
-
+          src="/string-functions-table.png"
+          alt="string-functions-table"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          width={850}
+          height={500}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -89,15 +98,16 @@ if (strcmp(s, "Hello") == 0) { /* equal */ }`}</pre>
           <li><strong>Scope:</strong> local variables have block scope; globals have file or external linkage; <code className="inline-code">{`static`}</code> affects lifetime/linkage.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Pass by value vs. pointer</div>
-          <pre className="code-block mt-3">{`void inc_val(int x) { x = x + 1; }     // caller not changed
-void inc_ref(int *p) { *p = *p + 1; }  // caller changed
+        {/* ✅ UPGRADED: Replaced custom layout with explicit CodeBlock */}
+        <CodeBlock 
+          title="PASS BY VALUE VS PASS BY REFERENCE STYLE"
+          code={`void inc_val(int x) { x = x + 1; }     // caller scope remains unmodified
+void inc_ref(int *p) { *p = *p + 1; }  // caller value explicitly modified
 
 int a = 5;
-inc_val(a);    // a still 5
-inc_ref(&a);   // a becomes 6`}</pre>
-        </div>
+inc_val(a);    // value tracking: a is still 5
+inc_ref(&a);   // reference tracking: a scales to 6`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -114,21 +124,22 @@ inc_ref(&a);   // a becomes 6`}</pre>
           <li><strong>Recursion tree:</strong> visualize calls and costs per level for complexity analysis.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Factorial (recursive vs iterative)</div>
-          <pre className="code-block mt-3">{`// recursive
+        {/* ✅ UPGRADED: Replaced manual pre formatting with CodeBlock */}
+        <CodeBlock 
+          title="FACTORIAL (RECURSIVE VS ITERATIVE PARADIGM)"
+          code={`// 1. Recursive method execution
 int fact(int n) {
   if (n <= 1) return 1;
-  return n * fact(n-1);
+  return n * fact(n - 1);
 }
 
-// iterative
+// 2. Iterative loop methodology
 int fact_iter(int n) {
   int r = 1;
   for (int i = 2; i <= n; i++) r *= i;
   return r;
-}`}</pre>
-        </div>
+}`}
+        />
 
         <Image
           src="/recursion-tree.png"
@@ -151,14 +162,16 @@ int fact_iter(int n) {
           <li><strong>Sorting (intro):</strong> be familiar with bubble, insertion, selection; know their basic complexities.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Linear search</div>
-          <pre className="code-block mt-3">{`int linear_search(int a[], int n, int key) {
-  for (int i = 0; i < n; i++)
+        {/* ✅ UPGRADED: Replaced with premium CodeBlock */}
+        <CodeBlock 
+          title="LINEAR SEARCH ALGORITHMIC BLOCK"
+          code={`int linear_search(int a[], int n, int key) {
+  for (int i = 0; i < n; i++) {
     if (a[i] == key) return i;
+  }
   return -1;
-}`}</pre>
-        </div>
+}`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -167,23 +180,28 @@ int fact_iter(int n) {
       <section>
         <h3 className="section-heading">Debugging Exercise</h3>
 
-        <div className="card p-4 my-4">
-          <div className="font-semibold">Find and fix the errors</div>
-          <pre className="code-block error mt-3">{`#include <stdio.h>
+        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
+          <div className="font-semibold text-[#3a2a14] mb-2">Find and fix the errors</div>
+          
+          {/* ✅ UPGRADED: Replaced raw block with unified CodeBlock tracking */}
+          <CodeBlock 
+            title="FAULTY MULTIDIMENSIONAL BOUNDARY LOOP"
+            code={`#include <stdio.h>
 
 int sum_rows(int m[][3], int r) {
   int s = 0;
-  for (int i = 0; i <= r; i++) {   // error: loop bounds (<=) incorrect
+  for (int i = 0; i <= r; i++) {   // error: row index traversal overflow (<=)
     for (int j = 0; j < 3; j++)
       s += m[i][j];
   }
   return s;
-}`}</pre>
+}`}
+          />
 
-          <div className="mt-3 text-[#b0ffb4] font-semibold">Correct points</div>
-          <ul className="section-list mt-2">
-            <li>Fix row loop to <code className="inline-code">{`for (int i = 0; i < r; i++)`}</code> if <code className="inline-code">{`r`}</code> is the row count.</li>
-            <li>Array parameter requires known second dimension: <code className="inline-code">{`m[][3]`}</code>.</li>
+          <div className="mt-4 text-[#3a2a14] font-bold">Correct points</div>
+          <ul className="section-list mt-2 text-[#2b1d0f]">
+            <li>Fix row loop bound control configuration to <code className="inline-code">{`for (int i = 0; i < r; i++)`}</code>.</li>
+            <li>Array parameter blocks strictly require defined secondary metrics: <code className="inline-code">{`m[][3]`}</code>.</li>
           </ul>
         </div>
       </section>

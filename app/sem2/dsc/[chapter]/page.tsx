@@ -24,11 +24,12 @@ const chapters = [
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }>;
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: ChapterProps) {
+  const resolvedParams = await params;
+  const currentIndex = chapters.findIndex((c) => c.id === resolvedParams.chapter);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {

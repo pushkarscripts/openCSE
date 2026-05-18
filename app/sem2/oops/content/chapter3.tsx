@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch3Content = () => {
   return (
     <div className="course-content">
@@ -27,26 +31,36 @@ export const Ch3Content = () => {
           <li>Java supports <strong>single inheritance</strong> of classes</li>
         </ul>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <div className="font-semibold text-[#3a2a14]">Simple Inheritance Example</div>
-          <pre className="code-block mt-3">
-{`class Animal {
-  void eat() { System.out.println("eating"); }
+        <CodeBlock 
+          title="SIMPLE INHERITANCE IMPLEMENTATION"
+          code={`class Animal {
+  void eat() { 
+    System.out.println("eating..."); 
+  }
 }
 
 class Dog extends Animal {
-  void bark() { System.out.println("barking"); }
+  void bark() { 
+    System.out.println("barking..."); 
+  }
 }
 
+// Usage inside driver routine
 Dog d = new Dog();
-d.eat();   // inherited
-d.bark();  // own method`}
+d.eat();   // acquired from superclass
+d.bark();  // defined locally within subclass`}
+        />
+
+        {/* ✅ FIXED: Replaced broken inheritance-tree-basic.png reference */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Base Class vs Derived Class Tree ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`Superclass: Animal [ eat() ]
+               │
+               ▼  (extended by subclass)
+Subclass:   Dog    [ bark() ] ───> inherits eat() automatically`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">
-          Diagram: <strong>inheritance-tree-basic.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -60,9 +74,9 @@ d.bark();  // own method`}
           fields, methods, and constructors.
         </p>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block">
-{`class Person {
+        <CodeBlock 
+          title="SUPERCLASS CONSTRUCTOR CHAINING ROUTINES"
+          code={`class Person {
   String name;
   Person(String name) {
     this.name = name;
@@ -72,14 +86,19 @@ d.bark();  // own method`}
 class Student extends Person {
   int roll;
   Student(String name, int roll) {
-    super(name);       // calling superclass constructor
+    super(name);       // routes matching parameters to superclass constructor
     this.roll = roll;
   }
 }`}
+        />
+
+        {/* ✅ FIXED: Replaced broken super-call-flow.png with text trace mapping */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Constructor Execution Call Flow ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`new Student("Raushan", 57) ──> Student Constructor ──> super(name) ──> Person Constructor Initializes Name`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">Diagram: <strong>super-call-flow.png</strong></p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -90,18 +109,23 @@ class Student extends Person {
 
         <p className="p-text">
           In multilevel inheritance, a subclass becomes a superclass for another class.
-          Java supports **multilevel** but not **multiple** inheritance of classes.
+          Java supports <strong>multilevel</strong> but not <strong>multiple</strong> inheritance of classes.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block">
-{`class A { }
+        <CodeBlock 
+          title="MULTILEVEL EXTENSION LAYOUT"
+          code={`class A { }
 class B extends A { }
-class C extends B { }     // A -> B -> C`}
+class C extends B { }     // Direct Chain Mapping: A -> B -> C`}
+        />
+
+        {/* ✅ FIXED: Replaced broken multilevel-hierarchy.png map */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Class Hierarchy Lineage ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`[ Class A (Grandparent) ] ───> [ Class B (Parent) ] ───> [ Class C (Child) ]`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">Diagram: <strong>multilevel-hierarchy.png</strong></p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -116,22 +140,26 @@ class C extends B { }     // A -> B -> C`}
         </p>
 
         <ul className="section-list">
-          <li>Used to provide specific implementation</li>
-          <li>Must have same method name, return type and parameters</li>
-          <li>Only instance methods can be overridden</li>
+          <li>Used to provide specific implementations for derived classes</li>
+          <li>Must contain the exact same method name, return type, and parameters</li>
+          <li>Only instance methods can be overridden; static declarations cannot</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <pre className="code-block">
-{`class Shape {
-  void draw() { System.out.println("drawing shape"); }
+        <CodeBlock 
+          title="METHOD OVERRIDING EXAMPLES"
+          code={`class Shape {
+  void draw() { 
+    System.out.println("drawing standard shape..."); 
+  }
 }
 
 class Circle extends Shape {
-  void draw() { System.out.println("drawing circle"); } // override
+  @Override
+  void draw() { 
+    System.out.println("drawing circle object pattern..."); // overrides parent logic
+  } 
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -142,19 +170,24 @@ class Circle extends Shape {
 
         <p className="p-text">
           Runtime polymorphism determines the method to execute based on the actual
-          object type, not reference type.
+          object type on the heap at runtime, not the reference pointer on the stack.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block">
-{`Shape s = new Circle();  // reference of Shape, object of Circle
-s.draw();                 // calls Circle's draw (runtime)`}
+        <CodeBlock 
+          title="DYNAMIC DISPATCH GATEWAYS"
+          code={`Shape s = new Circle();  // Shape reference points to a Circle object on heap
+s.draw();                 // Resolves to Circle's overridden draw() at execution time`}
+        />
+
+        {/* ✅ FIXED: Replaced broken dynamic-dispatch.png with clean trace representation */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Runtime Polymorphism Lookup ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`Stack Reference: Shape s ───────Points to───────> Heap Instance: new Circle()
+                                                          │
+   s.draw() ─── Looks up implementation context ──────────┘ ───> Triggers Circle.draw()`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">
-          Diagram: <strong>dynamic-dispatch.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -164,16 +197,20 @@ s.draw();                 // calls Circle's draw (runtime)`}
         <h3 className="section-heading">final Keyword with Inheritance</h3>
 
         <ul className="section-list">
-          <li><strong>final class</strong> – cannot be inherited</li>
-          <li><strong>final method</strong> – cannot be overridden</li>
+          <li><strong>final class</strong> – restricts the entire class architecture from being extended or inherited</li>
+          <li><strong>final method</strong> – allows inheritance but completely blocks subclasses from overriding the routine</li>
         </ul>
 
-        <pre className="code-block bg-[#f3e7c2] p-3 rounded-lg border border-[#c7a669]">
-{`final class Constants { }       // cannot be extended
-class A {
-  final void show() { }
+        <CodeBlock 
+          title="IMMUTABLE CLASS AND METHOD SIGNATURES"
+          code={`final class Constants { }       // Extension attempts will fail compilation
+
+class Baseline {
+  final void show() { 
+    // Subclasses can execute this, but cannot redefine its core block
+  }
 }`}
-        </pre>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -183,24 +220,25 @@ class A {
         <h3 className="section-heading">The Object Class</h3>
 
         <p className="p-text">
-          Every Java class implicitly extends <strong>Object</strong>, the root of the class hierarchy.
-          Important methods include:
+          Every Java class implicitly extends <strong>Object</strong>, which serves as the ultimate root of the class hierarchy.
+          Important utility methods include:
         </p>
 
         <ul className="section-list">
-          <li><strong>toString()</strong> – returns string representation</li>
-          <li><strong>equals()</strong> – compares two objects</li>
-          <li><strong>hashCode()</strong></li>
-          <li><strong>getClass()</strong></li>
+          <li><strong>toString()</strong> – returns a string representation of the object instance</li>
+          <li><strong>equals()</strong> – compares memory pointers or custom logical equality criteria</li>
+          <li><strong>hashCode()</strong> – provides hash codes for memory indexing</li>
+          <li><strong>getClass()</strong> – loads class metadata definitions at runtime</li>
         </ul>
 
-        <pre className="code-block bg-[#f0ddb6] p-3 rounded-lg border border-[#c7a669] mt-3">
-{`class Demo { }
+        <CodeBlock 
+          title="ROOT OBJECT BUILT-IN METHODS EVALUATION"
+          code={`class Demo { }
 
 Demo d = new Demo();
-System.out.println(d.toString());
-System.out.println(d.getClass());`}
-        </pre>
+System.out.println(d.toString());  // Prints structural details (e.g., Demo@7a30)
+System.out.println(d.getClass());   // Returns class type meta information`}
+        />
       </section>
 
     </div>

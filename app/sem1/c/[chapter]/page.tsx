@@ -12,12 +12,11 @@ import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
 
 const righteous = Righteous({
-      subsets: ['latin'], 
-      weight: '400', 
-      variable: '--font-righteous', 
-    });
+  subsets: ['latin'], 
+  weight: '400', 
+  variable: '--font-righteous', 
+});
 
-// Chapter data
 const chapters = [
   { id: "ch0", title: "Course Outline", component: Ch0Content },
   { id: "ch1", title: "Introduction to Computing", component: Ch1Content },
@@ -29,15 +28,18 @@ const chapters = [
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }>;
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: ChapterProps) {
+  // Await the asynchronous params object for Next.js 15
+  const resolvedParams = await params;
+  
+  const currentIndex = chapters.findIndex((c) => c.id === resolvedParams.chapter);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
-    return <h1 className="text-2xl font-bold">Chapter not found</h1>;
+    return <h1 className="text-2xl font-bold p-6">Chapter not found</h1>;
   }
 
   const ChapterComponent = chapter.component;
@@ -57,14 +59,13 @@ export default function ChapterPage({ params }: ChapterProps) {
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
-      {/* Content */}
       <div className="flex-1">
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Programming in C 
         </h1>
         <p className={`text-2xl mt-[-8] ${righteous.className}`}>{chapter.title}</p>
 
-        {/* Navigation Buttons */}
+        {/* Top Pagination Control Interface */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (
             <Link
@@ -101,7 +102,7 @@ export default function ChapterPage({ params }: ChapterProps) {
         ) : null}
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Bottom Pagination Control Interface */}
       <div className="flex justify-between my-8">
         {prevChapter ? (
           <Link

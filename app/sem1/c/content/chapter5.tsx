@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+// NEXT.JS 15 FIX: Named import linked under unified layout block configuration
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch5Content = () => {
   return (
@@ -21,13 +25,15 @@ export const Ch5Content = () => {
           <li><strong>Pointer arithmetic:</strong> adding 1 advances by size of pointed type: <code className="inline-code">{`p + 1`}</code>.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Pointer example</div>
-          <pre className="code-block mt-3">{`int x = 10;
+        {/* ✅ UPGRADED: Replaced manual pre formatting with CodeBlock */}
+        <CodeBlock 
+          title="POINTER INITIALIZATION & DEREFERENCING"
+          code={`int x = 10;
 int *p = &x;
-printf("%d\n", *p); // prints 10
-*p = 20; // modifies x`}</pre>
-        </div>
+printf("%d\\n", *p); // prints 10
+
+*p = 20; // directly modifies the original variable x`}
+        />
 
         <Image
           src="/pointer-basics.png"
@@ -36,7 +42,6 @@ printf("%d\n", *p); // prints 10
           width={750}
           height={380}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -52,12 +57,14 @@ printf("%d\n", *p); // prints 10
           <li><strong>Pointer types:</strong> type of pointer determines arithmetic increment size.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Array access via pointer</div>
-          <pre className="code-block mt-3">{`int a[5] = {1,2,3,4,5};
-int *p = a; // points to a[0]
-int x = *(p + 2); // x == a[2] == 3`}</pre>
-        </div>
+        {/* ✅ UPGRADED: Replaced primitive template structure with CodeBlock */}
+        <CodeBlock 
+          title="ARRAY ACCESS VIA POINTER ARITHMETIC"
+          code={`int a[5] = {1, 2, 3, 4, 5};
+int *p = a; // implicitly points to a[0] address location
+
+int x = *(p + 2); // pointer displacement evaluation: x == a[2] == 3`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -72,13 +79,16 @@ int x = *(p + 2); // x == a[2] == 3`}</pre>
           <li><strong>Pointers and functions:</strong> use pointers to pass large data (arrays, structures) efficiently.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Function modifies caller via pointer</div>
-          <pre className="code-block mt-3">{`void inc(int *p) { (*p)++; }
+        {/* ✅ UPGRADED: Replaced text layout with unified CodeBlock */}
+        <CodeBlock 
+          title="FUNCTION PASS BY REFERENCE SIMULATION"
+          code={`void inc(int *p) { 
+    (*p)++; // access and increment data at reference point
+}
 
 int x = 5;
-inc(&x); // x becomes 6`}</pre>
-        </div>
+inc(&x); // explicit memory location address pass: x becomes 6`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -93,13 +103,15 @@ inc(&x); // x becomes 6`}</pre>
           <li><strong>Functions returning pointers to structures:</strong> return dynamically allocated structure pointers with care.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Structure pointer example</div>
-          <pre className="code-block mt-3">{`struct Point { int x, y; };
-struct Point p = {1,2};
+        {/* ✅ UPGRADED: Replaced with premium CodeBlock */}
+        <CodeBlock 
+          title="STRUCTURE POINTER ACCESS OPERATORS"
+          code={`struct Point { int x, y; };
+struct Point p = {1, 2};
 struct Point *pp = &p;
-printf("%d\n", pp->x);`}</pre>
-        </div>
+
+printf("%d\\n", pp->x); // arrow pointer evaluation syntax`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -117,17 +129,18 @@ printf("%d\n", pp->x);`}</pre>
           <li><strong>Self-referential structures:</strong> used for linked lists: <code className="inline-code">{`struct Node { int val; struct Node *next; };`}</code></li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Structure example</div>
-          <pre className="code-block mt-3">{`struct Student {
+        {/* ✅ UPGRADED: Replaced old markup structure with dynamic CodeBlock */}
+        <CodeBlock 
+          title="USER DEFINED STRUCT DECLARATION & INSTANTIATION"
+          code={`struct Student {
   char name[30];
   int id;
   float gpa;
 };
 
 struct Student s = {"Alex", 101, 8.5};
-printf("%s\n", s.name);`}</pre>
-        </div>
+printf("%s\\n", s.name);`}
+        />
 
         <Image
           src="/struct-memory.png"
@@ -136,7 +149,6 @@ printf("%s\n", s.name);`}</pre>
           width={750}
           height={450}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -152,17 +164,19 @@ printf("%s\n", s.name);`}</pre>
           <li><strong>Access:</strong> use dot or arrow similar to structures.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Union example</div>
-          <pre className="code-block mt-3">{`union Number {
+        {/* ✅ UPGRADED: Replaced manual pre code element with CodeBlock */}
+        <CodeBlock 
+          title="UNION SHARED MEMORY SPACE EXAMPLE"
+          code={`union Number {
   int i;
   float f;
 };
 
 union Number n;
 n.i = 10;
-n.f = 2.5; // overwrites same memory`}</pre>
-        </div>
+n.f = 2.5; // overwrites the same memory coordinates location block`}
+        />
+
         <Image
           src="/union-layout.png"
           alt="union-layout"
@@ -170,7 +184,6 @@ n.f = 2.5; // overwrites same memory`}</pre>
           width={700}
           height={380}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -179,21 +192,27 @@ n.f = 2.5; // overwrites same memory`}</pre>
       <section>
         <h3 className="section-heading">Debugging Exercise</h3>
 
-        <div className="card p-4 my-4">
-          <div className="font-semibold">Find and fix the errors</div>
-          <pre className="code-block error mt-3">{`#include <stdio.h>
+        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
+          <div className="font-semibold text-[#3a2a14] mb-2">Find and fix the errors</div>
+          
+          {/* ✅ UPGRADED: Raw block converted to dynamic tracking CodeBlock */}
+          <CodeBlock 
+            title="FAULTY DANGING STACK POINTER RETURNS"
+            code={`#include <stdio.h>
 #include <stdlib.h>
 
 int *make_array(int n) {
-  int a[n]; // local VLA on stack
+  int a[n]; // local Variable Length Array initialized strictly on local stack
   for (int i = 0; i < n; i++) a[i] = i;
-  return a; // error: returning address of stack memory
-}`}</pre>
+  
+  return a; // error: compilation warning / runtime fatal crash due to stack memory return
+}`}
+          />
 
-          <div className="mt-3 text-[#b0ffb4] font-semibold">Correct points</div>
-          <ul className="section-list mt-2">
-            <li>Do not return pointer to local stack array. Allocate with <code className="inline-code">{`malloc`}</code> and return pointer, or pass buffer from caller.</li>
-            <li>Always check result of <code className="inline-code">{`malloc`}</code> for <code className="inline-code">NULL</code>.</li>
+          <div className="mt-4 text-[#3a2a14] font-bold">Correct points</div>
+          <ul className="section-list mt-2 text-[#2b1d0f]">
+            <li>Do not return pointer to local stack array. Allocate memory explicitly with <code className="inline-code">{`malloc`}</code> and return that pointer, or pass reference buffer directly from caller.</li>
+            <li>Always check result metrics of <code className="inline-code">{`malloc`}</code> for tracking against <code className="inline-code">NULL</code> conditions.</li>
           </ul>
         </div>
       </section>
@@ -208,6 +227,7 @@ int *make_array(int n) {
           <li>Create a function that returns a dynamically allocated array (use <code className="inline-code">{`malloc`}</code>) and document proper ownership and free semantics.</li>
         </ul>
       </section>
+
     </div>
   );
 };
