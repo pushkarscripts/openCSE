@@ -114,7 +114,7 @@ Same method name but different parameters.
 def add(a, b=0, c=0):
     return a + b + c
 
-## Quick Revision
+## Here Quick Revision
 
 | Concept | One Line |
 |---------|----------|
