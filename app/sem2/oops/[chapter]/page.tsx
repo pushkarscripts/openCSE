@@ -12,6 +12,7 @@ import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
+import { OOPS_CHAPTERS } from "../metadata";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -19,17 +20,11 @@ const righteous = Righteous({
   variable: "--font-righteous",
 });
 
-const chapters = [
-  { id: "ch0", title: "Course Outline", component: Ch0Content },
-  { id: "ch1", title: "Introduction to Java", component: Ch1Content },
-  { id: "ch2", title: "Classes and Objects", component: Ch2Content },
-  { id: "ch3", title: "Inheritance & Polymorphism", component: Ch3Content },
-  { id: "ch4", title: "Packages & Interfaces", component: Ch4Content },
-  { id: "ch5", title: "Exception Handling", component: Ch5Content },
-  { id: "ch6", title: "Threads", component: Ch6Content },
-  { id: "ch7", title: "Generics", component: Ch7Content },
-  { id: "ch8", title: "Java Library & Swing GUI", component: Ch8Content },
-];
+// Map chapter metadata to components
+const chapters = OOPS_CHAPTERS.map((ch, idx) => ({
+  ...ch,
+  component: [Ch0Content, Ch1Content, Ch2Content, Ch3Content, Ch4Content, Ch5Content, Ch6Content, Ch7Content, Ch8Content][idx],
+}));
 
 type ChapterProps = {
   params: { chapter: string };

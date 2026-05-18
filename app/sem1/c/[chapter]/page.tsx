@@ -8,6 +8,7 @@ import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import { C_CHAPTERS } from "../metadata";
 
 const righteous = Righteous({
       subsets: ['latin'], 
@@ -15,16 +16,11 @@ const righteous = Righteous({
       variable: '--font-righteous', 
     });
 
-// Chapter data
-const chapters = [
-  { id: "ch0", title: "Course Outline", component: Ch0Content },
-  { id: "ch1", title: "Introduction to Computing", component: Ch1Content },
-  { id: "ch2", title: "Overview of C", component: Ch2Content },
-  { id: "ch3", title: "Data Types, I/O, Decision Making and Loops", component: Ch3Content },
-  { id: "ch4", title: "Arrays, Strings, and Functions", component: Ch4Content },
-  { id: "ch5", title: "Pointers, Structures, and Unions", component: Ch5Content },
-  { id: "ch6", title: "File Management, Dynamic Memory, and Preprocessors", component: Ch6Content },
-];
+// Map chapter metadata to components
+const chapters = C_CHAPTERS.map((ch, idx) => ({
+  ...ch,
+  component: [Ch0Content, Ch1Content, Ch2Content, Ch3Content, Ch4Content, Ch5Content, Ch6Content][idx],
+}));
 
 type ChapterProps = {
   params: { chapter: string };

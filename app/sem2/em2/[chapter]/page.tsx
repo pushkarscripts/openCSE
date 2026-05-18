@@ -6,6 +6,7 @@ import { Ch3Content } from "../content/chapter3";
 import { Ch4Content } from "../content/chapter4";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import { EM2_CHAPTERS } from "../metadata";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -13,13 +14,11 @@ const righteous = Righteous({
   variable: "--font-righteous",
 });
 
-const chapters = [
-  { id: "ch0", title: "Course Outline", component: Ch0Content },
-  { id: "ch1", title: "Sequences and Series", component: Ch1Content },
-  { id: "ch2", title: "Numerical Analysis", component: Ch2Content },
-  { id: "ch3", title: "Complex Variables", component: Ch3Content },
-  { id: "ch4", title: "Integral Calculus", component: Ch4Content },
-];
+// Map chapter metadata to components
+const chapters = EM2_CHAPTERS.map((ch, idx) => ({
+  ...ch,
+  component: [Ch0Content, Ch1Content, Ch2Content, Ch3Content, Ch4Content][idx],
+}));
 
 type ChapterProps = {
   params: { chapter: string };
