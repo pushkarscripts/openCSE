@@ -63,4 +63,15 @@ export const chapters: Chapter[] = [
       { id: "ch5-fraud-detection", title: "Online Fraud Detection", isPage: true },
     ],
   },
+  {
+    id: "ch6",
+    title: "Unit 6: Advanced Topics & MLOps (Bonus)",
+    subTopics: [
+      { id: "ch6-deep-learning", title: "Deep Learning Fundamentals", isPage: true },
+      { id: "ch6-reinforcement", title: "Reinforcement Learning", isPage: true },
+      { id: "ch6-nlp", title: "Natural Language Processing", isPage: true },
+      { id: "ch6-mlops", title: "MLOps & Model Deployment", isPage: true },
+      { id: "ch6-xai", title: "Explainable AI (XAI) & Ethics", isPage: true },
+    ],
+  },
 ];

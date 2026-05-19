@@ -35,6 +35,12 @@ import { PredictionRecommendationContent } from "../content/prediction-recommend
 import { SpamMalwareContent } from "../content/spam-malware";
 import { VirtualAssistantContent } from "../content/virtual-assistant";
 import { FraudDetectionContent } from "../content/fraud-detection";
+import { Chapter6Content } from "../content/chapter6";
+import { DeepLearningContent } from "../content/deep-learning";
+import { ReinforcementLearningContent } from "../content/reinforcement-learning";
+import { NlpBasicsContent } from "../content/nlp-basics";
+import { MlopsDeploymentContent } from "../content/mlops-deployment";
+import { XaiEthicsContent } from "../content/xai-ethics";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";
 
@@ -93,6 +99,12 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "ch5-spam-malware": SpamMalwareContent,
   "ch5-virtual-assistant": VirtualAssistantContent,
   "ch5-fraud-detection": FraudDetectionContent,
+  "ch6": Chapter6Content,
+  "ch6-deep-learning": DeepLearningContent,
+  "ch6-reinforcement": ReinforcementLearningContent,
+  "ch6-nlp": NlpBasicsContent,
+  "ch6-mlops": MlopsDeploymentContent,
+  "ch6-xai": XaiEthicsContent,
 };
 
 type ChapterProps = {

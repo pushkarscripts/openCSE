@@ -196,3 +196,13 @@ pre.error {
   margin: 0;
   padding: 0.9rem;
 }
+
+/* Utility to hide scrollbars while preserving scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
