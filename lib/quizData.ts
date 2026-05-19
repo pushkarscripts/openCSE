@@ -5978,6 +5978,522 @@ export const moduleQuizzes: Quiz[] = [
       }
     ],
   },
+  {
+    subject: "Engineering Mathematics I",
+    slug: "differential-calculus",
+    moduleTitle: "Differential Calculus",
+    moduleSlug: "em1-ch1",
+    description: "Quiz on Rolle's Theorem, Mean Value Theorems, Taylor Series, and Curvature.",
+    questions: [
+      {
+        id : 1,
+        question: "Which of the following conditions is NOT required for Rolle's Theorem to hold on [a, b]?",
+        options: [
+          "f(x) must be continuous on [a, b]",
+          "f(x) must be differentiable on (a, b)",
+          "f(a) must equal f(b)",
+          "f(x) must be strictly increasing on [a, b]"
+        ],
+        answer: 3,
+        explanation: "Rolle's Theorem requires continuity, differentiability, and f(a) = f(b). It does not require the function to be strictly increasing; in fact, a strictly increasing function cannot have f(a) = f(b) unless it's a constant function.",
+      },
+      {
+        id : 2,
+        question: "Lagrange's Mean Value Theorem states that there exists a point c in (a, b) such that f'(c) equals:",
+        options: [
+          "0",
+          "(f(b) - f(a)) / (b - a)",
+          "(f(a) - f(b)) / (a - b)",
+          "Both B and C are algebraically equivalent"
+        ],
+        answer: 3,
+        explanation: "The formula is usually written as (f(b) - f(a)) / (b - a), which represents the slope of the secant line between a and b. Option C is algebraically identical.",
+      },
+      {
+        id : 3,
+        question: "A Maclaurin series is a special case of a Taylor series where the expansion is centered at:",
+        options: [
+          "x = 1",
+          "x = a",
+          "x = 0",
+          "x = infinity"
+        ],
+        answer: 2,
+        explanation: "The Maclaurin series is defined as the Taylor series expansion of a function evaluated at x = 0.",
+      },
+      {
+        id : 4,
+        question: "Which rule is typically used to resolve indeterminate forms like 0/0 or ∞/∞?",
+        options: [
+          "Cramer's Rule",
+          "L'Hospital's Rule",
+          "Leibniz's Rule",
+          "Chain Rule"
+        ],
+        answer: 1,
+        explanation: "L'Hospital's Rule states that for indeterminate forms 0/0 or ∞/∞, the limit of a quotient of functions is equal to the limit of the quotient of their derivatives.",
+      },
+      {
+        id : 5,
+        question: "A point on a curve where the concavity changes (e.g., from convex to concave) is called:",
+        options: [
+          "A stationary point",
+          "A point of inflexion",
+          "A local maximum",
+          "A global minimum"
+        ],
+        answer: 1,
+        explanation: "A point of inflexion occurs where the second derivative changes sign, indicating a change in concavity.",
+      },
+      {
+        id : 6,
+        question: "If f''(x) > 0 for all x in an interval, the curve is said to be:",
+        options: [
+          "Concave downward",
+          "Convex (concave upward)",
+          "Linear",
+          "Decreasing"
+        ],
+        answer: 1,
+        explanation: "A positive second derivative means the slope is increasing, which corresponds to a convex (or concave upward) shape.",
+      },
+      {
+        id : 7,
+        question: "Straight lines that a curve approaches as x or y tends to infinity are known as:",
+        options: [
+          "Secants",
+          "Tangents",
+          "Asymptotes",
+          "Normals"
+        ],
+        answer: 2,
+        explanation: "An asymptote is a line that a curve approaches arbitrarily closely as it heads towards infinity.",
+      },
+      {
+        id : 8,
+        question: "The formula for the radius of curvature R is:",
+        options: [
+          "R = k",
+          "R = 1/k",
+          "R = k^2",
+          "R = 1 + k"
+        ],
+        answer: 1,
+        explanation: "The radius of curvature R is defined as the reciprocal of the curvature k.",
+      },
+      {
+        id : 9,
+        question: "Which indeterminate form is NOT directly solvable by L'Hospital's Rule without algebraic manipulation?",
+        options: [
+          "0 / 0",
+          "∞ / ∞",
+          "1^∞",
+          "Both A and B"
+        ],
+        answer: 2,
+        explanation: "Forms like 1^∞, 0^0, and ∞^0 must first be transformed using natural logarithms to a 0/0 or ∞/∞ form before applying L'Hospital's Rule.",
+      },
+      {
+        id : 10,
+        question: "What does the remainder term Rn in a Taylor series expansion represent?",
+        options: [
+          "The exact value of the function",
+          "The error when truncating the series at n terms",
+          "The derivative evaluated at x = a",
+          "The constant of integration"
+        ],
+        answer: 1,
+        explanation: "The remainder term Rn accounts for the difference between the actual function value and the approximation given by the first n terms of the Taylor series.",
+      }
+    ],
+  },
+  {
+    subject: "Engineering Mathematics I",
+    slug: "linear-algebra",
+    moduleTitle: "Linear Algebra",
+    moduleSlug: "em1-ch2",
+    description: "Quiz on Matrices, Rank, Eigenvalues, and Systems of Linear Equations.",
+    questions: [
+      {
+        id : 1,
+        question: "Matrix multiplication is generally NOT:",
+        options: [
+          "Associative",
+          "Distributive over addition",
+          "Commutative",
+          "Defined for square matrices of the same size"
+        ],
+        answer: 2,
+        explanation: "In general, for two matrices A and B, AB is not necessarily equal to BA. Therefore, matrix multiplication is not commutative.",
+      },
+      {
+        id : 2,
+        question: "The rank of a matrix is defined as the maximum number of:",
+        options: [
+          "Zero rows",
+          "Linearly independent rows or columns",
+          "Elements in the matrix",
+          "Diagonal elements"
+        ],
+        answer: 1,
+        explanation: "The rank of a matrix represents the dimension of the vector space spanned by its rows or columns, which is the maximum number of linearly independent rows or columns.",
+      },
+      {
+        id : 3,
+        question: "An inverse of a square matrix A exists if and only if:",
+        options: [
+          "det(A) = 0",
+          "det(A) ≠ 0",
+          "A is a diagonal matrix",
+          "A is an identity matrix"
+        ],
+        answer: 1,
+        explanation: "A matrix is invertible (non-singular) if and only if its determinant is non-zero.",
+      },
+      {
+        id : 4,
+        question: "A matrix A is called Hermitian if:",
+        options: [
+          "A = -A^T",
+          "A = A^T",
+          "A = A† (Conjugate Transpose)",
+          "A†A = I"
+        ],
+        answer: 2,
+        explanation: "A Hermitian matrix is a complex square matrix that is equal to its own conjugate transpose (A = A†).",
+      },
+      {
+        id : 5,
+        question: "A matrix A is Unitary if:",
+        options: [
+          "A = A†",
+          "A†A = I",
+          "A^2 = I",
+          "A = -A†"
+        ],
+        answer: 1,
+        explanation: "A Unitary matrix is a complex square matrix whose conjugate transpose is also its inverse, meaning A†A = AA† = I.",
+      },
+      {
+        id : 6,
+        question: "The eigenvalues of a matrix A are obtained by solving the characteristic equation:",
+        options: [
+          "det(A + λI) = 0",
+          "det(A - λI) = 0",
+          "A x = 0",
+          "A - λI = 0"
+        ],
+        answer: 1,
+        explanation: "The characteristic equation is formed by setting the determinant of (A - λI) to zero, where λ represents the eigenvalues.",
+      },
+      {
+        id : 7,
+        question: "For a system of linear equations Ax = b, the system is consistent if:",
+        options: [
+          "rank(A) > rank(A|b)",
+          "rank(A) < rank(A|b)",
+          "rank(A) = rank(A|b)",
+          "det(A) = 0"
+        ],
+        answer: 2,
+        explanation: "According to Rouché-Capelli theorem, a system of linear equations is consistent (has at least one solution) if the rank of the coefficient matrix A equals the rank of the augmented matrix (A|b).",
+      },
+      {
+        id : 8,
+        question: "If rank(A) = rank(A|b) = r, and r < n (where n is the number of variables), the system has:",
+        options: [
+          "No solution",
+          "A unique solution",
+          "Infinite solutions",
+          "Exactly two solutions"
+        ],
+        answer: 2,
+        explanation: "When the rank is equal to the number of variables, there is a unique solution. When the rank is strictly less than the number of variables, there are infinite solutions (free variables exist).",
+      },
+      {
+        id : 9,
+        question: "Which of the following is an iterative numerical method for solving systems of linear equations?",
+        options: [
+          "Gauss Elimination",
+          "Gauss-Jordan Elimination",
+          "Gauss-Seidel Method",
+          "Cramer's Rule"
+        ],
+        answer: 2,
+        explanation: "Gauss-Seidel is an iterative method, whereas Gauss Elimination and Gauss-Jordan are direct methods.",
+      },
+      {
+        id : 10,
+        question: "The minimal set of linearly independent vectors that span a vector space is called a:",
+        options: [
+          "Subspace",
+          "Null space",
+          "Basis",
+          "Transformation"
+        ],
+        answer: 2,
+        explanation: "A basis for a vector space is a linearly independent spanning set. Any vector in the space can be uniquely represented as a linear combination of basis vectors.",
+      }
+    ],
+  },
+  {
+    subject: "Engineering Mathematics I",
+    slug: "ordinary-differential-equations",
+    moduleTitle: "Ordinary Differential Equations",
+    moduleSlug: "em1-ch3",
+    description: "Quiz on First Order ODEs, Second Order ODEs, Variation of Parameters, and Euler Equations.",
+    questions: [
+      {
+        id: 1,
+        question: "A first order differential equation of the form M(x,y) dx + N(x,y) dy = 0 is exact if:",
+        options: [
+          "M = N",
+          "∂M/∂x = ∂N/∂y",
+          "∂M/∂y = ∂N/∂x",
+          "∂M/∂y = -∂N/∂x"
+        ],
+        answer: 2,
+        explanation: "The condition for exactness is that the partial derivative of M with respect to y equals the partial derivative of N with respect to x.",
+      },
+      {
+        id: 2,
+        question: "For a first order linear differential equation dy/dx + P(x)y = Q(x), the integrating factor (IF) is given by:",
+        options: [
+          "e^(∫P(x) dx)",
+          "e^(∫Q(x) dx)",
+          "∫P(x) dx",
+          "ln(P(x))"
+        ],
+        answer: 0,
+        explanation: "The integrating factor is e raised to the integral of P(x) dx.",
+      },
+      {
+        id: 3,
+        question: "A Bernoulli differential equation dy/dx + P(x)y = Q(x)y^n can be converted to a linear equation using the substitution:",
+        options: [
+          "v = y^n",
+          "v = y^(n-1)",
+          "v = y^(1-n)",
+          "v = ln(y)"
+        ],
+        answer: 2,
+        explanation: "The standard substitution to linearize a Bernoulli equation is v = y^(1-n).",
+      },
+      {
+        id: 4,
+        question: "For a second-order linear ODE with constant coefficients (am^2 + bm + c = 0), if the roots are real and equal (m), the general solution is:",
+        options: [
+          "y = C1 e^(m x) + C2 e^(-m x)",
+          "y = (C1 + C2 x) e^(mx)",
+          "y = C1 cos(mx) + C2 sin(mx)",
+          "y = C e^(mx)"
+        ],
+        answer: 1,
+        explanation: "When roots are real and equal, the solution includes a linear term to ensure linear independence: y = (C1 + C2 x) e^(mx).",
+      },
+      {
+        id: 5,
+        question: "In the Method of Variation of Parameters, the Particular Integral (PI) is found by:",
+        options: [
+          "Varying the constants in the complementary function",
+          "Setting the right hand side to zero",
+          "Using the Laplace transform",
+          "Guessing an exponential solution"
+        ],
+        answer: 0,
+        explanation: "Variation of parameters involves replacing the constants in the complementary function with variable functions, then solving for those functions.",
+      },
+      {
+        id: 6,
+        question: "An Euler-Cauchy equation x^2 y'' + a x y' + b y = 0 can be converted to a constant-coefficient ODE by the substitution:",
+        options: [
+          "x = sin(t)",
+          "x = t^2",
+          "x = e^t",
+          "x = ln(t)"
+        ],
+        answer: 2,
+        explanation: "The substitution x = e^t (or t = ln(x)) transforms the Euler-Cauchy equation into a linear differential equation with constant coefficients.",
+      },
+      {
+        id: 7,
+        question: "Given dy/dx + y = e^x, the integrating factor is:",
+        options: [
+          "e^x",
+          "e^-x",
+          "x",
+          "1"
+        ],
+        answer: 0,
+        explanation: "Here P(x) = 1. The integrating factor is e^(∫1 dx) = e^x.",
+      },
+      {
+        id: 8,
+        question: "The differential equation (2x + y) dx + (x + 2y) dy = 0 is:",
+        options: [
+          "Linear but not exact",
+          "Exact",
+          "A Bernoulli equation",
+          "Separable"
+        ],
+        answer: 1,
+        explanation: "M = 2x+y, N = x+2y. ∂M/∂y = 1 and ∂N/∂x = 1. Since they are equal, the equation is exact.",
+      },
+      {
+        id: 9,
+        question: "For the characteristic equation m^2 + 1 = 0, the roots are complex (±i). The complementary function is:",
+        options: [
+          "y = C1 e^x + C2 e^-x",
+          "y = C1 cos(x) + C2 sin(x)",
+          "y = (C1 + C2 x) e^x",
+          "y = C1 + C2 x"
+        ],
+        answer: 1,
+        explanation: "For complex roots α ± iβ, the solution is e^(αx)(C1 cos βx + C2 sin βx). Here α=0 and β=1, giving C1 cos(x) + C2 sin(x).",
+      },
+      {
+        id: 10,
+        question: "A system of two first-order linear ODEs can often be solved by:",
+        options: [
+          "Elimination to form a single second-order ODE",
+          "Using matrix eigenvalues and eigenvectors",
+          "Applying the Laplace transform",
+          "All of the above"
+        ],
+        answer: 3,
+        explanation: "All these methods (elimination, matrix eigenvalue methods, and Laplace transforms) are valid techniques for solving systems of linear ODEs.",
+      }
+    ],
+  },
+  {
+    subject: "Engineering Mathematics I",
+    slug: "laplace-transforms",
+    moduleTitle: "Laplace Transforms",
+    moduleSlug: "em1-ch4",
+    description: "Quiz on Laplace definitions, properties, inverse transforms, and solving ODEs.",
+    questions: [
+      {
+        id: 1,
+        question: "The Laplace transform of a function f(t) is defined as the integral from 0 to infinity of:",
+        options: [
+          "e^(st) f(t) dt",
+          "e^(-st) f(t) dt",
+          "e^(-st) f'(t) dt",
+          "f(t) / s dt"
+        ],
+        answer: 1,
+        explanation: "The definition of the one-sided Laplace transform is F(s) = ∫ e^(-st) f(t) dt from t=0 to ∞.",
+      },
+      {
+        id: 2,
+        question: "What is the Laplace transform of the constant function f(t) = 1?",
+        options: [
+          "s",
+          "1 / s",
+          "1 / s^2",
+          "e^-s"
+        ],
+        answer: 1,
+        explanation: "Evaluating the integral of e^(-st)*1 from 0 to ∞ yields 1/s, provided s > 0.",
+      },
+      {
+        id: 3,
+        question: "The First Shifting Theorem states that if L{f(t)} = F(s), then L{e^(at) f(t)} equals:",
+        options: [
+          "F(s + a)",
+          "F(s) * e^-as",
+          "F(s - a)",
+          "F(s) / a"
+        ],
+        answer: 2,
+        explanation: "Multiplying by e^(at) in the time domain corresponds to a shift of 'a' units to the right in the s-domain, giving F(s - a).",
+      },
+      {
+        id: 4,
+        question: "The Laplace transform of the derivative f'(t) is given by:",
+        options: [
+          "s F(s) - f(0)",
+          "F(s) / s",
+          "s F(s) + f(0)",
+          "F'(s)"
+        ],
+        answer: 0,
+        explanation: "By integration by parts, the Laplace transform of a derivative is sF(s) - f(0).",
+      },
+      {
+        id: 5,
+        question: "What is the Laplace transform of f(t) = t?",
+        options: [
+          "1 / s",
+          "1 / s^2",
+          "2 / s^3",
+          "1 / (s - 1)"
+        ],
+        answer: 1,
+        explanation: "The Laplace transform of t^n is n! / s^(n+1). For n=1, it is 1 / s^2.",
+      },
+      {
+        id: 6,
+        question: "The Inverse Laplace Transform is typically found using:",
+        options: [
+          "Differentiation by parts",
+          "The Quotient Rule",
+          "Partial fractions and standard tables",
+          "L'Hospital's Rule"
+        ],
+        answer: 2,
+        explanation: "Most inverse Laplace transforms in engineering are found by breaking complex rational functions into partial fractions and using standard transform pairs.",
+      },
+      {
+        id: 7,
+        question: "What is the inverse Laplace transform of 1 / (s - a)?",
+        options: [
+          "sin(at)",
+          "cos(at)",
+          "e^(at)",
+          "e^(-at)"
+        ],
+        answer: 2,
+        explanation: "The standard pair is L{e^(at)} = 1 / (s - a), so the inverse transform of 1 / (s - a) is e^(at).",
+      },
+      {
+        id: 8,
+        question: "When solving an ODE using Laplace transforms, initial conditions are:",
+        options: [
+          "Ignored until the very end",
+          "Automatically incorporated during the transformation step",
+          "Set to zero always",
+          "Found by guessing"
+        ],
+        answer: 1,
+        explanation: "Because L{f'(t)} = sF(s) - f(0), the initial condition f(0) is directly inserted into the algebraic equation during the transformation.",
+      },
+      {
+        id: 9,
+        question: "If L{f(t)} = F(s), the Laplace transform of the integral of f(t) from 0 to t is:",
+        options: [
+          "s F(s)",
+          "F(s) / s",
+          "-F'(s)",
+          "F(s) - f(0)"
+        ],
+        answer: 1,
+        explanation: "Integration in the time domain corresponds to division by s in the s-domain.",
+      },
+      {
+        id: 10,
+        question: "The inverse Laplace transform of 1 / (s^2 + 4) is:",
+        options: [
+          "sin(2t)",
+          "(1/2) sin(2t)",
+          "cos(2t)",
+          "e^(2t)"
+        ],
+        answer: 1,
+        explanation: "The standard transform for sin(at) is a / (s^2 + a^2). Here a^2 = 4 so a = 2. Thus 2 / (s^2 + 4) gives sin(2t), which means 1 / (s^2 + 4) gives (1/2) sin(2t).",
+      }
+    ],
+  },
 ];
 
 export const moduleQuizCards: ModuleQuizCard[] = [
@@ -6442,6 +6958,50 @@ export const moduleQuizCards: ModuleQuizCard[] = [
     description: "Understand the concept of Multicollinearity in regression models, how to detect it using VIF, and how to resolve it.",
     buttonLabel: "Take Multicollinearity Quiz",
     relatedTopics: ["multicollinearity", "variance inflation factor", "VIF", "feature correlation"],
+  },
+  {
+    quizSlug: "em1-differential-calculus",
+    subject: "Engineering Mathematics I",
+    subjectSlug: "em1",
+    moduleSlug: "ch1",
+    moduleTitle: "Differential Calculus",
+    cardTitle: "Differential Calculus Quiz",
+    description: "Test your understanding of Rolle's theorem, Mean Value theorems, Taylor series, and curvature.",
+    buttonLabel: "Take Calculus Quiz",
+    relatedTopics: ["mean value theorem", "taylor series", "l hospital rule", "curvature"],
+  },
+  {
+    quizSlug: "em1-linear-algebra",
+    subject: "Engineering Mathematics I",
+    subjectSlug: "em1",
+    moduleSlug: "ch2",
+    moduleTitle: "Linear Algebra",
+    cardTitle: "Linear Algebra Quiz",
+    description: "Assess your knowledge of matrix algebra, eigenvalues, and systems of linear equations.",
+    buttonLabel: "Take Linear Algebra Quiz",
+    relatedTopics: ["matrices", "eigenvalues", "rank", "gauss elimination"],
+  },
+  {
+    quizSlug: "em1-ordinary-differential-equations",
+    subject: "Engineering Mathematics I",
+    subjectSlug: "em1",
+    moduleSlug: "ch3",
+    moduleTitle: "Ordinary Differential Equations",
+    cardTitle: "Ordinary Differential Equations Quiz",
+    description: "Quiz on First Order ODEs, Second Order ODEs, Variation of Parameters, and Euler Equations.",
+    buttonLabel: "Take ODE Quiz",
+    relatedTopics: ["exact equations", "linear ODEs", "bernoulli equations", "euler equations"],
+  },
+  {
+    quizSlug: "em1-laplace-transforms",
+    subject: "Engineering Mathematics I",
+    subjectSlug: "em1",
+    moduleSlug: "ch4",
+    moduleTitle: "Laplace Transforms",
+    cardTitle: "Laplace Transforms Quiz",
+    description: "Quiz on Laplace definitions, properties, inverse transforms, and solving ODEs.",
+    buttonLabel: "Take Laplace Quiz",
+    relatedTopics: ["laplace transform", "inverse laplace", "shifting theorem", "solving ODEs"],
   },
 ];
 

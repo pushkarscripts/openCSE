@@ -5,6 +5,8 @@ import { Ch0Content } from "../content/chapter0";
 import { Ch1Content } from "../content/chapter1";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
+import { moduleQuizzes } from "@/lib/quizData";
+import ChapterQuizInline from "../components/ChapterQuizInline";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -33,6 +35,11 @@ export default function ChapterPage({ params }: ChapterProps) {
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter =
     currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+  const chapterQuizSlugMap: Record<string, string> = {
+    ch1: "dsc-arrays",
+  };
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -75,6 +82,12 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         <hr className="my-6 border-t-3" />
         <ChapterComponent />
+
+        {chapterQuiz ? (
+          <div className="mt-12">
+            <ChapterQuizInline quiz={chapterQuiz} />
+          </div>
+        ) : null}
       </div>
 
       {/* Bottom Navigation */}
