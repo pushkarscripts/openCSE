@@ -46,6 +46,10 @@ export default function ChapterPage({ params }: ChapterProps) {
 
   const chapterQuizSlugMap: Record<string, string> = {
     ch1: "c-intro",
+    ch2: "c-overview",
+    ch3: "c-data-types",
+    ch4: "c-arrays-functions",
+    ch5: "c-pointers-structures",
   };
 
   const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);

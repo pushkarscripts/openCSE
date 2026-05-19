@@ -120,7 +120,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
 
   function getOptionClass(idx: number): string {
     const base =
-      "w-full text-left px-6 py-4 rounded-lg text-lg font-medium transition-all shadow-md flex items-center";
+      "w-full text-left px-4 py-3 rounded-lg text-sm md:text-base font-medium transition-all shadow-md flex items-center";
     if (!answered)
       return `${base} bg-[#d2b48c] text-[#2b1b0e] opacity-50 hover:opacity-100 hover:scale-[98%] cursor-pointer`;
     if (!q) return `${base} bg-[#d2b48c] text-[#2b1b0e] opacity-30 cursor-default`;
@@ -150,7 +150,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
         >
           {!isInline && <div className="absolute inset-0 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: "blur(2px)", zIndex: 0 }} />}
           
-          <div className={`relative z-10 max-w-5xl ${isInline ? "" : "mx-auto flex flex-col items-center"}`}>
+          <div className={`relative z-10 max-w-4xl ${isInline ? "" : "mx-auto flex flex-col items-center"}`}>
             {!isInline ? (
               <Link href="/quiz" className="inline-block mb-8 text-sm md:text-base font-bold hover:underline text-[#3a2a14]" style={{ fontFamily: "Rockwell, serif" }}>
                 ← All Quizzes
@@ -158,7 +158,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
             ) : null}
 
             <h1
-              className={`font-bold ${roadRage.variable} ${isInline ? "text-[#f0d7a8] text-3xl md:text-4xl text-left" : "text-black text-center text-5xl sm:text-6xl md:text-8xl leading-snug"}`}
+              className={`font-bold ${roadRage.variable} ${isInline ? "text-[#f0d7a8] text-3xl md:text-4xl text-left" : "text-black text-center text-5xl sm:text-6xl md:text-7xl leading-snug"}`}
               style={{
                 fontFamily: "var(--font-road-rage), 'Road Rage', cursive",
                 fontWeight: 400,
@@ -166,7 +166,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
             >
               {quiz.subject}
             </h1>
-            <p className={`text-xl ${isInline ? "text-[#f5e7c3] mt-3" : "sm:text-2xl md:text-3xl text-[#3a2a14] mt-2 font-bold"}`} style={{ fontFamily: "Rockwell, serif" }}>
+            <p className={`text-lg ${isInline ? "text-[#f5e7c3] mt-3" : "sm:text-xl md:text-2xl text-[#3a2a14] mt-2 font-bold"}`} style={{ fontFamily: "Rockwell, serif" }}>
               {isInline ? quiz.description : "Quiz"}
             </p>
           </div>
@@ -231,9 +231,9 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
         >
           {!isInline && <div className="absolute inset-0 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: "blur(2px)", zIndex: 0 }} />}
           
-          <div className={`relative z-10 max-w-full ${isInline ? "" : "mx-auto flex flex-col items-center"}`}>
+          <div className={`relative z-10 max-w-4xl ${isInline ? "" : "mx-auto flex flex-col items-center"}`}>
             <h1
-              className={`font-bold ${roadRage.variable} text-black ${isInline ? "text-3xl md:text-4xl text-left" : "text-center text-5xl sm:text-6xl md:text-8xl leading-snug"}`}
+              className={`font-bold ${roadRage.variable} ${isInline ? "text-[#f0d7a8] text-3xl md:text-4xl text-left" : "text-center text-4xl sm:text-5xl md:text-6xl leading-snug text-[#f0d7a8]"}`}
               style={{
                 fontFamily: "var(--font-road-rage), 'Road Rage', cursive",
                 fontWeight: 400,
@@ -349,12 +349,12 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
           />
         )}
         
-        <div key={`${current}-${q.question}`} className={`relative z-10 max-w-full ${isInline ? "" : "mx-auto"}`}>
-          <div className={`flex flex-col gap-4 ${isInline ? "" : "items-center"} text-base sm:text-xl text-[#f0d7a8] font-bold mb-6`} style={{ fontFamily: "Rockwell, serif" }}>
-            <div className="flex items-center justify-between gap-4">
+          <div className={`relative z-10 max-w-3xl ${isInline ? "" : "mx-auto"}`}>
+          <div className={`flex flex-col gap-4 ${isInline ? "" : "items-center"} text-sm text-[#f0d7a8] font-bold mb-6`} style={{ fontFamily: "Rockwell, serif" }}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <button
                 onClick={returnToIntro}
-                className="rounded-full border border-[#f0d7a8] bg-[#3a2912] px-4 py-2 text-sm font-semibold text-[#f0d7a8] hover:bg-[#5a421c] transition"
+                className="rounded-full border border-[#f0d7a8] bg-[#3a2912] px-4 py-2 text-xs sm:text-sm font-semibold text-[#f0d7a8] hover:bg-[#5a421c] transition"
                 style={{ fontFamily: "Rockwell, serif" }}
               >
                 ← Back
@@ -368,7 +368,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
           </div>
 
           <h2
-            className={`font-bold ${isInline ? "text-[#f0d7a8] text-left text-3xl sm:text-4xl md:text-5xl" : "text-black text-center text-3xl sm:text-4xl md:text-5xl"} leading-snug`}
+            className={`font-bold ${isInline ? "text-[#f0d7a8] text-left text-xl sm:text-2xl md:text-3xl" : "text-black text-center text-xl sm:text-2xl md:text-3xl"} leading-snug`}
             style={{ fontFamily: "Rockwell, serif" }}
           >
             {q.question}
@@ -376,10 +376,10 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
         </div>
       </section>
 
-      <div className="w-full px-4 py-8">
+      <div className="w-full px-4 py-6">
         <div className={isInline ? "max-w-full" : "max-w-3xl mx-auto"}>
 
-          <div key={`options-${current}`} className="flex flex-col gap-5">
+          <div key={`options-${current}`} className="flex flex-col gap-4">
             {q.options.map((opt, idx) => (
               <button
                 key={`${current}-${idx}`}
