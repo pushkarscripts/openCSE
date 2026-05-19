@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     // BREAKOUT CONTAINER: Ignores the body's broken flex rules and covers the screen
     <div 
-      className="absolute inset-0 z-50 flex flex-col"
+      className="absolute inset-0 z-50 flex flex-col pt-14"
       style={{ backgroundColor: 'var(--background)' }}
     >
       {/* We keep the Navbar inside our breakout container so it still shows up */}

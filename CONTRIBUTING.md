@@ -19,7 +19,7 @@ cd project-name
 npm install
 
 5. Start the development server:
-npm start
+npm run dev
 
 ## Contribution Workflow
 

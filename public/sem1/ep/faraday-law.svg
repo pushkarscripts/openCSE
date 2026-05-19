@@ -1,0 +1,38 @@
+<svg width="100%" viewBox="0 0 680 400" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Faraday's Law of Electromagnetic Induction</title>
+  <desc>A changing magnetic flux through a loop induces an EMF.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>text { font-family: Arial, sans-serif; fill: #1a1a1a; } .th { font-size: 14px; font-weight: 600; } .ts { font-size: 12px; fill: #444; }</style>
+  </defs>
+  <rect width="680" height="400" fill="#ffffff"/>
+  <ellipse cx="220" cy="210" rx="130" ry="90" fill="#E6F1FB" fill-opacity="0.3" stroke="#aaa" stroke-width="1" stroke-dasharray="6 3"/>
+  <circle cx="160" cy="185" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="200" cy="170" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="240" cy="165" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="280" cy="175" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="175" cy="215" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="220" cy="210" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="265" cy="215" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="185" cy="245" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="230" cy="245" r="4" fill="#378ADD" opacity="0.7"/>
+  <circle cx="270" cy="238" r="4" fill="#378ADD" opacity="0.7"/>
+  <text class="th" x="220" y="136" text-anchor="middle">B (increasing)</text>
+  <text class="ts" x="220" y="155" text-anchor="middle">flux into page</text>
+  <ellipse cx="220" cy="210" rx="130" ry="90" fill="none" stroke="#D85A30" stroke-width="2"/>
+  <path d="M312 155 Q350 140 338 185" fill="none" stroke="#D85A30" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="th" x="370" y="149" fill="#D85A30">Induced EMF</text>
+  <text class="ts" x="370" y="169">∮ E · dl = −dΦ_B/dt</text>
+  <rect x="390" y="210" width="250" height="56" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+  <text class="th" x="515" y="231" text-anchor="middle">Integral form</text>
+  <text class="ts" x="515" y="252" text-anchor="middle">∮ E · dl = −dΦ_B/dt</text>
+  <rect x="390" y="280" width="250" height="56" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+  <text class="th" x="515" y="301" text-anchor="middle">Differential form</text>
+  <text class="ts" x="515" y="322" text-anchor="middle">∇ × E = −∂B/∂t</text>
+  <rect x="40" y="320" width="320" height="56" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+  <text class="th" x="200" y="341" text-anchor="middle">Physical significance</text>
+  <text class="ts" x="200" y="361" text-anchor="middle">Basis of transformers, generators, induction</text>
+  <text class="ts" x="340" y="28" text-anchor="middle">Faraday's law — changing magnetic flux induces a non-conservative electric field</text>
+</svg>
