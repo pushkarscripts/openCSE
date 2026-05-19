@@ -25,4 +25,17 @@ export const chapters: Chapter[] = [
       { id: "ch2-multicollinearity", title: "Multicollinearity & VIF", isPage: true },
     ],
   },
+  {
+    id: "ch3",
+    title: "Supervised Learning: Classification",
+    subTopics: [
+      { id: "ch3-intro", title: "Introduction to Classification", isPage: true },
+      { id: "ch3-logistic-regression", title: "Logistic Regression", isPage: true },
+      { id: "ch3-knn", title: "K-Nearest Neighbour (KNN)", isPage: true },
+      { id: "ch3-naive-bayes", title: "Naive Bayes", isPage: true },
+      { id: "ch3-decision-trees", title: "Decision Trees", isPage: true },
+      { id: "ch3-svm", title: "Support Vector Machine (SVM)", isPage: true },
+      { id: "ch3-recommendation-systems", title: "Recommendation Systems", isPage: true },
+    ],
+  },
 ];

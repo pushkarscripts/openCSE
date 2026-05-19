@@ -12,6 +12,14 @@ import { PCADeepDiveContent } from "../content/pca-deep-dive";
 import { AdvancedDimReductionContent } from "../content/advanced-dim-reduction";
 import { RegressionEvaluationContent } from "../content/regression-evaluation";
 import { MulticollinearityContent } from "../content/multicollinearity";
+import { Chapter3Content } from "../content/chapter3";
+import { IntroClassificationContent } from "../content/intro-classification";
+import { LogisticRegressionContent } from "../content/logistic-regression";
+import { KnnContent } from "../content/knn";
+import { NaiveBayesContent } from "../content/naive-bayes";
+import { DecisionTreesContent } from "../content/decision-trees";
+import { SvmContent } from "../content/svm";
+import { RecommendationSystemsContent } from "../content/recommendation-systems";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";
 
@@ -47,6 +55,14 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "ch2-advanced-dim-reduction": AdvancedDimReductionContent,
   "ch2-regression-evaluation": RegressionEvaluationContent,
   "ch2-multicollinearity": MulticollinearityContent,
+  "ch3": Chapter3Content,
+  "ch3-intro": IntroClassificationContent,
+  "ch3-logistic-regression": LogisticRegressionContent,
+  "ch3-knn": KnnContent,
+  "ch3-naive-bayes": NaiveBayesContent,
+  "ch3-decision-trees": DecisionTreesContent,
+  "ch3-svm": SvmContent,
+  "ch3-recommendation-systems": RecommendationSystemsContent,
 };
 
 type ChapterProps = {
