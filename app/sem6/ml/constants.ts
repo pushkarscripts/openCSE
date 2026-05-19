@@ -50,4 +50,17 @@ export const chapters: Chapter[] = [
       { id: "ch4-anomaly-detection", title: "Anomaly Detection", isPage: true },
     ],
   },
+  {
+    id: "ch5",
+    title: "Unit 5: Trends and Applications",
+    subTopics: [
+      { id: "ch5-ensemble", title: "Ensemble Learning", isPage: true },
+      { id: "ch5-image-recognition", title: "Image Recognition", isPage: true },
+      { id: "ch5-speech-recognition", title: "Speech Recognition", isPage: true },
+      { id: "ch5-prediction-recommendation", title: "Prediction & Recommendation", isPage: true },
+      { id: "ch5-spam-malware", title: "Email Spam & Malware Filtering", isPage: true },
+      { id: "ch5-virtual-assistant", title: "Virtual Personal Assistant", isPage: true },
+      { id: "ch5-fraud-detection", title: "Online Fraud Detection", isPage: true },
+    ],
+  },
 ];

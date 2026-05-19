@@ -27,6 +27,14 @@ import { KMedoidsContent } from "../content/kmedoids";
 import { HierarchicalContent } from "../content/hierarchical";
 import { AprioriContent } from "../content/apriori";
 import { AnomalyDetectionContent } from "../content/anomaly-detection";
+import { Chapter5Content } from "../content/chapter5";
+import { EnsembleLearningContent } from "../content/ensemble-learning";
+import { ImageRecognitionContent } from "../content/image-recognition";
+import { SpeechRecognitionContent } from "../content/speech-recognition";
+import { PredictionRecommendationContent } from "../content/prediction-recommendation";
+import { SpamMalwareContent } from "../content/spam-malware";
+import { VirtualAssistantContent } from "../content/virtual-assistant";
+import { FraudDetectionContent } from "../content/fraud-detection";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";
 
@@ -77,6 +85,14 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "ch4-hierarchical": HierarchicalContent,
   "ch4-apriori": AprioriContent,
   "ch4-anomaly-detection": AnomalyDetectionContent,
+  "ch5": Chapter5Content,
+  "ch5-ensemble": EnsembleLearningContent,
+  "ch5-image-recognition": ImageRecognitionContent,
+  "ch5-speech-recognition": SpeechRecognitionContent,
+  "ch5-prediction-recommendation": PredictionRecommendationContent,
+  "ch5-spam-malware": SpamMalwareContent,
+  "ch5-virtual-assistant": VirtualAssistantContent,
+  "ch5-fraud-detection": FraudDetectionContent,
 };
 
 type ChapterProps = {
