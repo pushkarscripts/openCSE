@@ -25,7 +25,7 @@ export const Ch1Content = () => {
           <li>Example: Sorting marks to find the highest scorer.</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
+        <div className="p-4 my-4 rounded-lg bg-[#f0ddb6]">
           <div className="font-semibold text-[#3a2a14]">Quick Example</div>
           <div className="mt-2 text-[#2b1d0f]">
             Input: [72, 89, 34, 91] <br />
@@ -50,7 +50,7 @@ export const Ch1Content = () => {
         <Image
           src="/timeline-computing.png"
           alt="timeline-computing"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={1000}
           height={350}
         />
@@ -70,7 +70,7 @@ export const Ch1Content = () => {
         <Image
           src="/eniac-block.png"
           alt="eniac-block"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={850}
           height={380}
         />
@@ -93,7 +93,7 @@ export const Ch1Content = () => {
         <Image
           src="/computer-block-diagram.png"
           alt="computer-block-diagram"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={900}
           height={400}
         />
@@ -110,7 +110,7 @@ export const Ch1Content = () => {
           <li>Algorithm characteristics: finiteness, definiteness, input, output, effectiveness.</li>
         </ul>
 
-        <div className="p-3 my-3 rounded border-l-4 border-[#b8925d] bg-[#f7e7bf] text-[#2b1d0f]">
+        <div className="p-3 my-3 border-l-4 border-[#b8925d] bg-[#f7e7bf] text-[#2b1d0f]">
           Tip: In exam answers, clearly state if the problem is well-defined and list algorithm characteristics.
         </div>
       </section>
@@ -135,7 +135,7 @@ END FOR
 PRINT sum`}
         />
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f3e7c2]">
+        <div className="p-4 my-4 bg-[#f3e7c2]">
           <div className="font-semibold text-[#3a2a14]">Flowchart Structure</div>
           <p className="mt-2 text-[#2b1d0f]">
             Start → Input n → Initialize sum → Loop (i ≤ n?) → Add → Update → Output sum → End
@@ -143,7 +143,7 @@ PRINT sum`}
           <Image
             src="/flowchart-sum-n.png"
             alt="flowchart-sum-n"
-            className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+            className="my-6 max-w-full"
             width={750}
             height={500}
           />
@@ -173,7 +173,7 @@ PRINT sum`}
         <Image
           src="/memory-layout.png"
           alt="memory-layout"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={800}
           height={500}
         />
@@ -214,7 +214,7 @@ STORE R3, 0x200`}
         <Image
           src="/program-lifecycle.png"
           alt="program-lifecycle"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={980}
           height={430}
         />
