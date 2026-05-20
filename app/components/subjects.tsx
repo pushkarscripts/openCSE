@@ -185,12 +185,7 @@ export default function SubjectsSection() {
           );
         })}
       </div>
-      <p
-        className="mt-8 text-4xl"
-        style={{ fontFamily: "'Rockwell', 'Serif', serif" }}
-      >
-        More subjects coming soon!!!
-      </p>
+
     </section>
   );
 }
