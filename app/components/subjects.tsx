@@ -101,7 +101,7 @@ const subjectCodes: Record<string, string> = {
 
   "Data Science using Python Libraries": "dsp",
   "Artificial Intelligence": "ai",
-  "Algorithm Design and Analysis": "ada",
+  "Algorithm Design and Analysis": "ada2",
   "Cloud Computing": "cc",
   "Economics for Engineers": "ee",
   "IoT (Internet of Things)": "iot",
@@ -125,7 +125,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops", "dsc", "os", "ml", "dops"];
+const available = ["ep", "c", "em1", "em2", "oops", "dsc", "os", "ml", "dops", "ada2"];
 
 export default function SubjectsSection() {
   return (
