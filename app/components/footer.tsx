@@ -61,7 +61,7 @@ export default function Footer() {
 
           <button 
             onClick={scrollToTop}
-            className="flex items-center gap-2 mt-6 text-lg hover:text-[#d2b48c] transition"
+            className="flex items-center gap-2 mt-6 text-lg hover:text-[#d2b48c] transition cursor-pointer"
             style={{ fontFamily: 'Rockwell, Serif, serif' }}
           >
             <ArrowUp size={20} className="animate-bounce" />

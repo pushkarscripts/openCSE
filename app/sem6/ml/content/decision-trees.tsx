@@ -13,7 +13,7 @@ export const DecisionTreesContent = () => (
           <li>Calculate the impurity (e.g., Entropy or Gini Index) of the current dataset.</li>
           <li>Iterate through all available features and calculate the Information Gain (or reduction in impurity) if the data were split on each feature.</li>
           <li>Select the feature that yields the <strong>highest Information Gain</strong> (or lowest Gini Index) as the decision node.</li>
-          <li>Split the dataset into subsets based on the selected feature's values.</li>
+          <li>Split the dataset into subsets based on the selected feature&apos;s values.</li>
           <li>Recursively repeat steps 2-5 for each subset until a stopping criterion is met (e.g., all instances in a node belong to the same class, or max depth is reached).</li>
         </ol>
       </div>

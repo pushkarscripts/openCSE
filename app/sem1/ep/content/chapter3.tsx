@@ -30,7 +30,7 @@ export const Ch3Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>time-varying-field.png</strong></p>
+        <img src="/sem1/ep/time-varying-field.svg" alt="Time-varying-field diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -64,7 +64,7 @@ export const Ch3Content = () => {
 
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>faraday-law.png</strong></p>
+        <img src="/sem1/ep/faraday-law.svg" alt="Faraday's law diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -89,7 +89,7 @@ export const Ch3Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>displacement-current.png</strong></p>
+       <img src="/sem1/ep/displacement-current.svg" alt="Displacement current diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -122,7 +122,7 @@ export const Ch3Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>generalized-ampere.png</strong></p>
+        <img src="/sem1/ep/generalized-ampere.svg" alt="Generalized Ampere law diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -160,7 +160,7 @@ export const Ch3Content = () => {
 
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>maxwell-set.png</strong></p>
+        <img src="/sem1/ep/maxwell-set.svg" alt="Maxwell's equations diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -195,7 +195,7 @@ export const Ch3Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>em-plane-wave.png</strong></p>
+        <img src="/sem1/ep/em-plane-wave.svg" alt="EM plane wave diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />

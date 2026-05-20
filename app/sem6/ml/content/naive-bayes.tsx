@@ -3,11 +3,11 @@ export const NaiveBayesContent = () => (
     <section id="naive-bayes" className="scroll-mt-24">
       <h3 className="section-heading text-xl">4. Naive Bayes Classifier</h3>
       <p className="p-text">
-        Naive Bayes is a probabilistic classifier based on Bayes' Theorem with a strong ("naive") independence assumption: all features are assumed to be conditionally independent given the class label.
+        Naive Bayes is a probabilistic classifier based on Bayes&apos; Theorem with a strong (&quot;naive&quot;) independence assumption: all features are assumed to be conditionally independent given the class label.
       </p>
 
       <div className="card bg-[#e6d0a7] p-4 rounded-lg shadow-sm border border-[#c7a669] text-[#2b1d0f] my-6">
-        <h4 className="font-bold text-lg mb-2">Bayes' Theorem</h4>
+        <h4 className="font-bold text-lg mb-2">Bayes&apos; Theorem</h4>
         <div className="bg-white/50 p-3 rounded font-mono text-sm overflow-x-auto whitespace-nowrap mb-3 text-black text-center">
           P(C|X) = [ P(X|C) × P(C) ] / P(X)
         </div>

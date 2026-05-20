@@ -20,6 +20,27 @@ import { NaiveBayesContent } from "../content/naive-bayes";
 import { DecisionTreesContent } from "../content/decision-trees";
 import { SvmContent } from "../content/svm";
 import { RecommendationSystemsContent } from "../content/recommendation-systems";
+import { Chapter4Content } from "../content/chapter4";
+import { IntroUnsupervisedContent } from "../content/intro-unsupervised";
+import { KMeansContent } from "../content/kmeans";
+import { KMedoidsContent } from "../content/kmedoids";
+import { HierarchicalContent } from "../content/hierarchical";
+import { AprioriContent } from "../content/apriori";
+import { AnomalyDetectionContent } from "../content/anomaly-detection";
+import { Chapter5Content } from "../content/chapter5";
+import { EnsembleLearningContent } from "../content/ensemble-learning";
+import { ImageRecognitionContent } from "../content/image-recognition";
+import { SpeechRecognitionContent } from "../content/speech-recognition";
+import { PredictionRecommendationContent } from "../content/prediction-recommendation";
+import { SpamMalwareContent } from "../content/spam-malware";
+import { VirtualAssistantContent } from "../content/virtual-assistant";
+import { FraudDetectionContent } from "../content/fraud-detection";
+import { Chapter6Content } from "../content/chapter6";
+import { DeepLearningContent } from "../content/deep-learning";
+import { ReinforcementLearningContent } from "../content/reinforcement-learning";
+import { NlpBasicsContent } from "../content/nlp-basics";
+import { MlopsDeploymentContent } from "../content/mlops-deployment";
+import { XaiEthicsContent } from "../content/xai-ethics";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";
 
@@ -63,6 +84,27 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "ch3-decision-trees": DecisionTreesContent,
   "ch3-svm": SvmContent,
   "ch3-recommendation-systems": RecommendationSystemsContent,
+  "ch4": Chapter4Content,
+  "ch4-intro": IntroUnsupervisedContent,
+  "ch4-kmeans": KMeansContent,
+  "ch4-kmedoids": KMedoidsContent,
+  "ch4-hierarchical": HierarchicalContent,
+  "ch4-apriori": AprioriContent,
+  "ch4-anomaly-detection": AnomalyDetectionContent,
+  "ch5": Chapter5Content,
+  "ch5-ensemble": EnsembleLearningContent,
+  "ch5-image-recognition": ImageRecognitionContent,
+  "ch5-speech-recognition": SpeechRecognitionContent,
+  "ch5-prediction-recommendation": PredictionRecommendationContent,
+  "ch5-spam-malware": SpamMalwareContent,
+  "ch5-virtual-assistant": VirtualAssistantContent,
+  "ch5-fraud-detection": FraudDetectionContent,
+  "ch6": Chapter6Content,
+  "ch6-deep-learning": DeepLearningContent,
+  "ch6-reinforcement": ReinforcementLearningContent,
+  "ch6-nlp": NlpBasicsContent,
+  "ch6-mlops": MlopsDeploymentContent,
+  "ch6-xai": XaiEthicsContent,
 };
 
 type ChapterProps = {

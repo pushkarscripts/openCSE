@@ -1,0 +1,36 @@
+<svg width="100%" viewBox="0 0 680 380" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Time-varying electromagnetic fields</title>
+  <desc>A changing magnetic field induces an electric field and vice versa.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #1a1a1a; }
+      .th { font-size: 14px; font-weight: 600; }
+      .ts { font-size: 12px; fill: #444; }
+    </style>
+  </defs>
+  <rect width="680" height="380" fill="#ffffff"/>
+  <rect x="40" y="50" width="200" height="60" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+  <text class="th" x="140" y="76" text-anchor="middle">Time-varying B field</text>
+  <text class="ts" x="140" y="96" text-anchor="middle">∂B/∂t ≠ 0</text>
+  <rect x="440" y="50" width="200" height="60" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+  <text class="th" x="540" y="76" text-anchor="middle">Induced E field</text>
+  <text class="ts" x="540" y="96" text-anchor="middle">∇ × E = −∂B/∂t</text>
+  <rect x="40" y="260" width="200" height="60" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+  <text class="th" x="140" y="286" text-anchor="middle">Time-varying E field</text>
+  <text class="ts" x="140" y="306" text-anchor="middle">∂E/∂t ≠ 0</text>
+  <rect x="440" y="260" width="200" height="60" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+  <text class="th" x="540" y="286" text-anchor="middle">Induced B field</text>
+  <text class="ts" x="540" y="306" text-anchor="middle">∇ × B = μ₀ε₀ ∂E/∂t</text>
+  <rect x="265" y="155" width="150" height="60" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+  <text class="th" x="340" y="181" text-anchor="middle">EM Wave</text>
+  <text class="ts" x="340" y="201" text-anchor="middle">Propagation</text>
+  <line x1="242" y1="80" x2="438" y2="80" stroke="#378ADD" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="540" y1="112" x2="400" y2="153" stroke="#D85A30" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="280" y1="217" x2="200" y2="258" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="242" y1="290" x2="438" y2="290" stroke="#D85A30" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="270" x2="394" y2="217" stroke="#378ADD" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="ts" x="340" y="34" text-anchor="middle">Mutual induction between E and B fields → EM wave propagation</text>
+</svg>

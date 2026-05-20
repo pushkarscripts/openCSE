@@ -3,7 +3,7 @@ export const LogisticRegressionContent = () => (
     <section id="logistic-regression" className="scroll-mt-24">
       <h3 className="section-heading text-xl">2. Logistic Regression</h3>
       <p className="p-text">
-        Logistic Regression is a statistical method used for binary classification despite its name containing "regression". It models the probability that an input belongs to a particular class using the logistic (sigmoid) function.
+        Logistic Regression is a statistical method used for binary classification despite its name containing &quot;regression&quot;. It models the probability that an input belongs to a particular class using the logistic (sigmoid) function.
       </p>
 
       <div className="mt-6">

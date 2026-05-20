@@ -9,7 +9,7 @@ export const SvmContent = () => (
       <div className="mt-6">
         <h4 className="font-bold text-lg text-[#fccc7e] mb-4">Key Terminology</h4>
         <div className="space-y-3 text-sm p-text">
-          <p><strong>Hyperplane:</strong> A decision boundary that separates different classes. In 2D it's a line, in 3D it's a plane. Equation: <span className="font-mono bg-white/10 p-1 rounded">w·x + b = 0</span>.</p>
+          <p><strong>Hyperplane:</strong> A decision boundary that separates different classes. In 2D it&apos;s a line, in 3D it&apos;s a plane. Equation: <span className="font-mono bg-white/10 p-1 rounded">w·x + b = 0</span>.</p>
           <p><strong>Support Vectors:</strong> Training data points closest to the hyperplane. If removed, the hyperplane would change. The margin is entirely determined by them.</p>
           <p><strong>Margin:</strong> The perpendicular distance between the hyperplane and the nearest data points from each class. SVM maximizes this. <span className="font-mono bg-white/10 p-1 rounded">Margin = 2 / ||w||</span>.</p>
         </div>

@@ -38,26 +38,26 @@ export default function Navbar() {
         }}
       >
         <li>
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
             HOME
           </Link>
         </li>
         <li>
-          <Link href="/#subjects">SUBJECTS</Link>
+          <Link href="/#subjects" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">SUBJECTS</Link>
         </li>
         <li>
-          <Link href="/#contribute">CONTRIBUTE</Link>
+          <Link href="/#contribute" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">CONTRIBUTE</Link>
         </li>
         <li>
-          <Link href="/#sponsor">SPONSOR</Link>
+          <Link href="/#sponsor" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">SPONSOR</Link>
         </li>
         <li>
-          <Link href="/quiz">QUIZ</Link>
+          <Link href="/quiz" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">QUIZ</Link>
         </li>
       </ul>
       {/* Mobile Hamburger */}
       <button
-        className="md:hidden flex flex-col justify-center items-center w-10 h-10"
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
         aria-label="Toggle menu"
         onClick={() => setMenuOpen((open) => !open)}
       >
@@ -97,27 +97,27 @@ export default function Navbar() {
           }}
         >
           <li>
-            <Link href="/" onClick={() => setMenuOpen(false)} className="hover:opacity-80 transition-opacity">
+            <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
         HOME
             </Link>
           </li>
           <li>
-            <Link href="/#subjects" onClick={() => setMenuOpen(false)}>
+            <Link href="/#subjects" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
         SUBJECTS
             </Link>
           </li>
           <li>
-            <Link href="/#contribute" onClick={() => setMenuOpen(false)}>
+            <Link href="/#contribute" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
         CONTRIBUTE
             </Link>
           </li>
           <li>
-            <Link href="/#sponsor" onClick={() => setMenuOpen(false)}>
+            <Link href="/#sponsor" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
         SPONSOR
             </Link>
           </li>
           <li>
-              <Link href="/quiz" onClick={() => setMenuOpen(false)}>
+              <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
           QUIZ
               </Link>
             </li>

@@ -11,7 +11,7 @@ export const RecommendationSystemsContent = () => (
         <p className="p-text mb-4 text-sm">
           Recommends items similar to those a user has liked in the past, based on item attributes (features).
           <br/><br/>
-          <strong>Core Idea:</strong> "If you liked item A, and item B is similar to A, you will like item B."
+          <strong>Core Idea:</strong> &quot;If you liked item A, and item B is similar to A, you will like item B.&quot;
         </p>
 
         <div className="card bg-[#e6d0a7] p-4 rounded-lg shadow-sm border border-[#c7a669] text-[#2b1d0f] mb-6">
@@ -32,7 +32,7 @@ export const RecommendationSystemsContent = () => (
         <p className="p-text mb-4 text-sm">
           Recommends items based on the preferences and behaviors of similar users, without using item features.
           <br/><br/>
-          <strong>Core Idea:</strong> "Users who liked the same items as you in the past will likely have similar tastes for new items."
+          <strong>Core Idea:</strong> &quot;Users who liked the same items as you in the past will likely have similar tastes for new items.&quot;
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -41,7 +41,7 @@ export const RecommendationSystemsContent = () => (
             <ol className="list-decimal pl-5 text-sm space-y-1 text-[#fdf5e6]/90">
               <li>Find users similar to the active user using Pearson correlation or Cosine similarity on their rating vectors.</li>
               <li>Identify items liked by these similar users but not yet seen by the active user.</li>
-              <li>Predict the rating for these unseen items by taking a weighted average of the similar users' ratings.</li>
+              <li>Predict the rating for these unseen items by taking a weighted average of the similar users&apos; ratings.</li>
               <li>Recommend the items with the highest predicted ratings.</li>
             </ol>
           </div>

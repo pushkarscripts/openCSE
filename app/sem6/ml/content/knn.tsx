@@ -13,14 +13,14 @@ export const KnnContent = () => (
           <li>For a new test point, calculate the distance to all training points using a distance metric (e.g., Euclidean).</li>
           <li>Select the K nearest neighbours (smallest distances).</li>
           <li><strong>For classification:</strong> assign the class that appears most frequently among the K neighbours (majority voting).</li>
-          <li><strong>For regression:</strong> compute the mean/average of K neighbours' target values.</li>
+          <li><strong>For regression:</strong> compute the mean/average of K neighbours&apos; target values.</li>
         </ol>
       </div>
 
       <div className="mt-6">
         <h4 className="font-bold text-lg text-[#fccc7e] mb-2">Distance Metrics</h4>
         <p className="p-text text-sm mb-3">
-          To find the "nearest" neighbours, the algorithm relies on distance calculations. The two most common metrics are:
+          To find the &quot;nearest&quot; neighbours, the algorithm relies on distance calculations. The two most common metrics are:
         </p>
         <div className="space-y-4">
           <div className="bg-white/5 p-4 rounded border border-white/10">
@@ -74,7 +74,7 @@ export const KnnContent = () => (
       <div className="note-box mt-4 bg-[#f3e7c2] border-l-4 border-[#1B0D00] p-4 text-[#1B0D00]">
         <h4 className="font-bold mb-1">Inductive Bias in KNN</h4>
         <p className="text-sm">
-          Inductive bias refers to the assumptions a learning algorithm uses to generalize beyond the training data. For KNN, the inductive bias is: <strong>"similar inputs have similar outputs"</strong> — i.e., nearby points in feature space are likely to belong to the same class.
+          Inductive bias refers to the assumptions a learning algorithm uses to generalize beyond the training data. For KNN, the inductive bias is: <strong>&quot;similar inputs have similar outputs&quot;</strong> — i.e., nearby points in feature space are likely to belong to the same class.
         </p>
       </div>
     </section>
