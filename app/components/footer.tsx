@@ -49,7 +49,7 @@ export default function Footer() {
               <Github size={24} />
             </a>
             <a href="https://github.com/pushkarscripts/openCSE/discussions" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
-              Discussion
+              GitHub Discussions
             </a>
           </div>
 
