@@ -45,17 +45,11 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <h3 className={`${roadRage.className} text-3xl text-white mb-2`}>Connect</h3>
           <div className="flex gap-4">
-            <a href="https://github.com/ayushyadav0707/openCSE" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
+            <a href="https://github.com/pushkarscripts/openCSE/discussions" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
               <Github size={24} />
             </a>
-            <a href="#" aria-label="LinkedIn" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
-              <Linkedin size={24} />
-            </a>
-            <a href="#" aria-label="Twitter" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
-              <Twitter size={24} />
-            </a>
-            <a href="mailto:contact@opencse.com" aria-label="Email" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
-              <Mail size={24} />
+            <a href="https://github.com/pushkarscripts/openCSE/discussions" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 bg-[#2b1b0e] rounded-full hover:bg-[#d2b48c] hover:text-[#1B0D00] transition">
+              Discussion
             </a>
           </div>
 
