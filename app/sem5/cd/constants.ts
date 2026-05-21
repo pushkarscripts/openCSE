@@ -30,4 +30,28 @@ export const chapters: Chapter[] = [
       { id: "ch6-dfa-solved-problem", title: "Solved Problem: Min DFA", isPage: true },
     ],
   },
+  { id: "ch7", title: "Introduction to Syntax Analysis" },
+  {
+    id: "ch8",
+    title: "Top-Down Parsing & LL(1)",
+    subTopics: [
+      { id: "ch8-ll1-solved-problem", title: "Solved Problem: LL(1)", isPage: true },
+    ],
+  },
+  { id: "ch9", title: "Bottom-Up Parsing & Shift-Reduce" },
+  {
+    id: "ch10",
+    title: "LR(0) & SLR Parsing",
+    subTopics: [
+      { id: "ch10-slr-solved-problem", title: "Solved Problem: SLR", isPage: true },
+    ],
+  },
+  {
+    id: "ch11",
+    title: "CLR(1) & LALR Parsing",
+    subTopics: [
+      { id: "ch11-lalr-solved-problem", title: "Solved Problem: LALR", isPage: true },
+    ],
+  },
+  { id: "ch12", title: "Advanced Parsing & Ambiguity" },
 ];
