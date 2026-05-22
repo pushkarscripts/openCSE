@@ -24,11 +24,11 @@ The value of y will be True when both the inputs will be True.
 
 ### Truth Table
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 ### Diagram
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ### Real Life Example
 An AND gate works like a circuit where two switches must be ON to light a bulb.
@@ -45,10 +45,10 @@ The value of y will be True when one of the inputs will be True.
 
 ### Truth Table
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 ### Diagram
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 
 ## 3. NOT GATE 
@@ -63,12 +63,12 @@ The value of y will be HIGH when A will be low.
 
 ### Truth Table
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 
 ### Diagram
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 
 
@@ -85,11 +85,11 @@ The value of y will be True when all the inputs are set to 0.
 
 ### Truth Table
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 ### Diagram
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 
 ## 5. NAND GATE 
@@ -105,11 +105,11 @@ Y = (A . B)'
 
 ### Truth Table
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 ### Diagram
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 
 ## 6. XOR GATE 
@@ -125,11 +125,11 @@ Y = A'B + AB'
 
 ### Truth Table
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
 ### Diagram
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 
 ## 7. XNOR GATE 
@@ -145,11 +145,11 @@ Y = AB + A'B'
 
 ### Truth Table
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 ### Diagram
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 
 
