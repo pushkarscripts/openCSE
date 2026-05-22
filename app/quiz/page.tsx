@@ -24,7 +24,7 @@ export const metadata = {
 
 export default function QuizIndexPage() {
   return (
-    <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1]">
+    <div className="min-h-screen bg-[#1B0D00] text-[#e2d1c1] pt-14">
       <Navbar />
 
       <section
