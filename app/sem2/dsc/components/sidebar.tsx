@@ -24,6 +24,7 @@ export default function Sidebar() {
     { id: "ch0", title: "Course Outline" },
     { id: "ch1", title: "Arrays" },
     { id: "ch2", title: "Linked Lists" },
+    { id: "ch3", title: "Stacks" },
   ];
 
   const quizSlugMap: Record<string, string> = {

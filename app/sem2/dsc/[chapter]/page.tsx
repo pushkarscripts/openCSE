@@ -4,6 +4,7 @@ import { Righteous } from "next/font/google";
 import { Ch0Content } from "../content/chapter0";
 import { Ch1Content } from "../content/chapter1";
 import { Ch2Content } from "../content/chapter2";
+import { Ch3Content } from "../content/chapter3";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 
@@ -17,6 +18,7 @@ const chapters = [
   { id: "ch0", title: "Course Outline", component: Ch0Content },
   { id: "ch1", title: "Arrays", component: Ch1Content },
   { id: "ch2", title: "Linked Lists", component: Ch2Content },
+  { id: "ch3", title: "Stacks", component: Ch3Content },
 ];
 
 type ChapterProps = {
