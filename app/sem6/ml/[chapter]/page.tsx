@@ -42,7 +42,7 @@ import { NlpBasicsContent } from "../content/nlp-basics";
 import { MlopsDeploymentContent } from "../content/mlops-deployment";
 import { XaiEthicsContent } from "../content/xai-ethics";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
-import { chapters, Chapter, SubTopic } from "../constants";
+import { chapters, SubTopic } from "../constants";
 
 function findChapterOrSubtopic(chapterId: string) {
   const chapter = chapters.find((c) => c.id === chapterId);

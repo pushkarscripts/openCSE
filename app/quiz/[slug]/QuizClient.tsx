@@ -4,14 +4,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/app/components/navbar";
-import { Righteous, Road_Rage } from "next/font/google";
+import { Road_Rage } from "next/font/google";
 import type { Quiz } from "@/lib/quizData";
-
-const righteous = Righteous({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-righteous",
-});
 
 const roadRage = Road_Rage({
   variable: "--font-road-rage",
