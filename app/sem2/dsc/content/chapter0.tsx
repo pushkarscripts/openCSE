@@ -34,11 +34,15 @@ export const Ch0Content = () => {
 
       <section>
         <h3 className="section-heading">Module III: Stacks</h3>
-        <ul className="section-list">
-          <li>Stack operations</li>
-          <li>Array implementation</li>
-          <li>Applications of stacks</li>
-        </ul>
+<ul className="section-list">
+<li>Introduction to stacks and LIFO principle</li>
+<li>Stack operations (Push, Pop, Peek, isEmpty, isFull)</li>
+<li>Overflow and Underflow</li>
+<li>Array and Linked List implementation</li>
+<li>Complexity analysis</li>
+<li>Applications and real-life examples</li>
+<li>Advantages and limitations</li>
+</ul>
       </section>
 
       <section>

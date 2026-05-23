@@ -31,12 +31,6 @@ function buildQuizQuestions(quiz: Quiz, limit = 10): QuizQuestion[] {
   });
 }
 
-const righteous = Righteous({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-righteous",
-});
-
 const roadRage = Road_Rage({
   variable: "--font-road-rage",
   subsets: ["latin"],
