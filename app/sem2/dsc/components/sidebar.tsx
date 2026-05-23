@@ -55,28 +55,6 @@ export default function Sidebar() {
           className={`h-full shrink-0 bg-[#fae8d7] text-[#1B0D00] p-0 flex flex-col transition-all duration-300 pointer-events-auto border-r-0 ${open ? "w-64 border-r-2 md:border-r-0" : "w-0 overflow-hidden"
             }`}
         >
-          Chapters
-        </aside>
-
-        <ul className="flex-1 overflow-y-auto no-scrollbar space-y-0">
-          {chapters.map((ch) => {
-            const active = pathname === `/sem2/dsc/${ch.id}`;
-            return (
-              <li key={ch.id}>
-                <Link
-                  href={`/sem2/dsc/${ch.id}`}
-                  className={`block px-3 py-2 text-xl transition ${
-                    active ? "bg-[#fccc7e]" : "hover:bg-[#ffdda7af]"
-                  } ${righteous.className}`}
-                >
-                  {ch.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="border-t-4 border-[#1B0D00]">
           <h2
             className="flex items-center text-2xl font-normal pt-3 pl-3 mb-2 bg-[#cebb9c] text-[#1B0D00] pb-2 border-b-4 border-[#1B0D00]"
             style={{ fontFamily: "Rockwell, Serif, serif" }}
@@ -128,7 +106,7 @@ export default function Sidebar() {
               Take the Quiz
             </Link>
           </div>
-        </div>
+        </aside>
 
         <button
           onClick={() => setOpen(!open)}
@@ -146,4 +124,3 @@ export default function Sidebar() {
     </>
   );
 }
-

@@ -36,7 +36,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>superconductivity-transition.png</strong></p>
+        <img src="/sem1/ep/superc.png" alt="Superconductivity diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -66,7 +66,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>superconductor-properties.png</strong></p>
+        <img src="/sem1/ep/super-properties.png" alt="Superconductivity properties diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -97,7 +97,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>meissner-effect.png</strong>, <strong>critical-field.png</strong></p>
+        <img src="/sem1/ep/s-m-dia.png" alt="Meissner Effect  & Critical Parametersdiagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -126,7 +126,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>type1-type2.png</strong></p>
+        <img src="/sem1/ep/type.png" alt="Type I and Type II Superconductors diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -143,7 +143,7 @@ export const Ch4Content = () => {
           <li>Quantum computing components based on superconducting qubits.</li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>superconductor-applications.png</strong></p>
+        <img src="/sem1/ep/app.png" alt="Applications of Superconductors diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
