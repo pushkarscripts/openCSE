@@ -13,6 +13,15 @@ import { Ch6Content } from "../content/chapter6";
 import { NfaToDfaSubsetContent } from "../content/ch6-nfa-to-dfa-subset";
 import { DfaMinimizationContent } from "../content/ch6-dfa-minimization";
 import { DfaSolvedProblemContent } from "../content/ch6-dfa-solved-problem";
+import { Ch7Content } from "../content/chapter7";
+import { Ch8Content } from "../content/chapter8";
+import { Ll1SolvedProblemContent } from "../content/ch8-ll1-solved-problem";
+import { Ch9Content } from "../content/chapter9";
+import { Ch10Content } from "../content/chapter10";
+import { SlrSolvedProblemContent } from "../content/ch10-slr-solved-problem";
+import { Ch11Content } from "../content/chapter11";
+import { LalrSolvedProblemContent } from "../content/ch11-lalr-solved-problem";
+import { Ch12Content } from "../content/chapter12";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
 
@@ -49,6 +58,15 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "ch6-nfa-to-dfa-subset": NfaToDfaSubsetContent,
   "ch6-dfa-minimization": DfaMinimizationContent,
   "ch6-dfa-solved-problem": DfaSolvedProblemContent,
+  ch7: Ch7Content,
+  ch8: Ch8Content,
+  "ch8-ll1-solved-problem": Ll1SolvedProblemContent,
+  ch9: Ch9Content,
+  ch10: Ch10Content,
+  "ch10-slr-solved-problem": SlrSolvedProblemContent,
+  ch11: Ch11Content,
+  "ch11-lalr-solved-problem": LalrSolvedProblemContent,
+  ch12: Ch12Content,
 };
 
 type ChapterProps = {
