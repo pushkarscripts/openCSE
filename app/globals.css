@@ -206,3 +206,29 @@ pre.error {
   scrollbar-width: none;     /* Firefox */
 }
 
+/* -- Custom Scrollbar -- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #C7A669 transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #C7A669; 
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #a3844e; 
+}
+
+

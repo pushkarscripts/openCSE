@@ -6,7 +6,10 @@ import { Ch3Content } from "../content/chapter3";
 import { Ch4Content } from "../content/chapter4";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+
 import BookmarkButton from "../../../components/BookmarkButton";
+import { moduleQuizzes } from "@/lib/quizData";
+import ChapterQuizInline from "../components/ChapterQuizInline";
 const righteous = Righteous({
   subsets: ["latin"],
   weight: "400",
@@ -37,6 +40,14 @@ export default function ChapterPage({ params }: ChapterProps) {
   const ChapterComponent = chapter.component;
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+  const chapterQuizSlugMap: Record<string, string> = {
+    ch1: "em1-differential-calculus",
+    ch2: "em1-linear-algebra",
+    ch3: "em1-ordinary-differential-equations",
+    ch4: "em1-laplace-transforms",
+  };
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -82,6 +93,12 @@ export default function ChapterPage({ params }: ChapterProps) {
 
       {/* Chapter Body */}
       <ChapterComponent />
+
+      {chapterQuiz ? (
+        <div className="mt-12">
+          <ChapterQuizInline quiz={chapterQuiz} />
+        </div>
+      ) : null}
 
       {/* Bottom Navigation */}
       <div className="flex justify-between my-8">

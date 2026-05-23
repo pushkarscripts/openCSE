@@ -1,11 +1,11 @@
 // app/quiz/[slug]/page.tsx
-import { getQuizBySlug, quizzes } from "@/lib/quizData";
+import { getQuizBySlug, moduleQuizzes, quizzes } from "@/lib/quizData";
 import { notFound } from "next/navigation";
 import QuizClient from "./QuizClient";
 
 // Pre-generate all quiz pages at build time
 export function generateStaticParams() {
-  return quizzes.map((q) => ({ slug: q.slug }));
+  return [...quizzes, ...moduleQuizzes].map((q) => ({ slug: q.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
