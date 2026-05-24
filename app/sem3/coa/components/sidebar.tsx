@@ -38,6 +38,7 @@ export default function Sidebar() {
     ep: "ep",
     em2: "em2",
     oops: "oops",
+    coa: "coa",
   };
 
   const subjectKey = pathname.split("/")[2] ?? "";

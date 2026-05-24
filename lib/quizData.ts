@@ -1371,6 +1371,213 @@ export const quizzes: Quiz[] = [
       },
     ],
   },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa",
+    description:
+      "Test your knowledge of CPU microarchitecture, instruction set design, pipelining, cache mapping, and memory hierarchies.",
+    questions: [
+      {
+        "id": 1,
+        "question": "What are the five classic fundamental functional components that make up a computer system?",
+        "options": [
+          "Processor, Hard Drive, Monitor, Mouse, Keyboard",
+          "Datapath, Control, Memory, Input, Output",
+          "Software, Firmware, Operating System, Application, Hardware",
+          "ALU, Cache, System Bus, Registers, Power Supply"
+        ],
+        "answer": 1,
+        "explanation": "At an abstract organizational level, a computer system is fundamentally split into five classic functional units: Datapath, Control, Memory, Input, and Output."
+      },
+      {
+        "id": 2,
+        "question": "Which software layer is responsible for translating human-readable high-level programming languages into low-level machine instructions?",
+        "options": ["Operating System", "Compiler", "Device Driver", "Linker"],
+        "answer": 1,
+        "explanation": "A compiler takes high-level code (like C++ or Java) and translates it directly into low-level binary machine language that the processor hardware can natively understand."
+      },
+      {
+        "id": 3,
+        "question": "Which type of bus is used by the CPU to send information pointing to specific memory locations or hardware target ports?",
+        "options": ["Data Bus", "Control Bus", "Address Bus", "Peripheral Bus"],
+        "answer": 2,
+        "explanation": "The Address Bus carries the binary bits that specify the exact target destination or source address in memory or an I/O device."
+      },
+      {
+        "id": 4,
+        "question": "How is 'Response Time' (or Latency) fundamentally defined in performance analysis?",
+        "options": [
+          "The total amount of work done in a given unit of time",
+          "The time between the start and completion of a single task",
+          "The clock frequency of the internal hardware processor",
+          "The total number of instructions packed into a compiled program"
+        ],
+        "answer": 1,
+        "explanation": "Response time, also known as latency, is the absolute time it takes to get a single particular task done from start to finish."
+      },
+      {
+        "id": 5,
+        "question": "If you want to look exclusively at the performance of the processor by tracking the time it spends working directly on your application's instructions, which metric should you use?",
+        "options": ["Wall-Clock Time", "System CPU Time", "User CPU Time", "Throughput Time"],
+        "answer": 2,
+        "explanation": "User CPU Time measures the specific amount of processor clock time expended strictly executing the lines of code within the user's application, excluding OS overhead."
+      },
+      {
+        "id": 6,
+        "question": "According to the fundamental CPU performance equation, which of the following variables directly determines the total CPU execution time?",
+        "options": [
+          "Instruction Count, CPI, and Clock Cycle Time",
+          "MIPS rating, Throughput, and Response Time",
+          "RAM size, Cache size, and Hard drive capacity",
+          "Opcode width, Function code, and Number of registers"
+        ],
+        "answer": 0,
+        "explanation": "The CPU Performance Equation states that: CPU Time = Instruction Count × Cycles Per Instruction (CPI) × Clock Cycle Time."
+      },
+      {
+        "id": 7,
+        "question": "What is the primary architectural concept behind the 'Stored Program' model used in modern computers?",
+        "options": [
+          "Instructions must be re-wired manually using cables before running a new program",
+          "Instructions and data are stored together as numbers in the same unified system memory space",
+          "Programs can only be run directly from external disk drives without loading into RAM",
+          "Processor registers are the only components allowed to hold data vectors"
+        ],
+        "answer": 1,
+        "explanation": "The Stored Program Concept treats program instructions exactly like numeric data types, allowing them to reside simultaneously in the same unified memory space to be fetched and executed dynamically."
+      },
+      {
+        "id": 8,
+        "question": "In the MIPS architecture, what is the fixed bit-width of a standard instruction word?",
+        "options": ["16 bits", "32 bits", "64 bits", "128 bits"],
+        "answer": 1,
+        "explanation": "The MIPS instruction set architecture enforces a highly uniform design constraint where every single instruction word is exactly 32 bits wide."
+      },
+      {
+        "id": 9,
+        "question": "Which of the following describes the function of the MIPS register '$zero' ($0)?",
+        "options": [
+          "It acts as a volatile temporary space that resets on every function return",
+          "It is hardwired to the constant numeric value zero, and any writes to it are ignored",
+          "It is used exclusively by the operating system kernel to handle error flags",
+          "It tracks the memory address of the next upcoming instruction fetch"
+        ],
+        "answer": 1,
+        "explanation": "Register $0 ($zero) is hardwired directly to a constant zero state. It always returns 0 and helps simplify common operations like moving data or loading constants."
+      },
+      {
+        "id": 10,
+        "question": "Which MIPS addressing mode embeds the operand constant value directly inside the instruction word itself?",
+        "options": ["Register Addressing", "Immediate Addressing", "Base Addressing", "PC-Relative Addressing"],
+        "answer": 1,
+        "explanation": "In Immediate Addressing, the actual data operand is a constant bitfield provided directly within the instruction structure itself (e.g., `addi $sp, $sp, -4`)."
+      },
+      {
+        "id": 11,
+        "question": "Why is signed integer data commonly represented using 'Two's Complement' notation in computer hardware?",
+        "options": [
+          "It allows positive numbers to be processed twice as fast as negative numbers",
+          "It enables the hardware ALU to perform subtraction using the same basic addition circuitry",
+          "It eliminates the need for an instruction decoding unit inside the CPU",
+          "It doubles the number of bits available in a standard memory word"
+        ],
+        "answer": 1,
+        "explanation": "Two's complement allows signed numbers to be added or subtracted using unified hardware layouts, avoiding the need for completely separate subtraction logic streams."
+      },
+      {
+        "id": 12,
+        "question": "What happens when an arithmetic operation calculates a signed integer result that is larger or smaller than the destination register can legally represent?",
+        "options": ["A Page Fault occurs", "An Overflow Exception is triggered", "The Data Bus switches to unidirectional mode", "The instruction format converts to J-type"],
+        "answer": 1,
+        "explanation": "An overflow occurs when a mathematical result falls outside the maximum or minimum bounds of the available bit-width representation, causing an overflow exception."
+      },
+      {
+        "id": 13,
+        "question": "The single-precision IEEE 754 floating-point standard splits a 32-bit word into which three component fields?",
+        "options": [
+          "Opcode, Register, and Constant Offset",
+          "Sign bit, Biased Exponent, and Significand Fraction",
+          "Base address, Index multiplier, and Displacement",
+          "Data lines, Address channels, and Control markers"
+        ],
+        "answer": 1,
+        "explanation": "To represent real fractional numbers, the IEEE 754 single-precision format structures the 32 bits into 1 Sign bit, 8 Biased Exponent bits, and 23 Significand Fraction bits."
+      },
+      {
+        "id": 14,
+        "question": "What does a processor's 'Datapath' unit explicitly consist of?",
+        "options": [
+          "The compilation scripts and code checking configurations",
+          "The physical hardware elements (like registers and ALUs) that perform operations on data",
+          "The operating system software utilities managing active files",
+          "The physical cables linking the computer monitor to the tower unit"
+        ],
+        "answer": 1,
+        "explanation": "The datapath is the physical hardware engine of the CPU core containing elements that perform calculations and manipulate binary information data streams."
+      },
+      {
+        "id": 15,
+        "question": "What is a major limitation of a 'Single-Cycle' processor implementation?",
+        "options": [
+          "It requires a multi-level cache layout to run even basic commands",
+          "The clock period is forced to be as long as the slowest instruction, making faster instructions wait unnecessarily",
+          "It cannot handle simple arithmetic instructions like add or subtract",
+          "The Instruction Set Architecture contract must use variable bit widths"
+        ],
+        "answer": 1,
+        "explanation": "In a single-cycle design, every instruction must finish in exactly one clock cycle. Therefore, the clock cycle must be stretched to fit the longest instruction (typically `lw`), slowing down all faster instructions."
+      },
+      {
+        "id": 16,
+        "question": "Which basic hardware implementation technique overlaps the execution of multiple instructions simultaneously to enhance instruction throughput?",
+        "options": ["Virtual Memory Allocation", "Pipelining", "Polling Loop Management", "Write-Through Cache Synchronization"],
+        "answer": 1,
+        "explanation": "Pipelining does not accelerate an individual instruction's execution time, but it maximizes overall throughput by running multiple instructions through different structural stages concurrently."
+      },
+      {
+        "id": 17,
+        "question": "What is the canonical name given to a pipeline conflict scenario where the hardware cannot support a specific combination of instructions trying to use the same resource in the same cycle?",
+        "options": ["Data Hazard", "Structural Hazard", "Control Hazard", "Branch Hazard"],
+        "answer": 1,
+        "explanation": "Structural Hazards emerge when there is inadequate hardware or resource conflict because different instructions in the pipeline want to use the exact same resource at the same time."
+      },
+      {
+        "id": 18,
+        "question": "Which pipeline hazard mitigation technique routes an intermediate calculation result directly from internal pipeline register buffers to the ALU, skipping the delay of waiting for a register write-back?",
+        "options": ["Static Branch Prediction", "Forwarding (or Bypassing)", "Delayed Slot Insertion", "Pipeline Interlock Flushing"],
+        "answer": 1,
+        "explanation": "Forwarding (bypassing) optimizes performance by grabbing data straight from internal pipeline buffers (like EX/MEM) and passing it to the ALU inputs when a dependency is detected."
+      },
+      {
+        "id": 19,
+        "question": "Which type of high-speed memory is built out of electronic cross-coupled flip-flops, requires no electrical refresh loops to maintain its state, and is primarily used to build CPU cache layers?",
+        "options": ["DRAM (Dynamic RAM)", "SRAM (Static RAM)", "Flash Storage", "Magnetic Tape"],
+        "answer": 1,
+        "explanation": "SRAM is exceptionally fast, power-efficient, and does not require active refresh intervals, making it ideal for high-speed processor caches despite being more expensive and less dense than DRAM."
+      },
+      {
+        "id": 20,
+        "question": "A program loops through an induction loop and repeatedly re-uses the exact same variable counters and temporary data values within a tight window of time. This program is exhibiting which concept?",
+        "options": ["Spatial Locality", "Temporal Locality", "Virtual Address Paging", "Bus Multiplexing Synchronization"],
+        "answer": 1,
+        "explanation": "Temporal Locality states that if a specific memory location is referenced once, it has a exceptionally high probability of being accessed again in the near future."
+      },
+      {
+        "id": 21,
+        "question": "What hardware component caches virtual-to-physical address translation lookups within the Memory Management Unit (MMU) to accelerate memory access cycles?",
+        "options": ["Translation Lookaside Buffer (TLB)", "Write Buffer", "Page Table Directory", "DMA Controller Register"],
+        "answer": 0,
+        "explanation": "The Translation Lookaside Buffer (TLB) acts as a specialized cache strictly holding recent page translation parameters to avoid querying page tables inside main memory on every reference."
+      },
+      {
+        "id": 22,
+        "question": "Which data coordination mechanism allows an external high-speed peripheral controller to read or write complete blocks of data directly to/from main memory completely in the background without burning CPU execution cycles?",
+        "options": ["Programmed Polling Loops", "Interrupt Request Handling", "Direct Memory Access (DMA)", "Bus Arbitration Switching"],
+        "answer": 2,
+        "explanation": "Direct Memory Access (DMA) offloads the CPU by enabling an external controller to take command of the bus lines and stream data blocks directly to or from RAM modules."
+      }
+    ]
+  },
 
 ];
 
@@ -3187,7 +3394,7 @@ export const moduleQuizzes: Quiz[] = [
       },
     ],
   },
-  
+
   {
     subject: "Machine Learning",
     slug: "ml-supervised",
@@ -5986,7 +6193,7 @@ export const moduleQuizzes: Quiz[] = [
     description: "Quiz on Rolle's Theorem, Mean Value Theorems, Taylor Series, and Curvature.",
     questions: [
       {
-        id : 1,
+        id: 1,
         question: "Which of the following conditions is NOT required for Rolle's Theorem to hold on [a, b]?",
         options: [
           "f(x) must be continuous on [a, b]",
@@ -5998,7 +6205,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "Rolle's Theorem requires continuity, differentiability, and f(a) = f(b). It does not require the function to be strictly increasing; in fact, a strictly increasing function cannot have f(a) = f(b) unless it's a constant function.",
       },
       {
-        id : 2,
+        id: 2,
         question: "Lagrange's Mean Value Theorem states that there exists a point c in (a, b) such that f'(c) equals:",
         options: [
           "0",
@@ -6010,7 +6217,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "The formula is usually written as (f(b) - f(a)) / (b - a), which represents the slope of the secant line between a and b. Option C is algebraically identical.",
       },
       {
-        id : 3,
+        id: 3,
         question: "A Maclaurin series is a special case of a Taylor series where the expansion is centered at:",
         options: [
           "x = 1",
@@ -6022,7 +6229,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "The Maclaurin series is defined as the Taylor series expansion of a function evaluated at x = 0.",
       },
       {
-        id : 4,
+        id: 4,
         question: "Which rule is typically used to resolve indeterminate forms like 0/0 or ∞/∞?",
         options: [
           "Cramer's Rule",
@@ -6034,7 +6241,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "L'Hospital's Rule states that for indeterminate forms 0/0 or ∞/∞, the limit of a quotient of functions is equal to the limit of the quotient of their derivatives.",
       },
       {
-        id : 5,
+        id: 5,
         question: "A point on a curve where the concavity changes (e.g., from convex to concave) is called:",
         options: [
           "A stationary point",
@@ -6046,7 +6253,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "A point of inflexion occurs where the second derivative changes sign, indicating a change in concavity.",
       },
       {
-        id : 6,
+        id: 6,
         question: "If f''(x) > 0 for all x in an interval, the curve is said to be:",
         options: [
           "Concave downward",
@@ -6058,7 +6265,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "A positive second derivative means the slope is increasing, which corresponds to a convex (or concave upward) shape.",
       },
       {
-        id : 7,
+        id: 7,
         question: "Straight lines that a curve approaches as x or y tends to infinity are known as:",
         options: [
           "Secants",
@@ -6070,7 +6277,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "An asymptote is a line that a curve approaches arbitrarily closely as it heads towards infinity.",
       },
       {
-        id : 8,
+        id: 8,
         question: "The formula for the radius of curvature R is:",
         options: [
           "R = k",
@@ -6082,7 +6289,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "The radius of curvature R is defined as the reciprocal of the curvature k.",
       },
       {
-        id : 9,
+        id: 9,
         question: "Which indeterminate form is NOT directly solvable by L'Hospital's Rule without algebraic manipulation?",
         options: [
           "0 / 0",
@@ -6094,7 +6301,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "Forms like 1^∞, 0^0, and ∞^0 must first be transformed using natural logarithms to a 0/0 or ∞/∞ form before applying L'Hospital's Rule.",
       },
       {
-        id : 10,
+        id: 10,
         question: "What does the remainder term Rn in a Taylor series expansion represent?",
         options: [
           "The exact value of the function",
@@ -6115,7 +6322,7 @@ export const moduleQuizzes: Quiz[] = [
     description: "Quiz on Matrices, Rank, Eigenvalues, and Systems of Linear Equations.",
     questions: [
       {
-        id : 1,
+        id: 1,
         question: "Matrix multiplication is generally NOT:",
         options: [
           "Associative",
@@ -6127,7 +6334,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "In general, for two matrices A and B, AB is not necessarily equal to BA. Therefore, matrix multiplication is not commutative.",
       },
       {
-        id : 2,
+        id: 2,
         question: "The rank of a matrix is defined as the maximum number of:",
         options: [
           "Zero rows",
@@ -6139,7 +6346,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "The rank of a matrix represents the dimension of the vector space spanned by its rows or columns, which is the maximum number of linearly independent rows or columns.",
       },
       {
-        id : 3,
+        id: 3,
         question: "An inverse of a square matrix A exists if and only if:",
         options: [
           "det(A) = 0",
@@ -6151,7 +6358,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "A matrix is invertible (non-singular) if and only if its determinant is non-zero.",
       },
       {
-        id : 4,
+        id: 4,
         question: "A matrix A is called Hermitian if:",
         options: [
           "A = -A^T",
@@ -6163,7 +6370,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "A Hermitian matrix is a complex square matrix that is equal to its own conjugate transpose (A = A†).",
       },
       {
-        id : 5,
+        id: 5,
         question: "A matrix A is Unitary if:",
         options: [
           "A = A†",
@@ -6175,7 +6382,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "A Unitary matrix is a complex square matrix whose conjugate transpose is also its inverse, meaning A†A = AA† = I.",
       },
       {
-        id : 6,
+        id: 6,
         question: "The eigenvalues of a matrix A are obtained by solving the characteristic equation:",
         options: [
           "det(A + λI) = 0",
@@ -6187,7 +6394,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "The characteristic equation is formed by setting the determinant of (A - λI) to zero, where λ represents the eigenvalues.",
       },
       {
-        id : 7,
+        id: 7,
         question: "For a system of linear equations Ax = b, the system is consistent if:",
         options: [
           "rank(A) > rank(A|b)",
@@ -6199,7 +6406,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "According to Rouché-Capelli theorem, a system of linear equations is consistent (has at least one solution) if the rank of the coefficient matrix A equals the rank of the augmented matrix (A|b).",
       },
       {
-        id : 8,
+        id: 8,
         question: "If rank(A) = rank(A|b) = r, and r < n (where n is the number of variables), the system has:",
         options: [
           "No solution",
@@ -6211,7 +6418,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "When the rank is equal to the number of variables, there is a unique solution. When the rank is strictly less than the number of variables, there are infinite solutions (free variables exist).",
       },
       {
-        id : 9,
+        id: 9,
         question: "Which of the following is an iterative numerical method for solving systems of linear equations?",
         options: [
           "Gauss Elimination",
@@ -6223,7 +6430,7 @@ export const moduleQuizzes: Quiz[] = [
         explanation: "Gauss-Seidel is an iterative method, whereas Gauss Elimination and Gauss-Jordan are direct methods.",
       },
       {
-        id : 10,
+        id: 10,
         question: "The minimal set of linearly independent vectors that span a vector space is called a:",
         options: [
           "Subspace",
@@ -6495,128 +6702,128 @@ export const moduleQuizzes: Quiz[] = [
     ],
   },
   {
-  subject: "DevOps & Linux Administration",
-  slug: "dops",
-  description:
-    "Test your knowledge of Linux, shell scripting, Git, DevOps, Docker, CI/CD, and cloud computing fundamentals.",
+    subject: "DevOps & Linux Administration",
+    slug: "dops",
+    description:
+      "Test your knowledge of Linux, shell scripting, Git, DevOps, Docker, CI/CD, and cloud computing fundamentals.",
 
-  questions: [
-    {
-      id: 1,
-      question: "Which component acts as the core of the Linux operating system?",
-      options: ["Shell", "Kernel", "Terminal", "Package Manager"],
-      answer: 1,
-      explanation:
-        "The kernel is the core part of Linux that directly manages hardware and system resources.",
-    },
+    questions: [
+      {
+        id: 1,
+        question: "Which component acts as the core of the Linux operating system?",
+        options: ["Shell", "Kernel", "Terminal", "Package Manager"],
+        answer: 1,
+        explanation:
+          "The kernel is the core part of Linux that directly manages hardware and system resources.",
+      },
 
-    {
-      id: 2,
-      question: "Which command is used to list files and directories in Linux?",
-      options: ["pwd", "mkdir", "ls", "cd"],
-      answer: 2,
-      explanation:
-        "`ls` displays files and directories present in the current location.",
-    },
+      {
+        id: 2,
+        question: "Which command is used to list files and directories in Linux?",
+        options: ["pwd", "mkdir", "ls", "cd"],
+        answer: 2,
+        explanation:
+          "`ls` displays files and directories present in the current location.",
+      },
 
-    {
-      id: 3,
-      question: "Which Linux command is used to change file permissions?",
-      options: ["chmod", "grep", "touch", "nano"],
-      answer: 0,
-      explanation:
-        "`chmod` is used to modify read, write, and execute permissions of files and directories.",
-    },
+      {
+        id: 3,
+        question: "Which Linux command is used to change file permissions?",
+        options: ["chmod", "grep", "touch", "nano"],
+        answer: 0,
+        explanation:
+          "`chmod` is used to modify read, write, and execute permissions of files and directories.",
+      },
 
-    {
-      id: 4,
-      question: "What does the `pwd` command do?",
-      options: [
-        "Shows current directory path",
-        "Deletes files",
-        "Creates a folder",
-        "Lists users",
-      ],
-      answer: 0,
-      explanation:
-        "`pwd` stands for Present Working Directory and displays the current directory path.",
-    },
+      {
+        id: 4,
+        question: "What does the `pwd` command do?",
+        options: [
+          "Shows current directory path",
+          "Deletes files",
+          "Creates a folder",
+          "Lists users",
+        ],
+        answer: 0,
+        explanation:
+          "`pwd` stands for Present Working Directory and displays the current directory path.",
+      },
 
-    {
-      id: 5,
-      question: "Which symbol is commonly used to declare variables in shell scripting?",
-      options: ["$", "@", "#", "&"],
-      answer: 0,
-      explanation:
-        "Variables in shell scripts are accessed using the `$` symbol.",
-    },
+      {
+        id: 5,
+        question: "Which symbol is commonly used to declare variables in shell scripting?",
+        options: ["$", "@", "#", "&"],
+        answer: 0,
+        explanation:
+          "Variables in shell scripts are accessed using the `$` symbol.",
+      },
 
-    {
-      id: 6,
-      question: "What is the primary purpose of Git?",
-      options: [
-        "Cloud Hosting",
-        "Version Control",
-        "Operating System Management",
-        "Containerization",
-      ],
-      answer: 1,
-      explanation:
-        "Git is a distributed version control system used to track code changes.",
-    },
+      {
+        id: 6,
+        question: "What is the primary purpose of Git?",
+        options: [
+          "Cloud Hosting",
+          "Version Control",
+          "Operating System Management",
+          "Containerization",
+        ],
+        answer: 1,
+        explanation:
+          "Git is a distributed version control system used to track code changes.",
+      },
 
-    {
-      id: 7,
-      question: "Which Git command uploads local commits to GitHub?",
-      options: ["git init", "git push", "git clone", "git pull"],
-      answer: 1,
-      explanation:
-        "`git push` sends committed changes from the local repository to the remote repository.",
-    },
+      {
+        id: 7,
+        question: "Which Git command uploads local commits to GitHub?",
+        options: ["git init", "git push", "git clone", "git pull"],
+        answer: 1,
+        explanation:
+          "`git push` sends committed changes from the local repository to the remote repository.",
+      },
 
-    {
-      id: 8,
-      question: "What is the main goal of DevOps?",
-      options: [
-        "Replace developers",
-        "Improve collaboration between development and operations teams",
-        "Create operating systems",
-        "Only automate testing",
-      ],
-      answer: 1,
-      explanation:
-        "DevOps focuses on collaboration, automation, continuous integration, and faster software delivery.",
-    },
+      {
+        id: 8,
+        question: "What is the main goal of DevOps?",
+        options: [
+          "Replace developers",
+          "Improve collaboration between development and operations teams",
+          "Create operating systems",
+          "Only automate testing",
+        ],
+        answer: 1,
+        explanation:
+          "DevOps focuses on collaboration, automation, continuous integration, and faster software delivery.",
+      },
 
-    {
-      id: 9,
-      question: "What is Docker mainly used for?",
-      options: [
-        "Database Design",
-        "Containerization",
-        "Web Browsing",
-        "Programming Language Compilation",
-      ],
-      answer: 1,
-      explanation:
-        "Docker is used for containerization, allowing applications to run consistently across environments.",
-    },
+      {
+        id: 9,
+        question: "What is Docker mainly used for?",
+        options: [
+          "Database Design",
+          "Containerization",
+          "Web Browsing",
+          "Programming Language Compilation",
+        ],
+        answer: 1,
+        explanation:
+          "Docker is used for containerization, allowing applications to run consistently across environments.",
+      },
 
-    {
-      id: 10,
-      question: "What does CI/CD stand for?",
-      options: [
-        "Code Integration / Code Deployment",
-        "Continuous Integration / Continuous Deployment",
-        "Central Integration / Central Delivery",
-        "Continuous Installation / Continuous Debugging",
-      ],
-      answer: 1,
-      explanation:
-        "CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.",
-    },
-  ],
-},
+      {
+        id: 10,
+        question: "What does CI/CD stand for?",
+        options: [
+          "Code Integration / Code Deployment",
+          "Continuous Integration / Continuous Deployment",
+          "Central Integration / Central Delivery",
+          "Continuous Installation / Continuous Debugging",
+        ],
+        answer: 1,
+        explanation:
+          "CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.",
+      },
+    ],
+  }
 ];
 
 export const moduleQuizCards: ModuleQuizCard[] = [
