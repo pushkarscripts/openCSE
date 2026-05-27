@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Footer from "./components/footer";
 import ProgressBar from "./components/ProgressBar"; 
+import { ToastProvider } from "./components/Toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,13 +39,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-[#1B0D00] text-[#FAE8D7]`}
       >
-        <ProgressBar />
-        
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <ToastProvider>
+          <ProgressBar />
+          
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );
-}
+}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "@/app/components/navbar";
 import { Righteous, Road_Rage } from "next/font/google";
 import type { Quiz, Question } from "@/lib/quizData";
+import { useToast } from "@/app/components/Toast";
 
 function shuffleArray<T>(items: T[]) {
   const array = [...items];
@@ -47,6 +48,7 @@ interface Props {
 type QuizState = "idle" | "active" | "finished";
 
 export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) {
+  const { success, error, info, warning } = useToast();
   const [state, setState] = useState<QuizState>("idle");
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -72,13 +74,20 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
     setResults([]);
     setState("active");
     setDidAutoStart(true);
+    success("Let's go! Quiz started. 🚀", 2000);
   }
 
   function handleOptionClick(idx: number) {
     if (answered || !q) return;
     setSelected(idx);
     setAnswered(true);
-    if (idx === q.answer) setScore((s) => s + 1);
+    const isCorrect = idx === q.answer;
+    if (isCorrect) {
+      setScore((s) => s + 1);
+      success("Correct answer! 🌟", 1500);
+    } else {
+      error("Incorrect answer. ❌", 1500);
+    }
     setResults((prev) => [
       ...prev,
       { question: q.question, chosen: idx, correct: q.answer },
@@ -88,6 +97,17 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
   function handleNext() {
     if (current + 1 >= total) {
       setState("finished");
+      const finalScore = score;
+      const pct = Math.round((finalScore / total) * 100);
+      setTimeout(() => {
+        if (pct >= 80) {
+          success(`Incredible! You scored ${finalScore}/${total} (${pct}%)! 🏆`);
+        } else if (pct >= 60) {
+          info(`Good work! You scored ${finalScore}/${total} (${pct}%)! 💡`);
+        } else {
+          warning(`Finished! You scored ${finalScore}/${total} (${pct}%). Keep learning! 📚`);
+        }
+      }, 300);
       return;
     }
 
@@ -104,6 +124,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
     setScore(0);
     setResults([]);
     setQuestionSet([]);
+    info("Quiz reset.", 1500);
   }
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useToast } from "./Toast";
 
 const subjects = {
   "Semester-1": [
@@ -128,6 +129,8 @@ const subjectCodes: Record<string, string> = {
 const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle"];
 
 export default function SubjectsSection() {
+  const { info } = useToast();
+
   return (
     <section id="subjects" className="px-6 pb-12 md:pt-12 text-center scroll-mt-20">
       <h2
@@ -158,26 +161,27 @@ export default function SubjectsSection() {
                   const isAvailable = available.includes(code);
 
                   const baseClass =
-                    "relative bg-[#d2b48c] text-[#2b1b0e] flex items-center justify-center font-medium py-4 px-6 shadow-md";
+                    "relative bg-[#d2b48c] text-[#2b1b0e] flex items-center justify-center font-medium py-4 px-6 shadow-md rounded-2xl transition-all duration-200";
 
                   return isAvailable ? (
                     <Link
                       key={subj}
                       href={href}
-                      className={`${baseClass} hover:scale-[98%]`}
+                      className={`${baseClass} hover:scale-[98%] hover:bg-[#cbb89d]`}
                     >
                       {subj}
                     </Link>
                   ) : (
-                    <div
+                    <button
                       key={subj}
-                      className={`${baseClass} opacity-50 cursor-not-allowed`}
+                      onClick={() => info(`"${subj}" notes are currently being drafted! Stay tuned for updates. 📚`)}
+                      className={`${baseClass} opacity-60 hover:opacity-85 hover:scale-[99%] cursor-pointer`}
                     >
                       {subj}
-                      <span className="absolute bottom-1 right-1 text-xs bg-[#2b1b0e] text-white px-2 py-0.5 rounded">
-                        Coming Soon
+                      <span className="absolute bottom-1.5 right-1.5 text-[10px] bg-[#2b1b0e] text-[#FAE8D7] px-2 py-0.5 rounded-lg uppercase tracking-wider font-bold">
+                        Soon
                       </span>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
