@@ -54,6 +54,9 @@ export default function Navbar() {
         <li>
           <Link href="/quiz" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">QUIZ</Link>
         </li>
+        <li>
+          <Link href="/dashboard" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">DASHBOARD</Link>
+        </li>
       </ul>
       {/* Mobile Hamburger */}
       <button
@@ -119,6 +122,11 @@ export default function Navbar() {
           <li>
               <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
           QUIZ
+              </Link>
+            </li>
+            <li>
+              <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+          DASHBOARD
               </Link>
             </li>
         </ul>

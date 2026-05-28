@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "@/app/components/navbar";
 import { Righteous, Road_Rage } from "next/font/google";
 import type { Quiz, Question } from "@/lib/quizData";
+import { recordQuizCompletion } from "@/lib/progressTracker";
 
 function shuffleArray<T>(items: T[]) {
   const array = [...items];
@@ -88,6 +89,7 @@ export default function QuizClient({ quiz, inline, onClose, autoStart }: Props) 
   function handleNext() {
     if (current + 1 >= total) {
       setState("finished");
+      recordQuizCompletion(quiz.slug, score, total);
       return;
     }
 

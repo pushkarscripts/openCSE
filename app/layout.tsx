@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Footer from "./components/footer";
 import ProgressBar from "./components/ProgressBar"; 
+import UserTracker from "./components/UserTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-[#1B0D00] text-[#FAE8D7]`}
       >
         <ProgressBar />
+        <UserTracker />
         
         <div className="flex-1">
           {children}
