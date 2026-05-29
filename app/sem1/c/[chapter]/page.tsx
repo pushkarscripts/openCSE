@@ -10,6 +10,7 @@ import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import ReadingTime from "@/app/components/ReadingTime";
 
 const righteous = Righteous({
       subsets: ['latin'], 
@@ -29,11 +30,12 @@ const chapters = [
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }>;
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: ChapterProps) {
+  const { chapter: chapterId } = await params;
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
@@ -53,7 +55,7 @@ export default function ChapterPage({ params }: ChapterProps) {
     ch6: "c-file-memory-preprocessors",
   };
 
-  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -63,6 +65,7 @@ export default function ChapterPage({ params }: ChapterProps) {
           Programming in C 
         </h1>
         <p className={`text-2xl mt-[-8] ${righteous.className}`}>{chapter.title}</p>
+        <ReadingTime chapterKey={chapter.id} />
 
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-3">
@@ -92,7 +95,9 @@ export default function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-3" />
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
 
         {chapterQuiz ? (
           <div className="mt-12">

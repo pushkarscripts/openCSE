@@ -12,6 +12,7 @@ import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
+import ReadingTime from "@/app/components/ReadingTime";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -59,6 +60,7 @@ export default function ChapterPage({ params }: ChapterProps) {
         <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
           {chapter.title}
         </p>
+        <ReadingTime chapterKey={chapter.id} />
 
         {/* Navigation */}
         <div className="flex justify-between mt-3">
@@ -88,7 +90,9 @@ export default function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-3" />
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
       </div>
 
       {/* Bottom Navigation */}

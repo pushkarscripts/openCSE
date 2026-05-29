@@ -24,6 +24,7 @@ import { LalrSolvedProblemContent } from "../content/ch11-lalr-solved-problem";
 import { Ch12Content } from "../content/chapter12";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
+import ReadingTime from "@/app/components/ReadingTime";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -173,6 +174,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
             ? `${parentChapter.title} / ${chapterData.title}`
             : chapterData.title}
         </p>
+        <ReadingTime chapterKey={chapterId} />
 
         {/* Navigation */}
         <div className="flex justify-between mt-4">
@@ -202,7 +204,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-2 border-[#c7a669]/40" />
-        {ChapterComponent ? <ChapterComponent /> : <p>Content loading...</p>}
+        <div id="reading-content">
+          {ChapterComponent ? <ChapterComponent /> : <p>Content loading...</p>}
+        </div>
       </div>
 
       {/* Bottom Navigation */}

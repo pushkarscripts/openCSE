@@ -12,6 +12,7 @@ import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
 import { moduleQuizzes } from "@/lib/quizData";
+import ReadingTime from "@/app/components/ReadingTime";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -131,6 +132,7 @@ export default function ChapterPage({ params }: ChapterProps) {
         >
           {chapter.title}
         </p>
+        <ReadingTime chapterKey={chapter.id} />
 
         {/* Top Navigation */}
         <div className="flex justify-between mt-3">
@@ -163,7 +165,9 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         <hr className="my-6 border-t-3" />
 
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
 
         {chapterQuiz ? (
                   <div className="mt-12">

@@ -45,6 +45,7 @@ import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";
 import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
+import ReadingTime from "@/app/components/ReadingTime";
 
 function findChapterOrSubtopic(chapterId: string) {
   const chapter = chapters.find((c) => c.id === chapterId);
@@ -198,6 +199,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
           {isSubTopic && parentChapter ? `${parentChapter.title} / ${chapterData.title}` : chapterData.title}
         </p>
+        <ReadingTime chapterKey={chapterId} />
 
         {/* Navigation */}
         <div className="flex justify-between mt-3">
@@ -227,7 +229,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-3" />
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
 
         {chapterQuiz ? (
           <div className="mt-12">

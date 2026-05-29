@@ -11,6 +11,7 @@ import { Ch1Content } from "../content/chapter1";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import ReadingTime from "@/app/components/ReadingTime";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -31,11 +32,12 @@ const chapters = [
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }>;
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: ChapterProps) {
+  const { chapter: chapterId } = await params;
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
@@ -56,6 +58,7 @@ export default function ChapterPage({ params }: ChapterProps) {
         <p className={`text-2xl mt-[-8] ${righteous.className}`}>
           {chapter.title}
         </p>
+        <ReadingTime chapterKey={chapter.id} />
 
         <div className="flex justify-between mt-3">
           {prevChapter ? (
@@ -83,7 +86,9 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         <hr className="my-6 border-t-3" />
 
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
       </div>
 
       <div className="flex justify-between my-8">
