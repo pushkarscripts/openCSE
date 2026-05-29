@@ -1,9 +1,10 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import Footer from "./components/footer";
+import ProgressBar from "./components/ProgressBar"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +21,13 @@ export const metadata: Metadata = {
   description: "Free and Open Documentations for CSE subjects",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 0,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,10 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* centralize body classes here */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-[#1B0D00] text-[#FAE8D7]`}
       >
+        <ProgressBar />
+        
         <div className="flex-1">
           {children}
         </div>

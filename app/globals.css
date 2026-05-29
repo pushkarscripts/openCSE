@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #FAE8D7;
   --foreground: #1B0D00;
@@ -192,3 +196,39 @@ pre.error {
   margin: 0;
   padding: 0.9rem;
 }
+
+/* Utility to hide scrollbars while preserving scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* -- Custom Scrollbar -- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #C7A669 transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #C7A669; 
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #a3844e; 
+}
+
+

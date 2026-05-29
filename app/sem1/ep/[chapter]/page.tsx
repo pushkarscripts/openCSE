@@ -5,8 +5,10 @@ import { Ch2Content } from "../content/chapter2";
 import { Ch3Content } from "../content/chapter3";
 import { Ch4Content } from "../content/chapter4";
 import { Ch5Content } from "../content/chapter5";
+import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import { moduleQuizzes } from "@/lib/quizData";
 
 const righteous = Righteous({
       subsets: ['latin'], 
@@ -39,6 +41,16 @@ export default function ChapterPage({ params }: ChapterProps) {
   const ChapterComponent = chapter.component;
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+    const chapterQuizSlugMap: Record<string, string> = {
+      ch1: "ep-vector-fields",
+      ch2: "ep-electrostatics-magnetostatics",
+      ch3: "ep-electrodynamics-maxwell",
+      ch4: "ep-superconductivity",
+      ch5: "ep-laser-fibre-optics",
+    };
+  
+    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -78,6 +90,12 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         <hr className="my-6 border-t-3" />
         <ChapterComponent />
+              
+        {chapterQuiz ? (
+        <div className="mt-12">
+            <ChapterQuizInline quiz={chapterQuiz} />
+            </div>
+            ) : null}
       </div>
 
       {/* Navigation Buttons */}

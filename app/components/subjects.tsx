@@ -33,6 +33,7 @@ const subjects = {
     "Database Management Systems",
     "Operating Systems",
     "Web Technologies",
+    "DevOps & Linux Administration",
     "Organizational Behavior",
   ],
   "Semester-5": [
@@ -94,6 +95,7 @@ const subjectCodes: Record<string, string> = {
   "Database Management Systems": "dbms",
   "Operating Systems": "os",
   "Web Technologies": "wt",
+  "DevOps & Linux Administration": "dops",
   "Organizational Behavior": "ob",
   "Discrete Mathematics": "dm",
 
@@ -127,9 +129,9 @@ const available = ["ep", "c", "em1", "em2", "oops", "cn", "os"];
 
 export default function SubjectsSection() {
   return (
-    <section id="subjects" className="px-6 py-12 text-center">
+    <section id="subjects" className="px-6 pb-12 md:pt-12 text-center scroll-mt-20">
       <h2
-        className="text-8xl flex px-6 mb-0"
+        className="text-7xl flex px-6 mb-0"
         style={{ fontFamily: '"Road Rage", sans-serif' }}
       >
         Browse Subjects
@@ -183,12 +185,7 @@ export default function SubjectsSection() {
           );
         })}
       </div>
-      <p
-        className="mt-8 text-4xl"
-        style={{ fontFamily: "'Rockwell', 'Serif', serif" }}
-      >
-        More subjects coming soon!!!
-      </p>
+
     </section>
   );
 }

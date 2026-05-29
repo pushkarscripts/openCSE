@@ -36,7 +36,7 @@ export const Ch5Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>laser-transition.png</strong></p>
+        <img src="/sem1/ep/laser01.png" alt="LASER Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -61,7 +61,7 @@ export const Ch5Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>population-inversion.png</strong></p>
+        <img src="/sem1/ep/laser02.png" alt="properties of LASER Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -80,7 +80,7 @@ export const Ch5Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>lasing-action.png</strong></p>
+        <img src="/sem1/ep/laser03.png" alt=" LASER Action Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -96,7 +96,7 @@ export const Ch5Content = () => {
           <li>Used in holography, alignment, surgery and ranging.</li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>ruby-laser.png</strong></p>
+        <img src="/sem1/ep/laser04.png" alt=" Ruby LASER Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -112,7 +112,7 @@ export const Ch5Content = () => {
           <li>Used in laboratory demonstrations, optical alignment and barcode scanners.</li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>he-ne-laser.png</strong></p>
+        <img src="/sem1/ep/laser05.png" alt=" He Ne LASER Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -137,7 +137,7 @@ export const Ch5Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>fiber-structure.png</strong></p>
+        <img src="/sem1/ep/laser06.png" alt=" Fibre structure Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -159,7 +159,7 @@ export const Ch5Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>fiber-classification.png</strong></p>
+        <img src="/sem1/ep/laser07.png" alt=" Fibre classification Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -174,7 +174,7 @@ export const Ch5Content = () => {
           <li>Disadvantages include alignment difficulty, connector loss and high installation cost.</li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>fiber-communication.png</strong></p>
+        <img src="/sem1/ep/laser08.png" alt=" Fibre Optic Communication Diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />

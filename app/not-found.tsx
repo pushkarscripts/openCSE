@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     // BREAKOUT CONTAINER: Ignores the body's broken flex rules and covers the screen
     <div 
-      className="absolute inset-0 z-50 flex flex-col"
+      className="absolute inset-0 z-50 flex flex-col pt-14"
       style={{ backgroundColor: 'var(--background)' }}
     >
       {/* We keep the Navbar inside our breakout container so it still shows up */}
@@ -44,7 +44,7 @@ export default function NotFound() {
           className="p-text max-w-lg mx-auto"
           style={{ color: '#F0DDB6', marginBottom: '2.5rem', opacity: 0.9 }}
         >
-          Looks like you've wandered off the syllabus. The notes you are looking for don't exist or have been moved.
+          Looks like you&apos;ve wandered off the syllabus. The notes you are looking for don&apos;t exist or have been moved.
         </p>
         
         <Link 
