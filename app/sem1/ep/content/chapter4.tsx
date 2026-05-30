@@ -3,13 +3,119 @@ export const Ch4Content = () => {
     <div className="course-content">
 
       <p className="p-text">
-        <span className="font-semibold">Unit IV: Superconductivity</span>.
-        This unit covers the essential physics of superconductors, key properties,
+        <span className="font-semibold">Unit IV: Semiconductors &amp; Superconductivity</span>.
+        This unit covers semiconductor band theory, charge carriers, PN junctions, diode and
+        transistor action, followed by the essential physics of superconductors, key properties,
         the Meissner effect, critical parameters and the classification and applications
         of superconducting materials used in modern technology.
       </p>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
+
+      {/* ── SEMICONDUCTOR SECTIONS ── */}
+
+      {/* Basics of Semiconductors */}
+      <section>
+        <h3 className="section-heading">Basics of Semiconductors: Bands and Carriers</h3>
+
+        <ul className="section-list">
+          <li>
+            Semiconductors have a narrow <strong>forbidden energy gap</strong> (≈ 1 eV) between
+            the valence band and conduction band, unlike insulators (wide gap) or metals (overlapping bands).
+          </li>
+
+          <li>
+            At absolute zero, the valence band is full and the conduction band is empty; thermal
+            excitation promotes electrons across the gap at room temperature.
+          </li>
+
+          <li>
+            <strong>Intrinsic semiconductors</strong> (e.g. Si, Ge) have equal electron and hole
+            concentrations; <strong>extrinsic semiconductors</strong> are doped with donor (n-type)
+            or acceptor (p-type) impurities to control carrier density.
+          </li>
+
+          <li>
+            <strong>Conductivity</strong> σ = n e μ<sub>e</sub> + p e μ<sub>h</sub>, where n and p
+            are electron and hole densities, and μ are their respective mobilities.
+          </li>
+        </ul>
+
+        
+        <img src="/sem1/ep/sc-bands.jpg" alt="Semiconductor band diagram" className="w-full my-4" />
+      </section>
+
+      <hr className="my-6 border-[#c7a669] opacity-40" />
+
+      {/* PN Junctions & Diodes */}
+      <section>
+        <h3 className="section-heading">PN Junctions and Diodes</h3>
+
+        <ul className="section-list">
+          <li>
+            A <strong>PN junction</strong> is formed when p-type and n-type semiconductors are
+            brought together; diffusion of carriers creates a depletion region with a built-in
+            electric field opposing further diffusion.
+          </li>
+
+          <li>
+            <strong>Forward bias</strong> reduces the potential barrier, allowing significant
+            current flow; <strong>reverse bias</strong> widens the depletion region, allowing
+            only a tiny leakage current.
+          </li>
+
+          <li>
+            The ideal diode equation is{" "}
+            <code className="inline-code">{`I = I₀ [exp(eV/kT) - 1]`}</code>, where I₀ is the
+            reverse saturation current.
+          </li>
+
+          <li>
+            Diodes are used as rectifiers, signal clippers, voltage references (Zener diodes)
+            and light emitters (LEDs).
+          </li>
+        </ul>
+
+        
+        <img src="/sem1/ep/pn-junction.png" alt="PN junction and diode diagram" className="w-full my-4" />
+      </section>
+
+      <hr className="my-6 border-[#c7a669] opacity-40" />
+
+      {/* Transistor Action */}
+      <section>
+        <h3 className="section-heading">Transistor Action (Qualitative)</h3>
+
+        <ul className="section-list">
+          <li>
+            A <strong>bipolar junction transistor (BJT)</strong> consists of two back-to-back PN
+            junctions (NPN or PNP) with three regions: emitter, base and collector.
+          </li>
+
+          <li>
+            The thin, lightly doped base allows most injected minority carriers to diffuse through
+            and be swept into the collector, producing current amplification.
+          </li>
+
+          <li>
+            <strong>Current gain</strong> β = I<sub>C</sub> / I<sub>B</sub>; a small base
+            current controls a much larger collector current, enabling amplification and switching.
+          </li>
+
+          <li>
+            <strong>FETs</strong> (Field Effect Transistors) control current via an electric field
+            at the gate; MOSFETs are the fundamental switching element in all modern integrated
+            circuits.
+          </li>
+        </ul>
+
+        
+        <img src="/sem1/ep/transistor.png" alt="Transistor action diagram" className="w-full my-4" />
+      </section>
+
+      <hr className="my-6 border-[#c7a669] opacity-40" />
+
+      
 
       {/* Phenomenon */}
       <section>
@@ -36,7 +142,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>superconductivity-transition.png</strong></p>
+        <img src="/sem1/ep/superc.png" alt="Superconductivity diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -66,7 +172,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>superconductor-properties.png</strong></p>
+        <img src="/sem1/ep/super-properties.png" alt="Superconductivity properties diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -97,7 +203,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>meissner-effect.png</strong>, <strong>critical-field.png</strong></p>
+        <img src="/sem1/ep/s-m-dia.png" alt="Meissner Effect  & Critical Parametersdiagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -126,7 +232,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>type1-type2.png</strong></p>
+        <img src="/sem1/ep/type.png" alt="Type I and Type II Superconductors diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -143,13 +249,13 @@ export const Ch4Content = () => {
           <li>Quantum computing components based on superconducting qubits.</li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>superconductor-applications.png</strong></p>
+        <img src="/sem1/ep/app.png" alt="Applications of Superconductors diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
 
       <p className="p-text">
-        This unit provides the essential concepts behind superconducting materials and their
+        This unit covers semiconductor physics and superconducting materials together with their
         technological importance. If you need a one page revision sheet, ask for the Unit IV
         cheat sheet.
       </p>

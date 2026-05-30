@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Ch0Content } from "../content/chapter0";
 import { Ch1Content } from "../content/chapter1";
- import { Ch2Content } from "../content/chapter2";
- import { Ch3Content } from "../content/chapter3";
+import { Ch2Content } from "../content/chapter2";
+import { Ch3Content } from "../content/chapter3";
+import BookmarkButton from "../../../components/BookmarkButton";
 // import { Ch4Content } from "../content/chapter4";
 // import { Ch5Content } from "../content/chapter5";
 // import { Ch6Content } from "../content/chapter6";
@@ -21,8 +22,8 @@ const righteous = Righteous({
 const chapters = [
   { id: "ch0", title: "Course Outline", component: Ch0Content },
   { id: "ch1", title: "Introduction to Databases", component: Ch1Content },
-   { id: "ch2", title: "Entity-Relationship Model", component: Ch2Content },
-   { id: "ch3", title: "Relational Model and SQL", component: Ch3Content },
+  { id: "ch2", title: "Entity-Relationship Model", component: Ch2Content },
+  { id: "ch3", title: "Relational Model and SQL", component: Ch3Content },
   // { id: "ch4", title: "Normalization", component: Ch4Content },
   // { id: "ch5", title: "Transactions and Concurrency Control", component: Ch5Content },
   // { id: "ch6", title: "Indexing and Hashing", component: Ch6Content },
@@ -53,9 +54,12 @@ export default function ChapterPage({ params }: ChapterProps) {
           Database Management Systems
         </h1>
 
-        <p className={`text-2xl mt-[-8] ${righteous.className}`}>
-          {chapter.title}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`DBMS: ${chapter.title}`} />
+        </div>
 
         <div className="flex justify-between mt-3">
           {prevChapter ? (
