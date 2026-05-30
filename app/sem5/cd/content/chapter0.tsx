@@ -26,6 +26,23 @@ export const Ch0Content = () => {
           </ul>
         </div>
       </section>
+
+      <section className="mt-8">
+        <h3 className="section-heading">Unit 3: Semantic Analysis, Symbol Tables &amp; Runtime Environments</h3>
+        <p className="p-text mt-2">
+          In this unit, we explore the semantic checking phase of compilers, mathematical formalisms for declaring language semantics, symbol table memory structures, block scopes, and dynamic runtime environments.
+        </p>
+
+        <div className="card mt-4">
+          <h4 className="font-bold text-xl mb-3 text-[#5b3a29]">Syllabus Topics Covered</h4>
+          <ul className="section-list space-y-2">
+            <li><strong>Semantic Analysis:</strong> Attribute Grammars, synthesized vs. inherited attributes, evaluation order, dependency graphs, SDDs, and SDTs.</li>
+            <li><strong>Symbol Table Management:</strong> Scope management, static vs. dynamic scope, nested block scoping, symbol table operations, lists, and hash tables.</li>
+            <li><strong>Runtime Environments:</strong> Memory regions layout, activation records, parameter passing (Call by Value, Reference, Value-Result, Name), and heap allocation strategies.</li>
+            <li><strong>Solved PYQs:</strong> Past questions from 2023 to 2025, plus a quick revision chart.</li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 };

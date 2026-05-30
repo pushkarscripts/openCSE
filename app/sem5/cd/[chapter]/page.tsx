@@ -22,6 +22,19 @@ import { SlrSolvedProblemContent } from "../content/ch10-slr-solved-problem";
 import { Ch11Content } from "../content/chapter11";
 import { LalrSolvedProblemContent } from "../content/ch11-lalr-solved-problem";
 import { Ch12Content } from "../content/chapter12";
+import { Ch13Content } from "../content/chapter13";
+import { Ch14Content } from "../content/chapter14";
+import { ExprEvalExampleContent } from "../content/ch14-expr-eval-example";
+import { Ch15Content } from "../content/chapter15";
+import { Ch16Content } from "../content/chapter16";
+import { SdtPostfixTraceContent } from "../content/ch16-sdt-postfix-trace";
+import { Ch17Content } from "../content/chapter17";
+import { Ch18Content } from "../content/chapter18";
+import { Ch19Content } from "../content/chapter19";
+import { ScopeManagementContentExport } from "../content/ch19-scope-management";
+import { Ch20Content } from "../content/chapter20";
+import { ParameterPassingContentExport } from "../content/ch20-parameter-passing";
+
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
 
@@ -67,6 +80,19 @@ const chapterComponents: Record<string, React.ComponentType> = {
   ch11: Ch11Content,
   "ch11-lalr-solved-problem": LalrSolvedProblemContent,
   ch12: Ch12Content,
+  ch13: Ch13Content,
+  ch14: Ch14Content,
+  "ch14-expr-eval-example": ExprEvalExampleContent,
+  ch15: Ch15Content,
+  ch16: Ch16Content,
+  "ch16-sdt-postfix-trace": SdtPostfixTraceContent,
+  ch17: Ch17Content,
+  ch18: Ch18Content,
+  ch19: Ch19Content,
+  "ch19-scope-management": ScopeManagementContentExport,
+  ch20: Ch20Content,
+  "ch20-parameter-passing": ParameterPassingContentExport,
+
 };
 
 type ChapterProps = {

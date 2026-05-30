@@ -6,6 +6,8 @@ import { Ch3Content } from "../content/chapter3";
 import { Ch4Content } from "../content/chapter4";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import BookmarkButton from "../../../components/BookmarkButton";
+
 import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 
@@ -55,9 +57,12 @@ export default function ChapterPage({ params }: ChapterProps) {
         Engineering Mathematics II
       </h1>
 
-      <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-        {chapter.title}
-      </p>
+ <div className="flex items-center justify-between">
+  <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+    {chapter.title}
+  </p>
+  <BookmarkButton  title={`DSC: ${chapter.title}`} />
+</div>
 
       {/* Top Navigation */}
       <div className="flex justify-between mt-4">
