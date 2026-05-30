@@ -91,23 +91,82 @@ Loan's full key = Cust_ID + Loan_name.`}</pre>
         <h3 className="section-heading">
           <span className="section-subheading">Cardinality</span>
         </h3>
-        <ul className="section-list">
-          <li><span className="font-semibold">One-to-One (1:1):</span> each entity on one side relates to exactly one on the other. Example: One student can enroll in only one courses. Rare in real world.</li>
-          <img src="/sem4/dbms/one_to_one.png" alt="One to one relationship" className="max-w-4xl mx-auto my-4" />
-          <li><span className="font-semibold">One-to-Many (1:N):</span> one entity relates to many. Example: An employee can have many dependents and one dependent can depend
-on one employee.</li>
-          <img src="/sem4/dbms/one_to_many.png" alt="One to many relationship" className="max-w-4xl mx-auto my-4" />
-          <li><span className="font-semibold">Many-to-One (N:1):</span> many relate to one. Example: Every student can enroll only in one elective course but for an elective course
-there can be more than one student.</li>
-          <img src="/sem4/dbms/many_to_one.png" alt="Many to one relationship" className="max-w-4xl mx-auto my-4" />
-          <li><span className="font-semibold">Many-to-Many (M:N):</span> many relate to many. Example: Student enrolls in many Courses; Course has many Students.</li>
-          <img src="/sem4/dbms/many_to_many.png" alt="Many to many relationship" className="max-w-4xl mx-auto my-4" />
-        </ul>
-        <div className="example-block">
+
+        <div className="space-y-10">
+
+          <div>
+            <ul className="section-list">
+              <li>
+                <span className="font-semibold">One-to-One (1:1):</span>
+                {" "}each entity on one side relates to exactly one on the other.
+                Example: One student can enroll in only one course.
+                Rare in real world.
+              </li>
+            </ul>
+
+            <img
+              src="/sem4/dbms/one_to_one.png"
+              alt="One to one relationship"
+              className="max-w-4xl mx-auto my-4 rounded-xl"
+            />
+          </div>
+
+          <div>
+            <ul className="section-list">
+              <li>
+                <span className="font-semibold">One-to-Many (1:N):</span>
+                {" "}one entity relates to many.
+                Example: An employee can have many dependents and one dependent can depend on one employee.
+              </li>
+            </ul>
+
+            <img
+              src="/sem4/dbms/one_to_many.png"
+              alt="One to many relationship"
+              className="max-w-4xl mx-auto my-4 rounded-xl"
+            />
+          </div>
+
+          <div>
+            <ul className="section-list">
+              <li>
+                <span className="font-semibold">Many-to-One (N:1):</span>
+                {" "}many relate to one.
+                Example: Every student can enroll only in one elective course but for an elective course there can be more than one student.
+              </li>
+            </ul>
+
+            <img
+              src="/sem4/dbms/many_to_one.png"
+              alt="Many to one relationship"
+              className="max-w-4xl mx-auto my-4 rounded-xl"
+            />
+          </div>
+
+          <div>
+            <ul className="section-list">
+              <li>
+                <span className="font-semibold">Many-to-Many (M:N):</span>
+                {" "}many relate to many.
+                Example: Student enrolls in many Courses; Course has many Students.
+              </li>
+            </ul>
+
+            <img
+              src="/sem4/dbms/many_to_many.png"
+              alt="Many to many relationship"
+              className="max-w-4xl mx-auto my-4 rounded-xl"
+            />
+          </div>
+
+        </div>
+
+        <div className="example-block mt-8">
           <p className="font-semibold mb-1">Cardinality Notation</p>
+
           <pre>{`1:1  → EMPLOYEE  ——1—— MANAGES ——1—— DEPARTMENT
-1:N  → EMPLOYEE  ——N—— WORKS-FOR ——1—— DEPARTMENT
-M:N  → EMPLOYEE  ——M—— WORKS-ON ——N—— PROJECT`}</pre>
+      1:N  → EMPLOYEE  ——N—— WORKS-FOR ——1—— DEPARTMENT
+      M:N  → EMPLOYEE  ——M—— WORKS-ON ——N—— PROJECT`}</pre>
         </div>
       </section>
 

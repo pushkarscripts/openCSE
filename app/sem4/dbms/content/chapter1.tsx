@@ -225,7 +225,7 @@ taught by Prof. Sharma in Room 301.`}</pre>
           </p>
         </div>
         <img
-          src="/sem4/dbms/multi-level%20arch%20DBMS.png"
+          src="/sem4/dbms/multi-archDBMS.png"
           alt="Multi-level DBMS Architecture"
           className="max-w-4xl mx-auto my-4"
         />

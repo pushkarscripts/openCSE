@@ -37,8 +37,8 @@ export const Ch5Content = () => {
           <li><span className="font-semibold">Failed:</span> cannot continue due to logical errors or system errors.</li>
           <li><span className="font-semibold">Aborted:</span> transaction rolled back; DB restored to previous consistent state.</li>
           <li><span className="font-semibold">Terminated:</span> final state after committed or aborted. Life cycle ends.</li>
-          <img src="/sem4/dbms/transaction_states.png" alt="States of transaction" className="max-w-4xl mx-auto my-4" />
         </ul>
+        <img src="/sem4/dbms/transaction_states.png" alt="States of transaction" className="max-w-4xl mx-auto my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -47,8 +47,8 @@ export const Ch5Content = () => {
         <h3 className="section-heading">
           <span className="section-subheading">Types of Schedules</span>
         </h3>
+        <img src="/sem4/dbms/dbms_schedules.png" alt="Schedules" className="max-w-4xl mx-auto my-4" />
         <ul className="section-list">
-          <img src="/sem4/dbms/dbms_schedules.png" alt="Schedules" className="max-w-4xl mx-auto my-4" />
           <li><span className="font-semibold">Serial Schedule:</span> transactions execute one after another — no concurrency. Always correct but low throughput.</li>
           <li><span className="font-semibold">Non-Serial Schedule:</span> transactions interleaved. Better throughput; may produce incorrect results.</li>
           <li><span className="font-semibold">Serializable Schedule:</span> a non-serial schedule whose result is equivalent to some serial schedule. Correct and concurrent.</li>
@@ -173,7 +173,7 @@ Serializable      | ✗ Never   | ✗ Never        | ✗ Never`}</pre>
           <li><span className="font-semibold">Shrinking Phase:</span> locks are released; no new lock can be acquired.</li>
           <li>The point where the first lock is released is the <span className="font-semibold">lock point</span>.</li>
           <li>2PL guarantees conflict serializability but can cause deadlocks and cascading aborts.</li>
-          <li><span className="font-semibold">Strict 2PL:</span> holds all exclusive locks until commit — no shrinking phase for X-locks. Prevents cascading aborts. No shrinking phase.</li>
+          <li><span className="font-semibold">Strict 2PL:</span> holds all exclusive locks until commit — no shrinking phase for X-locks. Prevents cascading aborts.</li>
         </ul>
         <div className="example-block">
           <p className="font-semibold mb-1">2PL Example — T1</p>
