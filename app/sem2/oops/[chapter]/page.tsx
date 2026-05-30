@@ -14,7 +14,7 @@ import { Ch8Content } from "../content/chapter8";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
-
+import BookmarkButton from "@/app/components/BookmarkButton";
 const righteous = Righteous({
   subsets: ["latin"],
   weight: "400",
@@ -41,8 +41,9 @@ type ChapterProps = {
 export default async function ChapterPage({ params }: ChapterProps) {
   // NEXT.JS 15 COMPLIANCE: Awaiting unified async evaluation for incoming segment route parameters
   const resolvedParams = await params;
+  const chapterId = resolvedParams.chapter;
   
-  const currentIndex = chapters.findIndex((c) => c.id === resolvedParams.chapter);
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
@@ -63,7 +64,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
     ch7: "oops-generics",
     ch8: "oops-java-lib-swing",
   };
-  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+  
+  // FIXED: Using pre-awaited chapterId here to prevent un-awaited Promise evaluation errors
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -72,9 +75,12 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Object-Oriented Programming
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {chapter.title}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton title={`OOPS : ${chapter.title}`} />
+        </div>
 
         {/* Top Navigation */}
         <div className="flex justify-between mt-3">

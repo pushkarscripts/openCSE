@@ -10,6 +10,7 @@ import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import BookmarkButton from "@/app/components/BookmarkButton";
 
 const righteous = Righteous({
   subsets: ['latin'], 
@@ -32,10 +33,10 @@ type ChapterProps = {
 };
 
 export default async function ChapterPage({ params }: ChapterProps) {
-  // Await the asynchronous params object for Next.js 15
-  const resolvedParams = await params;
+  // Gracefully handles async params in compliance with Next.js 15
+  const { chapter: chapterId } = await params;
   
-  const currentIndex = chapters.findIndex((c) => c.id === resolvedParams.chapter);
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
@@ -55,7 +56,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
     ch6: "c-file-memory-preprocessors",
   };
 
-  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -63,7 +64,13 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Programming in C 
         </h1>
-        <p className={`text-2xl mt-[-8] ${righteous.className}`}>{chapter.title}</p>
+        
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton title={`C Programming : ${chapter.title}`} />
+        </div>
 
         {/* Top Pagination Control Interface */}
         <div className="flex justify-between mt-3">
