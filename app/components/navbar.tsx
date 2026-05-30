@@ -192,5 +192,117 @@ export default function Navbar() {
       {/* Global Search Modal */}
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
+    <nav className="fixed h-14 top-0 inset-x-0 z-50 flex justify-between items-center pr-6 pl-4 py-1 bg-[#1B0D00] text-white">
+      <Link href="/"><div className="flex items-center gap-1">
+        <img src="/mascot.png" alt="openCSE" className="w-8 h-11 pt-0.5" />
+        {/* <img src="/logo.png" alt="openCSE" className="w-38 h-17" /> */}
+        <span
+          className={`${roadRage.className} text-3xl font-bold`}
+          style={{ color: "white", fontSize: "30px" }}
+        >
+          openCSE
+        </span>
+      </div></Link>
+      {/* Desktop Menu */}
+      <ul
+        className="hidden md:flex gap-6 font-bold"
+        style={{
+          color: "white",
+          textAlign: "right",
+          fontFamily: '"Road Rage", sans-serif',
+          fontSize: "28px",
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "normal",
+        }}
+      >
+        <li>
+          <Link href="/" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+            HOME
+          </Link>
+        </li>
+        <li>
+          <Link href="/#subjects" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">SUBJECTS</Link>
+        </li>
+        <li>
+          <Link href="/#contribute" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">CONTRIBUTE</Link>
+        </li>
+        <li>
+          <Link href="/#sponsor" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">SPONSOR</Link>
+        </li>
+        <li>
+          <Link href="/quiz" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">QUIZ</Link>
+        </li>
+        <li>
+          <Link href="/bookmarks" className="hover:opacity-80 transition-opacity">
+            BOOKMARKS
+          </Link>
+        </li>
+      </ul>
+      {/* Mobile Hamburger */}
+      <button
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
+        aria-label="Toggle menu"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span
+          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+        />
+        <span
+          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${menuOpen ? "opacity-0" : ""
+            }`}
+        />
+        <span
+          className={`block w-8 h-1 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+        />
+      </button>
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg transition-all duration-300 origin-top ${menuOpen
+            ? "opacity-100 scale-y-100"
+            : "opacity-0 scale-y-0 pointer-events-none"
+          }`}
+      >
+        <ul
+          className="flex flex-col items-center gap-4 py-4 font-bold"
+          style={{
+            color: "white",
+            fontFamily: '"Road Rage", sans-serif',
+            fontSize: "28px",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "normal",
+          }}
+        >
+          <li>
+            <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link href="/#subjects" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              SUBJECTS
+            </Link>
+          </li>
+          <li>
+            <Link href="/#contribute" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              CONTRIBUTE
+            </Link>
+          </li>
+          <li>
+            <Link href="/#sponsor" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              SPONSOR
+            </Link>
+          </li>
+          <li>
+            <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              QUIZ
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
