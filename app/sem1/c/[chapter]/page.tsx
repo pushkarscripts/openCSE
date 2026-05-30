@@ -33,7 +33,7 @@ type ChapterProps = {
 };
 
 export default async function ChapterPage({ params }: ChapterProps) {
-  // Gracefully handles async params in compliance with Next.js 15
+  // NEXT.JS 15 COMPLIANCE: Await the incoming promise object to target params reliably
   const { chapter: chapterId } = await params;
   
   const currentIndex = chapters.findIndex((c) => c.id === chapterId);
@@ -56,6 +56,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
     ch6: "c-file-memory-preprocessors",
   };
 
+  // CLEANUP RESOLUTION: Utilizing the pre-awaited chapterId inside the clean synchronous map filter
   const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
