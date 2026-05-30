@@ -54,4 +54,37 @@ export const chapters: Chapter[] = [
     ],
   },
   { id: "ch12", title: "Advanced Parsing & Ambiguity" },
+  { id: "ch13", title: "Introduction to Semantic Analysis" },
+  {
+    id: "ch14",
+    title: "Attribute Grammars",
+    subTopics: [
+      { id: "ch14-expr-eval-example", title: "Worked Example: Expression Evaluation", isPage: true },
+    ],
+  },
+  { id: "ch15", title: "Syntax Directed Definitions (SDD)" },
+  {
+    id: "ch16",
+    title: "Syntax Directed Translation (SDT)",
+    subTopics: [
+      { id: "ch16-sdt-postfix-trace", title: "SDT Trace: Infix to Postfix", isPage: true },
+    ],
+  },
+  { id: "ch17", title: "S-Attributed & L-Attributed Definitions" },
+  { id: "ch18", title: "Evaluation Order & Dependency Graphs" },
+  {
+    id: "ch19",
+    title: "Symbol Table",
+    subTopics: [
+      { id: "ch19-scope-management", title: "Scope Management in Detail", isPage: true },
+    ],
+  },
+  {
+    id: "ch20",
+    title: "Runtime Environment & Activation Records",
+    subTopics: [
+      { id: "ch20-parameter-passing", title: "Parameter Passing Mechanisms", isPage: true },
+    ],
+  },
+  { id: "ch21", title: "Unit 3 Solved PYQs" },
 ];

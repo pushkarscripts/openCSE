@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { Righteous } from "next/font/google";
+import BookmarkButton from "../../../components/BookmarkButton";
 
 import { Ch0Content } from "../content/chapter0";
 import { Ch1Content } from "../content/chapter1";
 import { Ch2Content } from "../content/chapter2";
 import { Ch3Content } from "../content/chapter3";
+import { Ch4Content } from "../content/chapter4";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { moduleQuizzes } from "@/lib/quizData";
@@ -22,6 +24,7 @@ const chapters = [
   { id: "ch1", title: "Arrays", component: Ch1Content },
   { id: "ch2", title: "Linked Lists", component: Ch2Content },
   { id: "ch3", title: "Stacks", component: Ch3Content },
+  { id: "ch4", title: "Queues", component: Ch4Content },
 ];
 
 type ChapterProps = {
@@ -55,9 +58,12 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Data Structures using C
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {chapter.title}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`DSC: ${chapter.title}`} />
+        </div>
         <ReadingTime chapterKey={chapter.id} />
 
         {/* Navigation */}

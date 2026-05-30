@@ -34,23 +34,31 @@ export const Ch0Content = () => {
 
       <section>
         <h3 className="section-heading">Module III: Stacks</h3>
-<ul className="section-list">
-<li>Introduction to stacks and LIFO principle</li>
-<li>Stack operations (Push, Pop, Peek, isEmpty, isFull)</li>
-<li>Overflow and Underflow</li>
-<li>Array and Linked List implementation</li>
-<li>Complexity analysis</li>
-<li>Applications and real-life examples</li>
-<li>Advantages and limitations</li>
-</ul>
+        <ul className="section-list">
+          <li>Introduction to stacks and LIFO principle</li>
+          <li>Stack operations (Push, Pop, Peek, isEmpty, isFull)</li>
+          <li>Overflow and Underflow</li>
+          <li>Array and Linked List implementation</li>
+          <li>Complexity analysis</li>
+          <li>Applications and real-life examples</li>
+          <li>Advantages and limitations</li>
+        </ul>
       </section>
 
       <section>
         <h3 className="section-heading">Module IV: Queues</h3>
         <ul className="section-list">
-          <li>Queue operations</li>
-          <li>Types of queues</li>
-          <li>Applications of queues</li>
+          <li>Introduction to Queues and FIFO principle</li>
+          <li>Characteristics and components of Queues</li>
+          <li>Queue representation</li>
+          <li>Need for Queues</li>
+          <li>Queue operations (Enqueue, Dequeue, Peek, isEmpty, isFull)</li>
+          <li>Overflow and Underflow</li>
+          <li>Types of queues (Simple, Circular, Priority, Deque)</li>
+          <li>Array and Linked List implementations</li>
+          <li>Complexity analysis</li>
+          <li>Applications and practical examples</li>
+          <li>Advantages and limitations</li>
         </ul>
       </section>
 

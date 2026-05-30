@@ -11,7 +11,7 @@ import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
 import ReadingTime from "@/app/components/ReadingTime";
-
+import BookmarkButton from "../../../components/BookmarkButton";
 const righteous = Righteous({
       subsets: ['latin'], 
       weight: '400', 
@@ -64,7 +64,12 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Programming in C 
         </h1>
-        <p className={`text-2xl mt-[-8] ${righteous.className}`}>{chapter.title}</p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton title={`C Programming : ${chapter.title}`} />
+        </div>
         <ReadingTime chapterKey={chapter.id} />
 
         {/* Navigation Buttons */}

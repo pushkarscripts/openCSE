@@ -8,6 +8,9 @@ import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
 import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
+import BookmarkButton from "../../../components/BookmarkButton";
+
+
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
@@ -74,12 +77,13 @@ const chapters = [
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }>;
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
+export default async function ChapterPage({ params }: ChapterProps) {
+  const { chapter: chapterId } = await params;
   const currentIndex = chapters.findIndex(
-    (c) => c.id === params.chapter
+    (c) => c.id === chapterId
   );
 
   const chapter = chapters[currentIndex];
@@ -115,7 +119,7 @@ export default function ChapterPage({ params }: ChapterProps) {
       ch8: "os-file-io",
     };
   
-    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -127,11 +131,12 @@ export default function ChapterPage({ params }: ChapterProps) {
           Operating System
         </h1>
 
-        <p
-          className={`text-2xl mt-[-8] ${righteous.className}`}
-        >
-          {chapter.title}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`OS: ${chapter.title}`} />
+        </div>
         <ReadingTime chapterKey={chapter.id} />
 
         {/* Top Navigation */}
