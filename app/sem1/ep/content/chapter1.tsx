@@ -45,9 +45,7 @@ export const Ch1Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">
-          Diagram to paste: <strong>vector-operators.png</strong>
-        </p>
+        <img src="/sem1/ep/vector-operators.svg" alt="Vector operators diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -89,9 +87,8 @@ export const Ch1Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">
-          Diagrams to paste: <strong>gauss-theorem.png</strong>, <strong>stokes-theorem.png</strong>
-        </p>
+        <img src="/sem1/ep/gauss-theorem.svg" alt="Gauss divergence theorem diagram" className="w-full my-4" />
+        <img src="/sem1/ep/stokes-theorem.svg" alt="Stokes theorem diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />

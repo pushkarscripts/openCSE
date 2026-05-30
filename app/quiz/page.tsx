@@ -1,15 +1,8 @@
 // app/quiz/page.tsx
 import Link from "next/link";
 import Navbar from "@/app/components/navbar";
-import { Righteous } from "next/font/google";
 import { quizzes } from "@/lib/quizData";
 import { Road_Rage } from "next/font/google";
-
-const righteous = Righteous({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-righteous",
-});
 
 const roadRage = Road_Rage({
   variable: "--font-road-rage",

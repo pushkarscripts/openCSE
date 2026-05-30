@@ -31,16 +31,6 @@ export default function Sidebar() {
     { id: "ch7", title: "Paging and Segmentation" },
     { id: "ch8", title: "File Systems and I/O Management" },
   ];
-
-  const quizSlugMap: Record<string, string> = {
-    os: "os",
-  };
-
-  const subjectKey = pathname.split("/")[2] ?? "";
-  const quizSlug = quizSlugMap[subjectKey];
-  const quizHref = quizSlug ? `/quiz/${quizSlug}` : "/quiz";
-  const quizActive = pathname.startsWith("/quiz");
-
   return (
     <>
       {/* Backdrop overlay - only on mobile when open */}
@@ -62,7 +52,7 @@ export default function Sidebar() {
         >
           Chapters
         </h2>
-        <ul className="flex-1 overflow-y-auto space-y-0">
+        <ul className="flex-1 overflow-y-auto no-scrollbar space-y-0">
           {chapters.map((ch) => {
             const active = pathname === `/sem4/os/${ch.id}`;
             return (
