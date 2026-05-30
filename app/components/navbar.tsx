@@ -55,6 +55,11 @@ export default function Navbar() {
           <Link href="/quiz" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">QUIZ</Link>
         </li>
         <li>
+          <Link href="/discussions" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+            DISCUSSIONS
+          </Link>
+        </li>
+        <li>
           <Link href="/bookmarks" className="hover:opacity-80 transition-opacity">
             BOOKMARKS
           </Link>
@@ -120,6 +125,11 @@ export default function Navbar() {
           <li>
             <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
               QUIZ
+            </Link>
+          </li>
+          <li>
+            <Link href="/discussions" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              DISCUSSIONS
             </Link>
           </li>
         </ul>
