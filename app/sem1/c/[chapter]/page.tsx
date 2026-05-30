@@ -56,8 +56,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
   };
 
   // CLEANUP RESOLUTION: Utilizing the pre-awaited chapterId inside the clean synchronous map filter
-  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
-
+  const chapterQuiz = moduleQuizzes.find(async (quiz) => quiz.slug === chapterQuizSlugMap[(await params).chapter]);
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
       <div className="flex-1">
@@ -65,13 +64,12 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Programming in C 
         </h1>
         
-        <div className="flex items-center justify-between">
-          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-            {chapter.title}
-          </p>
-          <BookmarkButton title={`C Programming : ${chapter.title}`} />
-        </div>
-
+         <div className="flex items-center justify-between">
+  <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+    {chapter.title}
+  </p>
+  <BookmarkButton title={`C Programming : ${chapter.title}`} />
+</div>
         {/* Top Pagination Control Interface */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (
