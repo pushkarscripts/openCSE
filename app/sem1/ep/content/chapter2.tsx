@@ -32,7 +32,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>electric-field.png</strong></p>
+        <img src="/sem1/ep/electric-field.svg" alt="Electric Field" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -63,7 +63,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>potential-surface.png</strong></p>
+        <img src="/sem1/ep/potential-surface.svg" alt="Potential Surface diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -100,7 +100,8 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagrams to paste: <strong>gauss-law.png</strong>, <strong>flux-surface.png</strong></p>
+        <img src="/sem1/ep/gauss-law.svg" alt="Gauss's Law diagram" className="w-full my-4" />
+        
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -129,7 +130,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>lorentz-force.png</strong></p>
+       <img src="/sem1/ep/lorentz-force.svg" alt="Lorentz Force diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -148,7 +149,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>biot-savart.png</strong></p>
+        <img src="/sem1/ep/biot-savart.svg" alt="Biot-Savart Law diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -173,7 +174,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>ampere-law.png</strong></p>
+        <img src="/sem1/ep/ampere-law.svg" alt="Ampere's Law diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -215,7 +216,7 @@ export const Ch2Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram to paste: <strong>continuity-equation.png</strong></p>
+        <img src="/sem1/ep/continuity-equation.svg" alt="Continuity Equation diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />

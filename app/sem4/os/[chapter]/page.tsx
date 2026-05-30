@@ -8,9 +8,13 @@ import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
 import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
+import BookmarkButton from "../../../components/BookmarkButton";
 
+
+import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import { moduleQuizzes } from "@/lib/quizData";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -102,6 +106,19 @@ export default function ChapterPage({ params }: ChapterProps) {
       ? chapters[currentIndex + 1]
       : null;
 
+  const chapterQuizSlugMap: Record<string, string> = {
+      ch1: "os-intro",
+      ch2: "os-processes",
+      ch3: "os-scheduling",
+      ch4: "os-synchronization",
+      ch5: "os-deadlock",
+      ch6: "os-memory-management",
+      ch7: "os-paging-segmentation",
+      ch8: "os-file-io",
+    };
+  
+    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
       {/* Content */}
@@ -112,11 +129,12 @@ export default function ChapterPage({ params }: ChapterProps) {
           Operating System
         </h1>
 
-        <p
-          className={`text-2xl mt-[-8] ${righteous.className}`}
-        >
-          {chapter.title}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`OS: ${chapter.title}`} />
+        </div>
 
         {/* Top Navigation */}
         <div className="flex justify-between mt-3">
@@ -150,6 +168,12 @@ export default function ChapterPage({ params }: ChapterProps) {
         <hr className="my-6 border-t-3" />
 
         <ChapterComponent />
+
+        {chapterQuiz ? (
+                  <div className="mt-12">
+                    <ChapterQuizInline quiz={chapterQuiz} />
+                  </div>
+                ) : null}
       </div>
 
       {/* Bottom Navigation */}

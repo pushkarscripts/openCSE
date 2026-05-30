@@ -38,52 +38,53 @@ export default function Navbar() {
         }}
       >
         <li>
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
             HOME
           </Link>
         </li>
         <li>
-          <Link href="/#subjects">SUBJECTS</Link>
+          <Link href="/#subjects" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">SUBJECTS</Link>
         </li>
         <li>
-          <Link href="/#contribute">CONTRIBUTE</Link>
+          <Link href="/#contribute" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">CONTRIBUTE</Link>
         </li>
         <li>
-          <Link href="/#sponsor">SPONSOR</Link>
+          <Link href="/#sponsor" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">SPONSOR</Link>
         </li>
         <li>
-          <Link href="/quiz">QUIZ</Link>
+          <Link href="/quiz" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">QUIZ</Link>
+        </li>
+        <li>
+          <Link href="/bookmarks" className="hover:opacity-80 transition-opacity">
+            BOOKMARKS
+          </Link>
         </li>
       </ul>
       {/* Mobile Hamburger */}
       <button
-        className="md:hidden flex flex-col justify-center items-center w-10 h-10"
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
         aria-label="Toggle menu"
         onClick={() => setMenuOpen((open) => !open)}
       >
         <span
-          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${
-            menuOpen ? "rotate-45 translate-y-2" : ""
-          }`}
+          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
         />
         <span
-          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${
-            menuOpen ? "opacity-0" : ""
-          }`}
+          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${menuOpen ? "opacity-0" : ""
+            }`}
         />
         <span
-          className={`block w-8 h-1 bg-white transition-all duration-300 ${
-            menuOpen ? "-rotate-45 -translate-y-2" : ""
-          }`}
+          className={`block w-8 h-1 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
         />
       </button>
       {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg transition-all duration-300 origin-top ${
-          menuOpen 
-            ? "opacity-100 scale-y-100" 
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg transition-all duration-300 origin-top ${menuOpen
+            ? "opacity-100 scale-y-100"
             : "opacity-0 scale-y-0 pointer-events-none"
-        }`}
+          }`}
       >
         <ul
           className="flex flex-col items-center gap-4 py-4 font-bold"
@@ -97,30 +98,30 @@ export default function Navbar() {
           }}
         >
           <li>
-            <Link href="/" onClick={() => setMenuOpen(false)} className="hover:opacity-80 transition-opacity">
-        HOME
+            <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              HOME
             </Link>
           </li>
           <li>
-            <Link href="/#subjects" onClick={() => setMenuOpen(false)}>
-        SUBJECTS
+            <Link href="/#subjects" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              SUBJECTS
             </Link>
           </li>
           <li>
-            <Link href="/#contribute" onClick={() => setMenuOpen(false)}>
-        CONTRIBUTE
+            <Link href="/#contribute" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              CONTRIBUTE
             </Link>
           </li>
           <li>
-            <Link href="/#sponsor" onClick={() => setMenuOpen(false)}>
-        SPONSOR
+            <Link href="/#sponsor" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              SPONSOR
             </Link>
           </li>
           <li>
-              <Link href="/quiz" onClick={() => setMenuOpen(false)}>
-          QUIZ
-              </Link>
-            </li>
+            <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              QUIZ
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

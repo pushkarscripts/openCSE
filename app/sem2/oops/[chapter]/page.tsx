@@ -10,8 +10,10 @@ import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
 import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
-
+import BookmarkButton from "../../../components/BookmarkButton";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
+import { moduleQuizzes } from "@/lib/quizData";
+import ChapterQuizInline from "../components/ChapterQuizInline";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -48,6 +50,18 @@ export default function ChapterPage({ params }: ChapterProps) {
   const nextChapter =
     currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
 
+  const chapterQuizSlugMap: Record<string, string> = {
+    ch1: "oops-intro-java",
+    ch2: "oops-classes-objects",
+    ch3: "oops-inheritance-polymorphism",
+    ch4: "oops-packages-interfaces",
+    ch5: "oops-exception-handling",
+    ch6: "oops-threads",
+    ch7: "oops-generics",
+    ch8: "oops-java-lib-swing",
+  };
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
 
@@ -56,10 +70,12 @@ export default function ChapterPage({ params }: ChapterProps) {
           Object-Oriented Programming in Java
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {chapter.title}
-        </p>
-
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`DSC: ${chapter.title}`} />
+        </div>
         {/* Navigation */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (
@@ -89,6 +105,12 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         <hr className="my-6 border-t-3" />
         <ChapterComponent />
+
+        {chapterQuiz ? (
+          <div className="mt-12">
+            <ChapterQuizInline quiz={chapterQuiz} />
+          </div>
+        ) : null}
       </div>
 
       {/* Bottom Navigation */}

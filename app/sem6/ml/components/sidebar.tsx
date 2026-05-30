@@ -51,7 +51,7 @@ export default function Sidebar() {
         >
           Chapters
         </h2>
-        <ul className="flex-1 overflow-y-auto space-y-0">
+        <ul className="flex-1 overflow-y-auto no-scrollbar space-y-0">
           {chapters.map((ch) => {
             const active =
               pathname === `/sem6/ml/${ch.id}` ||
