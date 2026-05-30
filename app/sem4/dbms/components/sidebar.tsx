@@ -28,8 +28,8 @@ export default function Sidebar() {
     { id: "ch4", title: "Normalization" },
     { id: "ch5", title: "Transactions and Concurrency Control" },
     { id: "ch6", title: "Indexing and Hashing" },
-    { id: "ch7", title: "Query Processing and Optimization" },
-    { id: "ch8", title: "Recovery and Security" },
+    // { id: "ch7", title: "Query Processing and Optimization" },
+    // { id: "ch8", title: "Recovery and Security" },
   ];
 
   return (

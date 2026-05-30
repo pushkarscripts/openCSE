@@ -7,8 +7,8 @@ import BookmarkButton from "../../../components/BookmarkButton";
 import { Ch4Content } from "../content/chapter4";
 import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
-import { Ch7Content } from "../content/chapter7";
-import { Ch8Content } from "../content/chapter8";
+// import { Ch7Content } from "../content/chapter7";
+// import { Ch8Content } from "../content/chapter8";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
@@ -30,13 +30,13 @@ const chapters = [
     title: "Transactions and Concurrency Control",
     component: Ch5Content,
   },
-  { id: "ch6", title: "Indexing and Hashing", component: Ch6Content },
-  {
-    id: "ch7",
-    title: "Query Processing and Optimization",
-    component: Ch7Content,
-  },
-  { id: "ch8", title: "Recovery and Security", component: Ch8Content },
+  { id: "ch6", title: "Indexing and Hashing", component: Ch6Content }
+  // ,{
+  //   id: "ch7",
+  //   title: "Query Processing and Optimization",
+  //   component: Ch7Content,
+  // },
+  // { id: "ch8", title: "Recovery and Security", component: Ch8Content },
 ];
 
 type ChapterProps = {
