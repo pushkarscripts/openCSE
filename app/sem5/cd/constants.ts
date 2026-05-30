@@ -96,4 +96,11 @@ export const chapters: Chapter[] = [
   { id: "ch28", title: "Peephole Optimization" },
   { id: "ch29", title: "Target Code Generation" },
   { id: "ch30", title: "Register Allocation & Ershov Numbers" },
+  { id: "ch31", title: "Architecture Dependent Code Improvement" },
+  { id: "ch32", title: "Advanced Register Allocation" },
+  { id: "ch33", title: "Target Code Generator Design" },
+  { id: "ch34", title: "Peephole Optimization (Unit 5)" },
+  { id: "ch35", title: "Type Systems & Data Abstraction" },
+  { id: "ch36", title: "Compilation of OOP Features" },
+  { id: "ch37", title: "Non-Imperative Programming Languages" },
 ];
