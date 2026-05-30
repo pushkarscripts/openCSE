@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Righteous } from "next/font/google";
-import BookmarkButton from "../../../components/BookmarkButton";
+import BookmarkButton from "@/app/components/BookmarkButton";
 
 import { Ch0Content } from "../content/chapter0";
 import { Ch1Content } from "../content/chapter1";
@@ -47,7 +47,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
   const chapterQuizSlugMap: Record<string, string> = {
     ch1: "dsc-arrays",
   };
-  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+  
+  // FIXED: Changed params.chapter to resolvedParams.chapter to avoid the Next.js 15 Promise type error
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[resolvedParams.chapter]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-16 text-[#e2d1c1]">
@@ -61,7 +63,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
           <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
             {chapter.title}
           </p>
-          <BookmarkButton  title={`DSC: ${chapter.title}`} />
+          <BookmarkButton title={`DSC: ${chapter.title}`} />
         </div>
 
         {/* Navigation */}
