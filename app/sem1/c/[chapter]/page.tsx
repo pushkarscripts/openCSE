@@ -10,8 +10,7 @@ import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
-import BookmarkButton from "@/app/components/BookmarkButton";
-
+import BookmarkButton from "../../../components/BookmarkButton";
 const righteous = Righteous({
   subsets: ['latin'], 
   weight: '400', 
