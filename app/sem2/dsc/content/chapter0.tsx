@@ -65,9 +65,20 @@ export const Ch0Content = () => {
       <section>
         <h3 className="section-heading">Module V: Trees</h3>
         <ul className="section-list">
-          <li>Binary trees</li>
-          <li>Tree traversal techniques</li>
-          <li>Binary search trees</li>
+        <li>Introduction to Trees and Terminology</li>
+        <li>Tree Characteristics and Components</li>
+        <li>Tree Representation</li>
+        <li>Types of Trees</li>
+        <li>Tree Traversal Techniques (DFS and BFS)</li>
+        <li>Preorder, Inorder, Postorder and Level Order Traversal</li>
+        <li>Tree Operations (Search, Insert, Delete)</li>
+        <li>Height, Node Count and Leaf Count</li>
+        <li>Binary Search Trees (BST)</li>
+        <li>Tree Implementation in C</li>
+        <li>BST Implementation in C</li>
+        <li>Complexity Analysis</li>
+        <li>Applications and Real-Life Examples</li>
+        <li>Advantages and Limitations</li>
         </ul>
       </section>
 
