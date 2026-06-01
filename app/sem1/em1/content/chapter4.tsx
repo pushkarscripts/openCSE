@@ -32,7 +32,7 @@ export const Ch4Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram: <strong>laplace-transform-idea.png</strong></p>
+       <img src="/sem1/em1/em1_10.png" alt="Laplace transform diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -120,7 +120,7 @@ export const Ch4Content = () => {
 
         </ul>
 
-        <p className="p-text">Diagram: <strong>laplace-solve-ode.png</strong></p>
+        <img src="/sem1/em1/em1_11.png" alt="Laplace transform solving ODE diagram" className="w-full my-4" />
       </section>
 
     </div>

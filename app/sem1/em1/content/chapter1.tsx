@@ -134,7 +134,6 @@ export const Ch1Content = () => {
           </li>
         </ul>
 
-
         <img src="/sem1/em1/em1_04.png" alt="curvature graph diagram" className="w-full my-4" />
 
       </section>
