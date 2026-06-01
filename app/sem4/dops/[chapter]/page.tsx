@@ -35,8 +35,9 @@ type ChapterProps = {
   params: { chapter: string };
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: { params: Promise<{ chapter: string }> }) {
+  const { chapter } = await params;
+  const currentIndex = chapters.findIndex((c) => c.id === chapter);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {

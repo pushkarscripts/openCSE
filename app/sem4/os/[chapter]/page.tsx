@@ -79,9 +79,10 @@ type ChapterProps = {
   params: { chapter: string };
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
+export default async function ChapterPage({ params }: { params: Promise<{ chapter: string }> }) {
+  const { chapter } = await params;
   const currentIndex = chapters.findIndex(
-    (c) => c.id === params.chapter
+    (c) => c.id === chapter
   );
 
   const chapter = chapters[currentIndex];
@@ -117,7 +118,7 @@ export default function ChapterPage({ params }: ChapterProps) {
       ch8: "os-file-io",
     };
   
-    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapter]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
