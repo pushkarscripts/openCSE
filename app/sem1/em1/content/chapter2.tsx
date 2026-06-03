@@ -18,7 +18,7 @@ export const Ch2Content = () => {
           <li>Properties include associativity, distributivity and non-commutativity.</li>
           <li>Transpose and conjugate transpose operations.</li>
         </ul>
-        <p className="p-text">Diagram: <strong>matrix-algebra.png</strong></p>
+        <img src="/sem1/em1/em1_05.png" alt="Matrix algebra diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -31,7 +31,7 @@ export const Ch2Content = () => {
           <li>Determined using row echelon form or determinant methods.</li>
           <li>Inverse exists only if det(A) ≠ 0.</li>
         </ul>
-        <p className="p-text">Diagram: <strong>rank-echelon.png</strong></p>
+        <img src="/sem1/em1/em1_06.png" alt="Rank and inverse diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -81,7 +81,7 @@ export const Ch2Content = () => {
           <li>Gauss elimination and Gauss Jordan elimination.</li>
           <li>Gauss Seidel iterative method.</li>
         </ul>
-        <p className="p-text">Diagram: <strong>gauss-methods.png</strong></p>
+        <img src="/sem1/em1/em1_07.png" alt="Numerical methods diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
