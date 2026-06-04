@@ -43,6 +43,13 @@ import { Ch27Content } from "../content/chapter27";
 import { Ch28Content } from "../content/chapter28";
 import { Ch29Content } from "../content/chapter29";
 import { Ch30Content } from "../content/chapter30";
+import { Ch31Content } from "../content/chapter31";
+import { Ch32Content } from "../content/chapter32";
+import { Ch33Content } from "../content/chapter33";
+import { Ch34Content } from "../content/chapter34";
+import { Ch35Content } from "../content/chapter35";
+import { Ch36Content } from "../content/chapter36";
+import { Ch37Content } from "../content/chapter37";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
 
@@ -109,6 +116,13 @@ const chapterComponents: Record<string, React.ComponentType> = {
   ch28: Ch28Content,
   ch29: Ch29Content,
   ch30: Ch30Content,
+  ch31: Ch31Content,
+  ch32: Ch32Content,
+  ch33: Ch33Content,
+  ch34: Ch34Content,
+  ch35: Ch35Content,
+  ch36: Ch36Content,
+  ch37: Ch37Content,
 };
 
 type ChapterProps = {
