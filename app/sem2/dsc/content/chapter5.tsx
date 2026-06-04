@@ -1313,7 +1313,7 @@ Delete 30
                 <p className="p-text">
                     Replace the node with its Inorder Successor
                     (smallest value in the right subtree). After copying the
-                    successor's value into the deleted node's position, the
+                    successor&apos;s value into the deleted node&apos;s position, the
                     successor node must also be deleted from the right subtree
                     to avoid duplicates.
                 </p>
