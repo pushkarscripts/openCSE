@@ -87,4 +87,13 @@ export const chapters: Chapter[] = [
     ],
   },
   { id: "ch21", title: "Unit 3 Solved PYQs" },
+  { id: "ch22", title: "Intermediate Code Generation" },
+  { id: "ch23", title: "Directed Acyclic Graphs (DAGs)" },
+  { id: "ch24", title: "Introduction to Code Optimization" },
+  { id: "ch25", title: "Basic Blocks & Flow Graphs" },
+  { id: "ch26", title: "Live Variable Analysis" },
+  { id: "ch27", title: "Loop Optimizations" },
+  { id: "ch28", title: "Peephole Optimization" },
+  { id: "ch29", title: "Target Code Generation" },
+  { id: "ch30", title: "Register Allocation & Ershov Numbers" },
 ];

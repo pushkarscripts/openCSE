@@ -34,7 +34,15 @@ import { Ch19Content } from "../content/chapter19";
 import { ScopeManagementContentExport } from "../content/ch19-scope-management";
 import { Ch20Content } from "../content/chapter20";
 import { ParameterPassingContentExport } from "../content/ch20-parameter-passing";
-
+import { Ch22Content } from "../content/chapter22";
+import { Ch23Content } from "../content/chapter23";
+import { Ch24Content } from "../content/chapter24";
+import { Ch25Content } from "../content/chapter25";
+import { Ch26Content } from "../content/chapter26";
+import { Ch27Content } from "../content/chapter27";
+import { Ch28Content } from "../content/chapter28";
+import { Ch29Content } from "../content/chapter29";
+import { Ch30Content } from "../content/chapter30";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
 
@@ -92,7 +100,15 @@ const chapterComponents: Record<string, React.ComponentType> = {
   "ch19-scope-management": ScopeManagementContentExport,
   ch20: Ch20Content,
   "ch20-parameter-passing": ParameterPassingContentExport,
-
+  ch22: Ch22Content,
+  ch23: Ch23Content,
+  ch24: Ch24Content,
+  ch25: Ch25Content,
+  ch26: Ch26Content,
+  ch27: Ch27Content,
+  ch28: Ch28Content,
+  ch29: Ch29Content,
+  ch30: Ch30Content,
 };
 
 type ChapterProps = {
