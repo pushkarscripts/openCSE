@@ -54,6 +54,11 @@ export default function Navbar() {
         <li>
           <Link href="/quiz" className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">QUIZ</Link>
         </li>
+        <li>
+          <Link href="/bookmarks" className="hover:opacity-80 transition-opacity">
+            BOOKMARKS
+          </Link>
+        </li>
       </ul>
       {/* Mobile Hamburger */}
       <button
@@ -62,28 +67,24 @@ export default function Navbar() {
         onClick={() => setMenuOpen((open) => !open)}
       >
         <span
-          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${
-            menuOpen ? "rotate-45 translate-y-2" : ""
-          }`}
+          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
         />
         <span
-          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${
-            menuOpen ? "opacity-0" : ""
-          }`}
+          className={`block w-8 h-1 bg-white mb-1 transition-all duration-300 ${menuOpen ? "opacity-0" : ""
+            }`}
         />
         <span
-          className={`block w-8 h-1 bg-white transition-all duration-300 ${
-            menuOpen ? "-rotate-45 -translate-y-2" : ""
-          }`}
+          className={`block w-8 h-1 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
         />
       </button>
       {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg transition-all duration-300 origin-top ${
-          menuOpen 
-            ? "opacity-100 scale-y-100" 
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-[#1B0D00]/95 shadow-lg transition-all duration-300 origin-top ${menuOpen
+            ? "opacity-100 scale-y-100"
             : "opacity-0 scale-y-0 pointer-events-none"
-        }`}
+          }`}
       >
         <ul
           className="flex flex-col items-center gap-4 py-4 font-bold"
@@ -98,29 +99,29 @@ export default function Navbar() {
         >
           <li>
             <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
-        HOME
+              HOME
             </Link>
           </li>
           <li>
             <Link href="/#subjects" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
-        SUBJECTS
+              SUBJECTS
             </Link>
           </li>
           <li>
             <Link href="/#contribute" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
-        CONTRIBUTE
+              CONTRIBUTE
             </Link>
           </li>
           <li>
             <Link href="/#sponsor" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
-        SPONSOR
+              SPONSOR
             </Link>
           </li>
           <li>
-              <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
-          QUIZ
-              </Link>
-            </li>
+            <Link href="/quiz" onClick={() => setMenuOpen(false)} className="hover:text-[#d2b48c] transition-colors duration-200 cursor-pointer">
+              QUIZ
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

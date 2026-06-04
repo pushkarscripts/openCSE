@@ -8,13 +8,15 @@ import { Ch5Content } from "../content/chapter5";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
-import { moduleQuizzes } from "@/lib/quizData";
 
+import BookmarkButton from "../../../components/BookmarkButton";
+
+import { moduleQuizzes } from "@/lib/quizData";
 const righteous = Righteous({
-      subsets: ['latin'], 
-      weight: '400', 
-      variable: '--font-righteous', 
-    });
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-righteous',
+});
 
 // Chapter data
 const chapters = [
@@ -59,8 +61,12 @@ export default function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Engineering Physics
         </h1>
-        <p className={`text-2xl mt-[-8] ${righteous.className}`}>{chapter.title}</p>
-
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`EP: ${chapter.title}`} />
+        </div>
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (
@@ -118,7 +124,7 @@ export default function ChapterPage({ params }: ChapterProps) {
             className="px-4 py-2 bg-[#e2d1c1] text-xl flex items-center justify-center text-[#1b0d00] rounded hover:bg-[#ac9e91] transition"
             style={{ fontFamily: 'Rockwell, Serif, serif' }}
           >
-            {nextChapter.title} <ArrowBigRight className="inline-block ml-1" /> 
+            {nextChapter.title} <ArrowBigRight className="inline-block ml-1" />
           </Link>
         ) : (
           <div />

@@ -54,4 +54,53 @@ export const chapters: Chapter[] = [
     ],
   },
   { id: "ch12", title: "Advanced Parsing & Ambiguity" },
+  { id: "ch13", title: "Introduction to Semantic Analysis" },
+  {
+    id: "ch14",
+    title: "Attribute Grammars",
+    subTopics: [
+      { id: "ch14-expr-eval-example", title: "Worked Example: Expression Evaluation", isPage: true },
+    ],
+  },
+  { id: "ch15", title: "Syntax Directed Definitions (SDD)" },
+  {
+    id: "ch16",
+    title: "Syntax Directed Translation (SDT)",
+    subTopics: [
+      { id: "ch16-sdt-postfix-trace", title: "SDT Trace: Infix to Postfix", isPage: true },
+    ],
+  },
+  { id: "ch17", title: "S-Attributed & L-Attributed Definitions" },
+  { id: "ch18", title: "Evaluation Order & Dependency Graphs" },
+  {
+    id: "ch19",
+    title: "Symbol Table",
+    subTopics: [
+      { id: "ch19-scope-management", title: "Scope Management in Detail", isPage: true },
+    ],
+  },
+  {
+    id: "ch20",
+    title: "Runtime Environment & Activation Records",
+    subTopics: [
+      { id: "ch20-parameter-passing", title: "Parameter Passing Mechanisms", isPage: true },
+    ],
+  },
+  { id: "ch21", title: "Unit 3 Solved PYQs" },
+  { id: "ch22", title: "Intermediate Code Generation" },
+  { id: "ch23", title: "Directed Acyclic Graphs (DAGs)" },
+  { id: "ch24", title: "Introduction to Code Optimization" },
+  { id: "ch25", title: "Basic Blocks & Flow Graphs" },
+  { id: "ch26", title: "Live Variable Analysis" },
+  { id: "ch27", title: "Loop Optimizations" },
+  { id: "ch28", title: "Peephole Optimization" },
+  { id: "ch29", title: "Target Code Generation" },
+  { id: "ch30", title: "Register Allocation & Ershov Numbers" },
+  { id: "ch31", title: "Architecture Dependent Code Improvement" },
+  { id: "ch32", title: "Advanced Register Allocation" },
+  { id: "ch33", title: "Target Code Generator Design" },
+  { id: "ch34", title: "Peephole Optimization (Unit 5)" },
+  { id: "ch35", title: "Type Systems & Data Abstraction" },
+  { id: "ch36", title: "Compilation of OOP Features" },
+  { id: "ch37", title: "Non-Imperative Programming Languages" },
 ];

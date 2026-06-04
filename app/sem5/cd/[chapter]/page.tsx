@@ -22,6 +22,34 @@ import { SlrSolvedProblemContent } from "../content/ch10-slr-solved-problem";
 import { Ch11Content } from "../content/chapter11";
 import { LalrSolvedProblemContent } from "../content/ch11-lalr-solved-problem";
 import { Ch12Content } from "../content/chapter12";
+import { Ch13Content } from "../content/chapter13";
+import { Ch14Content } from "../content/chapter14";
+import { ExprEvalExampleContent } from "../content/ch14-expr-eval-example";
+import { Ch15Content } from "../content/chapter15";
+import { Ch16Content } from "../content/chapter16";
+import { SdtPostfixTraceContent } from "../content/ch16-sdt-postfix-trace";
+import { Ch17Content } from "../content/chapter17";
+import { Ch18Content } from "../content/chapter18";
+import { Ch19Content } from "../content/chapter19";
+import { ScopeManagementContentExport } from "../content/ch19-scope-management";
+import { Ch20Content } from "../content/chapter20";
+import { ParameterPassingContentExport } from "../content/ch20-parameter-passing";
+import { Ch22Content } from "../content/chapter22";
+import { Ch23Content } from "../content/chapter23";
+import { Ch24Content } from "../content/chapter24";
+import { Ch25Content } from "../content/chapter25";
+import { Ch26Content } from "../content/chapter26";
+import { Ch27Content } from "../content/chapter27";
+import { Ch28Content } from "../content/chapter28";
+import { Ch29Content } from "../content/chapter29";
+import { Ch30Content } from "../content/chapter30";
+import { Ch31Content } from "../content/chapter31";
+import { Ch32Content } from "../content/chapter32";
+import { Ch33Content } from "../content/chapter33";
+import { Ch34Content } from "../content/chapter34";
+import { Ch35Content } from "../content/chapter35";
+import { Ch36Content } from "../content/chapter36";
+import { Ch37Content } from "../content/chapter37";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
 
@@ -67,6 +95,34 @@ const chapterComponents: Record<string, React.ComponentType> = {
   ch11: Ch11Content,
   "ch11-lalr-solved-problem": LalrSolvedProblemContent,
   ch12: Ch12Content,
+  ch13: Ch13Content,
+  ch14: Ch14Content,
+  "ch14-expr-eval-example": ExprEvalExampleContent,
+  ch15: Ch15Content,
+  ch16: Ch16Content,
+  "ch16-sdt-postfix-trace": SdtPostfixTraceContent,
+  ch17: Ch17Content,
+  ch18: Ch18Content,
+  ch19: Ch19Content,
+  "ch19-scope-management": ScopeManagementContentExport,
+  ch20: Ch20Content,
+  "ch20-parameter-passing": ParameterPassingContentExport,
+  ch22: Ch22Content,
+  ch23: Ch23Content,
+  ch24: Ch24Content,
+  ch25: Ch25Content,
+  ch26: Ch26Content,
+  ch27: Ch27Content,
+  ch28: Ch28Content,
+  ch29: Ch29Content,
+  ch30: Ch30Content,
+  ch31: Ch31Content,
+  ch32: Ch32Content,
+  ch33: Ch33Content,
+  ch34: Ch34Content,
+  ch35: Ch35Content,
+  ch36: Ch36Content,
+  ch37: Ch37Content,
 };
 
 type ChapterProps = {

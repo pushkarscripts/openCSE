@@ -37,7 +37,7 @@ export const Ch3Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram: <strong>exact-ode-flow.png</strong></p>
+        <img src="/sem1/em1/em1_08.png" alt="Exact ODE diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -135,7 +135,7 @@ export const Ch3Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram: <strong>characteristic-roots.png</strong></p>
+        <img src="/sem1/em1/em1_09.png" alt="Second order linear ODE diagram" className="w-full my-4" />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />

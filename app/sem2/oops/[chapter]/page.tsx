@@ -10,7 +10,7 @@ import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
 import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
-
+import BookmarkButton from "../../../components/BookmarkButton";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
@@ -70,10 +70,12 @@ export default function ChapterPage({ params }: ChapterProps) {
           Object-Oriented Programming in Java
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {chapter.title}
-        </p>
-
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`DSC: ${chapter.title}`} />
+        </div>
         {/* Navigation */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (

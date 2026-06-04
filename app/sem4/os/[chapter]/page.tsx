@@ -8,6 +8,9 @@ import { Ch5Content } from "../content/chapter5";
 import { Ch6Content } from "../content/chapter6";
 import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
+import BookmarkButton from "../../../components/BookmarkButton";
+
+
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
@@ -126,11 +129,12 @@ export default function ChapterPage({ params }: ChapterProps) {
           Operating System
         </h1>
 
-        <p
-          className={`text-2xl mt-[-8] ${righteous.className}`}
-        >
-          {chapter.title}
-        </p>
+        <div className="flex items-center justify-between">
+          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
+            {chapter.title}
+          </p>
+          <BookmarkButton  title={`OS: ${chapter.title}`} />
+        </div>
 
         {/* Top Navigation */}
         <div className="flex justify-between mt-3">

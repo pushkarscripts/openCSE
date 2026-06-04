@@ -36,7 +36,9 @@ export const Ch1Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram: <strong>mvt-graph.png</strong></p>
+
+        <img src="/sem1/em1/em1_01.png" alt="mvt graph diagram" className="w-full my-4" />
+
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -67,7 +69,9 @@ export const Ch1Content = () => {
 
         </ul>
 
-        <p className="p-text">Diagram: <strong>taylor-expansion.png</strong></p>
+
+        <img src="/sem1/em1/em1_02.png" alt="taylor series diagram" className="w-full my-4" />
+
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -101,7 +105,9 @@ export const Ch1Content = () => {
           <li>Used to classify graph behaviour and optimization.</li>
         </ul>
 
-        <p className="p-text">Diagram: <strong>concavity-inflexion.png</strong></p>
+
+        <img src="/sem1/em1/em1_03.png" alt="concavity and inflexion diagram" className="w-full my-4" />
+
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -128,7 +134,8 @@ export const Ch1Content = () => {
           </li>
         </ul>
 
-        <p className="p-text">Diagram: <strong>curvature-graph.png</strong></p>
+        <img src="/sem1/em1/em1_04.png" alt="curvature graph diagram" className="w-full my-4" />
+
       </section>
 
     </div>
