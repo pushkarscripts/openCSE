@@ -25,9 +25,9 @@ export default function Sidebar() {
     { id: "ch1", title: "Introduction to Databases" },
     { id: "ch2", title: "Entity-Relationship Model" },
     { id: "ch3", title: "Relational Model and SQL" },
-    // { id: "ch4", title: "Normalization" },
-    // { id: "ch5", title: "Transactions and Concurrency Control" },
-    // { id: "ch6", title: "Indexing and Hashing" },
+    { id: "ch4", title: "Normalization" },
+    { id: "ch5", title: "Transactions and Concurrency Control" },
+    { id: "ch6", title: "Indexing and Hashing" },
     // { id: "ch7", title: "Query Processing and Optimization" },
     // { id: "ch8", title: "Recovery and Security" },
   ];
