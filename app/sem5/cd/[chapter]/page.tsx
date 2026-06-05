@@ -52,6 +52,7 @@ import { Ch36Content } from "../content/chapter36";
 import { Ch37Content } from "../content/chapter37";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, SubTopic } from "../constants";
+import ReadingTime from "@/app/components/ReadingTime";
 
 const righteous = Righteous({
   subsets: ["latin"],
@@ -224,11 +225,14 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Compiler Design
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {isSubTopic && parentChapter
-            ? `${parentChapter.title} / ${chapterData.title}`
-            : chapterData.title}
-        </p>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+          <p className={`text-2xl ${righteous.className}`}>
+            {isSubTopic && parentChapter
+              ? `${parentChapter.title} / ${chapterData.title}`
+              : chapterData.title}
+          </p>
+          <ReadingTime chapterKey={chapterId} />
+        </div>
 
         {/* Navigation */}
         <div className="flex justify-between mt-4">
@@ -258,7 +262,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-2 border-[#c7a669]/40" />
-        {ChapterComponent ? <ChapterComponent /> : <p>Content loading...</p>}
+        <div id="reading-content">
+          {ChapterComponent ? <ChapterComponent /> : <p>Content loading...</p>}
+        </div>
       </div>
 
       {/* Bottom Navigation */}

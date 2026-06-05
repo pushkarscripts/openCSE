@@ -8,6 +8,8 @@ import { Ch5Content } from "../content/chapter5";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import { moduleQuizzes } from "@/lib/quizData";
+import ReadingTime from "@/app/components/ReadingTime";
 
 import BookmarkButton from "../../../components/BookmarkButton";
 
@@ -29,11 +31,12 @@ const chapters = [
 ];
 
 type ChapterProps = {
-  params: { chapter: string };
+  params: Promise<{ chapter: string }>;
 };
 
-export default function ChapterPage({ params }: ChapterProps) {
-  const currentIndex = chapters.findIndex((c) => c.id === params.chapter);
+export default async function ChapterPage({ params }: ChapterProps) {
+  const { chapter: chapterId } = await params;
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
@@ -44,15 +47,15 @@ export default function ChapterPage({ params }: ChapterProps) {
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
 
-    const chapterQuizSlugMap: Record<string, string> = {
-      ch1: "ep-vector-fields",
-      ch2: "ep-electrostatics-magnetostatics",
-      ch3: "ep-electrodynamics-maxwell",
-      ch4: "ep-superconductivity",
-      ch5: "ep-laser-fibre-optics",
-    };
-  
-    const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
+  const chapterQuizSlugMap: Record<string, string> = {
+    ch1: "ep-vector-fields",
+    ch2: "ep-electrostatics-magnetostatics",
+    ch3: "ep-electrodynamics-maxwell",
+    ch4: "ep-superconductivity",
+    ch5: "ep-laser-fibre-optics",
+  };
+
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -61,10 +64,13 @@ export default function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Engineering Physics
         </h1>
-        <div className="flex items-center justify-between">
-          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-            {chapter.title}
-          </p>
+        <div className="flex flex-wrap items-start justify-between gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+            <p className={`text-2xl ${righteous.className}`}>
+              {chapter.title}
+            </p>
+            <ReadingTime chapterKey={chapter.id} />
+          </div>
           <BookmarkButton  title={`EP: ${chapter.title}`} />
         </div>
         {/* Navigation Buttons */}
@@ -95,7 +101,9 @@ export default function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-3" />
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
               
         {chapterQuiz ? (
         <div className="mt-12">

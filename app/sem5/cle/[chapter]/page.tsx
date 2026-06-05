@@ -4,6 +4,7 @@ import { Righteous } from "next/font/google";
 import { Ch0Content } from "../content/chapter0";   // ← only ch0 for now
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";  // ← cle constants
+import ReadingTime from "@/app/components/ReadingTime";
 
 function findChapterOrSubtopic(chapterId: string) {
   const chapter = chapters.find((c) => c.id === chapterId);
@@ -112,11 +113,14 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Cyber Laws and Ethics    {/* ← subject name */}
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {isSubTopic && parentChapter
-            ? `${parentChapter.title} / ${chapterData.title}`
-            : chapterData.title}
-        </p>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+          <p className={`text-2xl ${righteous.className}`}>
+            {isSubTopic && parentChapter
+              ? `${parentChapter.title} / ${chapterData.title}`
+              : chapterData.title}
+          </p>
+          <ReadingTime chapterKey={chapterId} />
+        </div>
 
         <div className="flex justify-between mt-3">
           {prevChapter ? (
@@ -146,16 +150,18 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <hr className="my-6 border-t-3" />
 
         {/* Show content if available, else show coming soon message */}
-        {ChapterComponent ? (
-          <ChapterComponent />
-        ) : (
-          <div className="text-center py-12 text-[#c7a669]">
-            <p className="text-2xl font-semibold">Coming Soon</p>
-            <p className="mt-2 text-lg opacity-70">
-              This chapter is under development. Check back soon!
-            </p>
-          </div>
-        )}
+        <div id="reading-content">
+          {ChapterComponent ? (
+            <ChapterComponent />
+          ) : (
+            <div className="text-center py-12 text-[#c7a669]">
+              <p className="text-2xl font-semibold">Coming Soon</p>
+              <p className="mt-2 text-lg opacity-70">
+                This chapter is under development. Check back soon!
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="flex justify-between my-8">

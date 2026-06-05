@@ -48,6 +48,7 @@ import BookmarkButton from "../../../components/BookmarkButton";
 
 import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
+import ReadingTime from "@/app/components/ReadingTime";
 
 function findChapterOrSubtopic(chapterId: string) {
   const chapter = chapters.find((c) => c.id === chapterId);
@@ -198,14 +199,15 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Machine Learning
         </h1>
 
-        <div className="flex items-center justify-between">
-          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-            {isSubTopic && parentChapter ? `${parentChapter.title} / ${chapterData.title}` : chapterData.title}
-          </p>
+        <div className="flex flex-wrap items-start justify-between gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+            <p className={`text-2xl ${righteous.className}`}>
+              {isSubTopic && parentChapter ? `${parentChapter.title} / ${chapterData.title}` : chapterData.title}
+            </p>
+            <ReadingTime chapterKey={chapterId} />
+          </div>
           <BookmarkButton  title={`ML: ${chapterData.title}`} />
         </div>
-
-
 
         {/* Navigation */}
         <div className="flex justify-between mt-3">
@@ -235,7 +237,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-3" />
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
 
         {chapterQuiz ? (
           <div className="mt-12">

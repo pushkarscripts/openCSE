@@ -10,6 +10,7 @@ import { moduleQuizzes } from "@/lib/quizData";
 import ChapterQuizInline from "../components/ChapterQuizInline";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import ReadingTime from "@/app/components/ReadingTime";
 import BookmarkButton from "../../../components/BookmarkButton";
 const righteous = Righteous({
       subsets: ['latin'], 
@@ -34,7 +35,7 @@ type ChapterProps = {
 
 export default async function ChapterPage({ params }: ChapterProps) {
   const { chapter: chapterId } = await params;
-  const currentIndex =  chapters.findIndex((c) => c.id === chapterId);
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
@@ -54,7 +55,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
     ch6: "c-file-memory-preprocessors",
   };
 
-  const chapterQuiz = moduleQuizzes.find(async (quiz) => quiz.slug === chapterQuizSlugMap[(await params).chapter]);
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[chapterId]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -63,12 +64,15 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Programming in C 
         </h1>
-       <div className="flex items-center justify-between">
-  <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-    {chapter.title}
-  </p>
-  <BookmarkButton title={`C Programming : ${chapter.title}`} />
-</div>
+        <div className="flex flex-wrap items-start justify-between gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+            <p className={`text-2xl ${righteous.className}`}>
+              {chapter.title}
+            </p>
+            <ReadingTime chapterKey={chapter.id} />
+          </div>
+          <BookmarkButton title={`C Programming : ${chapter.title}`} />
+        </div>
 
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-3">
@@ -98,7 +102,9 @@ export default async function ChapterPage({ params }: ChapterProps) {
         </div>
 
         <hr className="my-6 border-t-3" />
-        <ChapterComponent />
+        <div id="reading-content">
+          <ChapterComponent />
+        </div>
 
         {chapterQuiz ? (
           <div className="mt-12">
