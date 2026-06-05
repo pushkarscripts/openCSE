@@ -4,6 +4,7 @@ import Link from "next/link";
 const subjects = {
   "Semester-1": [
     "Basic Electrical and Electronics",
+    "Basics of Mechanical Engineering",
     "C Programming",
     "Engineering Mathematics-1",
     "Engineering Physics",
@@ -76,6 +77,7 @@ const subjectCodes: Record<string, string> = {
   "Engineering Physics": "ep",
   "Engineering Graphics & Design": "egd",
   "English Communication": "ec",
+  "Basics of Mechanical Engineering": "bme",
 
   "Digital Electronics & Logic Circuits": "delc",
   "OOPs with Java": "oops",
@@ -125,7 +127,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec"];
+const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec","bme"];
 
 export default function SubjectsSection() {
   return (
