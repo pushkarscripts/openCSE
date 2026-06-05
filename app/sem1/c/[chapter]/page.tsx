@@ -64,13 +64,15 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Programming in C 
         </h1>
-        <div className="flex items-center justify-between">
-          <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-            {chapter.title}
-          </p>
+        <div className="flex flex-wrap items-start justify-between gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+            <p className={`text-2xl ${righteous.className}`}>
+              {chapter.title}
+            </p>
+            <ReadingTime chapterKey={chapter.id} />
+          </div>
           <BookmarkButton title={`C Programming : ${chapter.title}`} />
         </div>
-        <ReadingTime chapterKey={chapter.id} />
 
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-3">

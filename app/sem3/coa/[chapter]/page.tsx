@@ -55,8 +55,10 @@ export default async function ChapterPage({ params }: ChapterProps) {
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Computer Organization and Architecture
         </h1>
-        <p className={`text-2xl mt-[-8] ${righteous.className}`}>{chapter.title}</p>
-        <ReadingTime chapterKey={chapter.id} />
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+          <p className={`text-2xl ${righteous.className}`}>{chapter.title}</p>
+          <ReadingTime chapterKey={chapter.id} />
+        </div>
 
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-3">

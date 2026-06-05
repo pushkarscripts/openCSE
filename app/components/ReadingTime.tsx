@@ -41,7 +41,7 @@ export default function ReadingTime({ chapterKey }: ReadingTimeProps) {
 
   if (readingTime === null) {
     return (
-      <div className="flex items-center gap-2 text-xs sm:text-sm text-[#c7a669] mt-3 font-medium bg-[#2c1a04]/40 px-3.5 py-1.5 rounded-full w-max border border-[#c7a669]/10 animate-pulse select-none">
+      <div className="flex items-center gap-2 text-xs sm:text-sm text-[#c7a669] font-medium bg-[#2c1a04]/40 px-3.5 py-1.5 rounded-full w-max border border-[#c7a669]/10 animate-pulse select-none">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           viewBox="0 0 24 24" 
@@ -71,7 +71,7 @@ export default function ReadingTime({ chapterKey }: ReadingTimeProps) {
           animation: clock-hand-spin 1.8s infinite linear;
         }
       `}</style>
-      <div className="reading-time-badge group flex items-center gap-2.5 text-xs sm:text-sm md:text-base text-[#c7a669] mt-3 font-medium bg-[#2c1a04]/60 backdrop-blur-xs px-4 py-2 rounded-full w-max border border-[#c7a669]/30 shadow-md select-none transition-all duration-300 hover:border-[#c7a669]/70 hover:bg-[#3d2506]/80 hover:text-[#FAE8D7] hover:-translate-y-[1px]">
+      <div className="reading-time-badge group flex items-center gap-2.5 text-xs sm:text-sm md:text-base text-[#c7a669] font-medium bg-[#2c1a04]/60 backdrop-blur-xs px-4 py-2 rounded-full w-max border border-[#c7a669]/30 shadow-md select-none transition-all duration-300 hover:border-[#c7a669]/70 hover:bg-[#3d2506]/80 hover:text-[#FAE8D7] hover:-translate-y-[1px]">
         {/* Sleek SVG Clock with animated rotating hands on hover */}
         <svg 
           xmlns="http://www.w3.org/2000/svg" 

@@ -113,12 +113,14 @@ export default async function ChapterPage({ params }: ChapterProps) {
           Cyber Laws and Ethics    {/* ← subject name */}
         </h1>
 
-        <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
-          {isSubTopic && parentChapter
-            ? `${parentChapter.title} / ${chapterData.title}`
-            : chapterData.title}
-        </p>
-        <ReadingTime chapterKey={chapterId} />
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-[-8px]">
+          <p className={`text-2xl ${righteous.className}`}>
+            {isSubTopic && parentChapter
+              ? `${parentChapter.title} / ${chapterData.title}`
+              : chapterData.title}
+          </p>
+          <ReadingTime chapterKey={chapterId} />
+        </div>
 
         <div className="flex justify-between mt-3">
           {prevChapter ? (
