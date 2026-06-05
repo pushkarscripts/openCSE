@@ -10,12 +10,14 @@ import { Ch7Content } from "../content/chapter7";
 import { Ch8Content } from "../content/chapter8";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
+import { moduleQuizzes } from "@/lib/quizData";
+import ChapterQuizInline from "../components/ChapterQuizInline";
 
 const righteous = Righteous({
-      subsets: ['latin'], 
-      weight: '400', 
-      variable: '--font-righteous', 
-    });
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-righteous',
+});
 
 // Chapter data
 const chapters = [
@@ -45,6 +47,19 @@ export default function ChapterPage({ params }: ChapterProps) {
   const ChapterComponent = chapter.component;
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+  const chapterQuizSlugMap: Record<string, string> = {
+    ch1: "coa-ch1",
+    ch2: "coa-ch2",
+    ch3: "coa-ch3",
+    ch4: "coa-ch4",
+    ch5: "coa-ch5",
+    ch6: "coa-ch6",
+    ch7: "coa-ch7",
+    ch8: "coa-ch8"
+  };
+
+  const chapterQuiz = moduleQuizzes.find((quiz) => quiz.slug === chapterQuizSlugMap[params.chapter]);
 
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
@@ -84,6 +99,12 @@ export default function ChapterPage({ params }: ChapterProps) {
 
         <hr className="my-6 border-t-3" />
         <ChapterComponent />
+
+        {chapterQuiz ? (
+          <div className="mt-12">
+            <ChapterQuizInline quiz={chapterQuiz} />
+          </div>
+        ) : null}
       </div>
 
       {/* Navigation Buttons */}
@@ -106,7 +127,7 @@ export default function ChapterPage({ params }: ChapterProps) {
             className="px-4 py-2 bg-[#e2d1c1] text-xl flex items-center justify-center text-[#1b0d00] rounded hover:bg-[#ac9e91] transition"
             style={{ fontFamily: 'Rockwell, Serif, serif' }}
           >
-            {nextChapter.title} <ArrowBigRight className="inline-block ml-1" /> 
+            {nextChapter.title} <ArrowBigRight className="inline-block ml-1" />
           </Link>
         ) : (
           <div />
