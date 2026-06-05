@@ -6852,9 +6852,1033 @@ export const moduleQuizzes: Quiz[] = [
           "CI/CD stands for Continuous Integration and Continuous Deployment/Delivery.",
       },
     ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch1",
+    courseSlug: "coa",
+    moduleTitle: "Module I: Introduction to Computer Architecture",
+    moduleSlug: "ch1",
+    description: "A short module quiz covering functional units, instruction cycle, system bus interconnections, and the hardware-software interface.",
+    questions: [
+      {
+        id: 1,
+        question: "Which statement correctly distinguishes computer architecture from computer organization?",
+        options: [
+          "Architecture is the physical wiring and circuit layout of a system",
+          "Architecture only concerns software stack layers and APIs",
+          "There is no meaningful difference between the two terms",
+          "Architecture defines programmer-visible behavior; organization describes hardware implementation"
+        ],
+        answer: 3,
+        explanation: "Architecture defines the instruction set and programmer-visible features; organization is how those features are implemented in hardware.",
+      },
+      {
+        id: 2,
+        question: "Which of the following is NOT a functional unit of a computer?",
+        options: ["CPU", "Memory", "Input/Output", "Compiler"],
+        answer: 3,
+        explanation: "Compiler is software; CPU, Memory, and I/O are hardware functional units.",
+      },
+      {
+        id: 3,
+        question: "What is the primary role of the CPU?",
+        options: [
+          "Execute instructions and control computation",
+          "Store long-term persistent data on physical media",
+          "Provide network connectivity between systems",
+          "Render graphical output to display devices"
+        ],
+        answer: 0,
+        explanation: "The CPU fetches, decodes, and executes instructions, coordinating computation.",
+      },
+      {
+        id: 4,
+        question: "Which sequence best represents the basic instruction cycle?",
+        options: [
+          "Execute → Decode → Fetch → Store",
+          "Fetch → Decode → Execute → Store/Write-back",
+          "Decode → Fetch → Store → Execute",
+          "Store → Fetch → Decode → Execute"
+        ],
+        answer: 1,
+        explanation: "The standard instruction cycle begins with fetching the instruction, decoding it, executing, then writing results.",
+      },
+      {
+        id: 5,
+        question: "A system bus typically interconnects the CPU with which components?",
+        options: [
+          "GPU and external monitor hardware only",
+          "Compiler toolchains and assembler software",
+          "Memory and I/O devices",
+          "User-facing application programs only"
+        ],
+        answer: 2,
+        explanation: "The system bus carries addresses, data, and control signals between CPU, memory, and I/O devices.",
+      },
+      {
+        id: 6,
+        question: "Which layer sits between software and physical hardware and defines the programmer-visible interface?",
+        options: [
+          "The silicon circuit layout layer",
+          "Instruction Set Architecture (ISA)",
+          "The power management subsystem",
+          "The network communication protocol"
+        ],
+        answer: 1,
+        explanation: "The ISA defines the instructions, registers, and memory model exposed to software.",
+      },
+      {
+        id: 7,
+        question: "Which statement about memory as a functional unit is correct?",
+        options: [
+          "Memory only stores instructions, never data",
+          "Memory executes arithmetic instructions directly",
+          "Memory replaces the CPU for logic operations",
+          "Memory stores both instructions and data for the CPU"
+        ],
+        answer: 3,
+        explanation: "Memory holds program instructions and data which the CPU reads and writes during execution.",
+      },
+      {
+        id: 8,
+        question: "Which bus type is primarily responsible for processor↔memory communication?",
+        options: ["I/O bus", "Backplane bus", "Processor-memory (system) bus", "Peripheral bus"],
+        answer: 2,
+        explanation: "The processor-memory or system bus is optimized for CPU and main memory traffic.",
+      },
+      {
+        id: 9,
+        question: "Which of these is an example of an I/O device?",
+        options: ["ALU", "RAM", "Keyboard", "Control unit"],
+        answer: 2,
+        explanation: "A keyboard is an input device; ALU and control unit are CPU parts and RAM is memory.",
+      },
+      {
+        id: 10,
+        question: "Why is studying computer architecture important when selecting hardware?",
+        options: [
+          "It ensures hardware meets functional, performance, and cost goals",
+          "It helps developers write user interface code more quickly",
+          "It eliminates the need for any operating system layer",
+          "It makes programs language-agnostic automatically"
+        ],
+        answer: 0,
+        explanation: "Architecture helps designers choose and interconnect components to meet required functionality, performance, and cost targets.",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch2",
+    courseSlug: "coa",
+    moduleTitle: "Module II: Performance Analysis",
+    moduleSlug: "ch2",
+    description: "A module quiz covering performance definitions (latency vs. throughput), components of CPU execution time, CPI/IPC, the CPU performance equation, and throughput metrics (MIPS, MOPS, MFLOPS).",
+    questions: [
+      {
+        id: 1,
+        question: "Which metric represents the total time required to execute a single, individual computational task from submission to completion?",
+        options: [
+          "Throughput (total work volume per unit time)",
+          "Response Time (Latency)",
+          "Clock Period (cycle duration in nanoseconds)",
+          "IPC (instructions completed per cycle)"
+        ],
+        answer: 1,
+        explanation: "Latency (or Response Time) is the time between the start and completion of a single task. Throughput is the total volume of work done in a given time.",
+      },
+      {
+        id: 2,
+        question: "If Machine A has an execution time of 5 seconds for a program, and Machine B has an execution time of 20 seconds, how many times faster is Machine A than Machine B?",
+        options: [
+          "0.25 times faster than Machine B",
+          "15 times faster than Machine B",
+          "2 times faster than Machine B",
+          "4 times faster than Machine B"
+        ],
+        answer: 3,
+        explanation: "Speedup = Execution Time B / Execution Time A = 20 / 5 = 4 times.",
+      },
+      {
+        id: 3,
+        question: "What component of CPU Execution Time represents the clock time spent executing operating system kernel routines on behalf of the application?",
+        options: [
+          "User CPU Time",
+          "Wall-clock Time (total elapsed time)",
+          "System CPU Time",
+          "I/O Wait Time"
+        ],
+        answer: 2,
+        explanation: "System CPU Time is the time the CPU spends executing OS kernel code on behalf of the application. User CPU Time is spent executing the application's code.",
+      },
+      {
+        id: 4,
+        question: "What is the relationship between Cycles Per Instruction (CPI) and Instructions Per Cycle (IPC)?",
+        options: [
+          "IPC is the mathematical inverse of CPI (IPC = 1 / CPI)",
+          "They are directly proportional (IPC = CPI)",
+          "IPC is always numerically greater than CPI",
+          "There is no mathematical relationship between them"
+        ],
+        answer: 0,
+        explanation: "IPC (Instructions Per Cycle) and CPI (Cycles Per Instruction) are exact reciprocals: IPC = 1 / CPI.",
+      },
+      {
+        id: 5,
+        question: "According to the Fundamental CPU Performance Equation, what is the formula for calculating total CPU Time?",
+        options: [
+          "Instruction Count / (CPI × Clock Rate)",
+          "CPI × Clock Cycle Time only",
+          "Instruction Count × CPI × Clock Cycle Time",
+          "Instruction Count × Clock Rate / CPI"
+        ],
+        answer: 2,
+        explanation: "CPU Time = Instruction Count * CPI * Clock Cycle Time = (Instruction Count * CPI) / Clock Rate.",
+      },
+      {
+        id: 6,
+        question: "Which layer of the computer system stack affects the Clock Rate of the processor but NOT the CPI or Instruction Count?",
+        options: [
+          "Algorithm Design",
+          "Silicon VLSI Technology",
+          "Microarchitecture Design",
+          "Compiler Optimization"
+        ],
+        answer: 1,
+        explanation: "Silicon VLSI Technology determines transistor speeds and clock rates, but doesn't affect the logical execution (CPI) or the number of instructions generated (Instruction Count).",
+      },
+      {
+        id: 7,
+        question: "According to the Architectural Dependencies Matrix, which system layers can affect BOTH the Instruction Count and CPI?",
+        options: [
+          "Silicon VLSI Technology and Microarchitecture",
+          "Programming Language only, not other layers",
+          "No single layer can influence both metrics",
+          "Algorithm, Compiler Optimization, and ISA"
+        ],
+        answer: 3,
+        explanation: "Algorithm design, Compiler Optimization, and ISA influence both the number of instructions needed and their CPI (e.g. by choosing different mixtures of instructions).",
+      },
+      {
+        id: 8,
+        question: "Why is MIPS (Millions of Instructions Per Second) considered a poor metric for comparing different Instruction Set Architectures (ISAs)?",
+        options: [
+          "Because MIPS values remain constant across all workloads",
+          "Because MIPS only measures the memory access speed",
+          "Because it ignores instruction complexity — a CISC instruction does far more work than a RISC one",
+          "Because MIPS cannot be calculated for RISC processors"
+        ],
+        answer: 2,
+        explanation: "Since different ISAs perform different amounts of work per instruction (e.g., CISC vs RISC), MIPS is not a reliable cross-architecture comparison metric.",
+      },
+      {
+        id: 9,
+        question: "If a compiler optimization reduces execution time but increases the number of simple, fast instructions, what happens to the MIPS rating and the program performance?",
+        options: [
+          "Performance improves, and MIPS rating increases",
+          "Performance degrades, but MIPS rating increases",
+          "Performance improves, but MIPS rating decreases",
+          "Performance degrades, and MIPS rating decreases"
+        ],
+        answer: 0,
+        explanation: "If execution time is reduced, performance improves. If the number of instructions increases disproportionately due to faster simple instructions, the CPI drops and the MIPS rating can increase.",
+      },
+      {
+        id: 10,
+        question: "What does MFLOPS benchmark specifically measure in scientific computing?",
+        options: [
+          "Millions of Files Opened Per Second",
+          "Memory Flow Operations Per Second",
+          "Millions of Functions Called Per Second",
+          "Millions of Floating-Point Operations Per Second"
+        ],
+        answer: 3,
+        explanation: "MFLOPS stands for Millions of Floating-Point Operations Per Second and is used to measure arithmetic floating-point computation speed.",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch3",
+    courseSlug: "coa",
+    moduleTitle: "Module III: MIPS - Language of the Computer",
+    moduleSlug: "ch3",
+    description: "A module quiz covering instruction set architecture, registers, formats (R/I/J), memory alignment, and addressing modes.",
+    questions: [
+      {
+        id: 1,
+        question: "What computer architecture concept describes storing program instructions and data in the same read-write memory space?",
+        options: [
+          "Harvard Architecture (separate memories)",
+          "Register Spilling (moving registers to RAM)",
+          "Stored Program Concept",
+          "Data Alignment (byte boundaries)"
+        ],
+        answer: 2,
+        explanation: "The Stored Program Concept (associated with von Neumann architecture) stores both instructions and data in the same memory space, enabling the control unit to fetch and execute instruction sequences dynamically.",
+      },
+      {
+        id: 2,
+        question: "Which MIPS register is hardwired to zero, meaning any reads return 0 and any writes to it are ignored?",
+        options: [
+          "$at (assembler temporary register)",
+          "$zero ($0)",
+          "$sp (stack pointer register)",
+          "$ra (return address register)"
+        ],
+        answer: 1,
+        explanation: "In MIPS, register $0 ($zero) is hardwired to the constant value 0.",
+      },
+      {
+        id: 3,
+        question: "What is the purpose of MIPS register $31 ($ra)?",
+        options: [
+          "Assembler temporary",
+          "Return values for subroutines",
+          "Stack pointer for memory allocation",
+          "Return address for subroutines"
+        ],
+        answer: 3,
+        explanation: "Register $ra ($31) holds the return address, which is automatically saved by the `jal` (jump and link) instruction for subroutines.",
+      },
+      {
+        id: 4,
+        question: "Under MIPS word alignment restrictions, what must a word memory address be a multiple of?",
+        options: [
+          "2",
+          "4",
+          "8",
+          "16"
+        ],
+        answer: 1,
+        explanation: "In MIPS, a word is 32 bits (4 bytes). Because MIPS is byte-addressable, the address of a word must be aligned on a multiple of 4 bytes.",
+      },
+      {
+        id: 5,
+        question: "What is the bit width of MIPS R-Type, I-Type, and J-Type instructions?",
+        options: [
+          "16 bits, 32 bits, and 64 bits respectively",
+          "Varies depending on compiler optimization",
+          "All are exactly 32 bits wide",
+          "8 bits, 16 bits, and 32 bits respectively"
+        ],
+        answer: 2,
+        explanation: "MIPS is a RISC ISA with a fixed instruction length; all instructions (R, I, and J formats) are exactly 32 bits wide.",
+      },
+      {
+        id: 6,
+        question: "Which instruction format is used for arithmetic operations like `add $s1, $s2, $s3`?",
+        options: [
+          "R-Type",
+          "I-Type",
+          "J-Type",
+          "M-Type"
+        ],
+        answer: 0,
+        explanation: "Register-register arithmetic/logical instructions like `add` utilize the R-Type (Register) format.",
+      },
+      {
+        id: 7,
+        question: "What type of instruction is `lw $t0, 8($s1)` and what format does it use?",
+        options: [
+          "Load Word, R-Type format",
+          "Store Word, I-Type format",
+          "Load Word, J-Type format",
+          "Load Word, I-Type format"
+        ],
+        answer: 3,
+        explanation: "`lw` (Load Word) uses the I-Type (Immediate) format because it requires encoding an offset (immediate value) along with base and source/target registers.",
+      },
+      {
+        id: 8,
+        question: "In MIPS subroutines, which instruction is typically used to return control back to the caller at the saved return address?",
+        options: [
+          "jal Subroutine",
+          "j Loop",
+          "jr $ra",
+          "ret"
+        ],
+        answer: 2,
+        explanation: "`jr $ra` (Jump Register) jumps to the address stored in register $ra, which returns control to the caller.",
+      },
+      {
+        id: 9,
+        question: "Which addressing mode is used by conditional branches like `beq` and `bne`, where the target address is calculated as an offset relative to the Program Counter?",
+        options: [
+          "PC-relative addressing",
+          "Base/Displacement addressing",
+          "Pseudo-direct addressing",
+          "Immediate addressing"
+        ],
+        answer: 0,
+        explanation: "MIPS branches use PC-relative addressing, where the branch target is represented as a signed word offset from the current PC.",
+      },
+      {
+        id: 10,
+        question: "What addressing mode is represented by the MIPS instruction `addi $t0, $t1, 150`?",
+        options: [
+          "Register addressing",
+          "Base/Displacement addressing",
+          "Pseudo-direct addressing",
+          "Immediate addressing"
+        ],
+        answer: 3,
+        explanation: "`addi` (add immediate) uses immediate addressing, where one of the operands is a constant integer encoded directly in the instruction itself.",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch4",
+    courseSlug: "coa",
+    moduleTitle: "Module IV: Computer Arithmetic",
+    moduleSlug: "ch4",
+    description: "A module quiz covering number representation, two's complement, sign extension, overflow detection, multiplication hardware, and IEEE 754 floating-point.",
+    questions: [
+      {
+        id: 1,
+        question: "In a 32-bit two's complement system, what is the role of bit 31 (the most significant bit)?",
+        options: [
+          "It stores the parity check value for error detection",
+          "It is always zero for any valid representable number",
+          "It represents the processor's overflow flag directly",
+          "It acts as the sign bit with a weight of −2³¹"
+        ],
+        answer: 3,
+        explanation: "In two's complement, the MSB (bit 31) carries a negative weight of −2³¹, making the number negative when this bit is 1.",
+      },
+      {
+        id: 2,
+        question: "What is the range of a 32-bit unsigned integer?",
+        options: [
+          "0 to 2³² − 1",
+          "−2³¹ to +2³¹ − 1",
+          "0 to 2³¹ − 1",
+          "−2³² to +2³²"
+        ],
+        answer: 0,
+        explanation: "All 32 bits represent magnitude, so the range is 0 to 2³² − 1 (0 to 4,294,967,295).",
+      },
+      {
+        id: 3,
+        question: "When sign-extending a negative 16-bit value to 32 bits, the upper 16 bits are filled with:",
+        options: [
+          "All 0s",
+          "All 1s",
+          "Alternating 0s and 1s",
+          "Random values"
+        ],
+        answer: 1,
+        explanation: "For negative numbers (sign bit = 1), sign extension replicates the sign bit, filling all new upper bits with 1s to preserve the numeric value.",
+      },
+      {
+        id: 4,
+        question: "When can arithmetic overflow occur during addition in two's complement?",
+        options: [
+          "Overflow can occur with any arbitrary combination of operands",
+          "When adding a positive number and a negative number together",
+          "When adding two same-sign values and the result sign differs",
+          "When adding two numbers with opposite signs to each other"
+        ],
+        answer: 2,
+        explanation: "Overflow only occurs when both operands have the same sign but the result has the opposite sign. Adding opposite signs can never overflow.",
+      },
+      {
+        id: 5,
+        question: "When multiplying two 32-bit integers, the product register must be how many bits wide?",
+        options: [
+          "32 bits",
+          "48 bits",
+          "64 bits",
+          "128 bits"
+        ],
+        answer: 2,
+        explanation: "Multiplying two n-bit numbers can produce a result up to 2n bits wide. For 32-bit operands, the product requires 64 bits.",
+      },
+      {
+        id: 6,
+        question: "In sequential multiplication hardware, what happens when the current LSB of the Multiplier register is 1?",
+        options: [
+          "The Multiplicand is added to the Product",
+          "The Multiplicand is subtracted from Product",
+          "The entire operation cycle is skipped",
+          "The Product register is cleared to zero"
+        ],
+        answer: 0,
+        explanation: "When the multiplier bit is 1, the multiplicand is added to the product. When it is 0, no addition occurs — only shifts.",
+      },
+      {
+        id: 7,
+        question: "In IEEE 754 single-precision format, how are the 32 bits divided?",
+        options: [
+          "1 sign, 11 exponent, 20 fraction bits",
+          "2 sign, 6 exponent, 24 fraction bits",
+          "1 sign, 8 exponent, 24 fraction bits",
+          "1 sign, 8 exponent, 23 fraction bits"
+        ],
+        answer: 3,
+        explanation: "IEEE 754 single precision uses 1 bit for sign, 8 bits for the biased exponent, and 23 bits for the significand fraction.",
+      },
+      {
+        id: 8,
+        question: "In IEEE 754 single-precision, the exponent bias value is:",
+        options: [
+          "63",
+          "127",
+          "255",
+          "1023"
+        ],
+        answer: 1,
+        explanation: "Single-precision uses a bias of 127. The actual exponent = stored exponent − 127.",
+      },
+      {
+        id: 9,
+        question: "What is the first step when adding two IEEE 754 floating-point numbers with different exponents?",
+        options: [
+          "Add both significands directly without modification",
+          "Normalize the final result to standard form",
+          "Round the number with the larger magnitude",
+          "Align binary points by shifting the smaller significand"
+        ],
+        answer: 3,
+        explanation: "Before adding significands, the number with the smaller exponent must be shifted right to align both decimal points to the same exponent.",
+      },
+      {
+        id: 10,
+        question: "In IEEE 754, the leading '1.' in the significand is:",
+        options: [
+          "Explicitly stored inside the fraction field",
+          "Stored within the biased exponent field",
+          "Implicitly assumed and not stored (hidden bit)",
+          "Only present for negative floating-point numbers"
+        ],
+        answer: 2,
+        explanation: "IEEE 754 uses an implicit leading 1 (the hidden bit) for normalized numbers, giving an effective 24-bit precision from only 23 stored fraction bits.",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch5",
+    courseSlug: "coa",
+    moduleTitle: "Module V: Building a Datapath",
+    moduleSlug: "ch5",
+    description: "A module quiz covering combinational vs. sequential elements, control signals, R-type/load/branch execution flows, and multicycle datapath design.",
+    questions: [
+      {
+        id: 1,
+        question: "Which type of logic element produces outputs that depend strictly on the current inputs, with no internal memory?",
+        options: [
+          "Sequential elements (state-holding devices)",
+          "Pipeline registers (inter-stage buffers)",
+          "Combinational elements",
+          "Flip-flops (edge-triggered storage)"
+        ],
+        answer: 2,
+        explanation: "Combinational elements (like ALU, multiplexers) have outputs that depend only on current inputs, with no stored state.",
+      },
+      {
+        id: 2,
+        question: "The Register File in a MIPS datapath supports how many simultaneous read and write ports per clock cycle?",
+        options: [
+          "1 read port, 1 write port",
+          "2 read ports, 1 write port",
+          "2 read ports, 2 write ports",
+          "3 read ports, 1 write port"
+        ],
+        answer: 1,
+        explanation: "The MIPS register file allows two simultaneous reads (for rs and rt) and one write (to rd or rt) per clock edge.",
+      },
+      {
+        id: 3,
+        question: "The Main Control Unit decodes which field of a MIPS instruction to generate control signals?",
+        options: [
+          "The 6-bit opcode (bits 31-26)",
+          "The function field (bits 5-0)",
+          "The shamt field (bits 10-6)",
+          "The 16-bit immediate (bits 15-0)"
+        ],
+        answer: 0,
+        explanation: "The Control Unit reads the 6-bit opcode (bits 31-26) to determine which control signals to assert for the instruction.",
+      },
+      {
+        id: 4,
+        question: "When the ALUSrc control signal is asserted (set to 1), what is the second operand to the ALU?",
+        options: [
+          "The value read from register rt in the register file",
+          "The sign-extended immediate value",
+          "The current PC + 4 sequential address value",
+          "The value read from destination register rd"
+        ],
+        answer: 1,
+        explanation: "ALUSrc=1 selects the sign-extended immediate as the second ALU input. ALUSrc=0 selects the register file output (rt).",
+      },
+      {
+        id: 5,
+        question: "In MIPS two-level ALU decoding, what inputs does the ALU Control unit use to generate the final operation code?",
+        options: [
+          "Only the 6-bit opcode field from the instruction",
+          "Only the 6-bit function field from the instruction",
+          "The register data values directly from the file",
+          "ALUOp (2 bits) and the function field (6 bits)"
+        ],
+        answer: 3,
+        explanation: "Level 1 (Main Control) generates ALUOp from the opcode. Level 2 (ALU Control) combines ALUOp with the function field (bits 5-0) to produce the specific ALU control code.",
+      },
+      {
+        id: 6,
+        question: "During an R-type instruction like `add $rd, $rs, $rt`, where is the ALU result written back to?",
+        options: [
+          "The Data Memory at a computed address",
+          "The Program Counter for the next fetch",
+          "Register rd via the Register File",
+          "The instruction memory address space"
+        ],
+        answer: 2,
+        explanation: "For R-type instructions, the ALU result is routed back to the Register File and written to destination register rd.",
+      },
+      {
+        id: 7,
+        question: "During a Load Word instruction, what serves as the second input to the ALU for address calculation?",
+        options: [
+          "The sign-extended 16-bit immediate offset",
+          "The value stored in register rt currently",
+          "The current Program Counter value (PC)",
+          "The 6-bit function field of the instruction"
+        ],
+        answer: 0,
+        explanation: "For lw, the sign-extend unit converts the 16-bit offset to 32 bits, and the ALU adds it to the base address from rs.",
+      },
+      {
+        id: 8,
+        question: "For a `beq` instruction, the branch is taken when which condition is true?",
+        options: [
+          "The ALU result output is non-zero",
+          "The processor overflow flag is set",
+          "Branch AND Zero are both asserted",
+          "The ALU carry-out bit equals 1"
+        ],
+        answer: 2,
+        explanation: "The beq branch is taken when Branch=1 AND Zero=1. The ALU subtracts rt from rs; if they are equal, the result is zero.",
+      },
+      {
+        id: 9,
+        question: "Why is the single-cycle datapath inefficient?",
+        options: [
+          "It cannot execute any R-type arithmetic instructions",
+          "It requires an excessive number of hardware registers",
+          "It is unable to handle any branch instruction types",
+          "The clock must match the slowest path (lw), wasting time"
+        ],
+        answer: 3,
+        explanation: "In a single-cycle design, the clock must stretch to the slowest instruction (typically lw). Faster instructions like add or jump waste the remaining time.",
+      },
+      {
+        id: 10,
+        question: "What is a key architectural advantage of a multicycle datapath over a single-cycle design?",
+        options: [
+          "It uses separate memories for instructions and data",
+          "It completely eliminates the need for a control unit",
+          "It shares hardware and uses a shorter, optimized clock",
+          "It executes every instruction in exactly one clock cycle"
+        ],
+        answer: 2,
+        explanation: "Multicycle designs share a single ALU and memory across steps, using shorter clock periods. Each instruction takes only as many cycles as it needs.",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch6",
+    courseSlug: "coa",
+    moduleTitle: "Module VI: Pipelining",
+    moduleSlug: "ch6",
+    description: "A module quiz covering pipelining concepts, the 5-stage MIPS pipeline, structural/data/control hazards, pipeline registers, and exception handling.",
+    questions: [
+      {
+        id: 1,
+        question: "What is pipelining in processor design?",
+        options: [
+          "Storing instructions inside a circular hardware buffer",
+          "Running separate instructions on multiple distinct processors",
+          "Overlapping execution of multiple instructions simultaneously",
+          "Executing each instruction fully before starting the next"
+        ],
+        answer: 2,
+        explanation: "Pipelining overlaps the execution of multiple instructions, similar to an assembly line where different stages process different instructions simultaneously.",
+      },
+      {
+        id: 2,
+        question: "What are the five stages of the canonical MIPS pipeline, in order?",
+        options: [
+          "IF, ID, EX, MEM, WB",
+          "IF, EX, ID, WB, MEM",
+          "ID, IF, EX, MEM, WB",
+          "IF, ID, MEM, EX, WB"
+        ],
+        answer: 0,
+        explanation: "The standard 5-stage MIPS pipeline is: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory Access (MEM), Write Back (WB).",
+      },
+      {
+        id: 3,
+        question: "What is a Structural Hazard in a pipelined processor?",
+        options: [
+          "A data dependency between two consecutive instructions",
+          "An incorrect branch prediction causing wrong fetches",
+          "An arithmetic overflow detected during execution stage",
+          "A resource conflict where two instructions need the same hardware unit"
+        ],
+        answer: 3,
+        explanation: "Structural hazards occur when the hardware cannot support a specific combination of instructions simultaneously (e.g., a single memory used for both IF and MEM).",
+      },
+      {
+        id: 4,
+        question: "What is the primary solution for resolving Data Hazards without stalling the pipeline?",
+        options: [
+          "Branch prediction (static or dynamic)",
+          "Forwarding (Bypassing)",
+          "Increasing the overall clock period length",
+          "Adding additional pipeline stages to the design"
+        ],
+        answer: 1,
+        explanation: "Forwarding (bypassing) passes the ALU result directly to the next instruction's input before the write-back stage completes, avoiding stalls.",
+      },
+      {
+        id: 5,
+        question: "Control Hazards (Branch Hazards) arise because:",
+        options: [
+          "Two instructions need the same destination register",
+          "Main memory is too slow for pipeline throughput",
+          "The pipeline must decide which instruction to fetch next after a branch",
+          "The ALU hardware cannot perform subtraction operations"
+        ],
+        answer: 2,
+        explanation: "Control hazards occur because the pipeline doesn't know whether a branch will be taken until it is evaluated, potentially fetching wrong instructions.",
+      },
+      {
+        id: 6,
+        question: "Which pipeline register sits between the Instruction Fetch and Instruction Decode stages?",
+        options: [
+          "IF/ID",
+          "ID/EX",
+          "EX/MEM",
+          "MEM/WB"
+        ],
+        answer: 0,
+        explanation: "The IF/ID pipeline register holds the fetched instruction and PC+4 value, passing them from the Fetch stage to the Decode stage.",
+      },
+      {
+        id: 7,
+        question: "What does the EX/MEM pipeline register store?",
+        options: [
+          "The fetched instruction word from memory",
+          "Only the decoded control signals for later stages",
+          "The data word read from the data memory unit",
+          "ALU result, branch target, and write-data"
+        ],
+        answer: 3,
+        explanation: "EX/MEM stores the ALU result, the computed branch target, and the data to be written, bridging the Execute and Memory stages.",
+      },
+      {
+        id: 8,
+        question: "When a pipeline exception occurs (e.g., arithmetic overflow in EX), the pipeline must:",
+        options: [
+          "Continue executing all subsequent instructions normally",
+          "Restart the entire program from its first instruction",
+          "Flush later instructions, save address in EPC, jump to handler",
+          "Silently ignore the exception and proceed forward"
+        ],
+        answer: 2,
+        explanation: "The pipeline flushes instructions after the offending one (converting them to nops), saves the address in the Exception Program Counter (EPC), and jumps to a handler.",
+      },
+      {
+        id: 9,
+        question: "What is the ideal speedup from a k-stage pipeline?",
+        options: [
+          "k× (equal to the number of stages)",
+          "2× regardless of the number of stages",
+          "k² (the square of the stage count)",
+          "log(k) (logarithmic improvement)"
+        ],
+        answer: 0,
+        explanation: "The ideal speedup equals the number of pipeline stages k, though real-world hazards and unequal stage times reduce this.",
+      },
+      {
+        id: 10,
+        question: "What is the difference between an Exception and an Interrupt in pipelining?",
+        options: [
+          "There is no difference; they are identical concepts",
+          "Exceptions are caused by I/O; Interrupts are caused by overflow",
+          "Exceptions halt the CPU permanently; Interrupts do not",
+          "Exceptions are internal events; Interrupts are external I/O events"
+        ],
+        answer: 3,
+        explanation: "Exceptions are internal (e.g., overflow, undefined instruction); Interrupts are external signals from I/O devices (e.g., keyboard, disk).",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch7",
+    courseSlug: "coa",
+    moduleTitle: "Module VII: Memory Hierarchy",
+    moduleSlug: "ch7",
+    description: "A module quiz covering memory hierarchy, locality principles, cache mapping strategies, AMAT, write policies, and virtual memory address translation.",
+    questions: [
+      {
+        id: 1,
+        question: "Why do computer systems organize memory into a hierarchy?",
+        options: [
+          "Because all memory types share the same speed and cost",
+          "Because processors can only ever access one memory type",
+          "Because software always requires exactly four memory levels",
+          "Because fast memory is expensive, and large memory is slow"
+        ],
+        answer: 3,
+        explanation: "An ideal memory would be infinitely fast, large, and cheap. Since this is impossible, systems use a hierarchy: small/fast/expensive at the top, large/slow/cheap at the bottom.",
+      },
+      {
+        id: 2,
+        question: "Temporal Locality states that:",
+        options: [
+          "A recently accessed location will likely be accessed again soon",
+          "Adjacent memory addresses will likely be accessed next",
+          "Memory access patterns are completely random in practice",
+          "Only instruction memory ever exhibits locality behavior"
+        ],
+        answer: 0,
+        explanation: "Temporal locality (locality in time) means that if a location was recently accessed, it will likely be accessed again soon (e.g., loop counters).",
+      },
+      {
+        id: 3,
+        question: "In a Direct-Mapped Cache, how is the cache slot determined for a given memory block?",
+        options: [
+          "The block can go in any available cache slot",
+          "The operating system decides the slot at runtime",
+          "Slot = (Block Address) mod (Number of Cache Blocks)",
+          "The block always maps into slot 0 by default"
+        ],
+        answer: 2,
+        explanation: "In direct-mapped cache, each block maps to exactly one slot determined by: slot index = block address % number of cache blocks.",
+      },
+      {
+        id: 4,
+        question: "What is the main disadvantage of a Fully Associative Cache?",
+        options: [
+          "It suffers from severe thrashing due to index collisions",
+          "It requires parallel comparators for every tag (high cost)",
+          "It is limited to storing only a single block at a time",
+          "It cannot support any type of write operation at all"
+        ],
+        answer: 1,
+        explanation: "Fully associative cache allows any block in any slot, eliminating collisions, but requires expensive parallel comparators for every entry to search all tags simultaneously.",
+      },
+      {
+        id: 5,
+        question: "In a Set-Associative Cache, a memory block maps to:",
+        options: [
+          "Any slot in the entire cache array freely",
+          "A specific set, and any slot within that set",
+          "Exactly one predetermined slot (no flexibility)",
+          "The first empty slot found by sequential scan"
+        ],
+        answer: 1,
+        explanation: "Set-associative cache is a middle ground: a block maps to a specific set (by address modulo number of sets) but can occupy any slot within that set.",
+      },
+      {
+        id: 6,
+        question: "What is the formula for Average Memory Access Time (AMAT)?",
+        options: [
+          "AMAT = Miss Rate × Miss Penalty only",
+          "AMAT = Hit Time × Miss Rate directly",
+          "AMAT = Hit Time + (Miss Rate × Miss Penalty)",
+          "AMAT = Hit Time + Miss Penalty (fixed)"
+        ],
+        answer: 2,
+        explanation: "AMAT combines the time for cache hits with the penalty for misses: AMAT = Hit Time + (Miss Rate × Miss Penalty).",
+      },
+      {
+        id: 7,
+        question: "In a Write-Back cache policy, when is modified data written to main memory?",
+        options: [
+          "Immediately when the cache block is first modified",
+          "At a fixed hardware-defined time interval",
+          "Only when the dirty cache block is evicted",
+          "Never — data permanently stays in cache only"
+        ],
+        answer: 2,
+        explanation: "Write-back writes to cache only, deferring main memory updates until the dirty block is evicted. A dirty bit tracks whether the block has been modified.",
+      },
+      {
+        id: 8,
+        question: "What happens when a Virtual Memory Page Fault occurs?",
+        options: [
+          "The entire data cache is completely flushed",
+          "The page is not in RAM and must be loaded from disk",
+          "The Translation Lookaside Buffer is fully cleared",
+          "The running program terminates immediately with error"
+        ],
+        answer: 1,
+        explanation: "A page fault occurs when the requested virtual page is not currently in physical RAM and must be loaded from secondary storage (disk).",
+      },
+      {
+        id: 9,
+        question: "What is the purpose of the Translation Lookaside Buffer (TLB)?",
+        options: [
+          "It stores the entire page table inside dedicated hardware",
+          "It completely replaces the page table in all cases",
+          "It stores data cache entries alongside instruction cache",
+          "It caches recent VPN-to-PPN translations for speed"
+        ],
+        answer: 3,
+        explanation: "The TLB is a small, highly-associative hardware cache inside the CPU that remembers recent VPN-to-PPN mappings, resolving >95% of translations without accessing the page table in memory.",
+      },
+      {
+        id: 10,
+        question: "In virtual memory address translation, what part of the virtual address is NOT translated?",
+        options: [
+          "The Page Offset",
+          "The Virtual Page Number (VPN)",
+          "The entire virtual address is fully translated",
+          "The tag bits used for cache identification"
+        ],
+        answer: 0,
+        explanation: "The VPN is translated to a Physical Page Number (PPN) via the page table/TLB, but the page offset passes through unchanged since it identifies the byte within the page.",
+      }
+    ],
+  },
+  {
+    subject: "Computer Organization and Architecture",
+    slug: "coa-ch8",
+    courseSlug: "coa",
+    moduleTitle: "Module VIII: Storage and I/O Systems",
+    moduleSlug: "ch8",
+    description: "A module quiz covering I/O system architecture, bus types, polling, interrupt-driven I/O, DMA controllers, and I/O processors.",
+    questions: [
+      {
+        id: 1,
+        question: "What are the two fundamental components involved in handling an I/O operation?",
+        options: [
+          "Instruction fetch and instruction decode stages",
+          "Branch prediction logic and data forwarding paths",
+          "Control/command signaling and data transfer pathways",
+          "Caching subsystem and virtual paging management"
+        ],
+        answer: 2,
+        explanation: "I/O operations involve (1) control/command signaling to issue tasks and check status, and (2) data transfer pathways to move data between memory and peripherals.",
+      },
+      {
+        id: 2,
+        question: "Which bus type is optimized for high-frequency synchronous transfers directly between the CPU and RAM?",
+        options: [
+          "Processor-Memory Bus",
+          "I/O Bus (e.g., PCIe, SATA)",
+          "Backplane Bus (shared wiring)",
+          "USB Bus (serial peripheral)"
+        ],
+        answer: 0,
+        explanation: "The Processor-Memory bus is short, fast, and specifically designed for high-bandwidth synchronous transfers between the CPU core and the memory/cache controller.",
+      },
+      {
+        id: 3,
+        question: "What is the main disadvantage of Polling (Programmed I/O) as a data transfer mechanism?",
+        options: [
+          "It requires dedicated hardware controllers to function",
+          "It cannot operate with any standard I/O device type",
+          "It requires complex interrupt handling logic in the OS",
+          "The CPU wastes cycles looping on device status checks"
+        ],
+        answer: 3,
+        explanation: "Polling forces the CPU to continuously loop checking a device's status register, wasting processing cycles while waiting on slow peripheral operations.",
+      },
+      {
+        id: 4,
+        question: "In Interrupt-Driven I/O, what does the peripheral device send when it completes an operation?",
+        options: [
+          "An Interrupt Request (IRQ) on the control bus",
+          "A polling request back to the CPU's status port",
+          "A DMA block transfer initiation signal directly",
+          "A page fault signal to the memory management unit"
+        ],
+        answer: 0,
+        explanation: "The peripheral fires an Interrupt Request (IRQ) to notify the CPU that its operation is done, allowing the CPU to handle it without busy-waiting.",
+      },
+      {
+        id: 5,
+        question: "What is the primary advantage of Direct Memory Access (DMA) over interrupt-driven I/O?",
+        options: [
+          "DMA is much simpler to implement in software",
+          "DMA completely eliminates the need for a system bus",
+          "DMA transfers bulk data between memory and I/O without CPU involvement",
+          "DMA is slower but significantly more reliable overall"
+        ],
+        answer: 2,
+        explanation: "DMA allows a dedicated hardware controller to stream data directly between main memory and peripheral buffers, completely bypassing the CPU for bulk transfers.",
+      },
+      {
+        id: 6,
+        question: "Which DMA controller register stores the initial memory address where a data transfer begins?",
+        options: [
+          "Word Count Register",
+          "Starting Address Register",
+          "Status and Control Register",
+          "Interrupt Enable Register"
+        ],
+        answer: 1,
+        explanation: "The Starting Address Register holds the 32-bit physical memory pointer where the DMA read/write operation begins.",
+      },
+      {
+        id: 7,
+        question: "In the DMA Status and Control Register, what does the Done flag (Bit 1) indicate?",
+        options: [
+          "The controller is ready for a new command setup",
+          "An error has occurred during the data transfer",
+          "The transfer is complete (word count reached zero)",
+          "The DMA controller is currently paused by the CPU"
+        ],
+        answer: 2,
+        explanation: "The Done flag is automatically set to 1 when the word count register reaches zero, indicating the entire data block transfer is complete.",
+      },
+      {
+        id: 8,
+        question: "What characteristic distinguishes a Backplane Bus from a Processor-Memory Bus?",
+        options: [
+          "A backplane bus runs at higher speeds than a processor-memory bus",
+          "A backplane bus is a shared plane where CPU, memory, and peripherals all connect",
+          "A backplane bus only connects I/O devices to each other, not to the CPU",
+          "A backplane bus uses fiber optic connections instead of copper wiring"
+        ],
+        answer: 1,
+        explanation: "A backplane bus is a single shared communication plane linking CPU, memory, and all peripherals on the same wiring. It's cheap but slower due to shared bandwidth.",
+      },
+      {
+        id: 9,
+        question: "What is an I/O Processor (Channel Controller) used for?",
+        options: [
+          "Replacing the main CPU for all general computation tasks",
+          "Managing only keyboard and mouse input peripherals",
+          "Accelerating floating-point mathematical calculations",
+          "Decoupling I/O operations by independently running channel programs"
+        ],
+        answer: 3,
+        explanation: "An I/O Processor is a dedicated microprocessor in the I/O subsystem that independently executes channel programs, handling complex I/O tasks without burdening the main CPU.",
+      },
+      {
+        id: 10,
+        question: "In the I/O Processor workflow, what does the main CPU provide to the I/O Processor to start an operation?",
+        options: [
+          "The raw data bytes that need to be transferred",
+          "The address of a Channel Program in main memory",
+          "A direct hardware interrupt signal on the control bus",
+          "Only the physical disk sector number to access"
+        ],
+        answer: 1,
+        explanation: "The CPU writes the starting address of a channel program into the I/O Processor's interface registers. The I/O Processor then independently fetches and executes this program.",
+      }
+    ],
   }
 ];
-
 export const moduleQuizCards: ModuleQuizCard[] = [
   {
     quizSlug: "os-processes",
@@ -7361,6 +8385,94 @@ export const moduleQuizCards: ModuleQuizCard[] = [
     description: "Quiz on Laplace definitions, properties, inverse transforms, and solving ODEs.",
     buttonLabel: "Take Laplace Quiz",
     relatedTopics: ["laplace transform", "inverse laplace", "shifting theorem", "solving ODEs"],
+  },
+  {
+    quizSlug: "coa-ch1",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch1",
+    moduleTitle: "Module I: Introduction to Computer Architecture",
+    cardTitle: "Module 1 Quiz",
+    description: "A short module quiz covering functional units, instruction cycle, system bus interconnections, and the hardware-software interface.",
+    buttonLabel: "Take Module 1 Quiz",
+    relatedTopics: ["functional units", "instruction cycle", "system bus", "ISA"],
+  },
+  {
+    quizSlug: "coa-ch2",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch2",
+    moduleTitle: "Module II: Performance Analysis",
+    cardTitle: "Module 2 Quiz",
+    description: "A short module quiz covering performance definitions (latency vs. throughput), components of CPU execution time, CPI/IPC, the CPU performance equation, and throughput metrics (MIPS, MOPS, MFLOPS).",
+    buttonLabel: "Take Module 2 Quiz",
+    relatedTopics: ["latency", "throughput", "CPI", "IPC", "performance equation", "MIPS", "MFLOPS"],
+  },
+  {
+    quizSlug: "coa-ch3",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch3",
+    moduleTitle: "Module III: MIPS - Language of the Computer",
+    cardTitle: "Module 3 Quiz",
+    description: "A short module quiz covering instruction set architecture, registers, formats (R/I/J), memory alignment, and addressing modes.",
+    buttonLabel: "Take Module 3 Quiz",
+    relatedTopics: ["MIPS", "Registers", "Instruction Formats", "Addressing Modes", "Alignment"],
+  },
+  {
+    quizSlug: "coa-ch4",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch4",
+    moduleTitle: "Module IV: Computer Arithmetic",
+    cardTitle: "Module 4 Quiz",
+    description: "A module quiz on number representation, two's complement, overflow, multiplication hardware, and IEEE 754 floating-point.",
+    buttonLabel: "Take Module 4 Quiz",
+    relatedTopics: ["two's complement", "overflow", "IEEE 754", "multiplication", "sign extension"],
+  },
+  {
+    quizSlug: "coa-ch5",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch5",
+    moduleTitle: "Module V: Building a Datapath",
+    cardTitle: "Module 5 Quiz",
+    description: "A module quiz on combinational vs. sequential elements, control signals, instruction execution flows, and multicycle design.",
+    buttonLabel: "Take Module 5 Quiz",
+    relatedTopics: ["datapath", "control unit", "ALU", "single-cycle", "multicycle"],
+  },
+  {
+    quizSlug: "coa-ch6",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch6",
+    moduleTitle: "Module VI: Pipelining",
+    cardTitle: "Module 6 Quiz",
+    description: "A module quiz on the 5-stage MIPS pipeline, structural/data/control hazards, forwarding, and exception handling.",
+    buttonLabel: "Take Module 6 Quiz",
+    relatedTopics: ["pipelining", "hazards", "forwarding", "branch prediction", "pipeline registers"],
+  },
+  {
+    quizSlug: "coa-ch7",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch7",
+    moduleTitle: "Module VII: Memory Hierarchy",
+    cardTitle: "Module 7 Quiz",
+    description: "A module quiz on memory hierarchy, locality, cache mapping, AMAT, write policies, and virtual memory.",
+    buttonLabel: "Take Module 7 Quiz",
+    relatedTopics: ["cache", "locality", "AMAT", "virtual memory", "TLB", "page table"],
+  },
+  {
+    quizSlug: "coa-ch8",
+    subject: "Computer Organization and Architecture",
+    subjectSlug: "coa",
+    moduleSlug: "ch8",
+    moduleTitle: "Module VIII: Storage and I/O Systems",
+    cardTitle: "Module 8 Quiz",
+    description: "A module quiz on I/O architecture, bus types, polling, interrupts, DMA controllers, and I/O processors.",
+    buttonLabel: "Take Module 8 Quiz",
+    relatedTopics: ["I/O", "DMA", "polling", "interrupts", "bus architecture", "I/O processor"],
   },
 ];
 
