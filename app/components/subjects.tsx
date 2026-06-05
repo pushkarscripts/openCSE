@@ -123,9 +123,15 @@ const subjectCodes: Record<string, string> = {
   "Decision Sciences": "des",
   "Software Engineering": "se",
 };
-
+const customHrefs: Record<string, string> = {
+  "cc": "/sem5/Cloud-Computing",
+  "cd": "/sem5/cd",
+  "cle": "/sem5/cle",
+};
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec"];
+const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec","cc"];
+
+
 
 export default function SubjectsSection() {
   return (
@@ -154,7 +160,7 @@ export default function SubjectsSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {list.map((subj) => {
                   const code = subjectCodes[subj];
-                  const href = `/${semCode}/${code}/ch0`;
+                 const href = customHrefs[code] ?? `/${semCode}/${code}/ch0`;
                   const isAvailable = available.includes(code);
 
                   const baseClass =
