@@ -65,29 +65,38 @@ export const Ch0Content = () => {
       <section>
         <h3 className="section-heading">Module V: Trees</h3>
         <ul className="section-list">
-        <li>Introduction to Trees and Terminology</li>
-        <li>Tree Characteristics and Components</li>
-        <li>Tree Representation</li>
-        <li>Types of Trees</li>
-        <li>Tree Traversal Techniques (DFS and BFS)</li>
-        <li>Preorder, Inorder, Postorder and Level Order Traversal</li>
-        <li>Tree Operations (Search, Insert, Delete)</li>
-        <li>Height, Node Count and Leaf Count</li>
-        <li>Binary Search Trees (BST)</li>
-        <li>Tree Implementation in C</li>
-        <li>BST Implementation in C</li>
-        <li>Complexity Analysis</li>
-        <li>Applications and Real-Life Examples</li>
-        <li>Advantages and Limitations</li>
+          <li>Introduction to Trees and Terminology</li>
+          <li>Tree Characteristics and Components</li>
+          <li>Tree Representation</li>
+          <li>Types of Trees</li>
+          <li>Tree Traversal Techniques (DFS and BFS)</li>
+          <li>Preorder, Inorder, Postorder and Level Order Traversal</li>
+          <li>Tree Operations (Search, Insert, Delete)</li>
+          <li>Height, Node Count and Leaf Count</li>
+          <li>Binary Search Trees (BST)</li>
+          <li>Tree Implementation in C</li>
+          <li>BST Implementation in C</li>
+          <li>Complexity Analysis</li>
+          <li>Applications and Real-Life Examples</li>
+          <li>Advantages and Limitations</li>
         </ul>
       </section>
 
       <section>
         <h3 className="section-heading">Module VI: Graphs</h3>
         <ul className="section-list">
-          <li>Graph representation</li>
-          <li>Breadth First Search</li>
-          <li>Depth First Search</li>
+          <li>Introduction to Graphs and Terminology</li>
+          <li>Characteristics and Components of Graphs</li>
+          <li>Need for Graphs</li>
+          <li>Types of Graphs</li>
+          <li>Graph Representations (Adjacency Matrix and Adjacency List)</li>
+          <li>Comparison of Graph Representations</li>
+          <li>Graph Traversal Techniques</li>
+          <li>Breadth First Search (BFS)</li>
+          <li>Depth First Search (DFS)</li>
+          <li>BFS vs DFS Comparison</li>
+          <li>Applications and Real-Life Examples</li>
+          <li>Advantages and Limitations</li>
         </ul>
       </section>
 
