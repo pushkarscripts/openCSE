@@ -8,6 +8,7 @@ export default function ProgressBar() {
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const pathname = usePathname();
+  const showScrollProgress = pathname.startsWith('/sem') || pathname.startsWith('/quiz/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +40,7 @@ export default function ProgressBar() {
 
   return (
     <>
-      {pathname.startsWith('/sem') && (
+      {showScrollProgress && (
         <div className="fixed top-0 left-0 w-full h-1.5 z-[99999] bg-black/20 pointer-events-none">
           <div 
             className="h-full transition-all duration-150 ease-out"
