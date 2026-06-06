@@ -27,6 +27,7 @@ export default function Sidebar() {
     { id: "ch3", title: "Stacks" },
     { id: "ch4", title: "Queues" },
     { id: "ch5", title: "Trees" },
+    { id: "ch6", title: "Graphs" },
   ];
 
   const quizSlugMap: Record<string, string> = {

@@ -8,6 +8,7 @@ import { Ch2Content } from "../content/chapter2";
 import { Ch3Content } from "../content/chapter3";
 import { Ch4Content } from "../content/chapter4";
 import { Ch5Content } from "../content/chapter5";
+import { Ch6Content } from "../content/chapter6";
 
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { moduleQuizzes } from "@/lib/quizData";
@@ -26,6 +27,7 @@ const chapters = [
   { id: "ch3", title: "Stacks", component: Ch3Content },
   { id: "ch4", title: "Queues", component: Ch4Content },
   { id: "ch5", title: "Trees", component: Ch5Content },
+  { id: "ch6", title: "Graphs", component: Ch6Content },
 ];
 
 type ChapterProps = {
