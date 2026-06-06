@@ -1,0 +1,48 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="420" rx="24" fill="#F7E7BF"/>
+  <text x="60" y="64" fill="#2B1B0E" font-family="Rockwell, serif" font-size="34" font-weight="700">VLSI Design Flow</text>
+  <text x="60" y="100" fill="#5A4631" font-family="Rockwell, serif" font-size="20">From product idea to manufacturable silicon</text>
+
+  <g font-family="Rockwell, serif" font-size="22" font-weight="700" fill="#2B1B0E">
+    <rect x="60" y="170" width="150" height="90" rx="16" fill="#EAD19F" stroke="#C7A669" stroke-width="3"/>
+    <text x="88" y="222">Specification</text>
+
+    <rect x="250" y="170" width="150" height="90" rx="16" fill="#F0DDB6" stroke="#C7A669" stroke-width="3"/>
+    <text x="304" y="222">RTL</text>
+
+    <rect x="440" y="170" width="150" height="90" rx="16" fill="#EAD19F" stroke="#C7A669" stroke-width="3"/>
+    <text x="469" y="222">Verification</text>
+
+    <rect x="630" y="170" width="150" height="90" rx="16" fill="#F0DDB6" stroke="#C7A669" stroke-width="3"/>
+    <text x="657" y="222">Synthesis</text>
+
+    <rect x="820" y="170" width="150" height="90" rx="16" fill="#EAD19F" stroke="#C7A669" stroke-width="3"/>
+    <text x="862" y="222">Layout</text>
+
+    <rect x="1010" y="170" width="130" height="90" rx="16" fill="#F0DDB6" stroke="#C7A669" stroke-width="3"/>
+    <text x="1050" y="222">Test</text>
+  </g>
+
+  <g stroke="#8D6C3F" stroke-width="5" stroke-linecap="round">
+    <path d="M210 215H245"/>
+    <path d="M400 215H435"/>
+    <path d="M590 215H625"/>
+    <path d="M780 215H815"/>
+    <path d="M970 215H1005"/>
+  </g>
+
+  <g fill="#8D6C3F">
+    <path d="M243 206L257 215L243 224V206Z"/>
+    <path d="M433 206L447 215L433 224V206Z"/>
+    <path d="M623 206L637 215L623 224V206Z"/>
+    <path d="M813 206L827 215L813 224V206Z"/>
+    <path d="M1003 206L1017 215L1003 224V206Z"/>
+  </g>
+
+  <text x="82" y="316" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Goal definition</text>
+  <text x="286" y="316" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Behavior description</text>
+  <text x="458" y="316" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Simulation and bug fixing</text>
+  <text x="640" y="316" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Gate mapping</text>
+  <text x="842" y="316" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Place and route</text>
+  <text x="1026" y="316" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Sign-off</text>
+</svg>
