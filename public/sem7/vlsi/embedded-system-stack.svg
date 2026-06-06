@@ -1,0 +1,41 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="420" rx="24" fill="#F7E7BF"/>
+  <text x="60" y="64" fill="#2B1B0E" font-family="Rockwell, serif" font-size="34" font-weight="700">Embedded System View</text>
+  <text x="60" y="100" fill="#5A4631" font-family="Rockwell, serif" font-size="20">Input, processing, memory, communication, and output in one dedicated product</text>
+
+  <rect x="80" y="160" width="170" height="120" rx="18" fill="#EAD19F" stroke="#C7A669" stroke-width="3"/>
+  <text x="112" y="208" fill="#2B1B0E" font-family="Rockwell, serif" font-size="24" font-weight="700">Sensors /</text>
+  <text x="118" y="238" fill="#2B1B0E" font-family="Rockwell, serif" font-size="24" font-weight="700">Input</text>
+
+  <rect x="310" y="140" width="260" height="160" rx="20" fill="#F0DDB6" stroke="#C7A669" stroke-width="3"/>
+  <text x="355" y="195" fill="#2B1B0E" font-family="Rockwell, serif" font-size="28" font-weight="700">Controller</text>
+  <text x="350" y="230" fill="#2B1B0E" font-family="Rockwell, serif" font-size="22">MCU / MPU / SoC</text>
+  <text x="340" y="265" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Interrupts, timers, buses, logic</text>
+
+  <rect x="630" y="160" width="180" height="120" rx="18" fill="#EAD19F" stroke="#C7A669" stroke-width="3"/>
+  <text x="666" y="206" fill="#2B1B0E" font-family="Rockwell, serif" font-size="24" font-weight="700">Memory</text>
+  <text x="662" y="238" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Flash, RAM, EEPROM</text>
+
+  <rect x="870" y="160" width="250" height="120" rx="18" fill="#F0DDB6" stroke="#C7A669" stroke-width="3"/>
+  <text x="900" y="208" fill="#2B1B0E" font-family="Rockwell, serif" font-size="24" font-weight="700">Actuators / Output</text>
+  <text x="925" y="238" fill="#5A4631" font-family="Rockwell, serif" font-size="18">Motor, display, relay, alarm</text>
+
+  <rect x="390" y="320" width="370" height="48" rx="14" fill="#FAE8D7" stroke="#C7A669" stroke-width="3"/>
+  <text x="438" y="351" fill="#2B1B0E" font-family="Rockwell, serif" font-size="22" font-weight="700">Firmware + Communication + Power Management</text>
+
+  <g stroke="#8D6C3F" stroke-width="5" stroke-linecap="round">
+    <path d="M250 220H300"/>
+    <path d="M570 220H620"/>
+    <path d="M810 220H860"/>
+    <path d="M440 300V320"/>
+    <path d="M720 300V320"/>
+  </g>
+
+  <g fill="#8D6C3F">
+    <path d="M298 211L312 220L298 229V211Z"/>
+    <path d="M618 211L632 220L618 229V211Z"/>
+    <path d="M858 211L872 220L858 229V211Z"/>
+    <path d="M431 318L440 332L449 318H431Z"/>
+    <path d="M711 318L720 332L729 318H711Z"/>
+  </g>
+</svg>
