@@ -1078,6 +1078,179 @@ export const quizzes: Quiz[] = [
     ],
   },
   {
+  subject: "Modern Biology",
+  slug: "mb",
+  description:
+    "Complete Modern Biology quiz covering all five chapters with detailed explanations.",
+  questions: [
+    // ---------------- INTRODUCTION TO BIOLOGY ----------------
+    {
+      id: 1,
+      question: "Who is known as the Father of Biology?",
+      options: ["Charles Darwin", "Aristotle", "Gregor Mendel", "Robert Hooke"],
+      answer: 1,
+      explanation:
+        "Aristotle is called the Father of Biology because he was the first to systematically classify living organisms and study biological diversity."
+    },
+    {
+      id: 2,
+      question: "The basic unit of life is:",
+      options: ["Tissue", "Organ", "Cell", "Nucleus"],
+      answer: 2,
+      explanation:
+        "The cell is the smallest structural and functional unit of all living organisms."
+    },
+    {
+      id: 3,
+      question: "Which instrument is used to observe cells?",
+      options: ["Telescope", "Microscope", "Periscope", "Barometer"],
+      answer: 1,
+      explanation:
+        "A microscope is used because cells are too small to be seen with the naked eye."
+    },
+
+    // ---------------- GENETICS & CYTOLOGY ----------------
+    {
+      id: 4,
+      question: "Who is known as the Father of Genetics?",
+      options: ["Darwin", "Mendel", "Morgan", "Watson"],
+      answer: 1,
+      explanation:
+        "Gregor Mendel discovered the basic principles of heredity using pea plant experiments."
+    },
+    {
+      id: 5,
+      question: "DNA is found in the:",
+      options: ["Ribosome", "Nucleus", "Cell membrane", "Golgi body"],
+      answer: 1,
+      explanation:
+        "DNA is stored in the nucleus where genetic information is controlled and protected."
+    },
+    {
+      id: 6,
+      question: "Mitosis produces:",
+      options: ["4 cells", "2 identical cells", "Gametes", "Mutations"],
+      answer: 1,
+      explanation:
+        "Mitosis results in two genetically identical daughter cells for growth and repair."
+    },
+
+    // ---------------- BIOMOLECULES & ANIMAL PHYSIOLOGY ----------------
+    {
+      id: 7,
+      question: "Which biomolecule provides quick energy?",
+      options: ["Proteins", "Lipids", "Carbohydrates", "Vitamins"],
+      answer: 2,
+      explanation:
+        "Carbohydrates are broken down quickly to release glucose, which provides immediate energy."
+    },
+    {
+      id: 8,
+      question: "Enzymes are mainly:",
+      options: ["Carbohydrates", "Proteins", "Lipids", "Minerals"],
+      answer: 1,
+      explanation:
+        "Enzymes are biological catalysts made mostly of proteins that speed up chemical reactions."
+    },
+    {
+      id: 9,
+      question: "Which organ pumps blood?",
+      options: ["Lungs", "Heart", "Kidney", "Liver"],
+      answer: 1,
+      explanation:
+        "The heart pumps blood throughout the body via the circulatory system."
+    },
+    {
+      id: 10,
+      question: "Which system controls body functions?",
+      options: [
+        "Digestive system",
+        "Nervous system",
+        "Respiratory system",
+        "Excretory system"
+      ],
+      answer: 1,
+      explanation:
+        "The nervous system controls and coordinates all body activities using electrical signals."
+    },
+
+    // ---------------- METABOLISM ----------------
+    {
+      id: 11,
+      question: "Metabolism refers to:",
+      options: [
+        "Cell division only",
+        "All chemical reactions in the body",
+        "DNA replication only",
+        "Protein synthesis only"
+      ],
+      answer: 1,
+      explanation:
+        "Metabolism includes all biochemical reactions that maintain life, including breakdown and synthesis processes."
+    },
+    {
+      id: 12,
+      question: "ATP is known as:",
+      options: ["Hormone", "Energy currency", "Enzyme", "Gene"],
+      answer: 1,
+      explanation:
+        "ATP (adenosine triphosphate) stores and transfers energy within cells."
+    },
+    {
+      id: 13,
+      question: "Cellular respiration occurs in:",
+      options: ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+      answer: 1,
+      explanation:
+        "Mitochondria are the site of aerobic respiration where energy (ATP) is produced."
+    },
+
+    // ---------------- MICROBIOLOGY ----------------
+    {
+      id: 14,
+      question: "Who first observed bacteria?",
+      options: [
+        "Robert Koch",
+        "Louis Pasteur",
+        "Antonie van Leeuwenhoek",
+        "Darwin"
+      ],
+      answer: 2,
+      explanation:
+        "Antonie van Leeuwenhoek was the first to observe microorganisms using a simple microscope."
+    },
+    {
+      id: 15,
+      question: "Sterilization means:",
+      options: [
+        "Growing bacteria",
+        "Removing all microorganisms",
+        "Cooling samples",
+        "Adding nutrients"
+      ],
+      answer: 1,
+      explanation:
+        "Sterilization is the complete elimination of all microorganisms including bacteria and spores."
+    },
+    {
+      id: 16,
+      question: "Microorganisms are studied using:",
+      options: ["Telescope", "Microscope", "Scanner", "Lens"],
+      answer: 1,
+      explanation:
+        "Microscopes allow scientists to observe organisms too small to be seen with the naked eye."
+    },
+    {
+      id: 17,
+      question: "Bacteria belong to:",
+      options: ["Plants", "Animals", "Prokaryotes", "Fungi"],
+      answer: 2,
+      explanation:
+        "Bacteria are prokaryotic organisms because they lack a true nucleus."
+    }
+  ]
+  },
+  {
     subject: "Operating Systems",
     slug: "os",
     description: "Quiz yourself on operating system fundamentals including processes, scheduling, synchronization, memory, and file systems.",
