@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch5Content = () => {
   return (
     <div className="course-content">
@@ -21,16 +25,31 @@ export const Ch5Content = () => {
         </p>
 
         <ul className="section-list">
-          <li><strong>Exception</strong> – indicates runtime errors that can be handled</li>
-          <li><strong>Error</strong> – serious issues not expected to be handled (e.g. OutOfMemoryError)</li>
-          <li>All exceptions derive from the class <code className="inline-code">Throwable</code></li>
+          <li><strong>Exception</strong> – indicates runtime conditions that a reasonable application might want to catch</li>
+          <li><strong>Error</strong> – indicates serious problems that a reasonable application should not try to catch (e.g., OutOfMemoryError)</li>
+          <li>All exception and error types derive from the root class <code className="inline-code">Throwable</code></li>
         </ul>
 
         <p className="p-text">
-          The main advantage of Java&apos;s exception system is **separation of error-handling code from normal logic**.
+          The main advantage of Java&apos;s exception system is <strong>separation of error-handling code from normal execution logic</strong>.
         </p>
 
-        <p className="p-text mt-2">Diagram: <strong>exception-hierarchy.png</strong></p>
+        {/* ✅ FIXED: Replaced broken exception-hierarchy.png with precise ASCII tree */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Throwable Class Hierarchy Structure ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`                  [ Throwable ]
+                       │
+        ┌──────────────┴──────────────┐
+        ▼                             ▼
+   [ Exception ]                  [ Error ]
+        │                             │
+  ┌─────┴──────────────┐              ├── StackOverflowError
+  ▼                    ▼              └── OutOfMemoryError
+[ Checked ]     [ RuntimeException ] (Unchecked)
+(IOException)   (NullPointerException, ArithmeticException)`}
+          </pre>
+        </div>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -40,24 +59,27 @@ export const Ch5Content = () => {
         <h3 className="section-heading">Types of Exceptions</h3>
 
         <ul className="section-list">
-          <li><strong>Checked exceptions</strong> – must be caught or declared (IOException, SQLException)</li>
-          <li><strong>Unchecked exceptions</strong> – inherit from RuntimeException (ArithmeticException, NullPointerException)</li>
-          <li><strong>Errors</strong> – not meant to be handled (StackOverflowError)</li>
+          <li><strong>Checked exceptions</strong> – Evaluated at compile-time. The compiler forces the code to either catch or declare them using throws (e.g., IOException,編SQLException).</li>
+          <li><strong>Unchecked exceptions</strong> – Evaluated at runtime. They inherit from RuntimeException and usually imply programmatic or logical bugs (e.g., ArithmeticException, NullPointerException).</li>
+          <li><strong>Errors</strong> – Fatal system failures that are external to the application control and not meant to be intercepted or handled.</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] border border-[#c7a669] p-4 rounded-lg mt-4">
-          <div className="font-semibold text-[#3a2a14]">Unchecked Exception Example</div>
-          <pre className="code-block mt-3">
-{`int x = 10 / 0;   // ArithmeticException`}
-          </pre>
-        </div>
+        <CodeBlock 
+          title="UNCHECKED EXCEPTION LOGIC BREAKDOWN"
+          code={`// Throws ArithmeticException at runtime due to mathematical limits
+int x = 10 / 0;`}
+        />
 
-        <div className="example-box bg-[#f0ddb6] border border-[#c7a669] p-4 rounded-lg mt-4">
-          <div className="font-semibold text-[#3a2a14]">Checked Exception Example</div>
-          <pre className="code-block mt-3">
-{`FileReader fr = new FileReader("abc.txt");   // must be handled`}
-          </pre>
-        </div>
+        <CodeBlock 
+          title="CHECKED EXCEPTION COMPLIANCE DECLARATION"
+          code={`import java.io.FileReader;
+import java.io.FileNotFoundException;
+
+// Must be enclosed inside a validation routine or declared via throws declaration
+void openResource() throws FileNotFoundException {
+    FileReader fr = new FileReader("abc.txt");
+}`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -67,26 +89,25 @@ export const Ch5Content = () => {
         <h3 className="section-heading">Using try, catch, and finally</h3>
 
         <p className="p-text">
-          A <strong>try block</strong> contains statements that may throw an exception.
-          <strong>catch blocks</strong> handle the specific exception types.
-          The <strong>finally block</strong> executes whether or not an exception occurs.
+          A <strong>try block</strong> isolates statements that may throw an anomaly. 
+          <strong>catch blocks</strong> intercept specific matched exception instances, while the 
+          <strong>finally block</strong> executes unconditionally, making it ideal for deterministic cleanup steps.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg mt-3">
-          <pre className="code-block">
-{`try {
+        <CodeBlock 
+          title="FAULT ISOLATION METRIC BLOCKS"
+          code={`try {
   int a = 5 / 0;
 } catch (ArithmeticException e) {
-  System.out.println("Cannot divide by zero");
+  System.out.println("Intercepted system boundary failure: Cannot divide by zero.");
 } finally {
-  System.out.println("Cleanup operations");
+  System.out.println("Executing explicit resource cleanup workflows.");
 }`}
-          </pre>
-        </div>
+        />
 
         <ul className="section-list mt-4">
-          <li>Use multiple catch blocks for multiple exception types</li>
-          <li><code className="inline-code">finally</code> is often used to close files, connections, or release resources</li>
+          <li>Multiple catch blocks must be ordered from specific subclasses to broad superclasses to avoid compilation blocking.</li>
+          <li>The <code className="inline-code">finally</code> block executes even if a catch block contains a return instruction, ensuring deterministic release of system socket descriptors or file buffers.</li>
         </ul>
       </section>
 
@@ -97,22 +118,28 @@ export const Ch5Content = () => {
         <h3 className="section-heading">throw and throws</h3>
 
         <p className="p-text">
-          <strong>throw</strong> explicitly throws an exception.  
-          <strong>throws</strong> declares that a method may throw an exception.
+          The <strong>throw</strong> keyword manually triggers an exception instance down the execution thread pipeline. 
+          The <strong>throws</strong> keyword acts as a method signature contract, signaling callers to handle potential checked exceptions.
         </p>
 
-        <div className="example-box bg-[#f3e7c2] border border-[#c7a669] p-4 rounded-lg">
-          <pre className="code-block">
-{`void checkAge(int age) {
-  if(age < 18)
-    throw new IllegalArgumentException("Too young");
-}
+        <CodeBlock 
+          title="EXPLICIT ERROR SIGNALING PROTOCOLS"
+          code={`import java.io.FileReader;
+import java.io.IOException;
 
-void readFile() throws IOException {
-  FileReader f = new FileReader("data.txt");
+class OperationalGate {
+    void checkAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Age restriction thresholds triggered.");
+        }
+    }
+
+    void readFile() throws IOException {
+        // Postponing error tracking mechanics up the call stack hierarchy
+        FileReader f = new FileReader("data.txt");
+    }
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -121,14 +148,14 @@ void readFile() throws IOException {
       <section>
         <h3 className="section-heading">Java’s Built-in Exceptions</h3>
 
-        <p className="p-text">Commonly asked in exams:</p>
+        <p className="p-text">Frequently encountered runtime anomalies in core frameworks and examinations:</p>
 
         <ul className="section-list">
-          <li><strong>ArithmeticException</strong></li>
-          <li><strong>ArrayIndexOutOfBoundsException</strong></li>
-          <li><strong>NullPointerException</strong></li>
-          <li><strong>NumberFormatException</strong></li>
-          <li><strong>IOException</strong></li>
+          <li><strong>ArithmeticException</strong> – Division operations involving invalid fractional steps or zero dividers.</li>
+          <li><strong>ArrayIndexOutOfBoundsException</strong> – Attempting to reference index boundaries beyond an array bounds configuration.</li>
+          <li><strong>NullPointerException</strong> – Triggering instance methods or reading variable fields over an unallocated null pointer.</li>
+          <li><strong>NumberFormatException</strong> – Failure parsing alphanumeric string inputs into numeric variable containers.</li>
+          <li><strong>IOException</strong> – Unresolved terminal interface drops or failed physical storage device streams.</li>
         </ul>
       </section>
 
@@ -139,23 +166,25 @@ void readFile() throws IOException {
         <h3 className="section-heading">Creating Custom Exceptions</h3>
 
         <p className="p-text">
-          User-defined exceptions extend the <code className="inline-code">Exception</code> class.
+          User-defined exceptions extend the foundational <code className="inline-code">Exception</code> class to represent explicit domain boundary failures.
         </p>
 
-        <div className="example-box bg-[#f0ddb6] border border-[#c7a669] rounded-lg p-4">
-          <pre className="code-block">
-{`class InvalidMarksException extends Exception {
-  InvalidMarksException(String msg) {
-    super(msg);
+        <CodeBlock 
+          title="CUSTOM EXCEPTION SCHEMAS DEPLOYMENT"
+          code={`class InvalidMarksException extends Exception {
+  public InvalidMarksException(String msg) {
+    super(msg); // Preserves message detail inside Throwable context
   }
 }
 
-void check(int m) throws InvalidMarksException {
-  if(m < 0 || m > 100)
-    throw new InvalidMarksException("Invalid marks");
+class EvaluationEngine {
+  void check(int m) throws InvalidMarksException {
+    if (m < 0 || m > 100) {
+      throw new InvalidMarksException("Provided metric evaluates out of standardized scoring scales.");
+    }
+  }
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -165,15 +194,24 @@ void check(int m) throws InvalidMarksException {
         <h3 className="section-heading">Summary</h3>
 
         <p className="p-text">
-          Exception handling improves program reliability by allowing controlled
-          error management. Using <strong>try-catch-finally</strong>, throwing exceptions,
-          and understanding the exception class hierarchy are essential skills for
-          robust Java development.
+          Exception handling enhances program resilience by separating error recovery routines from core business operations. 
+          Mastering <strong>try-catch-finally</strong> gating, structured exception propagation, and custom class extensions prevents ungraceful process terminations.
         </p>
 
-        <p className="p-text mt-4">
-          Diagrams to insert: <strong>try-catch-flowchart.png</strong>, <strong>exception-types-table.png</strong>
-        </p>
+        {/* ✅ FIXED: Replaced p-text reminders and broken flowchart links with a clean ASCII lifecycle flow chart */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Try-Catch-Finally Execution Pipeline ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{` [ Try Block Starts ] ─── Anomaly Occurs? ───► (Yes) ───► [ Catch Block Handles Anomaly ]
+          │                                                               │
+         (No)                                                             │
+          ▼                                                               ▼
+   [ Completes Try ] ───────────────────────────────────────────► [ Finally Block Executes ]
+                                                                          │
+                                                                          ▼
+                                                                [ Normal Flow Resumes ]`}
+          </pre>
+        </div>
       </section>
 
     </div>

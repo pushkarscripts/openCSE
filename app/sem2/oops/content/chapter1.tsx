@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch1Content = () => {
   return (
     <div className="course-content">
@@ -32,19 +36,19 @@ export const Ch1Content = () => {
           <li><strong>boolean</strong> – true or false</li>
         </ul>
 
-        <div className="example-box p-4 rounded-lg mt-4 bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14] mb-1">Code Example</div>
-          <pre className="code-block">
-{`int age = 19;
+        <CodeBlock 
+          title="JAVA PRIMITIVE INITIALIZATION"
+          code={`int age = 19;
 double gpa = 8.6;
 char grade = 'A';
 boolean isValid = true;`}
-          </pre>
-        </div>
+        />
 
-        <p className="p-text mt-3">
-          Diagram to add: <strong>java-primitive-sizes.png</strong>
-        </p>
+        {/* Conceptual Visual Block replacing raw text link */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed text-center">
+          <p className="text-[#c7a669] font-mono text-sm">[ Memory Architecture: Java Primitive Bit Allocations ]</p>
+          <p className="text-xs text-[#ac9e91] mt-1">1-Byte (byte) → 2-Byte (short, char) → 4-Byte (int, float) → 8-Byte (long, double)</p>
+        </div>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -63,15 +67,14 @@ boolean isValid = true;`}
           <li><strong>Narrowing</strong>: double to int, long to short (explicit cast)</li>
         </ul>
 
-        <div className="example-box p-4 mt-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <pre className="code-block">
-{`int a = 10;
-double b = a;        // widening
+        <CodeBlock 
+          title="WIDENING AND NARROWING CONVERSIONS"
+          code={`int a = 10;
+double b = a;        // widening (automatic compilation step)
 
 double x = 9.76;
-int y = (int) x;     // narrowing, y = 9`}
-          </pre>
-        </div>
+int y = (int) x;     // narrowing (explicit type truncation), y = 9`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -85,18 +88,19 @@ int y = (int) x;     // narrowing, y = 9`}
           fixed length determined at creation.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <pre className="code-block">
-{`int[] marks = {85, 90, 75};
+        <CodeBlock 
+          title="ARRAY INSTANTIATION & BOUNDED TRAVERSAL"
+          code={`int[] marks = {85, 90, 75};
 for (int i = 0; i < marks.length; i++) {
   System.out.println(marks[i]);
 }`}
-          </pre>
-        </div>
+        />
 
-        <p className="p-text mt-3">
-          Diagram to add: <strong>java-array-memory.png</strong>
-        </p>
+        {/* Heap Layout Mapping to prevent image load crash */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed text-center">
+          <p className="text-[#c7a669] font-mono text-sm">[ Heap Memory Reference Structure ]</p>
+          <p className="text-xs text-[#ac9e91] mt-1">marks Reference (Stack Pointer) ───&gt; [ length: 3 | index 0: 85 | index 1: 90 | index 2: 75 ] (Contiguous Heap Object)</p>
+        </div>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -110,13 +114,12 @@ for (int i = 0; i < marks.length; i++) {
           for memory optimization.
         </p>
 
-        <div className="example-box p-4 bg-[#f3e7c2] rounded-lg border border-[#c7a669]">
-          <pre className="code-block">
-{`String s = "openCSE";
+        <CodeBlock 
+          title="IMMUTABLE STRING POOL CONTEXT METHODS"
+          code={`String s = "openCSE";
 System.out.println(s.length());
 System.out.println(s.toUpperCase());`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -130,16 +133,13 @@ System.out.println(s.toUpperCase());`}
           operators. Parentheses improve readability and override precedence.
         </p>
 
-        <div className="example-box p-3 bg-[#f0ddb6] rounded-lg border border-[#c7a669]">
-          <pre className="code-block">
-{`int a = 2 + 3 * 4;     // 14
-int b = (2 + 3) * 4;   // 20
+        <CodeBlock 
+          title="OPERATOR EVALUATION ORDER AND PRECEDENCE"
+          code={`int a = 2 + 3 * 4;     // evaluates to 14 due to multiplication precedence
+int b = (2 + 3) * 4;   // evaluates to 20 due to explicit grouping override
 
 boolean result = (a < b) && (b < 50);`}
-          </pre>
-        </div>
-
-        <p className="p-text">Diagram: <strong>operator-precedence-java.png</strong></p>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -159,28 +159,32 @@ boolean result = (a < b) && (b < 50);`}
           <li><strong>Jump</strong>: break, continue</li>
         </ul>
 
-        <div className="example-box p-4 mt-4 bg-[#f3e7c2] rounded-lg border border-[#c7a669]">
-          <pre className="code-block">
-{`int n = 7;
+        <CodeBlock 
+          title="FLOW CONTROL, SWITCH CONTEXT & LOOPS"
+          code={`int n = 7;
 
-// if-else
-if (n > 0) System.out.println("positive");
-
-// switch
-switch (n) {
-  case 1: System.out.println("one"); break;
-  default: System.out.println("other");
+// Conditional statement evaluation
+if (n > 0) {
+    System.out.println("positive");
 }
 
-// loop
+// Multi-way selection execution 
+switch (n) {
+  case 1: 
+    System.out.println("one"); 
+    break;
+  default: 
+    System.out.println("other");
+}
+
+// Loop execution control with dynamic jump logic
 for (int i = 0; i < 5; i++) {
-  if (i == 3) continue;
+  if (i == 3) {
+      continue; // bypass dynamic line terminal step
+  }
   System.out.println(i);
 }`}
-          </pre>
-        </div>
-
-        <p className="p-text">Diagram: <strong>loop-flowcharts.png</strong></p>
+        />
       </section>
 
     </div>

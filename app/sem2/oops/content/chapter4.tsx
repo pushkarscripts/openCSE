@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch4Content = () => {
   return (
     <div className="course-content">
@@ -25,10 +29,9 @@ export const Ch4Content = () => {
           <li><strong>User-defined packages:</strong> created using the package keyword</li>
         </ul>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <div className="font-semibold text-[#3a2a14]">Example: Creating and Using a Package</div>
-          <pre className="code-block mt-3">
-{`// file: src/com/demo/Calculator.java
+        <CodeBlock 
+          title="CREATING AND IMPORTING USER-DEFINED PACKAGES"
+          code={`// file: src/com/demo/Calculator.java
 package com.demo;
 
 public class Calculator {
@@ -37,7 +40,7 @@ public class Calculator {
   }
 }
 
-// Using the package
+// file: src/Main.java
 import com.demo.Calculator;
 
 public class Main {
@@ -46,12 +49,19 @@ public class Main {
     System.out.println(c.add(10, 20));
   }
 }`}
+        />
+
+        {/* ✅ FIXED: Replaced broken package-folder-structure.png with explicit directory tree */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Physical Disk Directory Architecture ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre">
+{`src/
+├── com/
+│   └── demo/
+│       └── Calculator.java     ───> declares: package com.demo;
+└── Main.java                   ───> executes: import com.demo.Calculator;`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">
-          Diagram: <strong>package-folder-structure.png</strong>
-        </p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -66,18 +76,18 @@ public class Main {
         </p>
 
         <ul className="section-list">
-          <li><strong>Specific import:</strong> import java.util.ArrayList;</li>
-          <li><strong>Wildcard import:</strong> import java.util.*;</li>
+          <li><strong>Specific import:</strong> import java.util.ArrayList; (Loads single definition)</li>
+          <li><strong>Wildcard import:</strong> import java.util.*; (Loads matches on-demand)</li>
         </ul>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <pre className="code-block">
-{`import java.util.ArrayList;
+        <CodeBlock 
+          title="UTILITY UTILS CONTAINER DEPLOYMENT"
+          code={`import java.util.ArrayList;
 
+// Instantiating a specific collection utility class type
 ArrayList<Integer> list = new ArrayList<>();
 list.add(5);`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -88,33 +98,43 @@ list.add(5);`}
 
         <p className="p-text">
           An interface specifies a set of abstract methods that implementing classes must define.
-          Interfaces support abstraction and multiple inheritance in Java.
+          Interfaces support full structural abstraction and multiple inheritance workflows in Java.
         </p>
 
         <ul className="section-list">
-          <li>Methods are abstract by default (before Java 8)</li>
-          <li>Variables are public, static, and final</li>
-          <li>A class uses <code className="inline-code">implements</code> to implement an interface</li>
+          <li>Methods are abstract and public by default (before Java 8 specifications)</li>
+          <li>Variables are implicitly public, static, and final</li>
+          <li>A standard class uses the <code className="inline-code">implements</code> keyword to fulfill contracts</li>
         </ul>
 
-        <div className="example-box bg-[#f0ddb6] p-4 border border-[#c7a669] rounded-lg mt-4">
-          <pre className="code-block">
-{`interface Drawable {
+        <CodeBlock 
+          title="INTERFACE CONTRACT SPECIFICATION"
+          code={`interface Drawable {
   void draw();
 }
 
 class Circle implements Drawable {
+  @Override
   public void draw() {
-    System.out.println("drawing circle");
+    System.out.println("drawing circle pattern...");
   }
 }
 
+// Runtime polymorphic implementation assignment
 Drawable d = new Circle();
 d.draw();`}
+        />
+
+        {/* ✅ FIXED: Replaced broken interface-implementation.png with clear contract map */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Abstraction Contract Binding ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`Interface Blueprint: Drawable [ abstract draw() ]
+                             ▲
+                             │ (implements contract)
+Concrete Class:      Circle   [ concrete draw() { print logic } ]`}
           </pre>
         </div>
-
-        <p className="p-text mt-3">Diagram: <strong>interface-implementation.png</strong></p>
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -125,31 +145,35 @@ d.draw();`}
 
         <p className="p-text">
           From Java 8 onwards, interfaces can include <strong>default</strong> and <strong>static</strong> methods,
-          allowing common functionality without breaking existing implementations.
+          allowing common fallback functionality without breaking existing implementations.
         </p>
 
-        <div className="example-box bg-[#f3e7c2] p-4 border border-[#c7a669] rounded-lg">
-          <pre className="code-block">
-{`interface Vehicle {
-  void start();
+        <CodeBlock 
+          title="INTERFACE METHOD MODIFIERS"
+          code={`interface Vehicle {
+  void start(); // Abstract contract
+  
   default void show() {
-    System.out.println("Vehicle started");
+    System.out.println("Vehicle operational metadata print.");
   }
-  static int version() { return 1; }
+  
+  static int version() { 
+    return 1; 
+  }
 }
 
 class Car implements Vehicle {
   public void start() {
-    System.out.println("Car engine starts");
+    System.out.println("Car engine ignition initialized.");
   }
 }
 
+// Driver code usage sequence
 Car c = new Car();
 c.start();
-c.show();
-int v = Vehicle.version();`}
-          </pre>
-        </div>
+c.show(); // Calls default implementation safely
+int v = Vehicle.version(); // Triggers isolated static utility scope`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -159,14 +183,19 @@ int v = Vehicle.version();`}
         <h3 className="section-heading">Putting It All Together</h3>
 
         <p className="p-text">
-          Packages organize code. Interfaces define contracts. When combined, they allow
-          large Java applications to be structured cleanly and extended easily. This
-          module prepares the foundation for frameworks, APIs and modular application design.
+          Packages organize your underlying code namespaces, while interfaces define structural decoupled contracts. 
+          When combined, they allow large scale Java applications to be structured cleanly, avoiding deep regression dependencies.
         </p>
 
-        <p className="p-text mt-4">
-          Diagrams to add: <strong>interface-hierarchy.png</strong>, <strong>package-namespace.png</strong>
-        </p>
+        {/* ✅ FIXED: Bundled final multiple design mappings into a cohesive conceptual terminal visualization */}
+        <div className="my-6 p-4 rounded-lg bg-[#2a1b10] border border-[#c7a669] border-dashed">
+          <p className="text-[#c7a669] font-mono text-sm mb-2 text-center">[ Enterprise Architecture Assembly Flow ]</p>
+          <pre className="text-xs text-[#ac9e91] font-mono whitespace-pre text-center">
+{`[ Domain Namespace Package: com.opencse ]
+     └── Interfaces (Strict Modular Blueprints)
+              └── Concrete Classes (Decoupled Scalable Drivers)`}
+          </pre>
+        </div>
       </section>
 
     </div>

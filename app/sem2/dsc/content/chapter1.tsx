@@ -1,3 +1,7 @@
+"use client";
+
+import { CodeBlock } from "../../../components/CodeBlock";
+
 export const Ch1Content = () => {
   return (
     <div className="course-content">
@@ -43,19 +47,12 @@ export const Ch1Content = () => {
           Arrays are declared using a data type, array name and size.
         </p>
 
-        <div className="example-box p-4 rounded-lg mt-4 bg-[#f0ddb6] border border-[#c7a669]">
-
-          <div className="font-semibold text-[#3a2a14] mb-1">
-            Code Example
-          </div>
-
-          <pre className="code-block">
-{`int numbers[5];
+        <CodeBlock 
+          title="Code Example"
+          code={`int numbers[5];
 
 int values[5] = {10,20,30,40,50};`}
-          </pre>
-
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -85,13 +82,12 @@ int values[5] = {10,20,30,40,50};`}
           Individual elements are accessed using indexes.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <pre className="code-block">
-{`int arr[5]={10,20,30,40,50};
+        <CodeBlock 
+          title="Accessing Elements"
+          code={`int arr[5]={10,20,30,40,50};
 
 printf("%d",arr[2]);`}
-          </pre>
-        </div>
+        />
 
         <p className="p-text">
           <strong>Time Complexity:</strong> O(1)
@@ -110,15 +106,12 @@ printf("%d",arr[2]);`}
           Traversal means visiting each element of the array one by one.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-
-          <pre className="code-block">
-{`for(int i=0;i<5;i++){
+        <CodeBlock 
+          title="Traversal"
+          code={`for(int i=0;i<5;i++){
    printf("%d ",arr[i]);
 }`}
-          </pre>
-
-        </div>
+        />
 
         <p className="p-text">
           <strong>Time Complexity:</strong> O(n)
@@ -138,18 +131,15 @@ printf("%d",arr[2]);`}
           Searching is used to find a specific element in an array.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-
-          <pre className="code-block">
-{`int key=30;
+        <CodeBlock 
+          title="Searching"
+          code={`int key=30;
 
 for(int i=0;i<5;i++){
    if(arr[i]==key)
       printf("Found");
 }`}
-          </pre>
-
-        </div>
+        />
 
         <p className="p-text">
           <strong>Time Complexity:</strong> O(n)
@@ -170,17 +160,14 @@ for(int i=0;i<5;i++){
           elements.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-
-          <pre className="code-block">
-{`for(int i=n;i>pos;i--){
+        <CodeBlock 
+          title="Insertion"
+          code={`for(int i=n;i>pos;i--){
    arr[i]=arr[i-1];
 }
 
 arr[pos]=value;`}
-          </pre>
-
-        </div>
+        />
 
         <p className="p-text">
           <strong>Time Complexity:</strong> O(n)
@@ -200,15 +187,12 @@ arr[pos]=value;`}
           Deletion removes an element and shifts remaining elements.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-
-          <pre className="code-block">
-{`for(int i=pos;i<n-1;i++){
+        <CodeBlock 
+          title="Deletion"
+          code={`for(int i=pos;i<n-1;i++){
    arr[i]=arr[i+1];
 }`}
-          </pre>
-
-        </div>
+        />
 
         <p className="p-text">
           <strong>Time Complexity:</strong> O(n)
@@ -228,13 +212,10 @@ arr[pos]=value;`}
           Updating changes an existing value using its index.
         </p>
 
-        <div className="example-box p-4 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-
-          <pre className="code-block">
-{`arr[1]=100;`}
-          </pre>
-
-        </div>
+        <CodeBlock 
+          title="Updating Elements"
+          code={`arr[1]=100;`}
+        />
 
         <p className="p-text">
           <strong>Time Complexity:</strong> O(1)

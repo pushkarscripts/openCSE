@@ -12,12 +12,11 @@ import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { Righteous } from "next/font/google";
 import BookmarkButton from "../../../components/BookmarkButton";
 const righteous = Righteous({
-      subsets: ['latin'], 
-      weight: '400', 
-      variable: '--font-righteous', 
-    });
+  subsets: ['latin'], 
+  weight: '400', 
+  variable: '--font-righteous', 
+});
 
-// Chapter data
 const chapters = [
   { id: "ch0", title: "Course Outline", component: Ch0Content },
   { id: "ch1", title: "Introduction to Computing", component: Ch1Content },
@@ -33,12 +32,14 @@ type ChapterProps = {
 };
 
 export default async function ChapterPage({ params }: ChapterProps) {
+  // NEXT.JS 15 COMPLIANCE: Await the incoming promise object to target params reliably
   const { chapter: chapterId } = await params;
-  const currentIndex =  chapters.findIndex((c) => c.id === chapterId);
+  
+  const currentIndex = chapters.findIndex((c) => c.id === chapterId);
   const chapter = chapters[currentIndex];
 
   if (!chapter) {
-    return <h1 className="text-2xl font-bold">Chapter not found</h1>;
+    return <h1 className="text-2xl font-bold p-6">Chapter not found</h1>;
   }
 
   const ChapterComponent = chapter.component;
@@ -54,23 +55,22 @@ export default async function ChapterPage({ params }: ChapterProps) {
     ch6: "c-file-memory-preprocessors",
   };
 
+  // CLEANUP RESOLUTION: Utilizing the pre-awaited chapterId inside the clean synchronous map filter
   const chapterQuiz = moduleQuizzes.find(async (quiz) => quiz.slug === chapterQuizSlugMap[(await params).chapter]);
-
   return (
     <div className="flex flex-col bg-[#1B0D00] min-h-full p-2 pt-6 text-[#e2d1c1]">
-      {/* Content */}
       <div className="flex-1">
         <h1 className={`text-4xl font-bold ${righteous.className} mb-2`}>
           Programming in C 
         </h1>
-       <div className="flex items-center justify-between">
+        
+         <div className="flex items-center justify-between">
   <p className={`text-2xl mt-[-8px] ${righteous.className}`}>
     {chapter.title}
   </p>
   <BookmarkButton title={`C Programming : ${chapter.title}`} />
 </div>
-
-        {/* Navigation Buttons */}
+        {/* Top Pagination Control Interface */}
         <div className="flex justify-between mt-3">
           {prevChapter ? (
             <Link
@@ -107,7 +107,7 @@ export default async function ChapterPage({ params }: ChapterProps) {
         ) : null}
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Bottom Pagination Control Interface */}
       <div className="flex justify-between my-8">
         {prevChapter ? (
           <Link

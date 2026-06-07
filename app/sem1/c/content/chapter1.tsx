@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch1Content = () => {
   return (
@@ -22,7 +25,7 @@ export const Ch1Content = () => {
           <li>Example: Sorting marks to find the highest scorer.</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
+        <div className="p-4 my-4 rounded-lg bg-[#f0ddb6]">
           <div className="font-semibold text-[#3a2a14]">Quick Example</div>
           <div className="mt-2 text-[#2b1d0f]">
             Input: [72, 89, 34, 91] <br />
@@ -47,11 +50,10 @@ export const Ch1Content = () => {
         <Image
           src="/timeline-computing.png"
           alt="timeline-computing"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={1000}
           height={350}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -59,7 +61,6 @@ export const Ch1Content = () => {
       {/* Early Computers */}
       <section>
         <h3 className="section-heading">Early Computers and Machines</h3>
-
         <ul className="section-list">
           <li><strong>Mechanical:</strong> Difference Engine.</li>
           <li><strong>Electromechanical:</strong> Zuse machines, punched card devices.</li>
@@ -69,11 +70,10 @@ export const Ch1Content = () => {
         <Image
           src="/eniac-block.png"
           alt="eniac-block"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={850}
           height={380}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -81,7 +81,6 @@ export const Ch1Content = () => {
       {/* Components */}
       <section>
         <h3 className="section-heading">Components of a Computer</h3>
-
         <ul className="section-list">
           <li>Input devices such as keyboard and mouse.</li>
           <li>Output devices such as monitors and printers.</li>
@@ -94,11 +93,10 @@ export const Ch1Content = () => {
         <Image
           src="/computer-block-diagram.png"
           alt="computer-block-diagram"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={900}
           height={400}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -106,14 +104,13 @@ export const Ch1Content = () => {
       {/* Problems */}
       <section>
         <h3 className="section-heading">Problems and Algorithm Characteristics</h3>
-
         <ul className="section-list">
           <li>Well-defined problem: has clear input, clear output and defined end state.</li>
           <li>Ill-defined problem: unclear goals or conditions.</li>
           <li>Algorithm characteristics: finiteness, definiteness, input, output, effectiveness.</li>
         </ul>
 
-        <div className="p-3 my-3 rounded border-l-4 border-[#b8925d] bg-[#f7e7bf] text-[#2b1d0f]">
+        <div className="p-3 my-3 border-l-4 border-[#b8925d] bg-[#f7e7bf] text-[#2b1d0f]">
           Tip: In exam answers, clearly state if the problem is well-defined and list algorithm characteristics.
         </div>
       </section>
@@ -128,31 +125,28 @@ export const Ch1Content = () => {
           <li>Flowcharts represent logic using shapes: oval (Start/End), rectangle (process), diamond (decision), parallelogram (I/O).</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
-          <div className="font-semibold text-[#3a2a14]">Pseudo-code Example: Sum of first n numbers</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-3 p-4 rounded-md text-sm overflow-auto">
-            {`READ n
+        <CodeBlock 
+          title="PSEUDO-CODE EXAMPLE: SUM OF FIRST N NUMBERS"
+          code={`READ n
 sum ← 0
 FOR i FROM 1 TO n
   sum ← sum + i
 END FOR
 PRINT sum`}
-          </pre>
-        </div>
+        />
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f3e7c2]">
+        <div className="p-4 my-4 bg-[#f3e7c2]">
           <div className="font-semibold text-[#3a2a14]">Flowchart Structure</div>
           <p className="mt-2 text-[#2b1d0f]">
             Start → Input n → Initialize sum → Loop (i ≤ n?) → Add → Update → Output sum → End
           </p>
           <Image
-  src="/flowchart-sum-n.png"
-  alt="flowchart-sum-n"
-  className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-  width={750}
-  height={500}
-/>
-
+            src="/flowchart-sum-n.png"
+            alt="flowchart-sum-n"
+            className="my-6 max-w-full"
+            width={750}
+            height={500}
+          />
         </div>
       </section>
 
@@ -161,7 +155,6 @@ PRINT sum`}
       {/* Memory */}
       <section>
         <h3 className="section-heading">Memory, Variables and Values</h3>
-
         <ul className="section-list">
           <li>Memory stores data and instructions in binary.</li>
           <li>Variables represent named memory locations.</li>
@@ -169,23 +162,21 @@ PRINT sum`}
           <li>Data types determine size and operations allowed.</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
-          <div className="font-semibold text-[#3a2a14]">Memory Layout Example</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-3 p-4 rounded-md text-sm overflow-auto">
-            {`Address   Content
+        <CodeBlock 
+          title="MEMORY LAYOUT EXAMPLE"
+          code={`Address   Content
 0x1000    0x05     (integer 5)
 0x1004    0x00     
 0x1008    'A'      (character A)`}
-          </pre>
-          <Image
-  src="/memory-layout.png"
-  alt="memory-layout"
-  className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-  width={800}
-  height={500}
-/>
+        />
 
-        </div>
+        <Image
+          src="/memory-layout.png"
+          alt="memory-layout"
+          className="my-6 max-w-full"
+          width={800}
+          height={500}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -193,7 +184,6 @@ PRINT sum`}
       {/* Instructions */}
       <section>
         <h3 className="section-heading">Instructions</h3>
-
         <ul className="section-list">
           <li>Machine instructions are binary codes executed by the CPU.</li>
           <li>Assembly uses mnemonic symbols.</li>
@@ -201,15 +191,13 @@ PRINT sum`}
           <li>Instruction cycle: Fetch, Decode, Execute, Store.</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f3e7c2]">
-          <div className="font-semibold text-[#3a2a14]">Assembly-like Example</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-3 p-4 rounded-md text-sm overflow-auto">
-            {`LOAD R1, 5
+        <CodeBlock 
+          title="ASSEMBLY-LIKE EXAMPLE"
+          code={`LOAD R1, 5
 LOAD R2, 10
 ADD R3, R1, R2
 STORE R3, 0x200`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -217,7 +205,6 @@ STORE R3, 0x200`}
       {/* Programs */}
       <section>
         <h3 className="section-heading">Programs</h3>
-
         <ul className="section-list">
           <li>A program is a sequence of instructions that performs a task.</li>
           <li>Lifecycle includes writing, compiling, linking, running, testing and maintaining.</li>
@@ -227,11 +214,10 @@ STORE R3, 0x200`}
         <Image
           src="/program-lifecycle.png"
           alt="program-lifecycle"
-          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          className="my-6 max-w-full"
           width={980}
           height={430}
         />
-
       </section>
 
     </div>

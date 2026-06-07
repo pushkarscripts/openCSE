@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+// NEXT.JS 15 FIX: Named import curly braces ke andar perfectly integrated
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch2Content = () => {
   return (
@@ -31,7 +35,6 @@ export const Ch2Content = () => {
           <li><strong>Link:</strong> `gcc program.o -o program` produces executable.</li>
           <li><strong>Run:</strong> `./program` on Unix-like systems.</li>
         </ul>
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -57,18 +60,17 @@ export const Ch2Content = () => {
           <li>Return from `main` typically `return 0;` to signal success.</li>
         </ul>
 
-        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
-          <div className="font-semibold text-[#3a2a14]">Minimal example</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-3 p-4 rounded-md text-sm overflow-auto">
-{`#include <stdio.h>
+        {/* ✅ REMOVED OLD PRE: Replaced with the exact matching CodeBlock */}
+        <CodeBlock 
+          title="MINIMAL EXAMPLE C PROGRAM"
+          code={`#include <stdio.h>
 
 int main(void) {
     int a = 10;
-    printf("Value of a = %d\n", a);
+    printf("Value of a = %d\\n", a);
     return 0;
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -82,14 +84,14 @@ int main(void) {
           <li>Run executable: <code>./program</code>.</li>
           <li>Typical compile-time errors: syntax error, undeclared identifier, type mismatch.</li>
         </ul>
+        
         <Image
-  src="/compile-run-flow.png"
-  alt="compile-run-flow"
-  className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
-  width={900}
-  height={380}
-/>
-
+          src="/compile-run-flow.png"
+          alt="compile-run-flow"
+          className="my-6 rounded-lg border border-[#c7a669] shadow-md max-w-full"
+          width={900}
+          height={380}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -135,9 +137,10 @@ int main(void) {
             <li>Buffer overflow with strings; always ensure space for null terminator.</li>
           </ul>
 
-          <div className="mt-3 text-[#3a2a14] font-semibold">Faulty snippet</div>
-          <pre className="bg-[#1a2130] text-[#ffb0b0] mt-2 p-4 rounded-md text-sm overflow-auto">
-{`#include <stdio.h>
+          {/* ✅ REMOVED OLD FAULTY PRE: Replaced with premium dynamic CodeBlock */}
+          <CodeBlock 
+            title="FAULTY SNIPPET (COMMON ERRORS)"
+            code={`#include <stdio.h>
 
 int main() {
     int a;
@@ -146,13 +149,14 @@ int main() {
     printf("Value is: %d", a)  // wrong: missing semicolon
     return 0;
 }`}
-          </pre>
+          />
 
-          <div className="mt-2 text-[#3a2a14] font-semibold">Corrected</div>
-          <pre className="bg-[#1a2130] text-[#b0ffb4] mt-2 p-4 rounded-md text-sm overflow-auto">
-{`scanf("%d", &a);
+          {/* ✅ REMOVED OLD CORRECTED PRE: Replaced with premium dynamic CodeBlock */}
+          <CodeBlock 
+            title="CORRECTED CODE PATCH"
+            code={`scanf("%d", &a);
 printf("Value is: %d", a);`}
-          </pre>
+          />
         </div>
       </section>
 

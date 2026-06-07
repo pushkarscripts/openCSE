@@ -1,4 +1,8 @@
-import Image from 'next/image';
+"use client";
+
+import Image from "next/image";
+// NEXT.JS 15 FIX: Named import curly braces ke andar clean link kar diya hai
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch3Content = () => {
   return (
@@ -37,7 +41,7 @@ export const Ch3Content = () => {
 
         <p className="p-text">Standard fundamental types commonly used in exams are listed below.</p>
 
-        <div className="example-box p-4 my-4 rounded-lg shadow-sm border border-[#c7a669]">
+        <div className="example-box p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
           <div className="font-semibold text-[#3a2a14]">Common C types (typical 32-bit system)</div>
           <div className="mt-2 text-[#2b1d0f]">
             <ul className="section-list">
@@ -66,7 +70,6 @@ export const Ch3Content = () => {
           width={600}
           height={300}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -111,6 +114,7 @@ export const Ch3Content = () => {
             Note: use parentheses to enforce evaluation order when needed.
           </div>
         </div>
+        
         <Image
           src="/operator-precedence.png"
           alt="operator-precedence"
@@ -146,15 +150,14 @@ export const Ch3Content = () => {
           <li>Always pass address with <code className="inline-code">scanf()</code> for non-array variables: <code className="inline-code">scanf(&quot;%d&quot;, &amp;x)</code>.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">I/O Example</div>
-          <pre className="code-block mt-3" aria-label="I O example">
-            {`int x;
+        {/* ✅ UPGRADED: Replaced manual pre with CodeBlock */}
+        <CodeBlock 
+          title="STANDARD I/O OPERATIONS"
+          code={`int x;
 printf("Enter a number: ");
 scanf("%d", &x);
-printf("You entered %d\n", x);`}
-          </pre>
-        </div>
+printf("You entered %d\\n", x);`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -170,27 +173,25 @@ printf("You entered %d\n", x);`}
           <li><strong>goto</strong> exists but is discouraged; used rarely for error handling in legacy code.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">if-else example</div>
-          <pre className="code-block mt-3">
-            {`if (a > b) {
-  printf("a is greater\n");
+        {/* ✅ UPGRADED: Replaced with premium CodeBlock */}
+        <CodeBlock 
+          title="IF-ELSE CONDITION CONDITIONALS"
+          code={`if (a > b) {
+  printf("a is greater\\n");
 } else {
-  printf("b is greater or equal\n");
+  printf("b is greater or equal\\n");
 }`}
-          </pre>
-        </div>
+        />
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">switch example</div>
-          <pre className="code-block mt-3">
-            {`switch (ch) {
+        {/* ✅ UPGRADED: Replaced with premium CodeBlock */}
+        <CodeBlock 
+          title="SWITCH CASE CONDITIONAL STRUCTURE"
+          code={`switch (ch) {
   case 'a': doA(); break;
   case 'b': doB(); break;
   default: doDefault();
 }`}
-          </pre>
-        </div>
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -206,29 +207,29 @@ printf("You entered %d\n", x);`}
           <li><strong>Jumps</strong> — <code className="inline-code">break</code>, <code className="inline-code">continue</code> (skip), and <code className="inline-code">goto</code> (discouraged).</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Loop examples</div>
-          <pre className="code-block mt-3">
-            {`// for loop
+        {/* ✅ UPGRADED: Replaced multiple samples inside one premium CodeBlock */}
+        <CodeBlock 
+          title="C CONTROL LOOPS STRUCTURAL SAMPLES"
+          code={`// 1. for loop iteration
 for (int i = 0; i < n; i++) {
   sum += i;
 }
 
-// while loop
+// 2. while loop check entry
 int i = 0;
 while (i < n) {
   sum += i;
   i++;
 }
 
-// do-while
-int i = 0;
+// 3. do-while loop processing
+int j = 0;
 do {
-  sum += i;
-  i++;
-} while (i < n);`}
-          </pre>
-        </div>
+  sum += j;
+  j++;
+} while (j < n);`}
+        />
+
         <Image
           src="/loop-flowcharts.png"
           alt="loop-flowcharts"
@@ -257,22 +258,25 @@ do {
       <section>
         <h3 className="section-heading">Debugging Exercise</h3>
 
-        <div className="card p-4 my-4">
-          <div className="font-semibold">Find and fix the errors</div>
-          <pre className="code-block error mt-3" aria-label="debug example">
-            {`#include <stdio.h>
+        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
+          <div className="font-semibold text-[#3a2a14] mb-2">Find and fix the errors</div>
+          
+          {/* ✅ UPGRADED: Faulty code snippet block */}
+          <CodeBlock 
+            title="FAULTY SNIPPET (BUFFER & SEMICOLON)"
+            code={`#include <stdio.h>
 
 int main() {
   char s[5];
   printf("Enter string: ");
   scanf("%s", s);   // possible overflow if user types >4 chars
-  printf("You entered: %s\n", s)
+  printf("You entered: %s\\n", s)
   return 0;
 }`}
-          </pre>
+          />
 
-          <div className="mt-3 text-[#b0ffb4] font-semibold">Correct points</div>
-          <ul className="section-list mt-2">
+          <div className="mt-4 text-[#3a2a14] font-bold">Correct points</div>
+          <ul className="section-list mt-2 text-[#2b1d0f]">
             <li>Ensure buffer size and use width specifier: <code className="inline-code">scanf(&quot;%4s&quot;, s);</code></li>
             <li>Add missing semicolon after <code className="inline-code">printf</code>.</li>
             <li>Prefer <code className="inline-code">fgets</code> for safer input.</li>

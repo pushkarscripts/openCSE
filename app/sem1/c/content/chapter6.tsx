@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+// NEXT.JS 15 FIX: Named import linked under unified layout block configuration
+import { CodeBlock } from "../../../components/CodeBlock";
 
 export const Ch6Content = () => {
   return (
@@ -23,14 +27,18 @@ export const Ch6Content = () => {
           <li><strong>Random access</strong>: use <code className="inline-code">{`fseek`}</code> and <code className="inline-code">{`ftell`}</code> to move and query file position for binary I/O.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">File Read (simple)</div>
-          <pre className="code-block mt-3">{`FILE *fp = fopen("data.bin", "rb");
-if (fp == NULL) { perror("open"); exit(1); }
+        {/* ✅ UPGRADED: Replaced manual pre formatting with CodeBlock */}
+        <CodeBlock 
+          title="BINARY FILE READ PROCESSING"
+          code={`FILE *fp = fopen("data.bin", "rb");
+if (fp == NULL) { 
+    perror("open"); 
+    exit(1); 
+}
 char buf[128];
 size_t n = fread(buf, 1, sizeof(buf), fp);
-fclose(fp);`}</pre>
-        </div>
+fclose(fp);`}
+        />
 
         <Image
           src="/file-i-o.png"
@@ -39,7 +47,6 @@ fclose(fp);`}</pre>
           width={780}
           height={400}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -68,13 +75,18 @@ fclose(fp);`}</pre>
           <li><strong>free</strong>: release memory: <code className="inline-code">{`free(ptr)`}</code>. Avoid double-free and use-after-free.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Dynamic array (simple)</div>
-          <pre className="code-block mt-3">{`int *a = malloc(n * sizeof(int));
-if (a == NULL) { perror("malloc"); exit(1); }
-... use a ...
-free(a);`}</pre>
-        </div>
+        {/* ✅ UPGRADED: Replaced primitive markup with CodeBlock */}
+        <CodeBlock 
+          title="DYNAMIC ARRAY HEAP ALLOCATION"
+          code={`int *a = malloc(n * sizeof(int));
+if (a == NULL) { 
+    perror("malloc"); 
+    exit(1); 
+}
+// ... use allocated array memory safely here ...
+free(a);`}
+        />
+
         <Image
           src="/malloc-layout.png"
           alt="malloc-layout"
@@ -82,7 +94,6 @@ free(a);`}</pre>
           width={780}
           height={380}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -97,13 +108,15 @@ free(a);`}</pre>
           <li>Common ops: insert at head, delete node, traverse; watch for NULL checks.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f0ddb6] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Insert at head (sketch)</div>
-          <pre className="code-block mt-3">{`struct Node *n = malloc(sizeof *n);
+        {/* ✅ UPGRADED: Replaced raw layout structure with dynamic CodeBlock */}
+        <CodeBlock 
+          title="LINKED LIST HEAD INSERTION STRATEGY"
+          code={`struct Node *n = malloc(sizeof *n);
 n->val = v;
 n->next = head;
-head = n;`}</pre>
-        </div>
+head = n;`}
+        />
+
         <Image
           src="/linkedlist.png"
           alt="linkedlist"
@@ -111,7 +124,6 @@ head = n;`}</pre>
           width={800}
           height={350}
         />
-
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -127,11 +139,12 @@ head = n;`}</pre>
           <li><strong>Conditional compilation:</strong> <code className="inline-code">{`#ifdef`}</code>, <code className="inline-code">{`#ifndef`}</code>, <code className="inline-code">{`#if`}</code>, <code className="inline-code">{`#endif`}</code>.</li>
         </ul>
 
-        <div className="example-box p-3 my-3 rounded-lg bg-[#f3e7c2] border border-[#c7a669]">
-          <div className="font-semibold text-[#3a2a14]">Macro example</div>
-          <pre className="code-block mt-3">{`#define MAX(a,b) ((a) > (b) ? (a) : (b))
-int m = MAX(x, y);`}</pre>
-        </div>
+        {/* ✅ UPGRADED: Replaced inline node tracking with CodeBlock */}
+        <CodeBlock 
+          title="MACRO PREPROCESSOR EVALUATIONS"
+          code={`#define MAX(a, b) ((a) > (b) ? (a) : (b))
+int m = MAX(x, y);`}
+        />
       </section>
 
       <hr className="my-6 border-[#c7a669] opacity-40" />
@@ -140,22 +153,28 @@ int m = MAX(x, y);`}</pre>
       <section>
         <h3 className="section-heading">Debugging Exercise</h3>
 
-        <div className="card p-4 my-4">
-          <div className="font-semibold">Find and fix the errors</div>
-          <pre className="code-block error mt-3">{`#include <stdio.h>
+        <div className="p-4 my-4 rounded-lg shadow-sm border border-[#c7a669] bg-[#f0ddb6]">
+          <div className="font-semibold text-[#3a2a14] mb-2">Find and fix the errors</div>
+          
+          {/* ✅ UPGRADED: Converted faulty code segment to tracking CodeBlock */}
+          <CodeBlock 
+            title="FAULTY LOCAL STACK MEMORY POINTER POOL"
+            code={`#include <stdio.h>
 #include <stdlib.h>
 
 char *make_message() {
   char buf[64];
   snprintf(buf, sizeof(buf), "hello");
-  return buf; // error: returning pointer to local stack buffer
-}`}</pre>
+  
+  return buf; // error: returning raw memory address pointer of local stack space
+}`}
+          />
 
-          <div className="mt-3 text-[#b0ffb4] font-semibold">Correct points</div>
-          <ul className="section-list mt-2">
-            <li>Do not return pointer to local buffer. Allocate with <code className="inline-code">{`malloc`}</code> or let caller provide buffer.</li>
-            <li>Check allocations and use <code className="inline-code">{`free`}</code> to avoid leaks.</li>
-            <li>Always close files with <code className="inline-code">{`fclose`}</code> even on error paths.</li>
+          <div className="mt-4 text-[#3a2a14] font-bold">Correct points</div>
+          <ul className="section-list mt-2 text-[#2b1d0f]">
+            <li>Do not return pointer to local buffer. Allocate memory space explicitly with <code className="inline-code">{`malloc`}</code> or let caller pass external buffer hooks.</li>
+            <li>Track allocations and invoke explicit <code className="inline-code">{`free`}</code> metrics to avoid dangling memory leaks.</li>
+            <li>Always close dangling tracking descriptor structures with <code className="inline-code">{`fclose`}</code> even on conditional error branches.</li>
           </ul>
         </div>
       </section>
