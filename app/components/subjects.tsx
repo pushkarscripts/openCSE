@@ -44,6 +44,7 @@ const subjects = {
     "IoT (Internet of Things)",
     "Compiler Design",
     "Cyber Laws and Ethics",
+    "Cryptography & Network Security",
   ],
   "Semester-6": [
     "Machine Learning",
@@ -107,6 +108,7 @@ const subjectCodes: Record<string, string> = {
   "IoT (Internet of Things)": "iot",
   "Compiler Design": "cd",
   "Cyber Laws and Ethics": "cle",
+  "Cryptography & Network Security": "cns",
   "Machine Learning": "ml",
   "Natural Language Processing": "nlp",
   "Deep Learning": "dl",
@@ -125,7 +127,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec"];
+const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle", "ec", "cns"];
 
 export default function SubjectsSection() {
   return (
