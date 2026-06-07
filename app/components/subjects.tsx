@@ -115,7 +115,7 @@ const subjectCodes: Record<string, string> = {
   "Information Retrieval": "ir",
   "Management Information Systems": "mis",
   "VLSI and Embedded Systems": "vlsi",
-  "Entrepreneurship & Startup": "es",
+  "Entrepreneurship & Startup": "eas",
   "Financial Management": "fm",
   "Robotic Access Automation": "raa",
   "Marketing Management": "mm",
@@ -125,7 +125,7 @@ const subjectCodes: Record<string, string> = {
 };
 
 // Available subjects
-const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec"];
+const available = ["ep", "c", "em1", "em2", "oops", "dsc", "coa", "os", "ml", "dops", "cd", "cle","ec","eas"];
 
 export default function SubjectsSection() {
   return (
