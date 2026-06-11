@@ -20,15 +20,14 @@ export default function Sidebar() {
     }
   }, []);
 
-  const chapters = [
-    { id: "ch0", title: "Course Outline" },
-    { id: "ch1", title: "Sets and Logic" },
-    { id: "ch2", title: "Relations and Functions" },
-    { id: "ch3", title: "Counting and Combinatorics" },
-    { id: "ch4", title: "Graph Theory" },
-    { id: "ch5", title: "Recurrence Relations" },
-    { id: "ch6", title: "Boolean Algebra" },
-  ];
+const chapters = [
+  { id: "ch0", title: "Chapter 0: Course Outline" },
+  { id: "ch1", title: "Chapter 1: Mathematical Logic and Proofs" },
+  { id: "ch2", title: "Chapter 2: Set Theory, Relations, and Functions" },
+  { id: "ch3", title: "Chapter 3: Combinatorics, Number Theory, and Recurrence Relations" },
+  { id: "ch4", title: "Chapter 4: Graph Theory" },
+  { id: "ch5", title: "Chapter 5: Algebraic Structures" },
+];
 
   return (
     <>

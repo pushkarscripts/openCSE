@@ -1,3 +1,7 @@
+"use client"
+import React from "react"
+import { Inline, Block } from "../../../components/Math"
+
 export function Ch6Content() {
   return (
     <div className="prose max-w-none text-[#e2d1c1]">
