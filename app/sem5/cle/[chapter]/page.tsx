@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Righteous } from "next/font/google";
 import { Ch0Content } from "../content/chapter0";   // ← only ch0 for now
+import { Ch1Content } from "../content/chapter1";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { chapters, Chapter, SubTopic } from "../constants";  // ← cle constants
 
@@ -29,6 +30,7 @@ const righteous = Righteous({
 // Only ch0 is available for now — more chapters added in future PRs
 const chapterComponents: Record<string, React.ComponentType> = {
   ch0: Ch0Content,
+  ch1: Ch1Content,
 };
 
 type ChapterProps = {
